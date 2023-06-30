@@ -1,0 +1,12 @@
+{
+  "type": "gemstonepower:sawmill",
+  "count": 9,
+  "energyUsage": 40,
+  "input": {
+    "tag": "minecraft:wooden_stairs"
+  },
+  "output": {
+    "item": "minecraft:stick"
+  },
+  "processingTime": 150
+}

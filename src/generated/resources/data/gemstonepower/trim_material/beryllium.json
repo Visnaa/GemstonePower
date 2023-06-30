@@ -1,0 +1,9 @@
+{
+  "asset_name": "beryllium",
+  "description": {
+    "color": "#EE8B8",
+    "translate": "trim_material.gemstonepower.beryllium"
+  },
+  "ingredient": "gemstonepower:beryllium",
+  "item_model_index": 1.9
+}

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.3,
+  "ingredient": {
+    "item": "gemstonepower:silver_dust"
+  },
+  "result": "gemstonepower:silver_ingot"
+}

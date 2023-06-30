@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "D": {
+      "item": "gemstonepower:dark_gemstone"
+    },
+    "L": {
+      "item": "gemstonepower:light_gemstone"
+    }
+  },
+  "pattern": [
+    "LDL",
+    "D D"
+  ],
+  "result": {
+    "item": "gemstonepower:gemstone_helmet"
+  },
+  "show_notification": true
+}

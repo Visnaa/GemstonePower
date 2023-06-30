@@ -1,0 +1,49 @@
+<h1 style="font-size: 40px">Gemstone Power version changelog</h1>
+
+<h3>Version: Beta 0.1.3</h3>
+<ul>
+<li>Added new generator - Wind Turbine
+<li>Added new machines (Cobblestone Generator, Sawmill)
+<li>Added armor trims for gems
+<li>Fixed bugs: Shift click in machines does not work correctly
+</ul>
+
+<h3>Version: Beta 0.1.2</h3>
+<ul>
+<li>Updated integration with JEI for 1.20.1
+</ul>
+
+<h3>Version: Beta 0.1.1</h3>
+<ul>
+<li>Updated to 1.20.1
+</ul>
+
+<h3>Version: Beta 0.1</h3>
+<ul>
+<li>Added gemstone armor and tools
+<li>Fixed minor issues
+</ul>
+
+<h3>Version: Alpha 0.0.2</h3>
+<ul>
+<li>Updated to 1.20
+<li>Added charged crystal arrows
+<li>Added new resources (steel, lithium, magnesium, uranium, lead, zinc)
+<li>Added new armors and tools (from: bronze, invar, silver and steel)
+<li>Added armor trims from metals
+<li>Added resin tree generation
+<li>Added tree tap for gathering resin from resin trees
+<li>Added new energy generators (solar panel, water mill)
+</ul>
+
+<h3>Version: Alpha 0.0.1</h3>
+<ul>
+<li>Added metals and their items (Aluminum, Tin, Bronze, Silver, Electrum, Nickel, Invar, Constantan, Platinum)
+<li>Added machines (Gemstone Generator, Gemstone Cell, Crystal Grower, Crystal Charger, Electric Furnace, Metal Former, Pulverizer, Alloy Smelter, Extractor, Ore Washer)
+<li>Added integration with <a href="https://modrinth.com/mod/jei" target="_blank">JEI</a> 
+<li>Added crystal arrows
+<li>Added creative mode tabs
+<li>Added support for FE (Forge Energy) and energy cables
+<li>Added ore and crystal generation
+<li>Added armors and tools (Copper, Aluminum)
+</ul>

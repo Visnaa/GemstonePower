@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "forge:plates"
+    },
+    "P": {
+      "tag": "minecraft:planks"
+    },
+    "S": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "pattern": [
+    "SPS",
+    "P#P",
+    "SPS"
+  ],
+  "result": {
+    "item": "gemstonepower:plate_preset"
+  },
+  "show_notification": true
+}

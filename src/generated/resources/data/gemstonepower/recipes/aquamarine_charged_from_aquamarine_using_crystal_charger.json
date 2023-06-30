@@ -1,0 +1,12 @@
+{
+  "type": "gemstonepower:crystal_charger",
+  "count": 1,
+  "energyUsage": 120,
+  "input": {
+    "item": "gemstonepower:aquamarine"
+  },
+  "output": {
+    "item": "gemstonepower:aquamarine_charged"
+  },
+  "processingTime": 200
+}

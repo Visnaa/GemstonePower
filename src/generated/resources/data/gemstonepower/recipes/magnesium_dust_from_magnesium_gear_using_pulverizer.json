@@ -1,0 +1,12 @@
+{
+  "type": "gemstonepower:pulverizer",
+  "count": 4,
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:magnesium_gear"
+  },
+  "output": {
+    "item": "gemstonepower:magnesium_dust"
+  },
+  "processingTime": 200
+}

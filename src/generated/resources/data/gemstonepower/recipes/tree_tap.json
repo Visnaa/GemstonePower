@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "tag": "forge:ingots/iron"
+    },
+    "P": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "pattern": [
+    " I ",
+    "PPP",
+    "  P"
+  ],
+  "result": {
+    "item": "gemstonepower:tree_tap"
+  },
+  "show_notification": true
+}

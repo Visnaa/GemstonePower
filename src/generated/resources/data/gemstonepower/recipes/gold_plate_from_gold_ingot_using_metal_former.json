@@ -1,0 +1,13 @@
+{
+  "type": "gemstonepower:metal_former",
+  "count": 1,
+  "energyUsage": 40,
+  "input": {
+    "item": "minecraft:gold_ingot"
+  },
+  "output": {
+    "item": "gemstonepower:gold_plate"
+  },
+  "preset": "plate",
+  "processingTime": 200
+}

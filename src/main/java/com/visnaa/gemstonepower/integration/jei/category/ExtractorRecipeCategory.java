@@ -1,0 +1,85 @@
+package com.visnaa.gemstonepower.integration.jei.category;
+
+import com.visnaa.gemstonepower.GemstonePower;
+import com.visnaa.gemstonepower.data.recipe.ExtractorRecipe;
+import com.visnaa.gemstonepower.integration.jei.GemstonePowerJEIPlugin;
+import com.visnaa.gemstonepower.registry.ModBlocks;
+import mezz.jei.api.constants.VanillaTypes;
+import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
+import mezz.jei.api.gui.drawable.IDrawable;
+import mezz.jei.api.gui.drawable.IDrawableAnimated;
+import mezz.jei.api.gui.drawable.IDrawableStatic;
+import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
+import mezz.jei.api.helpers.IGuiHelper;
+import mezz.jei.api.recipe.IFocusGroup;
+import mezz.jei.api.recipe.RecipeIngredientRole;
+import mezz.jei.api.recipe.RecipeType;
+import mezz.jei.api.recipe.category.IRecipeCategory;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
+
+public class ExtractorRecipeCategory implements IRecipeCategory<ExtractorRecipe>
+{
+    public static final ResourceLocation UID = new ResourceLocation(GemstonePower.MOD_ID, "extracting");
+    public static final ResourceLocation TEXTURE = new ResourceLocation(GemstonePower.MOD_ID, "textures/gui/extractor_gui.png");
+
+    private final IDrawable background;
+    private final IDrawable icon;
+    private final IDrawableStatic progress;
+    private final IDrawableStatic energy;
+
+    private final IDrawableAnimated progressAnimated;
+    private final IDrawableAnimated energyAnimated;
+
+    public ExtractorRecipeCategory(IGuiHelper helper)
+    {
+        this.background = helper.createDrawable(TEXTURE, 52, 27, 108, 28);
+        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.EXTRACTOR.get()));
+        this.progress = helper.createDrawable(TEXTURE, 176, 16, 18, 10);
+        this.energy = helper.createDrawable(TEXTURE, 176, 0, 10, 16);
+
+        this.progressAnimated = helper.createAnimatedDrawable(this.progress, 180, IDrawableAnimated.StartDirection.LEFT, false);
+        this.energyAnimated = helper.createAnimatedDrawable(this.energy, 80, IDrawableAnimated.StartDirection.BOTTOM, false);
+    }
+
+    @Override
+    public RecipeType<ExtractorRecipe> getRecipeType()
+    {
+        return GemstonePowerJEIPlugin.EXTRACTOR_CATEGORY;
+    }
+
+    @Override
+    public Component getTitle()
+    {
+        return Component.literal("Extracting");
+    }
+
+    @Override
+    public IDrawable getBackground()
+    {
+        return this.background;
+    }
+
+    @Override
+    public IDrawable getIcon()
+    {
+        return this.icon;
+    }
+
+    @Override
+    public void setRecipe(IRecipeLayoutBuilder builder, ExtractorRecipe recipe, IFocusGroup focuses)
+    {
+        builder.addSlot(RecipeIngredientRole.INPUT, 1, 11).addIngredients(recipe.getIngredients().get(0));
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 57, 11).addItemStack(recipe.getResultItem(null));
+    }
+
+    @Override
+    public void draw(ExtractorRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics graphics, double mouseX, double mouseY)
+    {
+        this.progressAnimated.draw(graphics, 28, 14);
+        this.energyAnimated.draw(graphics, 97, 11);
+        //Minecraft.getInstance().font.draw(stack, "Energy: " + recipe.getEnergyUsage() * recipe.getProcessingTime() + " FE", 0, 0, 0x888888);
+    }
+}

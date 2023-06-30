@@ -1,0 +1,12 @@
+{
+  "type": "gemstonepower:sawmill",
+  "count": 4,
+  "energyUsage": 40,
+  "input": {
+    "tag": "minecraft:planks"
+  },
+  "output": {
+    "item": "minecraft:stick"
+  },
+  "processingTime": 150
+}

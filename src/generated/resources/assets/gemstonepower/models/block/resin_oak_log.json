@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "gemstonepower:block/resin_oak_log_top",
+    "side": "gemstonepower:block/resin_oak_log"
+  }
+}

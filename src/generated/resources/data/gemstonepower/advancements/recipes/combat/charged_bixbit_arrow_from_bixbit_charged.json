@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_bixbit_charged": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:bixbit_charged"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:charged_bixbit_arrow_from_bixbit_charged"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_bixbit_charged",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:charged_bixbit_arrow_from_bixbit_charged"
+    ]
+  },
+  "sends_telemetry_event": false
+}

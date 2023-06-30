@@ -1,0 +1,22 @@
+{
+  "values": [
+    "#forge:dusts/iron",
+    "#forge:dusts/copper",
+    "#forge:dusts/copper",
+    "#forge:dusts/aluminum",
+    "#forge:dusts/tin",
+    "#forge:dusts/bronze",
+    "#forge:dusts/silver",
+    "#forge:dusts/electrum",
+    "#forge:dusts/nickel",
+    "#forge:dusts/invar",
+    "#forge:dusts/constantan",
+    "#forge:dusts/platinum",
+    "#forge:dusts/steel",
+    "#forge:dusts/lithium",
+    "#forge:dusts/magnesium",
+    "#forge:dusts/uranium",
+    "#forge:dusts/lead",
+    "#forge:dusts/zinc"
+  ]
+}

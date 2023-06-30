@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:charged_topaz_arrow_from_topaz_arrow"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_topaz_arrow": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:topaz_arrow"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_topaz_arrow",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:charged_topaz_arrow_from_topaz_arrow"
+    ]
+  },
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_deepslate_zinc_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:deepslate_zinc_ore"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:zinc_ore_dust_from_deepslate_zinc_ore"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_deepslate_zinc_ore",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:zinc_ore_dust_from_deepslate_zinc_ore"
+    ]
+  },
+  "sends_telemetry_event": true
+}

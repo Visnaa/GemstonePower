@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_platinum_plate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:platinum_plate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:platinum_dust_from_platinum_plate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_platinum_plate",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:platinum_dust_from_platinum_plate"
+    ]
+  },
+  "sends_telemetry_event": true
+}

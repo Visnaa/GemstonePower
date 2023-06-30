@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "gemstonepower:block/wind_turbine",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "gemstonepower:block/wind_turbine"
+    },
+    "facing=south": {
+      "model": "gemstonepower:block/wind_turbine",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "gemstonepower:block/wind_turbine",
+      "y": 270
+    }
+  }
+}

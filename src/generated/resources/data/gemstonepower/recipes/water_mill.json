@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "gemstonepower:copper_wire"
+    },
+    "I": {
+      "tag": "forge:rods/iron"
+    },
+    "P": {
+      "tag": "minecraft:planks"
+    },
+    "R": {
+      "tag": "forge:dusts/redstone"
+    },
+    "S": {
+      "tag": "forge:rods/wooden"
+    },
+    "T": {
+      "tag": "forge:ingots/tin"
+    }
+  },
+  "pattern": [
+    "PSP",
+    "TIT",
+    "CRC"
+  ],
+  "result": {
+    "item": "gemstonepower:water_mill"
+  },
+  "show_notification": true
+}

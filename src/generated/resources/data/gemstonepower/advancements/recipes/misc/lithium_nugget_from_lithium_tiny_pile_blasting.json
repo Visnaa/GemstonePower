@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_lithium_tiny_pile": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:lithium_tiny_pile"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:lithium_nugget_from_lithium_tiny_pile_blasting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_lithium_tiny_pile",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:lithium_nugget_from_lithium_tiny_pile_blasting"
+    ]
+  },
+  "sends_telemetry_event": false
+}

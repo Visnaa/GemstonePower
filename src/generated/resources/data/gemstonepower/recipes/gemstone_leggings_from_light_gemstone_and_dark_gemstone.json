@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "D": {
+      "item": "gemstonepower:dark_gemstone"
+    },
+    "L": {
+      "item": "gemstonepower:light_gemstone"
+    }
+  },
+  "pattern": [
+    "DDD",
+    "L L",
+    "L L"
+  ],
+  "result": {
+    "item": "gemstonepower:gemstone_leggings"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_electrum_dust": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:electrum_dust"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:electrum_tiny_pile_from_electrum_dust"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_electrum_dust",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:electrum_tiny_pile_from_electrum_dust"
+    ]
+  },
+  "sends_telemetry_event": false
+}

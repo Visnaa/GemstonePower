@@ -1,0 +1,12 @@
+{
+  "type": "gemstonepower:pulverizer",
+  "count": 1,
+  "energyUsage": 40,
+  "input": {
+    "item": "minecraft:deepslate_iron_ore"
+  },
+  "output": {
+    "item": "gemstonepower:iron_ore_dust"
+  },
+  "processingTime": 200
+}

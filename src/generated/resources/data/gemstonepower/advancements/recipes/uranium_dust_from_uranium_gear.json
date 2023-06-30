@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:uranium_dust_from_uranium_gear"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_uranium_gear": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:uranium_gear"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_uranium_gear",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:uranium_dust_from_uranium_gear"
+    ]
+  },
+  "sends_telemetry_event": true
+}

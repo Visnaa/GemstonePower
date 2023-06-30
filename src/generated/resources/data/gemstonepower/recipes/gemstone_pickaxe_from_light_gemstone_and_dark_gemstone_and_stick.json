@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "tag": "forge:rods/wooden"
+    },
+    "D": {
+      "item": "gemstonepower:dark_gemstone"
+    },
+    "L": {
+      "item": "gemstonepower:light_gemstone"
+    }
+  },
+  "pattern": [
+    "DLD",
+    " # ",
+    " # "
+  ],
+  "result": {
+    "item": "gemstonepower:gemstone_pickaxe"
+  },
+  "show_notification": true
+}

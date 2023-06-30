@@ -1,0 +1,12 @@
+{
+  "type": "gemstonepower:pulverizer",
+  "count": 9,
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:nickel_block"
+  },
+  "output": {
+    "item": "gemstonepower:nickel_dust"
+  },
+  "processingTime": 1600
+}

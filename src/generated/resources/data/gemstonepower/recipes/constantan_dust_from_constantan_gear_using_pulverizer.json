@@ -1,0 +1,12 @@
+{
+  "type": "gemstonepower:pulverizer",
+  "count": 4,
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:constantan_gear"
+  },
+  "output": {
+    "item": "gemstonepower:constantan_dust"
+  },
+  "processingTime": 200
+}

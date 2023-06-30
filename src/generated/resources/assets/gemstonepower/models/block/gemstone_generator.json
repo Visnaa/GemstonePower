@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "gemstonepower:block/gemstone_bottom",
+    "east": "gemstonepower:block/gemstone_side",
+    "north": "gemstonepower:block/gemstone_generator",
+    "particle": "gemstonepower:block/gemstone_generator",
+    "south": "gemstonepower:block/gemstone_back",
+    "up": "gemstonepower:block/gemstone_top",
+    "west": "gemstonepower:block/gemstone_side"
+  }
+}

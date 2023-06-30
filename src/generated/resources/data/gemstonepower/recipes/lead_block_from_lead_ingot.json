@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "gemstonepower:lead_ingot"
+    },
+    {
+      "item": "gemstonepower:lead_ingot"
+    },
+    {
+      "item": "gemstonepower:lead_ingot"
+    },
+    {
+      "item": "gemstonepower:lead_ingot"
+    },
+    {
+      "item": "gemstonepower:lead_ingot"
+    },
+    {
+      "item": "gemstonepower:lead_ingot"
+    },
+    {
+      "item": "gemstonepower:lead_ingot"
+    },
+    {
+      "item": "gemstonepower:lead_ingot"
+    },
+    {
+      "item": "gemstonepower:lead_ingot"
+    }
+  ],
+  "result": {
+    "item": "gemstonepower:lead_block"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "gemstonepower:crystal_charger",
+  "count": 1,
+  "energyUsage": 120,
+  "input": {
+    "item": "gemstonepower:ruby_arrow"
+  },
+  "output": {
+    "item": "gemstonepower:charged_ruby_arrow"
+  },
+  "processingTime": 250
+}

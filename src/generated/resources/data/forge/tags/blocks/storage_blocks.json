@@ -1,0 +1,19 @@
+{
+  "values": [
+    "gemstonepower:aluminum_block",
+    "gemstonepower:tin_block",
+    "gemstonepower:bronze_block",
+    "gemstonepower:silver_block",
+    "gemstonepower:electrum_block",
+    "gemstonepower:nickel_block",
+    "gemstonepower:invar_block",
+    "gemstonepower:constantan_block",
+    "gemstonepower:platinum_block",
+    "gemstonepower:steel_block",
+    "gemstonepower:lithium_block",
+    "gemstonepower:magnesium_block",
+    "gemstonepower:uranium_block",
+    "gemstonepower:lead_block",
+    "gemstonepower:zinc_block"
+  ]
+}

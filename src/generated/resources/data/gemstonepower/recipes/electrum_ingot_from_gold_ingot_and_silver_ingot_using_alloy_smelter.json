@@ -1,0 +1,19 @@
+{
+  "type": "gemstonepower:alloy_smelter",
+  "amount1": 1,
+  "amount2": 1,
+  "count": 2,
+  "energyUsage": 80,
+  "inputs": [
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "gemstonepower:silver_ingot"
+    }
+  ],
+  "output": {
+    "item": "gemstonepower:electrum_ingot"
+  },
+  "processingTime": 400
+}

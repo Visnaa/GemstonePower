@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "gemstonepower:block/alloy_smelter",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "gemstonepower:block/alloy_smelter"
+    },
+    "facing=south": {
+      "model": "gemstonepower:block/alloy_smelter",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "gemstonepower:block/alloy_smelter",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "gemstonepower:crystal_grower",
+  "count": 1,
+  "energyUsage": 20,
+  "input": {
+    "item": "gemstonepower:bixbit_seed"
+  },
+  "output": {
+    "item": "gemstonepower:bixbit"
+  },
+  "processingTime": 200
+}

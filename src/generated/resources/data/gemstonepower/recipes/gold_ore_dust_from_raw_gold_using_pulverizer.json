@@ -1,0 +1,12 @@
+{
+  "type": "gemstonepower:pulverizer",
+  "count": 1,
+  "energyUsage": 40,
+  "input": {
+    "item": "minecraft:raw_gold"
+  },
+  "output": {
+    "item": "gemstonepower:gold_ore_dust"
+  },
+  "processingTime": 200
+}

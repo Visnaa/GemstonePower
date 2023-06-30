@@ -1,0 +1,12 @@
+{
+  "type": "gemstonepower:pulverizer",
+  "count": 1,
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:aluminum_ingot"
+  },
+  "output": {
+    "item": "gemstonepower:aluminum_dust"
+  },
+  "processingTime": 200
+}

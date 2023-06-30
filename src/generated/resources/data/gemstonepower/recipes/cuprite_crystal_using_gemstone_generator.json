@@ -1,0 +1,8 @@
+{
+  "type": "gemstonepower:gemstone_generator",
+  "burnTime": 40,
+  "energy": 1600,
+  "fuel": {
+    "item": "gemstonepower:cuprite_crystal"
+  }
+}

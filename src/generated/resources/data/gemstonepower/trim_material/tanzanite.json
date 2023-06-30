@@ -1,0 +1,9 @@
+{
+  "asset_name": "tanzanite",
+  "description": {
+    "color": "#6E1FDC",
+    "translate": "trim_material.gemstonepower.tanzanite"
+  },
+  "ingredient": "gemstonepower:tanzanite",
+  "item_model_index": 2.8
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:copper_ingot"
+    }
+  },
+  "pattern": [
+    "###"
+  ],
+  "result": {
+    "item": "gemstonepower:copper_wire"
+  },
+  "show_notification": true
+}

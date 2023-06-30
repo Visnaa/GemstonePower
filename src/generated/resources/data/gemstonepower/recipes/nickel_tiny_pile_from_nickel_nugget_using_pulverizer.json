@@ -1,0 +1,12 @@
+{
+  "type": "gemstonepower:pulverizer",
+  "count": 1,
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:nickel_nugget"
+  },
+  "output": {
+    "item": "gemstonepower:nickel_tiny_pile"
+  },
+  "processingTime": 200
+}

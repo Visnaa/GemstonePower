@@ -1,0 +1,13 @@
+{
+  "type": "gemstonepower:metal_former",
+  "count": 1,
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:lithium_ingot"
+  },
+  "output": {
+    "item": "gemstonepower:lithium_rod"
+  },
+  "preset": "rod",
+  "processingTime": 200
+}

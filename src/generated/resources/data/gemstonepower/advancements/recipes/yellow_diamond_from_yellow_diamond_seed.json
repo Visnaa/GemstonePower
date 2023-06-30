@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:yellow_diamond_from_yellow_diamond_seed"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_yellow_diamond_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:yellow_diamond_seed"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_yellow_diamond_seed",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:yellow_diamond_from_yellow_diamond_seed"
+    ]
+  },
+  "sends_telemetry_event": true
+}

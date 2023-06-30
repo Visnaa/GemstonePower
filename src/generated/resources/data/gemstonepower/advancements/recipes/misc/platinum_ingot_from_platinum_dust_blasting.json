@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_platinum_dust": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:platinum_dust"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:platinum_ingot_from_platinum_dust_blasting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_platinum_dust",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:platinum_ingot_from_platinum_dust_blasting"
+    ]
+  },
+  "sends_telemetry_event": false
+}

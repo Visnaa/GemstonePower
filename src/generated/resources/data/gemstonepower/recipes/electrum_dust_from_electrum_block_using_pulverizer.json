@@ -1,0 +1,12 @@
+{
+  "type": "gemstonepower:pulverizer",
+  "count": 9,
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:electrum_block"
+  },
+  "output": {
+    "item": "gemstonepower:electrum_dust"
+  },
+  "processingTime": 1600
+}

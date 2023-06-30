@@ -1,0 +1,19 @@
+{
+  "type": "gemstonepower:alloy_smelter",
+  "amount1": 1,
+  "amount2": 1,
+  "count": 2,
+  "energyUsage": 80,
+  "inputs": [
+    {
+      "item": "gemstonepower:gold_dust"
+    },
+    {
+      "item": "gemstonepower:silver_dust"
+    }
+  ],
+  "output": {
+    "item": "gemstonepower:electrum_dust"
+  },
+  "processingTime": 400
+}

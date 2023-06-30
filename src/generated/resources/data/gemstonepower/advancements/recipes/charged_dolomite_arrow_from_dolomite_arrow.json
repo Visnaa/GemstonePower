@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dolomite_arrow": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:dolomite_arrow"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:charged_dolomite_arrow_from_dolomite_arrow"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_dolomite_arrow",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:charged_dolomite_arrow_from_dolomite_arrow"
+    ]
+  },
+  "sends_telemetry_event": true
+}

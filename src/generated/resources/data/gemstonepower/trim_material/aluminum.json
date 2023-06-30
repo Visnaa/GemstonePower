@@ -1,0 +1,12 @@
+{
+  "asset_name": "aluminum",
+  "description": {
+    "color": "#B6D4E0",
+    "translate": "trim_material.gemstonepower.aluminum"
+  },
+  "ingredient": "gemstonepower:aluminum_ingot",
+  "item_model_index": 3.0,
+  "override_armor_materials": {
+    "aluminum": "aluminum_darker"
+  }
+}

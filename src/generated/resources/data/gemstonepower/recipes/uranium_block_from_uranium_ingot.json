@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "gemstonepower:uranium_ingot"
+    },
+    {
+      "item": "gemstonepower:uranium_ingot"
+    },
+    {
+      "item": "gemstonepower:uranium_ingot"
+    },
+    {
+      "item": "gemstonepower:uranium_ingot"
+    },
+    {
+      "item": "gemstonepower:uranium_ingot"
+    },
+    {
+      "item": "gemstonepower:uranium_ingot"
+    },
+    {
+      "item": "gemstonepower:uranium_ingot"
+    },
+    {
+      "item": "gemstonepower:uranium_ingot"
+    },
+    {
+      "item": "gemstonepower:uranium_ingot"
+    }
+  ],
+  "result": {
+    "item": "gemstonepower:uranium_block"
+  }
+}

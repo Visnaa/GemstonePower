@@ -1,0 +1,26 @@
+{
+  "type": "gemstonepower:ore_washer",
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:lithium_ore_dust"
+  },
+  "outputs": {
+    "output0": {
+      "count": 1,
+      "item": "gemstonepower:lithium_dust"
+    },
+    "output1": {
+      "count": 1,
+      "item": "gemstonepower:gold_tiny_pile"
+    },
+    "output2": {
+      "count": 1,
+      "item": "gemstonepower:magnesium_tiny_pile"
+    },
+    "output3": {
+      "count": 1,
+      "item": "gemstonepower:peridot"
+    }
+  },
+  "processingTime": 400
+}

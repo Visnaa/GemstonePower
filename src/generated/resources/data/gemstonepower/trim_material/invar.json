@@ -1,0 +1,12 @@
+{
+  "asset_name": "invar",
+  "description": {
+    "color": "#D4D9C1",
+    "translate": "trim_material.gemstonepower.invar"
+  },
+  "ingredient": "gemstonepower:invar_ingot",
+  "item_model_index": 3.6,
+  "override_armor_materials": {
+    "invar": "invar_darker"
+  }
+}

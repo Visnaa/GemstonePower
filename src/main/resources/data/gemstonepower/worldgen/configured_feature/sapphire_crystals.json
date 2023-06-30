@@ -1,0 +1,19 @@
+{
+  "type": "gemstonepower:crystals",
+  "config": {
+    "block":"gemstonepower:sapphire_crystals",
+    "search_range": 10,
+    "can_place_on_floor": true,
+    "can_place_on_wall": true,
+    "can_place_on_ceiling": true,
+    "chance_of_spreading": 0.9,
+    "can_be_placed_on": [
+      "minecraft:stone",
+      "minecraft:deepslate",
+      "minecraft:andesite",
+      "minecraft:granite",
+      "minecraft:diorite",
+      "minecraft:tuff"
+    ]
+  }
+}

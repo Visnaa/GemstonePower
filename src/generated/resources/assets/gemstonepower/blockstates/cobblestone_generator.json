@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "gemstonepower:block/cobblestone_generator"
+    },
+    "facing=north": {
+      "model": "gemstonepower:block/cobblestone_generator"
+    },
+    "facing=south": {
+      "model": "gemstonepower:block/cobblestone_generator"
+    },
+    "facing=west": {
+      "model": "gemstonepower:block/cobblestone_generator"
+    }
+  }
+}

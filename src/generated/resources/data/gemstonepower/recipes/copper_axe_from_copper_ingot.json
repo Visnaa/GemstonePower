@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "#": {
+      "item": "minecraft:copper_ingot"
+    },
+    "S": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "pattern": [
+    "##",
+    "S#",
+    "S "
+  ],
+  "result": {
+    "item": "gemstonepower:copper_axe"
+  },
+  "show_notification": true
+}

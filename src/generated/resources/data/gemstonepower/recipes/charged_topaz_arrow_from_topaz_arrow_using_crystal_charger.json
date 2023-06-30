@@ -1,0 +1,12 @@
+{
+  "type": "gemstonepower:crystal_charger",
+  "count": 1,
+  "energyUsage": 120,
+  "input": {
+    "item": "gemstonepower:topaz_arrow"
+  },
+  "output": {
+    "item": "gemstonepower:charged_topaz_arrow"
+  },
+  "processingTime": 250
+}

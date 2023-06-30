@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "gemstonepower:block/crystal_grower",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "gemstonepower:block/crystal_grower"
+    },
+    "facing=south": {
+      "model": "gemstonepower:block/crystal_grower",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "gemstonepower:block/crystal_grower",
+      "y": 270
+    }
+  }
+}

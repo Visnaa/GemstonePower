@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:warped_planks_from_warped_stem"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_warped_log": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "minecraft:warped_stems"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_warped_log",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:warped_planks_from_warped_stem"
+    ]
+  },
+  "sends_telemetry_event": true
+}

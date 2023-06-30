@@ -1,0 +1,12 @@
+{
+  "type": "gemstonepower:pulverizer",
+  "count": 1,
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:bronze_nugget"
+  },
+  "output": {
+    "item": "gemstonepower:bronze_tiny_pile"
+  },
+  "processingTime": 200
+}

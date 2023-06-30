@@ -1,0 +1,29 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:light_gemstone"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "unlocked": {
+      "conditions": {
+        "block": "minecraft:air"
+      },
+      "trigger": "minecraft:enter_block"
+    }
+  },
+  "requirements": [
+    [
+      "unlocked",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:light_gemstone"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "gemstonepower:block/sawmill",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "gemstonepower:block/sawmill"
+    },
+    "facing=south": {
+      "model": "gemstonepower:block/sawmill",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "gemstonepower:block/sawmill",
+      "y": 270
+    }
+  }
+}

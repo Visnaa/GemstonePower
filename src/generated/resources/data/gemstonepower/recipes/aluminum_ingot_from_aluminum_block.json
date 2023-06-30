@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "gemstonepower:aluminum_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "gemstonepower:aluminum_ingot"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "asset_name": "lithium",
+  "description": {
+    "color": "#FCE3EB",
+    "translate": "trim_material.gemstonepower.lithium"
+  },
+  "ingredient": "gemstonepower:lithium_ingot",
+  "item_model_index": 4.0
+}

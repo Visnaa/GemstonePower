@@ -1,0 +1,12 @@
+{
+  "type": "gemstonepower:pulverizer",
+  "count": 1,
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:lithium_ore"
+  },
+  "output": {
+    "item": "gemstonepower:lithium_ore_dust"
+  },
+  "processingTime": 200
+}

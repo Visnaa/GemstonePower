@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "gemstonepower:block/pulverizer",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "gemstonepower:block/pulverizer"
+    },
+    "facing=south": {
+      "model": "gemstonepower:block/pulverizer",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "gemstonepower:block/pulverizer",
+      "y": 270
+    }
+  }
+}

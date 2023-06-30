@@ -1,0 +1,12 @@
+{
+  "asset_name": "steel",
+  "description": {
+    "color": "#95A6C2",
+    "translate": "trim_material.gemstonepower.steel"
+  },
+  "ingredient": "gemstonepower:steel_ingot",
+  "item_model_index": 3.9,
+  "override_armor_materials": {
+    "steel": "steel_darker"
+  }
+}

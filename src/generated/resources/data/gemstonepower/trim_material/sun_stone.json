@@ -1,0 +1,9 @@
+{
+  "asset_name": "sun_stone",
+  "description": {
+    "color": "#FFE3A5",
+    "translate": "trim_material.gemstonepower.sun_stone"
+  },
+  "ingredient": "gemstonepower:sun_stone",
+  "item_model_index": 2.5
+}

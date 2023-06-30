@@ -1,0 +1,12 @@
+{
+  "type": "gemstonepower:sawmill",
+  "count": 6,
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:resin_oak_log"
+  },
+  "output": {
+    "item": "minecraft:oak_planks"
+  },
+  "processingTime": 150
+}

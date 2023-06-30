@@ -1,0 +1,135 @@
+{
+	"credit": "Made with Blockbench",
+	"render_type": "cutout",
+	"textures": {
+		"0": "gemstonepower:block/machine",
+		"1": "gemstonepower:block/turbine",
+		"2": "gemstonepower:block/machine_axle",
+		"particle": "gemstonepower:block/machine"
+	},
+	"elements": [
+		{
+			"name": "block",
+			"from": [0, 0, 0],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#2"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#0"}
+			}
+		},
+		{
+			"from": [7, 7, -5],
+			"to": [9, 9, 0],
+			"faces": {
+				"north": {"uv": [2, 1, 4, 3], "texture": "#1"},
+				"east": {"uv": [2, 1, 4, 6], "rotation": 90, "texture": "#1"},
+				"south": {"uv": [2, 1, 4, 3], "texture": "#1"},
+				"west": {"uv": [2, 1, 4, 6], "rotation": 90, "texture": "#1"},
+				"up": {"uv": [2, 1, 4, 6], "texture": "#1"},
+				"down": {"uv": [2, 1, 4, 6], "texture": "#1"}
+			}
+		},
+		{
+			"from": [6.3, 9, -8],
+			"to": [6.5, 16, -4],
+			"rotation": {"angle": -22.5, "axis": "y", "origin": [0, 0, 0]},
+			"faces": {
+				"north": {"uv": [0, 0, 0.2, 7], "texture": "#1"},
+				"east": {"uv": [1, 0, 5, 7], "texture": "#1"},
+				"south": {"uv": [0, 0, 0.2, 7], "texture": "#1"},
+				"west": {"uv": [1, 0, 5, 7], "texture": "#1"},
+				"up": {"uv": [0, 0, 0.2, 4], "texture": "#1"},
+				"down": {"uv": [0, 0, 0.2, 4], "texture": "#1"}
+			}
+		},
+		{
+			"from": [0, 6.3, -8],
+			"to": [7, 6.5, -4],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [0, 0, 0]},
+			"faces": {
+				"north": {"uv": [0, 0, 0.2, 7], "rotation": 90, "texture": "#1"},
+				"east": {"uv": [0, 0, 0.2, 4], "rotation": 270, "texture": "#1"},
+				"south": {"uv": [0, 0, 0.2, 7], "rotation": 270, "texture": "#1"},
+				"west": {"uv": [0, 0, 0.2, 4], "rotation": 270, "texture": "#1"},
+				"up": {"uv": [1, 0, 5, 7], "rotation": 270, "texture": "#1"},
+				"down": {"uv": [1, 0, 5, 7], "rotation": 270, "texture": "#1"}
+			}
+		},
+		{
+			"from": [9, 8.3, -2],
+			"to": [16, 8.5, 2],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [0, 0, 0]},
+			"faces": {
+				"north": {"uv": [0, 0, 0.2, 7], "rotation": 90, "texture": "#1"},
+				"east": {"uv": [0, 0, 0.2, 4], "rotation": 270, "texture": "#1"},
+				"south": {"uv": [0, 0, 0.2, 7], "rotation": 270, "texture": "#1"},
+				"west": {"uv": [0, 0, 0.2, 4], "rotation": 270, "texture": "#1"},
+				"up": {"uv": [1, 0, 5, 7], "rotation": 270, "texture": "#1"},
+				"down": {"uv": [1, 0, 5, 7], "rotation": 270, "texture": "#1"}
+			}
+		},
+		{
+			"from": [8.3, 0, -2],
+			"to": [8.5, 7, 2],
+			"rotation": {"angle": 22.5, "axis": "y", "origin": [0, 0, 0]},
+			"faces": {
+				"north": {"uv": [0, 0, 0.2, 7], "texture": "#1"},
+				"east": {"uv": [1, 0, 5, 7], "texture": "#1"},
+				"south": {"uv": [0, 0, 0.2, 7], "texture": "#1"},
+				"west": {"uv": [1, 0, 5, 7], "texture": "#1"},
+				"up": {"uv": [0, 0, 0.2, 4], "texture": "#1"},
+				"down": {"uv": [0, 0, 0.2, 4], "texture": "#1"}
+			}
+		}
+	],
+	"groups": [
+		0,
+		{
+			"name": "tubine",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"children": [1]
+		},
+		2,
+		3,
+		4,
+		5
+	],
+	"gui_light": "side",
+	"display": {
+		"gui": {
+			"rotation": [ 30, 225, 0 ],
+			"translation": [ 0, 0, 0],
+			"scale":[ 0.625, 0.625, 0.625 ]
+		},
+		"ground": {
+			"rotation": [ 0, 0, 0 ],
+			"translation": [ 0, 3, 0],
+			"scale":[ 0.25, 0.25, 0.25 ]
+		},
+		"fixed": {
+			"rotation": [ 0, 0, 0 ],
+			"translation": [ 0, 0, 0],
+			"scale":[ 0.5, 0.5, 0.5 ]
+		},
+		"thirdperson_righthand": {
+			"rotation": [ 75, 45, 0 ],
+			"translation": [ 0, 2.5, 0],
+			"scale": [ 0.375, 0.375, 0.375 ]
+		},
+		"firstperson_righthand": {
+			"rotation": [ 0, 45, 0 ],
+			"translation": [ 0, 0, 0 ],
+			"scale": [ 0.40, 0.40, 0.40 ]
+		},
+		"firstperson_lefthand": {
+			"rotation": [ 0, 225, 0 ],
+			"translation": [ 0, 0, 0 ],
+			"scale": [ 0.40, 0.40, 0.40 ]
+		}
+	}
+}

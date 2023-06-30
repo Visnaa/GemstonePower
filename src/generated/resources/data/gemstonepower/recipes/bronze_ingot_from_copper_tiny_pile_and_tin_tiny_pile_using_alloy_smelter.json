@@ -1,0 +1,19 @@
+{
+  "type": "gemstonepower:alloy_smelter",
+  "amount1": 3,
+  "amount2": 1,
+  "count": 4,
+  "energyUsage": 80,
+  "inputs": [
+    {
+      "item": "gemstonepower:copper_tiny_pile"
+    },
+    {
+      "item": "gemstonepower:tin_tiny_pile"
+    }
+  ],
+  "output": {
+    "item": "gemstonepower:bronze_tiny_pile"
+  },
+  "processingTime": 400
+}

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_aquamarine": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:aquamarine"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:aquamarine_arrow_from_aquamarine"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_aquamarine",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:aquamarine_arrow_from_aquamarine"
+    ]
+  },
+  "sends_telemetry_event": false
+}

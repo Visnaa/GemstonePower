@@ -1,0 +1,13 @@
+{
+  "type": "gemstonepower:metal_former",
+  "count": 1,
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:tin_ingot"
+  },
+  "output": {
+    "item": "gemstonepower:tin_plate"
+  },
+  "preset": "plate",
+  "processingTime": 200
+}

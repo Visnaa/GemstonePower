@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "gemstonepower:copper_wire"
+    },
+    "G": {
+      "tag": "forge:glass"
+    },
+    "I": {
+      "tag": "forge:ingots/iron"
+    },
+    "L": {
+      "item": "minecraft:lava_bucket"
+    },
+    "S": {
+      "tag": "forge:ingots/steel"
+    },
+    "W": {
+      "item": "minecraft:water_bucket"
+    }
+  },
+  "pattern": [
+    "ISI",
+    "WGL",
+    "ICI"
+  ],
+  "result": {
+    "item": "gemstonepower:cobblestone_generator"
+  },
+  "show_notification": true
+}

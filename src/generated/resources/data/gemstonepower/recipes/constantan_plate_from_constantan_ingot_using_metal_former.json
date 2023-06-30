@@ -1,0 +1,13 @@
+{
+  "type": "gemstonepower:metal_former",
+  "count": 1,
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:constantan_ingot"
+  },
+  "output": {
+    "item": "gemstonepower:constantan_plate"
+  },
+  "preset": "plate",
+  "processingTime": 200
+}

@@ -1,0 +1,9 @@
+{
+  "asset_name": "dolomite",
+  "description": {
+    "color": "#F6D0EC",
+    "translate": "trim_material.gemstonepower.dolomite"
+  },
+  "ingredient": "gemstonepower:dolomite",
+  "item_model_index": 2.7
+}

@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "gemstonepower:platinum_ingot"
+    },
+    {
+      "item": "gemstonepower:platinum_ingot"
+    },
+    {
+      "item": "gemstonepower:platinum_ingot"
+    },
+    {
+      "item": "gemstonepower:platinum_ingot"
+    },
+    {
+      "item": "gemstonepower:platinum_ingot"
+    },
+    {
+      "item": "gemstonepower:platinum_ingot"
+    },
+    {
+      "item": "gemstonepower:platinum_ingot"
+    },
+    {
+      "item": "gemstonepower:platinum_ingot"
+    },
+    {
+      "item": "gemstonepower:platinum_ingot"
+    }
+  ],
+  "result": {
+    "item": "gemstonepower:platinum_block"
+  }
+}

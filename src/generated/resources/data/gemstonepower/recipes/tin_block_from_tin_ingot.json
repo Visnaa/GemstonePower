@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "gemstonepower:tin_ingot"
+    },
+    {
+      "item": "gemstonepower:tin_ingot"
+    },
+    {
+      "item": "gemstonepower:tin_ingot"
+    },
+    {
+      "item": "gemstonepower:tin_ingot"
+    },
+    {
+      "item": "gemstonepower:tin_ingot"
+    },
+    {
+      "item": "gemstonepower:tin_ingot"
+    },
+    {
+      "item": "gemstonepower:tin_ingot"
+    },
+    {
+      "item": "gemstonepower:tin_ingot"
+    },
+    {
+      "item": "gemstonepower:tin_ingot"
+    }
+  ],
+  "result": {
+    "item": "gemstonepower:tin_block"
+  }
+}

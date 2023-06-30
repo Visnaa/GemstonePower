@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_amber_arrow": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:amber_arrow"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:charged_amber_arrow_from_amber_arrow"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_amber_arrow",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:charged_amber_arrow_from_amber_arrow"
+    ]
+  },
+  "sends_telemetry_event": true
+}

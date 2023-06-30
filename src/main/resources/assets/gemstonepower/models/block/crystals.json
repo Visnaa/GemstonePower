@@ -1,0 +1,18 @@
+{
+  "ambientocclusion": false,
+  "render_type": "cutout",
+  "textures": {
+    "particle": "gemstonepower:block/crystals",
+    "crystals": "gemstonepower:block/crystals"
+  },
+  "elements": [
+    {
+      "from": [ 0, 0, 0.1 ],
+      "to": [ 16, 16, 0.1 ],
+      "faces": {
+        "north": { "uv": [ 16, 0, 0, 16 ], "texture": "#crystals", "tintindex": 0 },
+        "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#crystals", "tintindex": 0 }
+      }
+    }
+  ]
+}

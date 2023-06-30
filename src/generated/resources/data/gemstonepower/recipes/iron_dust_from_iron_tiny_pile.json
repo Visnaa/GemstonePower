@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "gemstonepower:iron_tiny_pile"
+    },
+    {
+      "item": "gemstonepower:iron_tiny_pile"
+    },
+    {
+      "item": "gemstonepower:iron_tiny_pile"
+    },
+    {
+      "item": "gemstonepower:iron_tiny_pile"
+    },
+    {
+      "item": "gemstonepower:iron_tiny_pile"
+    },
+    {
+      "item": "gemstonepower:iron_tiny_pile"
+    },
+    {
+      "item": "gemstonepower:iron_tiny_pile"
+    },
+    {
+      "item": "gemstonepower:iron_tiny_pile"
+    },
+    {
+      "item": "gemstonepower:iron_tiny_pile"
+    }
+  ],
+  "result": {
+    "item": "gemstonepower:iron_dust"
+  }
+}

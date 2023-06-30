@@ -1,0 +1,12 @@
+{
+  "type": "gemstonepower:crystal_grower",
+  "count": 1,
+  "energyUsage": 20,
+  "input": {
+    "item": "gemstonepower:malachite_seed"
+  },
+  "output": {
+    "item": "gemstonepower:malachite"
+  },
+  "processingTime": 200
+}

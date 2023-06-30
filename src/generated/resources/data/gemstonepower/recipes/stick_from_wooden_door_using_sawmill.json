@@ -1,0 +1,12 @@
+{
+  "type": "gemstonepower:sawmill",
+  "count": 8,
+  "energyUsage": 40,
+  "input": {
+    "tag": "minecraft:wooden_doors"
+  },
+  "output": {
+    "item": "minecraft:stick"
+  },
+  "processingTime": 150
+}

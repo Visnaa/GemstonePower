@@ -1,0 +1,11 @@
+{
+  "values": [
+    "gemstonepower:gemstone_helmet",
+    "#forge:armor/helmets/copper",
+    "#forge:armor/helmets/aluminum",
+    "#forge:armor/helmets/bronze",
+    "#forge:armor/helmets/silver",
+    "#forge:armor/helmets/invar",
+    "#forge:armor/helmets/steel"
+  ]
+}

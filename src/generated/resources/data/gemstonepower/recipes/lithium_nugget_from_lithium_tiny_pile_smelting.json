@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.3,
+  "ingredient": {
+    "item": "gemstonepower:lithium_tiny_pile"
+  },
+  "result": "gemstonepower:lithium_nugget"
+}

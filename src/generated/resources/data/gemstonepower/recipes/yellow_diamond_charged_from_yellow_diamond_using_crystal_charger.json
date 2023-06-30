@@ -1,0 +1,12 @@
+{
+  "type": "gemstonepower:crystal_charger",
+  "count": 1,
+  "energyUsage": 120,
+  "input": {
+    "item": "gemstonepower:yellow_diamond"
+  },
+  "output": {
+    "item": "gemstonepower:yellow_diamond_charged"
+  },
+  "processingTime": 200
+}

@@ -1,0 +1,12 @@
+{
+  "type": "gemstonepower:pulverizer",
+  "count": 1,
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:deepslate_lead_ore"
+  },
+  "output": {
+    "item": "gemstonepower:lead_ore_dust"
+  },
+  "processingTime": 200
+}

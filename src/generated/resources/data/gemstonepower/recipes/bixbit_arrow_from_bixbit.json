@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "C": {
+      "item": "gemstonepower:bixbit"
+    },
+    "F": {
+      "item": "minecraft:feather"
+    },
+    "S": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "pattern": [
+    "C",
+    "S",
+    "F"
+  ],
+  "result": {
+    "item": "gemstonepower:bixbit_arrow"
+  },
+  "show_notification": true
+}

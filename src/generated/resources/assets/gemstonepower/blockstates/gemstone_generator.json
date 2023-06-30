@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,powered=false": {
+      "model": "gemstonepower:block/gemstone_generator",
+      "y": 90
+    },
+    "facing=east,powered=true": {
+      "model": "gemstonepower:block/gemstone_generator_powered",
+      "y": 90
+    },
+    "facing=north,powered=false": {
+      "model": "gemstonepower:block/gemstone_generator"
+    },
+    "facing=north,powered=true": {
+      "model": "gemstonepower:block/gemstone_generator_powered"
+    },
+    "facing=south,powered=false": {
+      "model": "gemstonepower:block/gemstone_generator",
+      "y": 180
+    },
+    "facing=south,powered=true": {
+      "model": "gemstonepower:block/gemstone_generator_powered",
+      "y": 180
+    },
+    "facing=west,powered=false": {
+      "model": "gemstonepower:block/gemstone_generator",
+      "y": 270
+    },
+    "facing=west,powered=true": {
+      "model": "gemstonepower:block/gemstone_generator_powered",
+      "y": 270
+    }
+  }
+}

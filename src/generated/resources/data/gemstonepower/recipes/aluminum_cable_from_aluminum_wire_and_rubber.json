@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "gemstonepower:aluminum_wire"
+    },
+    {
+      "item": "gemstonepower:rubber"
+    }
+  ],
+  "result": {
+    "item": "gemstonepower:aluminum_cable"
+  }
+}

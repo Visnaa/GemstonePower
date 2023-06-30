@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "gemstonepower:gold_gear"
+    },
+    "S": {
+      "item": "gemstonepower:silver_ingot"
+    },
+    "W": {
+      "item": "minecraft:water_bucket"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "WGW",
+    "SSS"
+  ],
+  "result": {
+    "item": "gemstonepower:crystal_grower"
+  },
+  "show_notification": true
+}

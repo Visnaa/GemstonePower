@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "gemstonepower:block/extractor",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "gemstonepower:block/extractor"
+    },
+    "facing=south": {
+      "model": "gemstonepower:block/extractor",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "gemstonepower:block/extractor",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "gemstonepower:block/machine",
+    "east": "gemstonepower:block/machine",
+    "north": "gemstonepower:block/metal_former",
+    "particle": "gemstonepower:block/metal_former",
+    "south": "gemstonepower:block/machine",
+    "up": "gemstonepower:block/machine",
+    "west": "gemstonepower:block/machine"
+  }
+}

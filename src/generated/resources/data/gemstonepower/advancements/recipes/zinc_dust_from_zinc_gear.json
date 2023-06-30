@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:zinc_dust_from_zinc_gear"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_zinc_gear": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:zinc_gear"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_zinc_gear",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:zinc_dust_from_zinc_gear"
+    ]
+  },
+  "sends_telemetry_event": true
+}

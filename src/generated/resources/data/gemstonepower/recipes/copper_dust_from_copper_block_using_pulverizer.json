@@ -1,0 +1,12 @@
+{
+  "type": "gemstonepower:pulverizer",
+  "count": 9,
+  "energyUsage": 40,
+  "input": {
+    "item": "minecraft:copper_block"
+  },
+  "output": {
+    "item": "gemstonepower:copper_dust"
+  },
+  "processingTime": 1600
+}

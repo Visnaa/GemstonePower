@@ -1,0 +1,13 @@
+{
+  "type": "gemstonepower:metal_former",
+  "count": 1,
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:platinum_ingot"
+  },
+  "output": {
+    "item": "gemstonepower:platinum_rod"
+  },
+  "preset": "rod",
+  "processingTime": 200
+}

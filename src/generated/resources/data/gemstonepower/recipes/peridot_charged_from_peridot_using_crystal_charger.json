@@ -1,0 +1,12 @@
+{
+  "type": "gemstonepower:crystal_charger",
+  "count": 1,
+  "energyUsage": 120,
+  "input": {
+    "item": "gemstonepower:peridot"
+  },
+  "output": {
+    "item": "gemstonepower:peridot_charged"
+  },
+  "processingTime": 200
+}

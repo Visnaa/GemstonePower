@@ -1,0 +1,12 @@
+{
+  "type": "gemstonepower:crystal_grower",
+  "count": 1,
+  "energyUsage": 20,
+  "input": {
+    "item": "gemstonepower:topaz_seed"
+  },
+  "output": {
+    "item": "gemstonepower:topaz"
+  },
+  "processingTime": 200
+}

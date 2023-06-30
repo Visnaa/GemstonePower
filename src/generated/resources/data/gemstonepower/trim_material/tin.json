@@ -1,0 +1,9 @@
+{
+  "asset_name": "tin",
+  "description": {
+    "color": "#F0F0F0",
+    "translate": "trim_material.gemstonepower.tin"
+  },
+  "ingredient": "gemstonepower:tin_ingot",
+  "item_model_index": 3.1
+}

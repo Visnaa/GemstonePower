@@ -1,0 +1,9 @@
+{
+  "asset_name": "topaz",
+  "description": {
+    "color": "#3EBAFF",
+    "translate": "trim_material.gemstonepower.topaz"
+  },
+  "ingredient": "gemstonepower:topaz",
+  "item_model_index": 1.8
+}

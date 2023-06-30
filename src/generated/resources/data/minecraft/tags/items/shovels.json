@@ -1,0 +1,11 @@
+{
+  "values": [
+    "gemstonepower:gemstone_shovel",
+    "gemstonepower:copper_shovel",
+    "gemstonepower:aluminum_shovel",
+    "gemstonepower:bronze_shovel",
+    "gemstonepower:silver_shovel",
+    "gemstonepower:invar_shovel",
+    "gemstonepower:steel_shovel"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_onyx_arrow": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:onyx_arrow"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:charged_onyx_arrow_from_onyx_arrow"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_onyx_arrow",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:charged_onyx_arrow_from_onyx_arrow"
+    ]
+  },
+  "sends_telemetry_event": true
+}

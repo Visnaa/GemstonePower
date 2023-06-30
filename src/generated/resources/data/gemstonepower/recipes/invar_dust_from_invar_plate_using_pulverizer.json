@@ -1,0 +1,12 @@
+{
+  "type": "gemstonepower:pulverizer",
+  "count": 1,
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:invar_plate"
+  },
+  "output": {
+    "item": "gemstonepower:invar_dust"
+  },
+  "processingTime": 200
+}

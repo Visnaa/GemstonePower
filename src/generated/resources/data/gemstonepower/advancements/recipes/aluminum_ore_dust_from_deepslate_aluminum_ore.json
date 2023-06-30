@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_deepslate_aluminum_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:deepslate_aluminum_ore"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:aluminum_ore_dust_from_deepslate_aluminum_ore"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_deepslate_aluminum_ore",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:aluminum_ore_dust_from_deepslate_aluminum_ore"
+    ]
+  },
+  "sends_telemetry_event": true
+}

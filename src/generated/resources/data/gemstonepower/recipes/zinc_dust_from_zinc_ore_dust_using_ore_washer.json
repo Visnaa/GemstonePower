@@ -1,0 +1,22 @@
+{
+  "type": "gemstonepower:ore_washer",
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:zinc_ore_dust"
+  },
+  "outputs": {
+    "output0": {
+      "count": 1,
+      "item": "gemstonepower:zinc_dust"
+    },
+    "output1": {
+      "count": 1,
+      "item": "gemstonepower:nickel_tiny_pile"
+    },
+    "output2": {
+      "count": 1,
+      "item": "gemstonepower:lead_tiny_pile"
+    }
+  },
+  "processingTime": 400
+}

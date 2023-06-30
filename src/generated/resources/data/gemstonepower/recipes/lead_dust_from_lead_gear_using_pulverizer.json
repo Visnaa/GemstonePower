@@ -1,0 +1,12 @@
+{
+  "type": "gemstonepower:pulverizer",
+  "count": 4,
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:lead_gear"
+  },
+  "output": {
+    "item": "gemstonepower:lead_dust"
+  },
+  "processingTime": 200
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "gemstonepower:item/pickaxe",
+    "layer1": "gemstonepower:item/pickaxe_handle"
+  }
+}

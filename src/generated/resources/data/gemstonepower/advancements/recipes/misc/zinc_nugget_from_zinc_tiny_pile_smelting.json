@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:zinc_nugget_from_zinc_tiny_pile_smelting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_zinc_tiny_pile": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:zinc_tiny_pile"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_zinc_tiny_pile",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:zinc_nugget_from_zinc_tiny_pile_smelting"
+    ]
+  },
+  "sends_telemetry_event": false
+}

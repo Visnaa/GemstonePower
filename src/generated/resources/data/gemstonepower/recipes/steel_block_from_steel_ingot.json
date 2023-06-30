@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "gemstonepower:steel_ingot"
+    },
+    {
+      "item": "gemstonepower:steel_ingot"
+    },
+    {
+      "item": "gemstonepower:steel_ingot"
+    },
+    {
+      "item": "gemstonepower:steel_ingot"
+    },
+    {
+      "item": "gemstonepower:steel_ingot"
+    },
+    {
+      "item": "gemstonepower:steel_ingot"
+    },
+    {
+      "item": "gemstonepower:steel_ingot"
+    },
+    {
+      "item": "gemstonepower:steel_ingot"
+    },
+    {
+      "item": "gemstonepower:steel_ingot"
+    }
+  ],
+  "result": {
+    "item": "gemstonepower:steel_block"
+  }
+}

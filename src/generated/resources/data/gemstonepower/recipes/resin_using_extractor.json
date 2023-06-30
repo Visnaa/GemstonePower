@@ -1,0 +1,12 @@
+{
+  "type": "gemstonepower:extractor",
+  "count": 1,
+  "energyUsage": 40,
+  "input": {
+    "tag": "minecraft:logs"
+  },
+  "output": {
+    "item": "gemstonepower:resin"
+  },
+  "processingTime": 200
+}

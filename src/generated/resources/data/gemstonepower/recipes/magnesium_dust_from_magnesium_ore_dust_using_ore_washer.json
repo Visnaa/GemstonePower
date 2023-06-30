@@ -1,0 +1,26 @@
+{
+  "type": "gemstonepower:ore_washer",
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:magnesium_ore_dust"
+  },
+  "outputs": {
+    "output0": {
+      "count": 1,
+      "item": "gemstonepower:magnesium_dust"
+    },
+    "output1": {
+      "count": 1,
+      "item": "gemstonepower:iron_tiny_pile"
+    },
+    "output2": {
+      "count": 1,
+      "item": "gemstonepower:aluminum_tiny_pile"
+    },
+    "output3": {
+      "count": 1,
+      "item": "gemstonepower:tanzanite"
+    }
+  },
+  "processingTime": 400
+}

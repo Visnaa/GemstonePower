@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:uranium_dust_from_uranium_rod"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_uranium_rod": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:uranium_rod"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_uranium_rod",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:uranium_dust_from_uranium_rod"
+    ]
+  },
+  "sends_telemetry_event": true
+}

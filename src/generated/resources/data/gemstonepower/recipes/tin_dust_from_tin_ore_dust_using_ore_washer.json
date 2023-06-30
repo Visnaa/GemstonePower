@@ -1,0 +1,26 @@
+{
+  "type": "gemstonepower:ore_washer",
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:tin_ore_dust"
+  },
+  "outputs": {
+    "output0": {
+      "count": 1,
+      "item": "gemstonepower:tin_dust"
+    },
+    "output1": {
+      "count": 1,
+      "item": "gemstonepower:copper_tiny_pile"
+    },
+    "output2": {
+      "count": 1,
+      "item": "gemstonepower:malachite"
+    },
+    "output3": {
+      "count": 1,
+      "item": "gemstonepower:moon_stone"
+    }
+  },
+  "processingTime": 400
+}

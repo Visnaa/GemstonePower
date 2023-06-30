@@ -1,0 +1,9 @@
+{
+  "asset_name": "yellow_diamond",
+  "description": {
+    "color": "#E5DB6B",
+    "translate": "trim_material.gemstonepower.yellow_diamond"
+  },
+  "ingredient": "gemstonepower:yellow_diamond",
+  "item_model_index": 1.6
+}

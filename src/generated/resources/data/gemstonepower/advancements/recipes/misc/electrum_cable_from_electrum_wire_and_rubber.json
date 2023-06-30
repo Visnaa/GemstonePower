@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_electrum_wire": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:electrum_wire"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:electrum_cable_from_electrum_wire_and_rubber"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_electrum_wire",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:electrum_cable_from_electrum_wire_and_rubber"
+    ]
+  },
+  "sends_telemetry_event": false
+}

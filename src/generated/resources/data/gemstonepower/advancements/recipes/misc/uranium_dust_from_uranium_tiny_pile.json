@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:uranium_dust_from_uranium_tiny_pile"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_uranium_tiny_pile": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:uranium_tiny_pile"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_uranium_tiny_pile",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:uranium_dust_from_uranium_tiny_pile"
+    ]
+  },
+  "sends_telemetry_event": false
+}

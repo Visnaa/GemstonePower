@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "gemstonepower:copper_nugget"
+    },
+    {
+      "item": "gemstonepower:copper_nugget"
+    },
+    {
+      "item": "gemstonepower:copper_nugget"
+    },
+    {
+      "item": "gemstonepower:copper_nugget"
+    },
+    {
+      "item": "gemstonepower:copper_nugget"
+    },
+    {
+      "item": "gemstonepower:copper_nugget"
+    },
+    {
+      "item": "gemstonepower:copper_nugget"
+    },
+    {
+      "item": "gemstonepower:copper_nugget"
+    },
+    {
+      "item": "gemstonepower:copper_nugget"
+    }
+  ],
+  "result": {
+    "item": "minecraft:copper_ingot"
+  }
+}

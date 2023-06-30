@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_constantan_plate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:constantan_plate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:constantan_dust_from_constantan_plate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_constantan_plate",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:constantan_dust_from_constantan_plate"
+    ]
+  },
+  "sends_telemetry_event": true
+}

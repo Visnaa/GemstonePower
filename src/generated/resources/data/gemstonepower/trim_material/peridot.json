@@ -1,0 +1,9 @@
+{
+  "asset_name": "peridot",
+  "description": {
+    "color": "#82F938",
+    "translate": "trim_material.gemstonepower.peridot"
+  },
+  "ingredient": "gemstonepower:peridot",
+  "item_model_index": 2.3
+}

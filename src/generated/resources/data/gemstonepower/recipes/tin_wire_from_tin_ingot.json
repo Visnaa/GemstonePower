@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "gemstonepower:tin_ingot"
+    }
+  },
+  "pattern": [
+    "###"
+  ],
+  "result": {
+    "item": "gemstonepower:tin_wire"
+  },
+  "show_notification": true
+}

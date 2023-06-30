@@ -1,0 +1,12 @@
+{
+  "type": "gemstonepower:sawmill",
+  "count": 6,
+  "energyUsage": 40,
+  "input": {
+    "tag": "minecraft:cherry_logs"
+  },
+  "output": {
+    "item": "minecraft:cherry_planks"
+  },
+  "processingTime": 150
+}

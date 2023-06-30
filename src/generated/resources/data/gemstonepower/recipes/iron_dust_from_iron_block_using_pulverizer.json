@@ -1,0 +1,12 @@
+{
+  "type": "gemstonepower:pulverizer",
+  "count": 9,
+  "energyUsage": 40,
+  "input": {
+    "item": "minecraft:iron_block"
+  },
+  "output": {
+    "item": "gemstonepower:iron_dust"
+  },
+  "processingTime": 1600
+}

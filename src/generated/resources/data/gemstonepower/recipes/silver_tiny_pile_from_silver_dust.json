@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "gemstonepower:silver_dust"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "gemstonepower:silver_tiny_pile"
+  }
+}

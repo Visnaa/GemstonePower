@@ -1,0 +1,9 @@
+{
+  "asset_name": "zinc",
+  "description": {
+    "color": "#FFE0B8",
+    "translate": "trim_material.gemstonepower.zinc"
+  },
+  "ingredient": "gemstonepower:zinc_ingot",
+  "item_model_index": 4.4
+}

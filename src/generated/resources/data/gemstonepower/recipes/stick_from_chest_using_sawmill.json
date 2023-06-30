@@ -1,0 +1,12 @@
+{
+  "type": "gemstonepower:sawmill",
+  "count": 24,
+  "energyUsage": 40,
+  "input": {
+    "item": "minecraft:chest"
+  },
+  "output": {
+    "item": "minecraft:stick"
+  },
+  "processingTime": 150
+}

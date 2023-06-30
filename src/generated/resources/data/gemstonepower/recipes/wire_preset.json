@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "forge:wires"
+    },
+    "P": {
+      "tag": "minecraft:planks"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "SPS",
+    "P#P",
+    "SPS"
+  ],
+  "result": {
+    "item": "gemstonepower:wire_preset"
+  },
+  "show_notification": true
+}

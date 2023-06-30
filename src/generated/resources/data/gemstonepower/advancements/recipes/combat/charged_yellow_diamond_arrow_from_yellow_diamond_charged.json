@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:charged_yellow_diamond_arrow_from_yellow_diamond_charged"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_yellow_diamond_charged": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:yellow_diamond_charged"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_yellow_diamond_charged",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:charged_yellow_diamond_arrow_from_yellow_diamond_charged"
+    ]
+  },
+  "sends_telemetry_event": false
+}

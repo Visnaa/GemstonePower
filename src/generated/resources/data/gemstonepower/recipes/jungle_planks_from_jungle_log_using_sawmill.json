@@ -1,0 +1,12 @@
+{
+  "type": "gemstonepower:sawmill",
+  "count": 6,
+  "energyUsage": 40,
+  "input": {
+    "tag": "minecraft:jungle_logs"
+  },
+  "output": {
+    "item": "minecraft:jungle_planks"
+  },
+  "processingTime": 150
+}

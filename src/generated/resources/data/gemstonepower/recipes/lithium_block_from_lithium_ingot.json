@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "gemstonepower:lithium_ingot"
+    },
+    {
+      "item": "gemstonepower:lithium_ingot"
+    },
+    {
+      "item": "gemstonepower:lithium_ingot"
+    },
+    {
+      "item": "gemstonepower:lithium_ingot"
+    },
+    {
+      "item": "gemstonepower:lithium_ingot"
+    },
+    {
+      "item": "gemstonepower:lithium_ingot"
+    },
+    {
+      "item": "gemstonepower:lithium_ingot"
+    },
+    {
+      "item": "gemstonepower:lithium_ingot"
+    },
+    {
+      "item": "gemstonepower:lithium_ingot"
+    }
+  ],
+  "result": {
+    "item": "gemstonepower:lithium_block"
+  }
+}

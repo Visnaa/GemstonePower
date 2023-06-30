@@ -1,0 +1,12 @@
+{
+  "type": "gemstonepower:sawmill",
+  "count": 7,
+  "energyUsage": 40,
+  "input": {
+    "tag": "minecraft:wooden_fences"
+  },
+  "output": {
+    "item": "minecraft:stick"
+  },
+  "processingTime": 150
+}

@@ -1,0 +1,12 @@
+{
+  "type": "gemstonepower:sawmill",
+  "count": 2,
+  "energyUsage": 40,
+  "input": {
+    "tag": "minecraft:wooden_slabs"
+  },
+  "output": {
+    "item": "minecraft:stick"
+  },
+  "processingTime": 150
+}

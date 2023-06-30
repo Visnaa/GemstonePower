@@ -1,0 +1,19 @@
+{
+  "type": "gemstonepower:alloy_smelter",
+  "amount1": 3,
+  "amount2": 1,
+  "count": 4,
+  "energyUsage": 80,
+  "inputs": [
+    {
+      "item": "minecraft:copper_block"
+    },
+    {
+      "item": "gemstonepower:tin_block"
+    }
+  ],
+  "output": {
+    "item": "gemstonepower:bronze_block"
+  },
+  "processingTime": 3400
+}
