@@ -2,6 +2,7 @@ package com.visnaa.gemstonepower.block.entity;
 
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.client.screen.menu.OreWasherMenu;
+import com.visnaa.gemstonepower.config.CommonConfig;
 import com.visnaa.gemstonepower.data.recipe.OreWasherRecipe;
 import com.visnaa.gemstonepower.network.energy.ForgeEnergyStorage;
 import com.visnaa.gemstonepower.registry.ModBlockEntities;
@@ -386,7 +387,7 @@ public class OreWasherBlockEntity extends BaseContainerBlockEntity implements Wo
 
     private ForgeEnergyStorage createEnergyStorage()
     {
-        return new ForgeEnergyStorage(50000, Integer.MAX_VALUE, 0) {
+        return new ForgeEnergyStorage(CommonConfig.DEFAULT_MACHINE_CAPACITY.get(), Integer.MAX_VALUE, 0) {
             @Override
             protected void onEnergyChanged() {
                 setChanged();

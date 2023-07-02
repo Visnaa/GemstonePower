@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#forge:is_sandy",
+  "features": [
+    "gemstonepower:aluminum_extra"
+  ],
+  "step": "underground_ores"
+}

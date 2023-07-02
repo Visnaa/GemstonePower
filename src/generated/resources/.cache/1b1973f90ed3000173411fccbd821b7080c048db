@@ -1,4 +1,4 @@
-// 1.20.1	2023-06-30T13:27:10.0270182	Tags for minecraft:item mod id gemstonepower
+// 1.20.1	2023-07-01T17:24:35.8571313	Tags for minecraft:item mod id gemstonepower
 a3f5592fa37db7610653168433f3f84ef62b7e1b data/forge/tags/items/armors.json
 b5f297af7e1c02a01e072d8070219edbee1ed2f0 data/forge/tags/items/armors/boots.json
 ce1d3c2fc3471b2d6f44413b5d6d6258e9cc46e9 data/forge/tags/items/armors/chestplates.json
@@ -137,23 +137,27 @@ ac9c421cc68613e42c8bd4ed2c6058e32be2efb0 data/forge/tags/items/raw_materials/tin
 caa249fb431119f9534a892e9145ebd31469a140 data/forge/tags/items/rods.json
 24b94833237cde3dff3d94132bf0fee4e72182a6 data/forge/tags/items/rods/aluminum.json
 2a047652c675f1e6bf33cf4a1fbbf3958c81914b data/forge/tags/items/rods/bronze.json
-95697361574543593e0dc165da6c096bd8376d1f data/forge/tags/items/rods/constantan.json
+267a4fef8395b2a344f6abfcfd89d583ceb59b85 data/forge/tags/items/rods/constantan.json
 3e86f8b7efa369f43d36672b5846fbaa3fe1e6cc data/forge/tags/items/rods/copper.json
 f5f215128421d051aedd7e9af7ae4d7c7d455b72 data/forge/tags/items/rods/electrum.json
 aa14e1f0a7ec489ce013bdd585e78bde24ef023d data/forge/tags/items/rods/gold.json
-ac31cebc2cdfe690a797622c1bd4cf5753a510c5 data/forge/tags/items/rods/invar.json
-df7e1f343898bc41f20a32aa5dba1141113f693b data/forge/tags/items/rods/iron.json
+b5602d9c3b89eccf3fc6160f65dbd713ea89d144 data/forge/tags/items/rods/invar.json
+12e65dbb3d5e25745b435f580272dfdd8b365bd3 data/forge/tags/items/rods/iron.json
 abc4a36ab56c9d3c983d6775f6d05a2dd265ef3a data/forge/tags/items/rods/lead.json
 beec7e42d00661f7db3853973fb12aafc0d8d77b data/forge/tags/items/rods/lithium.json
 f416dbddf903f39048a9a55c4f4391fdb5834446 data/forge/tags/items/rods/magnesium.json
-a0f3baa23aaf9c507192d9f0907f803a00aaa45c data/forge/tags/items/rods/nickel.json
+f1a533ff3c9fd152b9dcffe52f343f81a3eb5bc0 data/forge/tags/items/rods/nickel.json
 86108ccf58ce68291ec73773f62d5e59806cdda3 data/forge/tags/items/rods/platinum.json
 54f30b15c00980b11b71d8a35c0f92ade60e70d5 data/forge/tags/items/rods/silver.json
-98f385c17149bd1e998e2714a2de51a15523b479 data/forge/tags/items/rods/steel.json
+bdfd3ddc00d7359539e7c229e8d53772d6b7e2fd data/forge/tags/items/rods/steel.json
 4d5882c1e55cd6fd2d59913fe22895d775a5f311 data/forge/tags/items/rods/tin.json
 d87fe75065fb1761eca414be986356ef97f8729c data/forge/tags/items/rods/uranium.json
 531c1c1b9f5d8e442ac18e56d7850d70e9643a0e data/forge/tags/items/rods/zinc.json
+5a2ad43950603492adec6672eb4f35df14e18379 data/gemstonepower/tags/items/cables.json
+58d6fe0df54d73d47cef164c6d3d9c700335cff1 data/gemstonepower/tags/items/charged_gems.json
+1264013486cfda7355de08548d41593e51af9690 data/gemstonepower/tags/items/gems.json
 1e878725dd7f9d22295714d22629dcaafcea20d9 data/gemstonepower/tags/items/gemstone.json
+14f439eeddfd2a1ec469b9c83d355eb5f3278e18 data/gemstonepower/tags/items/gem_seeds.json
 1897a5218bbaa1aef5edcb71c14b57300fe53369 data/minecraft/tags/items/arrows.json
 8253eb41e8e8a4be2c921810a8a3b98d4c854380 data/minecraft/tags/items/axes.json
 ffb4cb065a5d11f8be0f89d2534a51a92de87bfe data/minecraft/tags/items/cluster_max_harvestables.json

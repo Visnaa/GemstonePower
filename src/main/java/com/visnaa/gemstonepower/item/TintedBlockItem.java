@@ -7,7 +7,6 @@ import net.minecraft.world.level.block.Block;
 
 public class TintedBlockItem extends BlockItem implements Tintable
 {
-    // Must be a HEX
     private int color;
 
     public TintedBlockItem(Block block, Properties properties, Tints colour)

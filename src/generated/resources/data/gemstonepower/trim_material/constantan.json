@@ -1,7 +1,7 @@
 {
   "asset_name": "constantan",
   "description": {
-    "color": "#FF955C",
+    "color": "#FFA97A",
     "translate": "trim_material.gemstonepower.constantan"
   },
   "ingredient": "gemstonepower:constantan_ingot",

@@ -1,7 +1,7 @@
 {
   "asset_name": "bronze",
   "description": {
-    "color": "#D17C15",
+    "color": "#FF8A30",
     "translate": "trim_material.gemstonepower.bronze"
   },
   "ingredient": "gemstonepower:bronze_ingot",

@@ -15,6 +15,7 @@ import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -71,9 +72,11 @@ public class AlloySmelterRecipeCategory implements IRecipeCategory<AlloySmelterR
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, AlloySmelterRecipe recipe, IFocusGroup focuses)
     {
-        builder.addSlot(RecipeIngredientRole.INPUT, 1, 11).addIngredients(recipe.getIngredients().get(0));
-        builder.addSlot(RecipeIngredientRole.INPUT, 1, 32).addIngredients(recipe.getIngredients().get(1));
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 57, 21).addItemStack(recipe.getResultItem(null));
+        ItemStack input1 = new ItemStack(recipe.getIngredients().get(0).getItems()[0].getItem());
+        ItemStack input2 = new ItemStack(recipe.getIngredients().get(1).getItems()[0].getItem());
+        builder.addSlot(RecipeIngredientRole.INPUT, 1, 11).addItemStack(new ItemStack(input1.getItem(), recipe.getAmount(input1)));
+        builder.addSlot(RecipeIngredientRole.INPUT, 1, 32).addItemStack(new ItemStack(input2.getItem(), recipe.getAmount(input2)));
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 57, 21).addItemStack(new ItemStack(recipe.getResultItem(null).getItem(), recipe.getCount()));
     }
 
     @Override
@@ -81,6 +84,6 @@ public class AlloySmelterRecipeCategory implements IRecipeCategory<AlloySmelterR
     {
         this.progressAnimated.draw(graphics, 20, 17);
         this.energyAnimated.draw(graphics, 97, 21);
-        //Minecraft.getInstance().font.draw(stack, "Energy: " + (recipe.getEnergyUsage() * recipe.getProcessingTime()) + " FE", 0, 0, 0x888888);
+        graphics.drawString(Minecraft.getInstance().font, "Energy: " + recipe.getEnergyUsage() * recipe.getProcessingTime() + " FE", 0, 0, 0x888888, false);
     }
 }

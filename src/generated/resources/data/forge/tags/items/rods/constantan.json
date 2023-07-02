@@ -1,5 +1,6 @@
 {
   "values": [
-    "gemstonepower:constantan_rod"
+    "gemstonepower:constantan_rod",
+    "gemstonepower:constantan_rod_polarized"
   ]
 }

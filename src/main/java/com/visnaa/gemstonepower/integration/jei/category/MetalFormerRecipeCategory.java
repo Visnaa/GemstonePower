@@ -16,6 +16,7 @@ import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -74,7 +75,7 @@ public class MetalFormerRecipeCategory implements IRecipeCategory<MetalFormerRec
     {
         builder.addSlot(RecipeIngredientRole.INPUT, 38, 11).addIngredients(recipe.getIngredients().get(0));
         builder.addSlot(RecipeIngredientRole.INPUT, 1, 11).addItemStack(new ItemStack(MachinePresets.getByName(recipe.getPreset()).getItem()));
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 94, 11).addItemStack(recipe.getResultItem(null));
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 94, 11).addItemStack(new ItemStack(recipe.getResultItem(null).getItem(), recipe.getCount()));
     }
 
     @Override
@@ -82,6 +83,6 @@ public class MetalFormerRecipeCategory implements IRecipeCategory<MetalFormerRec
     {
         this.progressAnimated.draw(graphics, 61, 10);
         this.energyAnimated.draw(graphics, 134, 11);
-        //Minecraft.getInstance().font.draw(stack, "Energy: " + recipe.getEnergyUsage() * recipe.getProcessingTime() + " FE", 0, 0, 0x888888);
+        graphics.drawString(Minecraft.getInstance().font, "Energy: " + recipe.getEnergyUsage() * recipe.getProcessingTime() + " FE", 0, 0, 0x888888, false);
     }
 }

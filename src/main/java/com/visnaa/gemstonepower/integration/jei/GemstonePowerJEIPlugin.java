@@ -33,6 +33,7 @@ public class GemstonePowerJEIPlugin implements IModPlugin
     public static RecipeType<ExtractorRecipe> EXTRACTOR_CATEGORY = new RecipeType<>(ExtractorRecipeCategory.UID, ExtractorRecipe.class);
     public static RecipeType<OreWasherRecipe> ORE_WASHER_CATEGORY = new RecipeType<>(OreWasherRecipeCategory.UID, OreWasherRecipe.class);
     public static RecipeType<SawmillRecipe> SAWMILL_CATEGORY = new RecipeType<>(SawmillRecipeCategory.UID, SawmillRecipe.class);
+    public static RecipeType<PolarizerRecipe> POLARIZER_CATEGORY = new RecipeType<>(PolarizerRecipeCategory.UID, PolarizerRecipe.class);
 
     @Override
     public ResourceLocation getPluginUid()
@@ -52,6 +53,7 @@ public class GemstonePowerJEIPlugin implements IModPlugin
         registration.addRecipeCategories(new ExtractorRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
         registration.addRecipeCategories(new OreWasherRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
         registration.addRecipeCategories(new SawmillRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
+        registration.addRecipeCategories(new PolarizerRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
     }
 
     @Override
@@ -66,6 +68,7 @@ public class GemstonePowerJEIPlugin implements IModPlugin
         List<ExtractorRecipe> extractorRecipes = manager.getAllRecipesFor(ModRecipes.EXTRACTOR_RECIPE);
         List<OreWasherRecipe> oreWasherRecipes = manager.getAllRecipesFor(ModRecipes.ORE_WASHER_RECIPE);
         List<SawmillRecipe> sawmillRecipes = manager.getAllRecipesFor(ModRecipes.SAWMILL_RECIPE);
+        List<PolarizerRecipe> polarizerRecipes = manager.getAllRecipesFor(ModRecipes.POLARIZER_RECIPE);
 
         registration.addRecipes(CRYSTAL_GROWER_CATEGORY, crystalGrowerRecipes);
         registration.addRecipes(CRYSTAL_CHARGER_CATEGORY, crystalChargerRecipes);
@@ -75,6 +78,7 @@ public class GemstonePowerJEIPlugin implements IModPlugin
         registration.addRecipes(EXTRACTOR_CATEGORY, extractorRecipes);
         registration.addRecipes(ORE_WASHER_CATEGORY, oreWasherRecipes);
         registration.addRecipes(SAWMILL_CATEGORY, sawmillRecipes);
+        registration.addRecipes(POLARIZER_CATEGORY, polarizerRecipes);
     }
 
     @Override
@@ -90,6 +94,7 @@ public class GemstonePowerJEIPlugin implements IModPlugin
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.EXTRACTOR.get()), EXTRACTOR_CATEGORY);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.ORE_WASHER.get()), ORE_WASHER_CATEGORY);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.SAWMILL.get()), SAWMILL_CATEGORY);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.POLARIZER.get()), POLARIZER_CATEGORY);
     }
 
     @Override
@@ -104,6 +109,7 @@ public class GemstonePowerJEIPlugin implements IModPlugin
         registration.addRecipeClickArea(ExtractorScreen.class, 80, 41, 18, 10, EXTRACTOR_CATEGORY);
         registration.addRecipeClickArea(OreWasherScreen.class, 75, 38, 19, 15, ORE_WASHER_CATEGORY);
         registration.addRecipeClickArea(SawmillScreen.class, 74, 39, 24, 13, SAWMILL_CATEGORY);
+        registration.addRecipeClickArea(PolarizerScreen.class, 77, 39, 24, 12, POLARIZER_CATEGORY);
     }
 
     @Override
@@ -118,5 +124,6 @@ public class GemstonePowerJEIPlugin implements IModPlugin
         registration.addRecipeTransferHandler(ExtractorMenu.class, ModContainers.EXTRACTOR.get(), EXTRACTOR_CATEGORY, 0, 1, 2, 35);
         registration.addRecipeTransferHandler(OreWasherMenu.class, ModContainers.ORE_WASHER.get(), ORE_WASHER_CATEGORY, 0, 1, 2, 35);
         registration.addRecipeTransferHandler(SawmillMenu.class, ModContainers.SAWMILL.get(), SAWMILL_CATEGORY, 0, 1, 2, 35);
+        registration.addRecipeTransferHandler(PolarizerMenu.class, ModContainers.POLARIZER.get(), POLARIZER_CATEGORY, 0, 1, 2, 35);
     }
 }

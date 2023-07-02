@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:gemstonepower/gemstone_generator",
+  "criteria": {
+    "has_wind_turbine": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:wind_turbine"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.gemstonepower.wind_turbine.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "gemstonepower:water_mill"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.gemstonepower.wind_turbine.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_wind_turbine"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

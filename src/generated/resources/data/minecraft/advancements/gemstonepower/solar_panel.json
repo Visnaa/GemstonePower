@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:gemstonepower/gemstone_generator",
+  "criteria": {
+    "has_solar_panel": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:solar_panel"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.gemstonepower.solar_panel.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "gemstonepower:solar_panel"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.gemstonepower.solar_panel.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_solar_panel"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

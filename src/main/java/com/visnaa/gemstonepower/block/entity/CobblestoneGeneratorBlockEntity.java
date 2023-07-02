@@ -1,5 +1,6 @@
 package com.visnaa.gemstonepower.block.entity;
 
+import com.visnaa.gemstonepower.config.CommonConfig;
 import com.visnaa.gemstonepower.network.energy.ForgeEnergyStorage;
 import com.visnaa.gemstonepower.registry.ModBlockEntities;
 import net.minecraft.core.BlockPos;
@@ -106,7 +107,7 @@ public class CobblestoneGeneratorBlockEntity extends BlockEntity
 
     private ForgeEnergyStorage createEnergyStorage()
     {
-        return new ForgeEnergyStorage(20000, Integer.MAX_VALUE, Integer.MAX_VALUE) {
+        return new ForgeEnergyStorage(CommonConfig.DEFAULT_MACHINE_CAPACITY.get(), Integer.MAX_VALUE, Integer.MAX_VALUE) {
             @Override
             protected void onEnergyChanged() {
                 setChanged();

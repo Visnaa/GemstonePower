@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:gemstonepower/gemstone_cell",
+  "criteria": {
+    "has_crystal_grower": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:crystal_grower"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.gemstonepower.crystal_grower.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "gemstonepower:crystal_grower"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.gemstonepower.crystal_grower.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_crystal_grower"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

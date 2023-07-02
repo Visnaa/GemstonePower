@@ -3,6 +3,7 @@ package com.visnaa.gemstonepower.block.entity;
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.block.ElectricFurnaceBlock;
 import com.visnaa.gemstonepower.client.screen.menu.ElectricFurnaceMenu;
+import com.visnaa.gemstonepower.config.CommonConfig;
 import com.visnaa.gemstonepower.data.recipe.CrystalGrowerRecipe;
 import com.visnaa.gemstonepower.network.energy.ForgeEnergyStorage;
 import com.visnaa.gemstonepower.registry.ModBlockEntities;
@@ -375,7 +376,7 @@ public class ElectricFurnaceBlockEntity extends BaseContainerBlockEntity impleme
 
     private ForgeEnergyStorage createEnergyStorage()
     {
-        return new ForgeEnergyStorage(50000, Integer.MAX_VALUE, 0) {
+        return new ForgeEnergyStorage(CommonConfig.DEFAULT_MACHINE_CAPACITY.get(), Integer.MAX_VALUE, 0) {
             @Override
             protected void onEnergyChanged() {
                 setChanged();

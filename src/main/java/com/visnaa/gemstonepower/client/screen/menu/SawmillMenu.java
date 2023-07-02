@@ -1,7 +1,6 @@
 package com.visnaa.gemstonepower.client.screen.menu;
 
 import com.visnaa.gemstonepower.GemstonePower;
-import com.visnaa.gemstonepower.data.recipe.PulverizerRecipe;
 import com.visnaa.gemstonepower.data.recipe.SawmillRecipe;
 import com.visnaa.gemstonepower.registry.ModContainers;
 import com.visnaa.gemstonepower.registry.ModRecipes;

@@ -1,13 +1,13 @@
 package com.visnaa.gemstonepower.item;
 
-import net.minecraft.world.item.Item;
+import com.visnaa.gemstonepower.client.render.Tints;
 import net.minecraft.world.item.ItemStack;
 
-public class FoilItem extends Item
+public class FoilItem extends TintedItem
 {
-    public FoilItem(Properties properties)
+    public FoilItem(Properties properties, Tints color)
     {
-        super(properties);
+        super(properties, color);
     }
 
     @Override

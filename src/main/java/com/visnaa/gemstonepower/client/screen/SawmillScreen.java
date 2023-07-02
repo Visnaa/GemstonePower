@@ -2,7 +2,6 @@ package com.visnaa.gemstonepower.client.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.visnaa.gemstonepower.GemstonePower;
-import com.visnaa.gemstonepower.client.screen.menu.PulverizerMenu;
 import com.visnaa.gemstonepower.client.screen.menu.SawmillMenu;
 import com.visnaa.gemstonepower.util.EnergyUtilities;
 import net.minecraft.client.Minecraft;

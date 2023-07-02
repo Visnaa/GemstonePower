@@ -15,6 +15,7 @@ import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -72,7 +73,7 @@ public class ExtractorRecipeCategory implements IRecipeCategory<ExtractorRecipe>
     public void setRecipe(IRecipeLayoutBuilder builder, ExtractorRecipe recipe, IFocusGroup focuses)
     {
         builder.addSlot(RecipeIngredientRole.INPUT, 1, 11).addIngredients(recipe.getIngredients().get(0));
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 57, 11).addItemStack(recipe.getResultItem(null));
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 57, 11).addItemStack(new ItemStack(recipe.getResultItem(null).getItem(), recipe.getCount()));
     }
 
     @Override
@@ -80,6 +81,6 @@ public class ExtractorRecipeCategory implements IRecipeCategory<ExtractorRecipe>
     {
         this.progressAnimated.draw(graphics, 28, 14);
         this.energyAnimated.draw(graphics, 97, 11);
-        //Minecraft.getInstance().font.draw(stack, "Energy: " + recipe.getEnergyUsage() * recipe.getProcessingTime() + " FE", 0, 0, 0x888888);
+        graphics.drawString(Minecraft.getInstance().font, "Energy: " + recipe.getEnergyUsage() * recipe.getProcessingTime() + " FE", 0, 0, 0x888888, false);
     }
 }

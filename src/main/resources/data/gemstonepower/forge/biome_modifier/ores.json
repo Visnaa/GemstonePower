@@ -2,24 +2,16 @@
   "type": "forge:add_features",
   "biomes": "#minecraft:is_overworld",
   "features": [
-    "gemstonepower:ore_aluminum",
-    "gemstonepower:ore_aluminum_small",
-    "gemstonepower:ore_tin",
-    "gemstonepower:ore_tin_small",
-    "gemstonepower:ore_silver",
-    "gemstonepower:ore_silver_small",
-    "gemstonepower:ore_nickel",
-    "gemstonepower:ore_nickel_small",
-    "gemstonepower:ore_platinum",
-    "gemstonepower:ore_platinum_small",
-    "gemstonepower:ore_lithium",
-    "gemstonepower:ore_lithium_small",
-    "gemstonepower:ore_uranium",
-    "gemstonepower:ore_uranium_small",
-    "gemstonepower:ore_lead",
-    "gemstonepower:ore_lead_small",
-    "gemstonepower:ore_zinc",
-    "gemstonepower:ore_zinc_small"
+    "gemstonepower:aluminum",
+    "gemstonepower:tin",
+    "gemstonepower:silver",
+    "gemstonepower:nickel",
+    "gemstonepower:platinum",
+    "gemstonepower:lithium",
+    "gemstonepower:magnesium",
+    "gemstonepower:uranium",
+    "gemstonepower:lead",
+    "gemstonepower:zinc"
   ],
-  "step": "underground_decoration"
+  "step": "underground_ores"
 }

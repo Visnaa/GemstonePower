@@ -102,6 +102,7 @@ public class ItemModelGenerator extends ItemModelProvider
         this.withExistingParent("iron_ore_dust", modLoc("item/ore_dust"));
         this.withExistingParent("iron_plate", modLoc("item/plate"));
         this.withExistingParent("iron_rod", modLoc("item/rod"));
+        this.withExistingParent("iron_rod_polarized", modLoc("item/rod"));
         this.withExistingParent("iron_gear", modLoc("item/gear"));
 
     // GOLD
@@ -225,6 +226,7 @@ public class ItemModelGenerator extends ItemModelProvider
         this.withExistingParent("nickel_ore_dust", modLoc("item/ore_dust"));
         this.withExistingParent("nickel_plate", modLoc("item/plate"));
         this.withExistingParent("nickel_rod", modLoc("item/rod"));
+        this.withExistingParent("nickel_rod_polarized", modLoc("item/rod"));
         this.withExistingParent("nickel_gear", modLoc("item/gear"));
 
     // INVAR
@@ -234,6 +236,7 @@ public class ItemModelGenerator extends ItemModelProvider
         this.withExistingParent("invar_tiny_pile", modLoc("item/tiny_pile"));
         this.withExistingParent("invar_plate", modLoc("item/plate"));
         this.withExistingParent("invar_rod", modLoc("item/rod"));
+        this.withExistingParent("invar_rod_polarized", modLoc("item/rod"));
         this.withExistingParent("invar_gear", modLoc("item/gear"));
 
         this.withExistingParent("invar_helmet", modLoc("item/helmet"));
@@ -254,6 +257,7 @@ public class ItemModelGenerator extends ItemModelProvider
         this.withExistingParent("constantan_tiny_pile", modLoc("item/tiny_pile"));
         this.withExistingParent("constantan_plate", modLoc("item/plate"));
         this.withExistingParent("constantan_rod", modLoc("item/rod"));
+        this.withExistingParent("constantan_rod_polarized", modLoc("item/rod"));
         this.withExistingParent("constantan_gear", modLoc("item/gear"));
 
     // PLATINUM
@@ -274,6 +278,7 @@ public class ItemModelGenerator extends ItemModelProvider
         this.withExistingParent("steel_tiny_pile", modLoc("item/tiny_pile"));
         this.withExistingParent("steel_plate", modLoc("item/plate"));
         this.withExistingParent("steel_rod", modLoc("item/rod"));
+        this.withExistingParent("steel_rod_polarized", modLoc("item/rod"));
         this.withExistingParent("steel_gear", modLoc("item/gear"));
 
         this.withExistingParent("steel_helmet", modLoc("item/helmet"));

@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#forge:is_mushroom",
+  "features": [
+    "gemstonepower:silver_extra"
+  ],
+  "step": "underground_ores"
+}

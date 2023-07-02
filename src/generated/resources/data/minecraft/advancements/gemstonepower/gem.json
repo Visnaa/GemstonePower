@@ -1,0 +1,36 @@
+{
+  "parent": "minecraft:gemstonepower/crystal_grower",
+  "criteria": {
+    "has_gem": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "gemstonepower:gems"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.gemstonepower.gem.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "gemstonepower:ruby"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.gemstonepower.gem.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_gem"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

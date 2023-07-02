@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:gemstonepower/resin",
+  "criteria": {
+    "has_rubber": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:rubber"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.gemstonepower.rubber.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "gemstonepower:rubber"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.gemstonepower.rubber.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_rubber"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

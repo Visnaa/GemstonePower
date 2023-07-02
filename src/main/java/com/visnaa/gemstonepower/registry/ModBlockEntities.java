@@ -25,6 +25,7 @@ public final class ModBlockEntities
     public static final RegistryObject<BlockEntityType<OreWasherBlockEntity>> ORE_WASHER = BLOCK_ENTITIES.register("ore_washer", () -> BlockEntityType.Builder.of(OreWasherBlockEntity::new, ModBlocks.ORE_WASHER.get()).build(null));
     public static final RegistryObject<BlockEntityType<CobblestoneGeneratorBlockEntity>> COBBLESTONE_GENERATOR = BLOCK_ENTITIES.register("cobblestone_generator", () -> BlockEntityType.Builder.of(CobblestoneGeneratorBlockEntity::new, ModBlocks.COBBLESTONE_GENERATOR.get()).build(null));
     public static final RegistryObject<BlockEntityType<SawmillBlockEntity>> SAWMILL = BLOCK_ENTITIES.register("sawmill", () -> BlockEntityType.Builder.of(SawmillBlockEntity::new, ModBlocks.SAWMILL.get()).build(null));
+    public static final RegistryObject<BlockEntityType<PolarizerBlockEntity>> POLARIZER = BLOCK_ENTITIES.register("polarizer", () -> BlockEntityType.Builder.of(PolarizerBlockEntity::new, ModBlocks.POLARIZER.get()).build(null));
 
     public static final RegistryObject<BlockEntityType<SolarPanelBlockEntity>> SOLAR_PANEL = BLOCK_ENTITIES.register("solar_panel", () -> BlockEntityType.Builder.of(SolarPanelBlockEntity::new, ModBlocks.SOLAR_PANEL.get()).build(null));
     public static final RegistryObject<BlockEntityType<WaterMillBlockEntity>> WATER_MILL = BLOCK_ENTITIES.register("water_mill", () -> BlockEntityType.Builder.of(WaterMillBlockEntity::new, ModBlocks.WATER_MILL.get()).build(null));

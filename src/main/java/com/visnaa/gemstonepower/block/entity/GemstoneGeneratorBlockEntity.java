@@ -3,11 +3,11 @@ package com.visnaa.gemstonepower.block.entity;
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.block.GemstoneGeneratorBlock;
 import com.visnaa.gemstonepower.client.screen.menu.GemstoneGeneratorMenu;
+import com.visnaa.gemstonepower.config.CommonConfig;
 import com.visnaa.gemstonepower.data.recipe.GemstoneGeneratorRecipe;
 import com.visnaa.gemstonepower.network.energy.ForgeEnergyStorage;
 import com.visnaa.gemstonepower.registry.ModBlockEntities;
 import com.visnaa.gemstonepower.registry.ModRecipes;
-import com.visnaa.gemstonepower.util.EnergyUtilities;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -195,7 +195,7 @@ public class GemstoneGeneratorBlockEntity extends BaseContainerBlockEntity imple
 
             if (outputs.size() > 0)
             {
-                int energy = Math.min(capacity.get() / outputs.size(), EnergyUtilities.UTR);
+                int energy = Math.min(capacity.get() / outputs.size(), CommonConfig.ENERGY_TRANSFER_RATE.get());
                 for (BlockEntity be : outputs)
                 {
                     be.getCapability(ForgeCapabilities.ENERGY).map(handler ->
@@ -391,7 +391,7 @@ public class GemstoneGeneratorBlockEntity extends BaseContainerBlockEntity imple
 
     private ForgeEnergyStorage createEnergyStorage()
     {
-        return new ForgeEnergyStorage(100000000, 0, 10000) {
+        return new ForgeEnergyStorage(CommonConfig.DEFAULT_GENERATOR_CAPACITY.get(), 0, Integer.MAX_VALUE) {
             @Override
             protected void onEnergyChanged() {
                 setChanged();

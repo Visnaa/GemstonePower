@@ -1,0 +1,25 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": [
+    "gemstonepower:ruby",
+    "gemstonepower:sapphire",
+    "gemstonepower:aquamarine",
+    "gemstonepower:jade",
+    "gemstonepower:opal",
+    "gemstonepower:yellow_diamond",
+    "gemstonepower:amber",
+    "gemstonepower:topaz",
+    "gemstonepower:beryllium",
+    "gemstonepower:bixbit",
+    "gemstonepower:malachite",
+    "gemstonepower:onyx",
+    "gemstonepower:peridot",
+    "gemstonepower:moon_stone",
+    "gemstonepower:sun_stone",
+    "gemstonepower:citrine",
+    "gemstonepower:dolomite",
+    "gemstonepower:tanzanite"
+  ],
+  "step": "underground_decoration"
+}

@@ -1,7 +1,7 @@
 {
   "asset_name": "uranium",
   "description": {
-    "color": "#47DE65",
+    "color": "#76BF67",
     "translate": "trim_material.gemstonepower.uranium"
   },
   "ingredient": "gemstonepower:uranium_ingot",

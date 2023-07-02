@@ -21,6 +21,7 @@ public final class ModRecipes
     public static final RegistryObject<ExtractorRecipe.Serializer> EXTRACTOR_RECIPE_SERIALIZER = RECIPE_SERIALIZERS.register("extractor", ExtractorRecipe.Serializer::new);
     public static final RegistryObject<OreWasherRecipe.Serializer> ORE_WASHER_RECIPE_SERIALIZER = RECIPE_SERIALIZERS.register("ore_washer", OreWasherRecipe.Serializer::new);
     public static final RegistryObject<SawmillRecipe.Serializer> SAWMILL_RECIPE_SERIALIZER = RECIPE_SERIALIZERS.register("sawmill", SawmillRecipe.Serializer::new);
+    public static final RegistryObject<PolarizerRecipe.Serializer> POLARIZER_RECIPE_SERIALIZER = RECIPE_SERIALIZERS.register("polarizer", PolarizerRecipe.Serializer::new);
 
     public static RecipeType<GemstoneGeneratorRecipe> GEMSTONE_GENERATOR_RECIPE = new GemstoneGeneratorRecipe.Type();
     public static RecipeType<CrystalGrowerRecipe> CRYSTAL_GROWER_RECIPE = new CrystalGrowerRecipe.Type();
@@ -31,4 +32,5 @@ public final class ModRecipes
     public static RecipeType<ExtractorRecipe> EXTRACTOR_RECIPE = new ExtractorRecipe.Type();
     public static RecipeType<OreWasherRecipe> ORE_WASHER_RECIPE = new OreWasherRecipe.Type();
     public static RecipeType<SawmillRecipe> SAWMILL_RECIPE = new SawmillRecipe.Type();
+    public static RecipeType<PolarizerRecipe> POLARIZER_RECIPE = new PolarizerRecipe.Type();
 }

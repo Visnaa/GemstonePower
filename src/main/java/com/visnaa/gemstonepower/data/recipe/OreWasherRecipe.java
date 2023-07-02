@@ -136,7 +136,7 @@ public class OreWasherRecipe implements Recipe<Container>
 
             JsonObject outputsJson = GsonHelper.getAsJsonObject(json, "outputs");
             NonNullList<ItemStack> outputs = NonNullList.withSize(outputsJson.size(), ItemStack.EMPTY);
-            int[] counts = new int[outputsJson.size()];
+            int[] counts = new int[4];
             for (int i = 0; i < outputsJson.size(); i++)
             {
                 JsonObject output = GsonHelper.getAsJsonObject(outputsJson, "output" + i);
@@ -161,7 +161,7 @@ public class OreWasherRecipe implements Recipe<Container>
             }
 
             NonNullList<ItemStack> outputs = NonNullList.withSize(buffer.readInt(), ItemStack.EMPTY);
-            int[] counts = new int[outputs.size()];
+            int[] counts = new int[4];
             for (int i = 0; i < outputs.size(); i++)
             {
                 outputs.set(i, buffer.readItem());

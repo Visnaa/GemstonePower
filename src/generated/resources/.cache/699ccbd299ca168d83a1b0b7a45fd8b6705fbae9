@@ -1,4 +1,4 @@
-// 1.20.1	2023-06-30T12:20:32.8676427	Block States: gemstonepower
+// 1.20.1	2023-07-01T03:03:22.4892391	Block States: gemstonepower
 11c4d6aec16d8f57c30dd7e84faaed6dd63596a9 assets/gemstonepower/blockstates/alloy_smelter.json
 82e779ca55602bc3c1a921eeba5199a80496b336 assets/gemstonepower/blockstates/aluminum_block.json
 c8bfa41b107b508305585782c062b564d797e499 assets/gemstonepower/blockstates/aluminum_cable.json
@@ -53,6 +53,7 @@ e05583f5798139ca15c9178edffbe58b2fcdff49 assets/gemstonepower/blockstates/ore_wa
 cd3b6e449fc8d0f1f67121dea23bcd47769c1876 assets/gemstonepower/blockstates/peridot_crystals.json
 4bacdf53a4e09bcc87a4ba06a4a791f57a121003 assets/gemstonepower/blockstates/platinum_block.json
 c3d46240d87c37636ceb478e228e0b61a94e5297 assets/gemstonepower/blockstates/platinum_ore.json
+83b7bd55078bb27021eeaa450704c884dc7c14b6 assets/gemstonepower/blockstates/polarizer.json
 ef1d872fa3ba8bad0cdb58b1e0d171141d038252 assets/gemstonepower/blockstates/pulverizer.json
 9b73d2419e07259eb9681640ac018a6aeb7e7e93 assets/gemstonepower/blockstates/resin_oak_leaves.json
 4a4cd0c410513b3897f6b962aaffdfe3067df176 assets/gemstonepower/blockstates/resin_oak_log.json
@@ -128,6 +129,7 @@ f9f506497c3526c82b8fe8f1e7f42526d630da81 assets/gemstonepower/models/block/elect
 175cdfa92fa5ff1bed381f5ed67623becc35add2 assets/gemstonepower/models/block/peridot_crystals.json
 08cdad216dc5c8d3724cf1900bceee4dcd7a5f4c assets/gemstonepower/models/block/platinum_block.json
 1c203e9a413d525d77991d45fbc4d24a18a4564f assets/gemstonepower/models/block/platinum_ore.json
+e67b65ba66a2e381c11bb5f9b4e05aa271428a24 assets/gemstonepower/models/block/polarizer.json
 17b85ee0474ed329cbed9944e66835c075ee0edf assets/gemstonepower/models/block/pulverizer.json
 7325a9f9a6bc103b5de297e1061189b30a215167 assets/gemstonepower/models/block/resin_oak_log.json
 36068faae6252ab41f275e7e803126cef7ee357d assets/gemstonepower/models/block/resin_oak_log_horizontal.json
@@ -203,6 +205,7 @@ c57ebf515c7dd16b352f30fd991a444badc2579d assets/gemstonepower/models/item/opal_c
 536006fb1c5624b6877b790f5b0652846f484b44 assets/gemstonepower/models/item/peridot_crystals.json
 6252db9557d004a71a6c783162183909b1021ff5 assets/gemstonepower/models/item/platinum_block.json
 f576849b793f60c4ccc187b2f87da1d6d41f1c87 assets/gemstonepower/models/item/platinum_ore.json
+e2e1e75238aacde3114497cf1130dc20d63d713d assets/gemstonepower/models/item/polarizer.json
 1c539bd8b828bbf53f9db24dfb0604032d9fbd2a assets/gemstonepower/models/item/pulverizer.json
 bd8ec10fba2faf5c43a345a3f6324458ffccf0aa assets/gemstonepower/models/item/resin_oak_leaves.json
 6a1a4d65e3965b298ed43486938ad0c6eb891b06 assets/gemstonepower/models/item/resin_oak_log.json

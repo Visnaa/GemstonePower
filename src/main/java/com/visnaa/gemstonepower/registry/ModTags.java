@@ -9,6 +9,10 @@ import net.minecraft.world.level.biome.Biome;
 public class ModTags
 {
     public static final TagKey<Item> GEMSTONE = item("gemstone");
+    public static final TagKey<Item> GEMS = item("gems");
+    public static final TagKey<Item> CHARGED_GEMS = item("charged_gems");
+    public static final TagKey<Item> GEM_SEEDS = item("gem_seeds");
+    public static final TagKey<Item> CABLES = item("cables");
 
     public static final TagKey<Biome> RESIN_TREE_SPAWN = biome("resin_tree_spawn");
 

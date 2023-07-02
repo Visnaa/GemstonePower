@@ -1,7 +1,6 @@
 package com.visnaa.gemstonepower.integration.jei.category;
 
 import com.visnaa.gemstonepower.GemstonePower;
-import com.visnaa.gemstonepower.data.recipe.PulverizerRecipe;
 import com.visnaa.gemstonepower.data.recipe.SawmillRecipe;
 import com.visnaa.gemstonepower.integration.jei.GemstonePowerJEIPlugin;
 import com.visnaa.gemstonepower.registry.ModBlocks;
@@ -16,6 +15,7 @@ import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -73,7 +73,7 @@ public class SawmillRecipeCategory implements IRecipeCategory<SawmillRecipe>
     public void setRecipe(IRecipeLayoutBuilder builder, SawmillRecipe recipe, IFocusGroup focuses)
     {
         builder.addSlot(RecipeIngredientRole.INPUT, 1, 11).addIngredients(recipe.getIngredients().get(0));
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 57, 11).addItemStack(recipe.getResultItem(null));
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 57, 11).addItemStack(new ItemStack(recipe.getResultItem(null).getItem(), recipe.getCount()));
     }
 
     @Override
@@ -81,6 +81,6 @@ public class SawmillRecipeCategory implements IRecipeCategory<SawmillRecipe>
     {
         this.progressAnimated.draw(graphics, 23, 12);
         this.energyAnimated.draw(graphics, 97, 11);
-        //Minecraft.getInstance().font.draw(stack, "Energy: " + recipe.getEnergyUsage() * recipe.getProcessingTime() + " FE", 0, 0, 0x888888);
+        graphics.drawString(Minecraft.getInstance().font, "Energy: " + recipe.getEnergyUsage() * recipe.getProcessingTime() + " FE", 0, 0, 0x888888, false);
     }
 }

@@ -265,6 +265,19 @@ public class BlockModelGenerator extends BlockStateProvider
                         .rotationY((int) state.getValue(HORIZONTAL_FACING).getOpposite().toYRot())
                         .build());
 
+        this.blockWithItem(ModBlocks.POLARIZER.get(),"polarizer");
+        this.getVariantBuilder(ModBlocks.POLARIZER.get())
+                .forAllStates(state -> ConfiguredModel.builder()
+                        .modelFile(models().cube("polarizer",
+                                modLoc("block/machine"),
+                                modLoc("block/machine"),
+                                modLoc("block/polarizer"),
+                                modLoc("block/machine"),
+                                modLoc("block/machine"),
+                                modLoc("block/machine")).texture("particle", modLoc("block/polarizer")))
+                        .rotationY((int) state.getValue(HORIZONTAL_FACING).getOpposite().toYRot())
+                        .build());
+
         this.simpleBlock(ModBlocks.RESIN_OAK_SAPLING.get(), models().cross("resin_oak_sapling", modLoc("block/resin_oak_sapling")).renderType("cutout"));
         this.blockWithItem(ModBlocks.RESIN_OAK_LOG.get(), "resin_oak_log");
         this.logBlock((RotatedPillarBlock) ModBlocks.RESIN_OAK_LOG.get());

@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:gemstonepower/gemstone_cell",
+  "criteria": {
+    "has_sawmill": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:sawmill"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.gemstonepower.sawmill.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "gemstonepower:sawmill"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.gemstonepower.sawmill.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_sawmill"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

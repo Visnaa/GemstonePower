@@ -17,7 +17,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 import static com.visnaa.gemstonepower.data.tag.ForgeTags.Items.*;
-import static com.visnaa.gemstonepower.registry.ModTags.GEMSTONE;
+import static com.visnaa.gemstonepower.registry.ModTags.GEMS;
+import static com.visnaa.gemstonepower.registry.ModTags.*;
 import static net.minecraft.tags.ItemTags.*;
 import static net.minecraftforge.common.Tags.Items.*;
 
@@ -34,6 +35,72 @@ public class ItemTagGenerator extends TagsProvider<Item>
         this.tag(GEMSTONE)
                 .add(ModItems.LIGHT_GEMSTONE.getKey())
                 .add(ModItems.DARK_GEMSTONE.getKey());
+
+        this.tag(GEMS)
+                .add(ModItems.RUBY.getKey())
+                .add(ModItems.SAPPHIRE.getKey())
+                .add(ModItems.AQUAMARINE.getKey())
+                .add(ModItems.JADE.getKey())
+                .add(ModItems.OPAL.getKey())
+                .add(ModItems.YELLOW_DIAMOND.getKey())
+                .add(ModItems.AMBER.getKey())
+                .add(ModItems.TOPAZ.getKey())
+                .add(ModItems.BERYLLIUM.getKey())
+                .add(ModItems.BIXBIT.getKey())
+                .add(ModItems.MALACHITE.getKey())
+                .add(ModItems.ONYX.getKey())
+                .add(ModItems.PERIDOT.getKey())
+                .add(ModItems.MOON_STONE.getKey())
+                .add(ModItems.SUN_STONE.getKey())
+                .add(ModItems.CITRINE.getKey())
+                .add(ModItems.DOLOMITE.getKey())
+                .add(ModItems.TANZANITE.getKey());
+
+        this.tag(CHARGED_GEMS)
+                .add(ModItems.RUBY_CHARGED.getKey())
+                .add(ModItems.SAPPHIRE_CHARGED.getKey())
+                .add(ModItems.AQUAMARINE_CHARGED.getKey())
+                .add(ModItems.JADE_CHARGED.getKey())
+                .add(ModItems.OPAL_CHARGED.getKey())
+                .add(ModItems.YELLOW_DIAMOND_CHARGED.getKey())
+                .add(ModItems.AMBER_CHARGED.getKey())
+                .add(ModItems.TOPAZ_CHARGED.getKey())
+                .add(ModItems.BERYLLIUM_CHARGED.getKey())
+                .add(ModItems.BIXBIT_CHARGED.getKey())
+                .add(ModItems.MALACHITE_CHARGED.getKey())
+                .add(ModItems.ONYX_CHARGED.getKey())
+                .add(ModItems.PERIDOT_CHARGED.getKey())
+                .add(ModItems.MOON_STONE_CHARGED.getKey())
+                .add(ModItems.SUN_STONE_CHARGED.getKey())
+                .add(ModItems.CITRINE_CHARGED.getKey())
+                .add(ModItems.DOLOMITE_CHARGED.getKey())
+                .add(ModItems.TANZANITE_CHARGED.getKey());
+        
+        this.tag(GEM_SEEDS)
+                .add(ModItems.RUBY_SEED.getKey())
+                .add(ModItems.SAPPHIRE_SEED.getKey())
+                .add(ModItems.AQUAMARINE_SEED.getKey())
+                .add(ModItems.JADE_SEED.getKey())
+                .add(ModItems.OPAL_SEED.getKey())
+                .add(ModItems.YELLOW_DIAMOND_SEED.getKey())
+                .add(ModItems.AMBER_SEED.getKey())
+                .add(ModItems.TOPAZ_SEED.getKey())
+                .add(ModItems.BERYLLIUM_SEED.getKey())
+                .add(ModItems.BIXBIT_SEED.getKey())
+                .add(ModItems.MALACHITE_SEED.getKey())
+                .add(ModItems.ONYX_SEED.getKey())
+                .add(ModItems.PERIDOT_SEED.getKey())
+                .add(ModItems.MOON_STONE_SEED.getKey())
+                .add(ModItems.SUN_STONE_SEED.getKey())
+                .add(ModItems.CITRINE_SEED.getKey())
+                .add(ModItems.DOLOMITE_SEED.getKey())
+                .add(ModItems.TANZANITE_SEED.getKey());
+
+        this.tag(CABLES)
+                .add(ModItems.COPPER_CABLE.getKey())
+                .add(ModItems.ALUMINUM_CABLE.getKey())
+                .add(ModItems.TIN_CABLE.getKey())
+                .add(ModItems.ELECTRUM_CABLE.getKey());
 
         this.tag(SWORDS)
                 .add(ModTools.GEMSTONE_SWORD.getKey())
@@ -345,7 +412,8 @@ public class ItemTagGenerator extends TagsProvider<Item>
                 .addTag(RODS_LEAD)
                 .addTag(RODS_ZINC);
         this.tag(RODS_IRON)
-                .add(ModItems.IRON_ROD.getKey());
+                .add(ModItems.IRON_ROD.getKey())
+                .add(ModItems.IRON_ROD_POLARIZED.getKey());
         this.tag(RODS_GOLD)
                 .add(ModItems.GOLD_ROD.getKey());
         this.tag(RODS_COPPER)
@@ -361,15 +429,19 @@ public class ItemTagGenerator extends TagsProvider<Item>
         this.tag(RODS_ELECTRUM)
                 .add(ModItems.ELECTRUM_ROD.getKey());
         this.tag(RODS_NICKEL)
-                .add(ModItems.NICKEL_ROD.getKey());
+                .add(ModItems.NICKEL_ROD.getKey())
+                .add(ModItems.NICKEL_ROD_POLARIZED.getKey());
         this.tag(RODS_INVAR)
-                .add(ModItems.INVAR_ROD.getKey());
+                .add(ModItems.INVAR_ROD.getKey())
+                .add(ModItems.INVAR_ROD_POLARIZED.getKey());
         this.tag(RODS_CONSTANTAN)
-                .add(ModItems.CONSTANTAN_ROD.getKey());
+                .add(ModItems.CONSTANTAN_ROD.getKey())
+                .add(ModItems.CONSTANTAN_ROD_POLARIZED.getKey());
         this.tag(RODS_PLATINUM)
                 .add(ModItems.PLATINUM_ROD.getKey());
         this.tag(RODS_STEEL)
-                .add(ModItems.STEEL_ROD.getKey());
+                .add(ModItems.STEEL_ROD.getKey())
+                .add(ModItems.STEEL_ROD_POLARIZED.getKey());
         this.tag(RODS_LITHIUM)
                 .add(ModItems.LITHIUM_ROD.getKey());
         this.tag(RODS_MAGNESIUM)

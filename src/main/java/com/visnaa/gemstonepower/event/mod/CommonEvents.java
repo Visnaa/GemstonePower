@@ -38,6 +38,7 @@ public class CommonEvents
             helper.register(ExtractorRecipe.TYPE_ID, ModRecipes.EXTRACTOR_RECIPE);
             helper.register(OreWasherRecipe.TYPE_ID, ModRecipes.ORE_WASHER_RECIPE);
             helper.register(SawmillRecipe.TYPE_ID, ModRecipes.SAWMILL_RECIPE);
+            helper.register(PolarizerRecipe.TYPE_ID, ModRecipes.POLARIZER_RECIPE);
         });
     }
 
@@ -62,6 +63,7 @@ public class CommonEvents
         generator.addProvider(true, new EntityTagGenerator(generator.getPackOutput(), completablefuture, existingFileHelper));
         generator.addProvider(true, new BiomeTagGenerator(generator.getPackOutput(), completablefuture, existingFileHelper));
         generator.addProvider(true, new TrimMaterialGenerator(generator.getPackOutput()));
-        generator.addProvider(true, new WorldGenGenerator(generator.getPackOutput(),completablefuture));
+        generator.addProvider(true, new WorldGenGenerator(generator.getPackOutput(), completablefuture));
+        generator.addProvider(true, AdvancementGenerator.create(generator.getPackOutput(), completablefuture));
     }
 }

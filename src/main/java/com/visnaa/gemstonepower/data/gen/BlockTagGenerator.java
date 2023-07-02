@@ -97,6 +97,7 @@ public class BlockTagGenerator extends TagsProvider<Block>
                 .add(ModBlocks.ORE_WASHER.getKey())
                 .add(ModBlocks.COBBLESTONE_GENERATOR.getKey())
                 .add(ModBlocks.SAWMILL.getKey())
+                .add(ModBlocks.POLARIZER.getKey())
 
                 .add(ModBlocks.SOLAR_PANEL.getKey())
                 .add(ModBlocks.WATER_MILL.getKey())
@@ -150,6 +151,7 @@ public class BlockTagGenerator extends TagsProvider<Block>
                 .add(ModBlocks.ORE_WASHER.getKey())
                 .add(ModBlocks.COBBLESTONE_GENERATOR.getKey())
                 .add(ModBlocks.SAWMILL.getKey())
+                .add(ModBlocks.POLARIZER.getKey())
 
                 .add(ModBlocks.SOLAR_PANEL.getKey())
                 .add(ModBlocks.WATER_MILL.getKey())

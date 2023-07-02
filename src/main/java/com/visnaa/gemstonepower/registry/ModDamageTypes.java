@@ -3,7 +3,6 @@ package com.visnaa.gemstonepower.registry;
 import com.visnaa.gemstonepower.GemstonePower;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.damagesource.DamageType;
 
 public class ModDamageTypes
@@ -13,6 +12,6 @@ public class ModDamageTypes
 
     private static ResourceKey<DamageType> damageType(String name)
     {
-        return ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(GemstonePower.MOD_ID, name));
+        return ResourceKey.create(Registries.DAMAGE_TYPE, GemstonePower.getId(name));
     }
 }

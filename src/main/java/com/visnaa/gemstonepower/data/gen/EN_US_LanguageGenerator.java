@@ -51,6 +51,7 @@ public class EN_US_LanguageGenerator extends LanguageProvider
         this.add(ModItems.IRON_ORE_DUST.get(), "Iron Ore Dust");
         this.add(ModItems.IRON_PLATE.get(), "Iron Plate");
         this.add(ModItems.IRON_ROD.get(), "Iron Rod");
+        this.add(ModItems.IRON_ROD_POLARIZED.get(), "Iron Rod (Polarized)");
         this.add(ModItems.IRON_GEAR.get(), "Iron Gear");
 
     // GOLD
@@ -188,6 +189,7 @@ public class EN_US_LanguageGenerator extends LanguageProvider
         this.add(ModItems.NICKEL_ORE_DUST.get(), "Nickel Ore Dust");
         this.add(ModItems.NICKEL_PLATE.get(), "Nickel Plate");
         this.add(ModItems.NICKEL_ROD.get(), "Nickel Rod");
+        this.add(ModItems.NICKEL_ROD_POLARIZED.get(), "Nickel Rod (Polarized)");
         this.add(ModItems.NICKEL_GEAR.get(), "Nickel Gear");
 
     // INVAR
@@ -198,6 +200,7 @@ public class EN_US_LanguageGenerator extends LanguageProvider
         this.add(ModItems.INVAR_TINY_PILE.get(), "Tiny Pile Of Invar Dust");
         this.add(ModItems.INVAR_PLATE.get(), "Invar Plate");
         this.add(ModItems.INVAR_ROD.get(), "Invar Rod");
+        this.add(ModItems.INVAR_ROD_POLARIZED.get(), "Invar Rod (Polarized)");
         this.add(ModItems.INVAR_GEAR.get(), "Invar Gear");
 
         this.add(ModArmors.INVAR_HELMET.get(), "Invar Helmet");
@@ -219,6 +222,7 @@ public class EN_US_LanguageGenerator extends LanguageProvider
         this.add(ModItems.CONSTANTAN_TINY_PILE.get(), "Tiny Pile Of Constantan Dust");
         this.add(ModItems.CONSTANTAN_PLATE.get(), "Constantan Plate");
         this.add(ModItems.CONSTANTAN_ROD.get(), "Constantan Rod");
+        this.add(ModItems.CONSTANTAN_ROD_POLARIZED.get(), "Constantan Rod (Polarized)");
         this.add(ModItems.CONSTANTAN_GEAR.get(), "Constantan Gear");
 
     // PLATINUM
@@ -243,6 +247,7 @@ public class EN_US_LanguageGenerator extends LanguageProvider
         this.add(ModItems.STEEL_TINY_PILE.get(), "Tiny Pile Of Steel Dust");
         this.add(ModItems.STEEL_PLATE.get(), "Steel Plate");
         this.add(ModItems.STEEL_ROD.get(), "Steel Rod");
+        this.add(ModItems.STEEL_ROD_POLARIZED.get(), "Steel Rod (Polarized)");
         this.add(ModItems.STEEL_GEAR.get(), "Steel Gear");
 
         this.add(ModArmors.STEEL_HELMET.get(), "Steel Helmet");
@@ -417,6 +422,7 @@ public class EN_US_LanguageGenerator extends LanguageProvider
         this.add(ModBlocks.ORE_WASHER.get(), "Ore Washer");
         this.add(ModBlocks.COBBLESTONE_GENERATOR.get(), "Cobblestone Generator");
         this.add(ModBlocks.SAWMILL.get(), "Sawmill");
+        this.add(ModBlocks.POLARIZER.get(), "Polarizer");
 
         this.add(ModBlocks.SOLAR_PANEL.get(), "Solar Panel");
         this.add(ModBlocks.WATER_MILL.get(), "Water Mill");
@@ -434,8 +440,16 @@ public class EN_US_LanguageGenerator extends LanguageProvider
         this.add("menu." + GemstonePower.MOD_ID + ".extractor", "Extractor");
         this.add("menu." + GemstonePower.MOD_ID + ".ore_washer", "Ore Washer");
         this.add("menu." + GemstonePower.MOD_ID + ".sawmill", "Sawmill");
+        this.add("menu." + GemstonePower.MOD_ID + ".polarizer", "Polarizer");
 
         this.add("menu." + GemstonePower.MOD_ID + ".energy_shift_tip", "§8Press §bSHIFT §8to get more details");
+
+        this.add("menu." + GemstonePower.MOD_ID + ".config_screen", "Gemstone Power client config");
+        this.add("menu." + GemstonePower.MOD_ID + ".config_screen.done", "Done");
+        this.add("menu." + GemstonePower.MOD_ID + ".config_screen.energy_unit", "Displayed energy unit");
+        this.add("menu." + GemstonePower.MOD_ID + ".config_screen.energy_unit.ge", "GE (Gemstone Energy)");
+        this.add("menu." + GemstonePower.MOD_ID + ".config_screen.energy_unit.fe", "FE (Forge Energy)");
+        this.add("menu." + GemstonePower.MOD_ID + ".config_screen.energy_unit.rf", "RF (Redstone Flux)");
 
     // CABLES
         this.add(ModBlocks.COPPER_WIRE.get(), "Copper Wire");
@@ -557,5 +571,51 @@ public class EN_US_LanguageGenerator extends LanguageProvider
         this.add(ModEntities.CITRINE_ARROW.get(), "Citrine Arrow");
         this.add(ModEntities.DOLOMITE_ARROW.get(), "Dolomite Arrow");
         this.add(ModEntities.TANZANITE_ARROW.get(), "Tanzanite Arrow");
+
+    // ADVANCEMENTS
+        this.add("advancement." + GemstonePower.MOD_ID + ".root.title", "The seed of beginning");
+        this.add("advancement." + GemstonePower.MOD_ID + ".root.description", "Obtain seed of any gem");
+        this.add("advancement." + GemstonePower.MOD_ID + ".gemstone_generator.title", "Coal energy");
+        this.add("advancement." + GemstonePower.MOD_ID + ".gemstone_generator.description", "Craft a Gemstone Generator");
+        this.add("advancement." + GemstonePower.MOD_ID + ".gemstone_cell.title", "Shocking storage");
+        this.add("advancement." + GemstonePower.MOD_ID + ".gemstone_cell.description", "Craft a Gemstone Cell");
+        this.add("advancement." + GemstonePower.MOD_ID + ".alloy_smelter.title", "1 + 1 = alloy?");
+        this.add("advancement." + GemstonePower.MOD_ID + ".alloy_smelter.description", "Craft an Alloy Smelter");
+        this.add("advancement." + GemstonePower.MOD_ID + ".cobblestone_generator.title", "Skyblock vibes");
+        this.add("advancement." + GemstonePower.MOD_ID + ".cobblestone_generator.description", "Craft a Cobblestone Generator");
+        this.add("advancement." + GemstonePower.MOD_ID + ".crystal_charger.title", "Does it charge phones?");
+        this.add("advancement." + GemstonePower.MOD_ID + ".crystal_charger.description", "Craft a Crystal Charger");
+        this.add("advancement." + GemstonePower.MOD_ID + ".crystal_grower.title", "It grows!");
+        this.add("advancement." + GemstonePower.MOD_ID + ".crystal_grower.description", "Craft a Crystal Grower");
+        this.add("advancement." + GemstonePower.MOD_ID + ".electric_furnace.title", "Alternatives");
+        this.add("advancement." + GemstonePower.MOD_ID + ".electric_furnace.description", "Craft a Electric Furnace");
+        this.add("advancement." + GemstonePower.MOD_ID + ".extractor.title", "You know suqma?");
+        this.add("advancement." + GemstonePower.MOD_ID + ".extractor.description", "Craft an Extractor");
+        this.add("advancement." + GemstonePower.MOD_ID + ".metal_former.title", "Desired shape");
+        this.add("advancement." + GemstonePower.MOD_ID + ".metal_former.description", "Craft a Metal Former");
+        this.add("advancement." + GemstonePower.MOD_ID + ".ore_washer.title", "Time for bath!");
+        this.add("advancement." + GemstonePower.MOD_ID + ".ore_washer.description", "Craft an Ore Washer");
+        this.add("advancement." + GemstonePower.MOD_ID + ".polarizer.title", "Magnetic");
+        this.add("advancement." + GemstonePower.MOD_ID + ".polarizer.description", "Craft a Polarizer");
+        this.add("advancement." + GemstonePower.MOD_ID + ".pulverizer.title", "The finest (dust) of them all");
+        this.add("advancement." + GemstonePower.MOD_ID + ".pulverizer.description", "Craft a Pulverizer");
+        this.add("advancement." + GemstonePower.MOD_ID + ".sawmill.title", "I'm not a lumberjack!");
+        this.add("advancement." + GemstonePower.MOD_ID + ".sawmill.description", "Craft a Sawmill");
+        this.add("advancement." + GemstonePower.MOD_ID + ".solar_panel.title", "I have a bright idea");
+        this.add("advancement." + GemstonePower.MOD_ID + ".solar_panel.description", "Craft a Solar Panel");
+        this.add("advancement." + GemstonePower.MOD_ID + ".water_mill.title", "Splashy splash");
+        this.add("advancement." + GemstonePower.MOD_ID + ".water_mill.description", "Craft a Water Mill");
+        this.add("advancement." + GemstonePower.MOD_ID + ".wind_turbine.title", "Energy from thin air");
+        this.add("advancement." + GemstonePower.MOD_ID + ".wind_turbine.description", "Craft a Wind Turbine");
+        this.add("advancement." + GemstonePower.MOD_ID + ".gem.title", "Time for a big guy");
+        this.add("advancement." + GemstonePower.MOD_ID + ".gem.description", "Grow a gem in Crystal Grower" );
+        this.add("advancement." + GemstonePower.MOD_ID + ".charged_gem.title", "Gemstone Power!");
+        this.add("advancement." + GemstonePower.MOD_ID + ".charged_gem.description", "Charge a gem in Crystal Charger" );
+        this.add("advancement." + GemstonePower.MOD_ID + ".resin.title", "Blood of trees");
+        this.add("advancement." + GemstonePower.MOD_ID + ".resin.description", "Obtain resin using tree tap");
+        this.add("advancement." + GemstonePower.MOD_ID + ".rubber.title", "Correct my mistakes");
+        this.add("advancement." + GemstonePower.MOD_ID + ".rubber.description", "Craft some rubber");
+        this.add("advancement." + GemstonePower.MOD_ID + ".cable.title", "Is Covid 19 back?");
+        this.add("advancement." + GemstonePower.MOD_ID + ".cable.description", "Isolate a wire using rubber");
     }
 }

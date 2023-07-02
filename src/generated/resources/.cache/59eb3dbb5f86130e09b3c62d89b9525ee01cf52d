@@ -1,4 +1,4 @@
-// 1.20.1	2023-06-30T12:20:32.8457017	Loot Tables
+// 1.20.1	2023-07-01T15:00:39.7068815	Loot Tables
 bee4ca89261463b056468078f0eb39c81355797d data/gemstonepower/loot_tables/blocks/alloy_smelter.json
 64f4b22e984d9d466a056a4ab70ef0f2043e39dc data/gemstonepower/loot_tables/blocks/aluminum_block.json
 f3c6ac828dfdb867a077be93e1df4d2defe32cd5 data/gemstonepower/loot_tables/blocks/aluminum_cable.json
@@ -53,6 +53,7 @@ fdc54cb7d9c9731810bf3d58f627fd10d9eee687 data/gemstonepower/loot_tables/blocks/o
 e8978c3d6a20c736f05800af1686eee2e8a7da12 data/gemstonepower/loot_tables/blocks/peridot_crystals.json
 e408c7c6831a9f2c70d2fbacd6c2a0378773722e data/gemstonepower/loot_tables/blocks/platinum_block.json
 c6d357c3ddb122be56002862670988a5346e7c92 data/gemstonepower/loot_tables/blocks/platinum_ore.json
+2268a6b589309f02a42ca9a6348caf9b111ea28a data/gemstonepower/loot_tables/blocks/polarizer.json
 2f61837b1bc723c0da0f87f7124ca4ae43d36a2a data/gemstonepower/loot_tables/blocks/pulverizer.json
 f0f69f6b8902f934e6272448842c17c65d50b3b5 data/gemstonepower/loot_tables/blocks/resin_oak_leaves.json
 ca9f3ca50dda512f6d8c18a5d26ea8602cb08a6c data/gemstonepower/loot_tables/blocks/resin_oak_log.json

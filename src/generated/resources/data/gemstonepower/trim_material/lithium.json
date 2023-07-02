@@ -1,7 +1,7 @@
 {
   "asset_name": "lithium",
   "description": {
-    "color": "#FCE3EB",
+    "color": "#FFDBDB",
     "translate": "trim_material.gemstonepower.lithium"
   },
   "ingredient": "gemstonepower:lithium_ingot",

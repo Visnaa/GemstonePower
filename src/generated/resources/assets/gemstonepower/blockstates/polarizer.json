@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "gemstonepower:block/polarizer",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "gemstonepower:block/polarizer"
+    },
+    "facing=south": {
+      "model": "gemstonepower:block/polarizer",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "gemstonepower:block/polarizer",
+      "y": 270
+    }
+  }
+}

@@ -15,6 +15,7 @@ import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -72,10 +73,10 @@ public class OreWasherRecipeCategory implements IRecipeCategory<OreWasherRecipe>
     public void setRecipe(IRecipeLayoutBuilder builder, OreWasherRecipe recipe, IFocusGroup focuses)
     {
         builder.addSlot(RecipeIngredientRole.INPUT, 1, 21).addIngredients(recipe.getIngredients().get(0));
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 48, 11).addItemStack(recipe.getResultItems().size() > 0 ? recipe.getResultItems().get(0) : ItemStack.EMPTY);
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 67, 11).addItemStack(recipe.getResultItems().size() > 1 ? recipe.getResultItems().get(1) : ItemStack.EMPTY);
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 48, 30).addItemStack(recipe.getResultItems().size() > 2 ? recipe.getResultItems().get(2) : ItemStack.EMPTY);
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 67, 30).addItemStack(recipe.getResultItems().size() > 3 ? recipe.getResultItems().get(3) : ItemStack.EMPTY);
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 48, 11).addItemStack(recipe.getResultItems().size() > 0 ? new ItemStack(recipe.getResultItems().get(0).getItem(), recipe.getCounts()[0]) : ItemStack.EMPTY);
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 67, 11).addItemStack(recipe.getResultItems().size() > 1 ? new ItemStack(recipe.getResultItems().get(1).getItem(), recipe.getCounts()[1]) : ItemStack.EMPTY);
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 48, 30).addItemStack(recipe.getResultItems().size() > 2 ? new ItemStack(recipe.getResultItems().get(2).getItem(), recipe.getCounts()[2]) : ItemStack.EMPTY);
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 67, 30).addItemStack(recipe.getResultItems().size() > 3 ? new ItemStack(recipe.getResultItems().get(3).getItem(), recipe.getCounts()[3]) : ItemStack.EMPTY);
     }
 
     @Override
@@ -83,6 +84,6 @@ public class OreWasherRecipeCategory implements IRecipeCategory<OreWasherRecipe>
     {
         this.progressAnimated.draw(graphics, 23, 21);
         this.energyAnimated.draw(graphics, 97, 21);
-        //Minecraft.getInstance().font.draw(stack, "Energy: " + recipe.getEnergyUsage() * recipe.getProcessingTime() + " FE", 0, 0, 0x888888);
+        graphics.drawString(Minecraft.getInstance().font, "Energy: " + recipe.getEnergyUsage() * recipe.getProcessingTime() + " FE", 0, 0, 0x888888, false);
     }
 }

@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:gemstonepower/gemstone_cell",
+  "criteria": {
+    "has_pulverizer": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:pulverizer"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.gemstonepower.pulverizer.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "gemstonepower:pulverizer"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.gemstonepower.pulverizer.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_pulverizer"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:gemstonepower/gemstone_cell",
+  "criteria": {
+    "has_extractor": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:extractor"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.gemstonepower.extractor.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "gemstonepower:extractor"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.gemstonepower.extractor.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_extractor"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

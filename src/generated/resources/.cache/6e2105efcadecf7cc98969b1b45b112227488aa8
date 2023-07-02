@@ -1,4 +1,4 @@
-// 1.20.1	2023-06-29T00:23:22.723514	Item Models: gemstonepower
+// 1.20.1	2023-07-01T15:00:39.7266668	Item Models: gemstonepower
 e3593875d30c80acaaf80db0b0abb02f8b3afe92 assets/gemstonepower/models/item/aluminum_axe.json
 82316ffbb3b22484a942751c9af83d6c170297f5 assets/gemstonepower/models/item/aluminum_boots.json
 cdbc69f12923cd3cfe44100e30244a1e22cd4964 assets/gemstonepower/models/item/aluminum_chestplate.json
@@ -81,6 +81,7 @@ adcf640c07e2b2a5b89f02a8bc6633ad2a5661d9 assets/gemstonepower/models/item/bronze
 431260d667fd68621881955e69dcf177f9536e61 assets/gemstonepower/models/item/constantan_nugget.json
 80c3eb8f519fb32e40ff75a8fea0f9e78fed52c6 assets/gemstonepower/models/item/constantan_plate.json
 77967f2ab7a3db8f8d6a45451dab7f91606a567a assets/gemstonepower/models/item/constantan_rod.json
+77967f2ab7a3db8f8d6a45451dab7f91606a567a assets/gemstonepower/models/item/constantan_rod_polarized.json
 8caef1a21e2e717fd8bfd8a04c6c79976960d908 assets/gemstonepower/models/item/constantan_tiny_pile.json
 e3593875d30c80acaaf80db0b0abb02f8b3afe92 assets/gemstonepower/models/item/copper_axe.json
 82316ffbb3b22484a942751c9af83d6c170297f5 assets/gemstonepower/models/item/copper_boots.json
@@ -143,6 +144,7 @@ adcf640c07e2b2a5b89f02a8bc6633ad2a5661d9 assets/gemstonepower/models/item/invar_
 1e71dc1feac9b9ae50d3bcc632e412f4491cd6e3 assets/gemstonepower/models/item/invar_pickaxe.json
 80c3eb8f519fb32e40ff75a8fea0f9e78fed52c6 assets/gemstonepower/models/item/invar_plate.json
 77967f2ab7a3db8f8d6a45451dab7f91606a567a assets/gemstonepower/models/item/invar_rod.json
+77967f2ab7a3db8f8d6a45451dab7f91606a567a assets/gemstonepower/models/item/invar_rod_polarized.json
 90fc4bfd7964799b2e4892f572636b43885e4e2b assets/gemstonepower/models/item/invar_shovel.json
 391353e5d592121760c32187073f2c0e30f15707 assets/gemstonepower/models/item/invar_sword.json
 8caef1a21e2e717fd8bfd8a04c6c79976960d908 assets/gemstonepower/models/item/invar_tiny_pile.json
@@ -151,6 +153,7 @@ adcf640c07e2b2a5b89f02a8bc6633ad2a5661d9 assets/gemstonepower/models/item/invar_
 ba2da46670b17cc76b7c335bf3823e42f1d79951 assets/gemstonepower/models/item/iron_ore_dust.json
 80c3eb8f519fb32e40ff75a8fea0f9e78fed52c6 assets/gemstonepower/models/item/iron_plate.json
 77967f2ab7a3db8f8d6a45451dab7f91606a567a assets/gemstonepower/models/item/iron_rod.json
+77967f2ab7a3db8f8d6a45451dab7f91606a567a assets/gemstonepower/models/item/iron_rod_polarized.json
 8caef1a21e2e717fd8bfd8a04c6c79976960d908 assets/gemstonepower/models/item/iron_tiny_pile.json
 6dc482b3b043aff2b246cac3cdf6f832ec170956 assets/gemstonepower/models/item/jade.json
 0e5fb7c3647b50f1daf6c46bd9af82c04d3df3c7 assets/gemstonepower/models/item/jade_arrow.json
@@ -196,6 +199,7 @@ ba2da46670b17cc76b7c335bf3823e42f1d79951 assets/gemstonepower/models/item/magnes
 ba2da46670b17cc76b7c335bf3823e42f1d79951 assets/gemstonepower/models/item/nickel_ore_dust.json
 80c3eb8f519fb32e40ff75a8fea0f9e78fed52c6 assets/gemstonepower/models/item/nickel_plate.json
 77967f2ab7a3db8f8d6a45451dab7f91606a567a assets/gemstonepower/models/item/nickel_rod.json
+77967f2ab7a3db8f8d6a45451dab7f91606a567a assets/gemstonepower/models/item/nickel_rod_polarized.json
 8caef1a21e2e717fd8bfd8a04c6c79976960d908 assets/gemstonepower/models/item/nickel_tiny_pile.json
 7ecf32e7706e91f77aea1705beefcbbbd378d9b8 assets/gemstonepower/models/item/onyx.json
 0e5fb7c3647b50f1daf6c46bd9af82c04d3df3c7 assets/gemstonepower/models/item/onyx_arrow.json
@@ -270,6 +274,7 @@ adcf640c07e2b2a5b89f02a8bc6633ad2a5661d9 assets/gemstonepower/models/item/steel_
 1e71dc1feac9b9ae50d3bcc632e412f4491cd6e3 assets/gemstonepower/models/item/steel_pickaxe.json
 80c3eb8f519fb32e40ff75a8fea0f9e78fed52c6 assets/gemstonepower/models/item/steel_plate.json
 77967f2ab7a3db8f8d6a45451dab7f91606a567a assets/gemstonepower/models/item/steel_rod.json
+77967f2ab7a3db8f8d6a45451dab7f91606a567a assets/gemstonepower/models/item/steel_rod_polarized.json
 90fc4bfd7964799b2e4892f572636b43885e4e2b assets/gemstonepower/models/item/steel_shovel.json
 391353e5d592121760c32187073f2c0e30f15707 assets/gemstonepower/models/item/steel_sword.json
 8caef1a21e2e717fd8bfd8a04c6c79976960d908 assets/gemstonepower/models/item/steel_tiny_pile.json

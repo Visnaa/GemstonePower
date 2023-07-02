@@ -2,10 +2,12 @@ package com.visnaa.gemstonepower.event.mod;
 
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.client.render.Tints;
-import com.visnaa.gemstonepower.client.render.block.IndustrialChestRenderer;
 import com.visnaa.gemstonepower.client.render.entity.CrystalArrowRenderer;
 import com.visnaa.gemstonepower.client.screen.*;
-import com.visnaa.gemstonepower.registry.*;
+import com.visnaa.gemstonepower.registry.ModBlocks;
+import com.visnaa.gemstonepower.registry.ModContainers;
+import com.visnaa.gemstonepower.registry.ModEntities;
+import com.visnaa.gemstonepower.registry.ModTabs;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.core.registries.Registries;
@@ -40,6 +42,7 @@ public class ClientEvents
             MenuScreens.register(ModContainers.EXTRACTOR.get(), ExtractorScreen::new);
             MenuScreens.register(ModContainers.ORE_WASHER.get(), OreWasherScreen::new);
             MenuScreens.register(ModContainers.SAWMILL.get(), SawmillScreen::new);
+            MenuScreens.register(ModContainers.POLARIZER.get(), PolarizerScreen::new);
         });
     }
 

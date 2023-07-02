@@ -82,6 +82,7 @@ public final class ModBlocks
     public static final RegistryObject<Block> ORE_WASHER = BLOCKS.register("ore_washer", () -> new OreWasherBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> COBBLESTONE_GENERATOR = BLOCKS.register("cobblestone_generator", () -> new CobblestoneGeneratorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> SAWMILL = BLOCKS.register("sawmill", () -> new SawmillBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> POLARIZER = BLOCKS.register("polarizer", () -> new PolarizerBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> SOLAR_PANEL = BLOCKS.register("solar_panel", () -> new SolarPanelBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> WATER_MILL = BLOCKS.register("water_mill", () -> new WaterMillBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops()));

@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:gemstonepower/gemstone_cell",
+  "criteria": {
+    "has_polarizer": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:polarizer"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.gemstonepower.polarizer.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "gemstonepower:polarizer"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.gemstonepower.polarizer.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_polarizer"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

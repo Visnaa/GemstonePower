@@ -1,5 +1,15 @@
 <h1 style="font-size: 40px">Gemstone Power version changelog</h1>
 
+<h3>Version: Beta 0.1.4</h3>
+<ul>
+<li>Added new machine - Polarizer
+<li>Added advancements
+<li>Added configuration files
+<li>Changed ore generation settings (some ores can spawn more frequently in some biomes)
+<li>Radioactive items deal damage when in the player's inventory
+<li>Changed colors of some metals
+</ul>
+
 <h3>Version: Beta 0.1.3</h3>
 <ul>
 <li>Added new generator - Wind Turbine

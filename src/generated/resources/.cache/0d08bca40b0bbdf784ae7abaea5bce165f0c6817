@@ -1,4 +1,4 @@
-// 1.20.1	2023-06-30T12:20:32.8706336	Tags for minecraft:block mod id gemstonepower
+// 1.20.1	2023-07-01T15:00:39.7266668	Tags for minecraft:block mod id gemstonepower
 631ff482332d40cedd6903c11afa20d3bf39d6ea data/forge/tags/blocks/ores.json
 3099f57a48372a3fe5c55b66b2985c296ab13454 data/forge/tags/blocks/ores/aluminum.json
 ad373c38f107fbeffefd9f61808b786dbbfbde93 data/forge/tags/blocks/ores/lead.json
@@ -38,7 +38,7 @@ b32c49bec2a6cbbd62e830c9a75b612704370c9a data/minecraft/tags/blocks/logs.json
 b32c49bec2a6cbbd62e830c9a75b612704370c9a data/minecraft/tags/blocks/logs_that_burn.json
 b32c49bec2a6cbbd62e830c9a75b612704370c9a data/minecraft/tags/blocks/mineable/axe.json
 a6228afcbabbf220eeda3fb8a7f792fdc727d100 data/minecraft/tags/blocks/mineable/hoe.json
-673187cce81819334c1e220987322ac4b48bfbf6 data/minecraft/tags/blocks/mineable/pickaxe.json
-c788460382e736e1ac0202fefd8e4cdced0b72fb data/minecraft/tags/blocks/needs_iron_tool.json
+d53fac641557e0658f0052eb5612f0017f219b2b data/minecraft/tags/blocks/mineable/pickaxe.json
+e8c4b16275d656bf343d976794661e1993927e82 data/minecraft/tags/blocks/needs_iron_tool.json
 631ff482332d40cedd6903c11afa20d3bf39d6ea data/minecraft/tags/blocks/needs_stone_tool.json
 dd51f6fbbf160d32e1f464186d588ab498ec4b33 data/minecraft/tags/blocks/saplings.json

@@ -119,6 +119,7 @@ public class RecipeGenerator extends RecipeProvider
         this.gemstoneGrower(consumer);
         this.gemstoneCharger(consumer);
         this.sawmill(consumer);
+        this.polarizer(consumer);
 
         this.armour(consumer, Items.COPPER_INGOT, ModArmors.COPPER_HELMET.get(), ModArmors.COPPER_CHESTPLATE.get(), ModArmors.COPPER_LEGGINGS.get(), ModArmors.COPPER_BOOTS.get());
         this.armour(consumer, ModItems.ALUMINUM_INGOT.get(), ModArmors.ALUMINUM_HELMET.get(), ModArmors.ALUMINUM_CHESTPLATE.get(), ModArmors.ALUMINUM_LEGGINGS.get(), ModArmors.ALUMINUM_BOOTS.get());
@@ -679,6 +680,18 @@ public class RecipeGenerator extends RecipeProvider
                 .define('E', ForgeTags.Items.WIRES_ELECTRUM)
                 .unlockedBy("has_aluminum_ingot", inventoryTrigger(ItemPredicate.Builder.item().of(ForgeTags.Items.INGOTS_ALUMNUM).build()))
                 .save(consumer, getFileName(ModItems.SAWMILL.get()));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.POLARIZER.get(), 1)
+                .pattern("ZZZ")
+                .pattern("INC")
+                .pattern("WVW")
+                .define('Z', ForgeTags.Items.INGOTS_ZINC)
+                .define('I', Tags.Items.INGOTS_IRON)
+                .define('N', ForgeTags.Items.INGOTS_NICKEL)
+                .define('C', ForgeTags.Items.INGOTS_CONSTANTAN)
+                .define('V', ForgeTags.Items.INGOTS_INVAR)
+                .define('W', ModBlocks.COPPER_WIRE.get())
+                .unlockedBy("has_copper_wire", inventoryTrigger(ItemPredicate.Builder.item().of(ModBlocks.COPPER_WIRE.get()).build()))
+                .save(consumer, getFileName(ModItems.POLARIZER.get()));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.SOLAR_PANEL.get(), 1)
                 .pattern("GGG")
@@ -925,6 +938,29 @@ public class RecipeGenerator extends RecipeProvider
         SawmillRecipeBuilder.create(Ingredient.of(Items.BOWL), Items.STICK, 3, 150, 40)
                 .unlockedBy("has_bowl", has(Items.BOWL))
                 .save(consumer, getFileName(Items.STICK, Items.BOWL));
+    }
+
+    private void polarizer(Consumer<FinishedRecipe> consumer)
+    {
+        PolarizerRecipeBuilder.create(Ingredient.of(ModItems.IRON_ROD.get()), ModItems.IRON_ROD_POLARIZED.get(), 1, 200, 80)
+                .unlockedBy(hasName(ModItems.IRON_ROD.get()), has(ModItems.IRON_ROD.get()))
+                .save(consumer, getFileName(ModItems.IRON_ROD_POLARIZED.get(), ModItems.IRON_ROD.get()));
+
+        PolarizerRecipeBuilder.create(Ingredient.of(ModItems.NICKEL_ROD.get()), ModItems.NICKEL_ROD_POLARIZED.get(), 1, 200, 80)
+                .unlockedBy(hasName(ModItems.NICKEL_ROD.get()), has(ModItems.NICKEL_ROD.get()))
+                .save(consumer, getFileName(ModItems.NICKEL_ROD_POLARIZED.get(), ModItems.NICKEL_ROD.get()));
+
+        PolarizerRecipeBuilder.create(Ingredient.of(ModItems.INVAR_ROD.get()), ModItems.INVAR_ROD_POLARIZED.get(), 1, 200, 80)
+                .unlockedBy(hasName(ModItems.INVAR_ROD.get()), has(ModItems.INVAR_ROD.get()))
+                .save(consumer, getFileName(ModItems.INVAR_ROD_POLARIZED.get(), ModItems.INVAR_ROD.get()));
+
+        PolarizerRecipeBuilder.create(Ingredient.of(ModItems.CONSTANTAN_ROD.get()), ModItems.CONSTANTAN_ROD_POLARIZED.get(), 1, 200, 80)
+                .unlockedBy(hasName(ModItems.CONSTANTAN_ROD.get()), has(ModItems.CONSTANTAN_ROD.get()))
+                .save(consumer, getFileName(ModItems.CONSTANTAN_ROD_POLARIZED.get(), ModItems.CONSTANTAN_ROD.get()));
+
+        PolarizerRecipeBuilder.create(Ingredient.of(ModItems.STEEL_ROD.get()), ModItems.STEEL_ROD_POLARIZED.get(), 1, 200, 80)
+                .unlockedBy(hasName(ModItems.STEEL_ROD.get()), has(ModItems.STEEL_ROD.get()))
+                .save(consumer, getFileName(ModItems.STEEL_ROD_POLARIZED.get(), ModItems.STEEL_ROD.get()));
     }
 
     private String hasName(ItemLike item)

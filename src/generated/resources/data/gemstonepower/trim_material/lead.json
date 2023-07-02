@@ -1,7 +1,7 @@
 {
   "asset_name": "lead",
   "description": {
-    "color": "#B4ADFF",
+    "color": "#B5B2D9",
     "translate": "trim_material.gemstonepower.lead"
   },
   "ingredient": "gemstonepower:lead_ingot",

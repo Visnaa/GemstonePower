@@ -1,7 +1,7 @@
 {
   "asset_name": "steel",
   "description": {
-    "color": "#95A6C2",
+    "color": "#CFE1FF",
     "translate": "trim_material.gemstonepower.steel"
   },
   "ingredient": "gemstonepower:steel_ingot",

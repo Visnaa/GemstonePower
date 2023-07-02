@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:gemstonepower/gemstone_cell",
+  "criteria": {
+    "has_cobblestone_generator": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:cobblestone_generator"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.gemstonepower.cobblestone_generator.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "gemstonepower:cobblestone_generator"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.gemstonepower.cobblestone_generator.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_cobblestone_generator"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

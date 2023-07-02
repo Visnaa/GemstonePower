@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:gemstonepower/root",
+  "criteria": {
+    "has_resin": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:resin"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.gemstonepower.resin.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "gemstonepower:resin"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.gemstonepower.resin.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_resin"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

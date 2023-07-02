@@ -1,6 +1,7 @@
 package com.visnaa.gemstonepower.block.entity;
 
 import com.visnaa.gemstonepower.block.WaterMillBlock;
+import com.visnaa.gemstonepower.config.CommonConfig;
 import com.visnaa.gemstonepower.network.energy.ForgeEnergyStorage;
 import com.visnaa.gemstonepower.registry.ModBlockEntities;
 import net.minecraft.core.BlockPos;
@@ -90,7 +91,7 @@ public class WaterMillBlockEntity extends BlockEntity
 
     private ForgeEnergyStorage createEnergyStorage()
     {
-        return new ForgeEnergyStorage(2000, Integer.MAX_VALUE, Integer.MAX_VALUE) {
+        return new ForgeEnergyStorage(CommonConfig.DEFAULT_GENERATOR_CAPACITY.get(), 0, Integer.MAX_VALUE) {
             @Override
             protected void onEnergyChanged() {
                 setChanged();

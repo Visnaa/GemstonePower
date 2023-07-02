@@ -32,6 +32,7 @@ public class ModTabs
                 output.accept(ModItems.ORE_WASHER.get());
                 output.accept(ModItems.COBBLESTONE_GENERATOR.get());
                 output.accept(ModItems.SAWMILL.get());
+                output.accept(ModItems.POLARIZER.get());
 
                 output.accept(ModItems.SOLAR_PANEL.get());
                 output.accept(ModItems.WATER_MILL.get());
@@ -81,6 +82,7 @@ public class ModTabs
                 output.accept(ModItems.IRON_ORE_DUST.get());
                 output.accept(ModItems.IRON_PLATE.get());
                 output.accept(ModItems.IRON_ROD.get());
+                output.accept(ModItems.IRON_ROD_POLARIZED.get());
                 output.accept(ModItems.IRON_GEAR.get());
 
                 output.accept(Items.GOLD_INGOT);
@@ -177,6 +179,7 @@ public class ModTabs
                 output.accept(ModItems.NICKEL_ORE_DUST.get());
                 output.accept(ModItems.NICKEL_PLATE.get());
                 output.accept(ModItems.NICKEL_ROD.get());
+                output.accept(ModItems.NICKEL_ROD_POLARIZED.get());
                 output.accept(ModItems.NICKEL_GEAR.get());
 
                 output.accept(ModItems.INVAR_INGOT.get());
@@ -186,6 +189,7 @@ public class ModTabs
                 output.accept(ModItems.INVAR_TINY_PILE.get());
                 output.accept(ModItems.INVAR_PLATE.get());
                 output.accept(ModItems.INVAR_ROD.get());
+                output.accept(ModItems.INVAR_ROD_POLARIZED.get());
                 output.accept(ModItems.INVAR_GEAR.get());
 
                 output.accept(ModItems.CONSTANTAN_INGOT.get());
@@ -195,6 +199,7 @@ public class ModTabs
                 output.accept(ModItems.CONSTANTAN_TINY_PILE.get());
                 output.accept(ModItems.CONSTANTAN_PLATE.get());
                 output.accept(ModItems.CONSTANTAN_ROD.get());
+                output.accept(ModItems.CONSTANTAN_ROD_POLARIZED.get());
                 output.accept(ModItems.CONSTANTAN_GEAR.get());
 
                 output.accept(ModItems.PLATINUM_INGOT.get());
@@ -217,6 +222,7 @@ public class ModTabs
                 output.accept(ModItems.STEEL_TINY_PILE.get());
                 output.accept(ModItems.STEEL_PLATE.get());
                 output.accept(ModItems.STEEL_ROD.get());
+                output.accept(ModItems.STEEL_ROD_POLARIZED.get());
                 output.accept(ModItems.STEEL_GEAR.get());
 
                 output.accept(ModItems.LITHIUM_INGOT.get());

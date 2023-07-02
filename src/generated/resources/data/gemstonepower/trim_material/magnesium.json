@@ -1,7 +1,7 @@
 {
   "asset_name": "magnesium",
   "description": {
-    "color": "#FFCCF4",
+    "color": "#FFE6FA",
     "translate": "trim_material.gemstonepower.magnesium"
   },
   "ingredient": "gemstonepower:magnesium_ingot",

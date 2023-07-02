@@ -102,6 +102,7 @@ public class BlockLootGenerator extends BlockLootSubProvider
         this.dropSelf(ModBlocks.ORE_WASHER.get());
         this.dropSelf(ModBlocks.COBBLESTONE_GENERATOR.get());
         this.dropSelf(ModBlocks.SAWMILL.get());
+        this.dropSelf(ModBlocks.POLARIZER.get());
 
         this.dropSelf(ModBlocks.SOLAR_PANEL.get());
         this.dropSelf(ModBlocks.WATER_MILL.get());

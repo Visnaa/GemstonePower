@@ -8,10 +8,10 @@ public class TintedItem extends Item implements Tintable
 {
     private int color;
 
-    public TintedItem(Properties properties, Tints colour)
+    public TintedItem(Properties properties, Tints color)
     {
         super(properties);
-        this.color = colour.getColor();
+        this.color = color.getColor();
         Tints.TINTED_ITEMS.add(this);
     }
 
