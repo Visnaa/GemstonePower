@@ -3,6 +3,7 @@ package com.visnaa.gemstonepower.registry;
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.client.render.Tints;
 import com.visnaa.gemstonepower.item.*;
+import com.visnaa.gemstonepower.util.Tier;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.phys.Vec3;
@@ -234,28 +235,33 @@ public final class ModItems
     public static final RegistryObject<Item> GEMSTONE_GENERATOR = ITEMS.register("gemstone_generator", () -> new BlockItem(ModBlocks.GEMSTONE_GENERATOR.get(), new Item.Properties()));
     public static final RegistryObject<Item> GEMSTONE_CELL = ITEMS.register("gemstone_cell", () -> new BlockItem(ModBlocks.GEMSTONE_CELL.get(), new Item.Properties()));
 
-    public static final RegistryObject<Item> CRYSTAL_GROWER = ITEMS.register("crystal_grower", () -> new BlockItem(ModBlocks.CRYSTAL_GROWER.get(), new Item.Properties()));
-    public static final RegistryObject<Item> CRYSTAL_CHARGER = ITEMS.register("crystal_charger", () -> new BlockItem(ModBlocks.CRYSTAL_CHARGER.get(), new Item.Properties()));
+    public static final RegistryObject<Item> CRYSTAL_GROWER = ITEMS.register("crystal_grower", () -> new TintedBlockItem(ModBlocks.CRYSTAL_GROWER.get(), new Item.Properties(), Tints.STANDARD));
+    public static final RegistryObject<Item> CRYSTAL_CHARGER = ITEMS.register("crystal_charger", () -> new TintedBlockItem(ModBlocks.CRYSTAL_CHARGER.get(), new Item.Properties(), Tints.STANDARD));
 
-    public static final RegistryObject<Item> ELECTRIC_FURNACE = ITEMS.register("electric_furnace", () -> new BlockItem(ModBlocks.ELECTRIC_FURNACE.get(), new Item.Properties()));
-    public static final RegistryObject<Item> METAL_FORMER = ITEMS.register("metal_former", () -> new BlockItem(ModBlocks.METAL_FORMER.get(), new Item.Properties()));
-    public static final RegistryObject<Item> PULVERIZER = ITEMS.register("pulverizer", () -> new BlockItem(ModBlocks.PULVERIZER.get(), new Item.Properties()));
-    public static final RegistryObject<Item> ALLOY_SMELTER = ITEMS.register("alloy_smelter", () -> new BlockItem(ModBlocks.ALLOY_SMELTER.get(), new Item.Properties()));
-    public static final RegistryObject<Item> EXTRACTOR = ITEMS.register("extractor", () -> new BlockItem(ModBlocks.EXTRACTOR.get(), new Item.Properties()));
-    public static final RegistryObject<Item> ORE_WASHER = ITEMS.register("ore_washer", () -> new BlockItem(ModBlocks.ORE_WASHER.get(), new Item.Properties()));
-    public static final RegistryObject<Item> COBBLESTONE_GENERATOR = ITEMS.register("cobblestone_generator", () -> new BlockItem(ModBlocks.COBBLESTONE_GENERATOR.get(), new Item.Properties()));
-    public static final RegistryObject<Item> SAWMILL = ITEMS.register("sawmill", () -> new BlockItem(ModBlocks.SAWMILL.get(), new Item.Properties()));
-    public static final RegistryObject<Item> POLARIZER = ITEMS.register("polarizer", () -> new BlockItem(ModBlocks.POLARIZER.get(), new Item.Properties()));
+    public static final RegistryObject<Item> ELECTRIC_FURNACE = ITEMS.register("electric_furnace", () -> new TintedBlockItem(ModBlocks.ELECTRIC_FURNACE.get(), new Item.Properties(), Tints.STANDARD));
+    public static final RegistryObject<Item> METAL_FORMER = ITEMS.register("metal_former", () -> new TintedBlockItem(ModBlocks.METAL_FORMER.get(), new Item.Properties(), Tints.STANDARD));
+    public static final RegistryObject<Item> PULVERIZER = ITEMS.register("pulverizer", () -> new TintedBlockItem(ModBlocks.PULVERIZER.get(), new Item.Properties(), Tints.STANDARD));
+    public static final RegistryObject<Item> ALLOY_SMELTER = ITEMS.register("alloy_smelter", () -> new TintedBlockItem(ModBlocks.ALLOY_SMELTER.get(), new Item.Properties(), Tints.STANDARD));
+    public static final RegistryObject<Item> EXTRACTOR = ITEMS.register("extractor", () -> new TintedBlockItem(ModBlocks.EXTRACTOR.get(), new Item.Properties(), Tints.STANDARD));
+    public static final RegistryObject<Item> ORE_WASHER = ITEMS.register("ore_washer", () -> new TintedBlockItem(ModBlocks.ORE_WASHER.get(), new Item.Properties(), Tints.STANDARD));
+    public static final RegistryObject<Item> COBBLESTONE_GENERATOR = ITEMS.register("cobblestone_generator", () -> new TintedBlockItem(ModBlocks.COBBLESTONE_GENERATOR.get(), new Item.Properties(), Tints.STANDARD));
+    public static final RegistryObject<Item> SAWMILL = ITEMS.register("sawmill", () -> new TintedBlockItem(ModBlocks.SAWMILL.get(), new Item.Properties(), Tints.STANDARD));
+    public static final RegistryObject<Item> POLARIZER = ITEMS.register("polarizer", () -> new TintedBlockItem(ModBlocks.POLARIZER.get(), new Item.Properties(), Tints.STANDARD));
 
-    public static final RegistryObject<Item> SOLAR_PANEL = ITEMS.register("solar_panel", () -> new BlockItem(ModBlocks.SOLAR_PANEL.get(), new Item.Properties()));
-    public static final RegistryObject<Item> WATER_MILL = ITEMS.register("water_mill", () -> new BlockItem(ModBlocks.WATER_MILL.get(), new Item.Properties()));
-    public static final RegistryObject<Item> WIND_TURBINE = ITEMS.register("wind_turbine", () -> new BlockItem(ModBlocks.WIND_TURBINE.get(), new Item.Properties()));
+    public static final RegistryObject<Item> SOLAR_PANEL = ITEMS.register("solar_panel", () -> new TintedBlockItem(ModBlocks.SOLAR_PANEL.get(), new Item.Properties(), Tints.STANDARD));
+    public static final RegistryObject<Item> WATER_MILL = ITEMS.register("water_mill", () -> new TintedBlockItem(ModBlocks.WATER_MILL.get(), new Item.Properties(), Tints.STANDARD));
+    public static final RegistryObject<Item> WIND_TURBINE = ITEMS.register("wind_turbine", () -> new TintedBlockItem(ModBlocks.WIND_TURBINE.get(), new Item.Properties(), Tints.STANDARD));
 
     public static final RegistryObject<Item> PLATE_PRESET = ITEMS.register("plate_preset", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> ROD_PRESET = ITEMS.register("rod_preset", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> WIRE_PRESET = ITEMS.register("wire_preset", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> RESIN = ITEMS.register("resin", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> RUBBER = ITEMS.register("rubber", () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> INTERMEDIATE_UPGRADE = ITEMS.register("intermediate_upgrade", () -> new UpgradeItem(new Item.Properties(), Tier.INTERMEDIATE, Tints.INTERMEDIATE));
+    public static final RegistryObject<Item> ADVANCED_UPGRADE = ITEMS.register("advanced_upgrade", () -> new UpgradeItem(new Item.Properties(), Tier.ADVANCED, Tints.ADVANCED));
+    public static final RegistryObject<Item> ULTRA_UPGRADE = ITEMS.register("ultra_upgrade", () -> new UpgradeItem(new Item.Properties(), Tier.ULTRA, Tints.ULTRA));
+    public static final RegistryObject<Item> EXTREME_UPGRADE = ITEMS.register("extreme_upgrade", () -> new UpgradeItem(new Item.Properties(), Tier.EXTREME, Tints.EXTREME));
 
     public static final RegistryObject<Item> COPPER_WIRE = ITEMS.register("copper_wire", () -> new TintedBlockItem(ModBlocks.COPPER_WIRE.get(), new Item.Properties(), Tints.COPPER));
     public static final RegistryObject<Item> COPPER_CABLE = ITEMS.register("copper_cable", () -> new TintedBlockItem(ModBlocks.COPPER_CABLE.get(), new Item.Properties(), Tints.COPPER));

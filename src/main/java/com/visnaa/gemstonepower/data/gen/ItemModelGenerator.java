@@ -387,6 +387,11 @@ public class ItemModelGenerator extends ItemModelProvider
         this.withExistingParent("charged_tanzanite_arrow", modLoc("item/arrow"));
 
     // MICS
+        this.withExistingParent("intermediate_upgrade", modLoc("item/upgrade"));
+        this.withExistingParent("advanced_upgrade", modLoc("item/upgrade"));
+        this.withExistingParent("ultra_upgrade", modLoc("item/upgrade"));
+        this.withExistingParent("extreme_upgrade", modLoc("item/upgrade"));
+
         this.singleTexture("plate_preset", mcLoc("item/generated"), "layer0", modLoc("item/plate_preset"));
         this.singleTexture("rod_preset", mcLoc("item/generated"), "layer0", modLoc("item/rod_preset"));
         this.singleTexture("wire_preset", mcLoc("item/generated"), "layer0", modLoc("item/wire_preset"));
@@ -396,6 +401,7 @@ public class ItemModelGenerator extends ItemModelProvider
         this.singleTexture("tree_tap", mcLoc("item/generated"), "layer0", modLoc("item/tree_tap"));
         this.singleTexture("resin_oak_sapling", mcLoc("item/generated"), "layer0", modLoc("block/resin_oak_sapling"));
 
+        this.withExistingParent("solar_panel", modLoc("block/solar_panel"));
         this.withExistingParent("water_mill", modLoc("block/water_mill"));
         this.withExistingParent("wind_turbine", modLoc("block/wind_turbine"));
 

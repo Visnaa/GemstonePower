@@ -3,11 +3,12 @@ package com.visnaa.gemstonepower.block.entity;
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.block.GemstoneGeneratorBlock;
 import com.visnaa.gemstonepower.client.screen.menu.GemstoneGeneratorMenu;
-import com.visnaa.gemstonepower.config.CommonConfig;
+import com.visnaa.gemstonepower.config.ServerConfig;
 import com.visnaa.gemstonepower.data.recipe.GemstoneGeneratorRecipe;
 import com.visnaa.gemstonepower.network.energy.ForgeEnergyStorage;
 import com.visnaa.gemstonepower.registry.ModBlockEntities;
 import com.visnaa.gemstonepower.registry.ModRecipes;
+import com.visnaa.gemstonepower.util.EnergyUtilities;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -195,7 +196,7 @@ public class GemstoneGeneratorBlockEntity extends BaseContainerBlockEntity imple
 
             if (outputs.size() > 0)
             {
-                int energy = Math.min(capacity.get() / outputs.size(), CommonConfig.ENERGY_TRANSFER_RATE.get());
+                int energy = Math.min(capacity.get() / outputs.size(), ServerConfig.ENERGY_TRANSFER_RATE.get());
                 for (BlockEntity be : outputs)
                 {
                     be.getCapability(ForgeCapabilities.ENERGY).map(handler ->
@@ -225,7 +226,7 @@ public class GemstoneGeneratorBlockEntity extends BaseContainerBlockEntity imple
     {
         if (recipe != null && this.canBurn(recipe, items))
         {
-            energyStorage.addEnergy(recipe.getEnergy());
+            energyStorage.addEnergy(EnergyUtilities.getGeneration(this.getBlockState(), recipe.getEnergy()));
             items.get(0).shrink(1);
             return true;
         }
@@ -234,7 +235,7 @@ public class GemstoneGeneratorBlockEntity extends BaseContainerBlockEntity imple
 
     private static int getTotalTime(Level level, GemstoneGeneratorBlockEntity blockEntity)
     {
-        return blockEntity.quickCheck.getRecipeFor(blockEntity, level).map(GemstoneGeneratorRecipe::getBurnTime).orElse(200);
+        return blockEntity.quickCheck.getRecipeFor(blockEntity, level).map(GemstoneGeneratorRecipe::getBurnTime).orElse(ServerConfig.DEFAULT_MACHINE_TIME.get());
     }
 
     public int[] getSlotsForFace(Direction dir)
@@ -391,7 +392,7 @@ public class GemstoneGeneratorBlockEntity extends BaseContainerBlockEntity imple
 
     private ForgeEnergyStorage createEnergyStorage()
     {
-        return new ForgeEnergyStorage(CommonConfig.DEFAULT_GENERATOR_CAPACITY.get(), 0, Integer.MAX_VALUE) {
+        return new ForgeEnergyStorage(ServerConfig.DEFAULT_GENERATOR_CAPACITY.get(), 0, Integer.MAX_VALUE) {
             @Override
             protected void onEnergyChanged() {
                 setChanged();

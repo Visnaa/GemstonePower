@@ -38,6 +38,11 @@ public class ModTabs
                 output.accept(ModItems.WATER_MILL.get());
                 output.accept(ModItems.WIND_TURBINE.get());
 
+                output.accept(ModItems.INTERMEDIATE_UPGRADE.get());
+                output.accept(ModItems.ADVANCED_UPGRADE.get());
+                output.accept(ModItems.ULTRA_UPGRADE.get());
+                output.accept(ModItems.EXTREME_UPGRADE.get());
+
                 output.accept(ModItems.PLATE_PRESET.get());
                 output.accept(ModItems.ROD_PRESET.get());
                 output.accept(ModItems.WIRE_PRESET.get());

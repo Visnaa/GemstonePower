@@ -1,17 +1,77 @@
 {
   "variants": {
-    "facing=east": {
+    "facing=east,tier=advanced": {
       "model": "gemstonepower:block/ore_washer",
       "y": 90
     },
-    "facing=north": {
+    "facing=east,tier=extreme": {
+      "model": "gemstonepower:block/ore_washer",
+      "y": 90
+    },
+    "facing=east,tier=intermediate": {
+      "model": "gemstonepower:block/ore_washer",
+      "y": 90
+    },
+    "facing=east,tier=standard": {
+      "model": "gemstonepower:block/ore_washer",
+      "y": 90
+    },
+    "facing=east,tier=ultra": {
+      "model": "gemstonepower:block/ore_washer",
+      "y": 90
+    },
+    "facing=north,tier=advanced": {
       "model": "gemstonepower:block/ore_washer"
     },
-    "facing=south": {
+    "facing=north,tier=extreme": {
+      "model": "gemstonepower:block/ore_washer"
+    },
+    "facing=north,tier=intermediate": {
+      "model": "gemstonepower:block/ore_washer"
+    },
+    "facing=north,tier=standard": {
+      "model": "gemstonepower:block/ore_washer"
+    },
+    "facing=north,tier=ultra": {
+      "model": "gemstonepower:block/ore_washer"
+    },
+    "facing=south,tier=advanced": {
       "model": "gemstonepower:block/ore_washer",
       "y": 180
     },
-    "facing=west": {
+    "facing=south,tier=extreme": {
+      "model": "gemstonepower:block/ore_washer",
+      "y": 180
+    },
+    "facing=south,tier=intermediate": {
+      "model": "gemstonepower:block/ore_washer",
+      "y": 180
+    },
+    "facing=south,tier=standard": {
+      "model": "gemstonepower:block/ore_washer",
+      "y": 180
+    },
+    "facing=south,tier=ultra": {
+      "model": "gemstonepower:block/ore_washer",
+      "y": 180
+    },
+    "facing=west,tier=advanced": {
+      "model": "gemstonepower:block/ore_washer",
+      "y": 270
+    },
+    "facing=west,tier=extreme": {
+      "model": "gemstonepower:block/ore_washer",
+      "y": 270
+    },
+    "facing=west,tier=intermediate": {
+      "model": "gemstonepower:block/ore_washer",
+      "y": 270
+    },
+    "facing=west,tier=standard": {
+      "model": "gemstonepower:block/ore_washer",
+      "y": 270
+    },
+    "facing=west,tier=ultra": {
       "model": "gemstonepower:block/ore_washer",
       "y": 270
     }

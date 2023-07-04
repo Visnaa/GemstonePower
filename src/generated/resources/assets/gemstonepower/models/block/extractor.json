@@ -1,12 +1,7 @@
 {
-  "parent": "minecraft:block/cube",
+  "parent": "gemstonepower:block/machine",
   "textures": {
-    "down": "gemstonepower:block/machine",
-    "east": "gemstonepower:block/machine",
-    "north": "gemstonepower:block/extractor",
-    "particle": "gemstonepower:block/extractor",
-    "south": "gemstonepower:block/machine",
-    "up": "gemstonepower:block/machine",
-    "west": "gemstonepower:block/machine"
+    "machine": "gemstonepower:block/extractor",
+    "particle": "gemstonepower:block/extractor"
   }
 }

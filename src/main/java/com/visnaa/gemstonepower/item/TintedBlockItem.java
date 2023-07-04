@@ -9,10 +9,10 @@ public class TintedBlockItem extends BlockItem implements Tintable
 {
     private int color;
 
-    public TintedBlockItem(Block block, Properties properties, Tints colour)
+    public TintedBlockItem(Block block, Properties properties, Tints color)
     {
         super(block, properties);
-        this.color = colour.getColor();
+        this.color = color.getColor();
         Tints.TINTED_ITEMS.add(this);
     }
 

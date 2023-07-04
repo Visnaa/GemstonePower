@@ -1,33 +1,153 @@
 {
   "variants": {
-    "facing=east,lit=false": {
+    "facing=east,lit=false,tier=advanced": {
       "model": "gemstonepower:block/electric_furnace",
       "y": 90
     },
-    "facing=east,lit=true": {
-      "model": "gemstonepower:block/electric_furnace_lit",
+    "facing=east,lit=false,tier=extreme": {
+      "model": "gemstonepower:block/electric_furnace",
       "y": 90
     },
-    "facing=north,lit=false": {
+    "facing=east,lit=false,tier=intermediate": {
+      "model": "gemstonepower:block/electric_furnace",
+      "y": 90
+    },
+    "facing=east,lit=false,tier=standard": {
+      "model": "gemstonepower:block/electric_furnace",
+      "y": 90
+    },
+    "facing=east,lit=false,tier=ultra": {
+      "model": "gemstonepower:block/electric_furnace",
+      "y": 90
+    },
+    "facing=east,lit=true,tier=advanced": {
+      "model": "gemstonepower:block/electric_furnace",
+      "y": 90
+    },
+    "facing=east,lit=true,tier=extreme": {
+      "model": "gemstonepower:block/electric_furnace",
+      "y": 90
+    },
+    "facing=east,lit=true,tier=intermediate": {
+      "model": "gemstonepower:block/electric_furnace",
+      "y": 90
+    },
+    "facing=east,lit=true,tier=standard": {
+      "model": "gemstonepower:block/electric_furnace",
+      "y": 90
+    },
+    "facing=east,lit=true,tier=ultra": {
+      "model": "gemstonepower:block/electric_furnace",
+      "y": 90
+    },
+    "facing=north,lit=false,tier=advanced": {
       "model": "gemstonepower:block/electric_furnace"
     },
-    "facing=north,lit=true": {
-      "model": "gemstonepower:block/electric_furnace_lit"
+    "facing=north,lit=false,tier=extreme": {
+      "model": "gemstonepower:block/electric_furnace"
     },
-    "facing=south,lit=false": {
+    "facing=north,lit=false,tier=intermediate": {
+      "model": "gemstonepower:block/electric_furnace"
+    },
+    "facing=north,lit=false,tier=standard": {
+      "model": "gemstonepower:block/electric_furnace"
+    },
+    "facing=north,lit=false,tier=ultra": {
+      "model": "gemstonepower:block/electric_furnace"
+    },
+    "facing=north,lit=true,tier=advanced": {
+      "model": "gemstonepower:block/electric_furnace"
+    },
+    "facing=north,lit=true,tier=extreme": {
+      "model": "gemstonepower:block/electric_furnace"
+    },
+    "facing=north,lit=true,tier=intermediate": {
+      "model": "gemstonepower:block/electric_furnace"
+    },
+    "facing=north,lit=true,tier=standard": {
+      "model": "gemstonepower:block/electric_furnace"
+    },
+    "facing=north,lit=true,tier=ultra": {
+      "model": "gemstonepower:block/electric_furnace"
+    },
+    "facing=south,lit=false,tier=advanced": {
       "model": "gemstonepower:block/electric_furnace",
       "y": 180
     },
-    "facing=south,lit=true": {
-      "model": "gemstonepower:block/electric_furnace_lit",
+    "facing=south,lit=false,tier=extreme": {
+      "model": "gemstonepower:block/electric_furnace",
       "y": 180
     },
-    "facing=west,lit=false": {
+    "facing=south,lit=false,tier=intermediate": {
+      "model": "gemstonepower:block/electric_furnace",
+      "y": 180
+    },
+    "facing=south,lit=false,tier=standard": {
+      "model": "gemstonepower:block/electric_furnace",
+      "y": 180
+    },
+    "facing=south,lit=false,tier=ultra": {
+      "model": "gemstonepower:block/electric_furnace",
+      "y": 180
+    },
+    "facing=south,lit=true,tier=advanced": {
+      "model": "gemstonepower:block/electric_furnace",
+      "y": 180
+    },
+    "facing=south,lit=true,tier=extreme": {
+      "model": "gemstonepower:block/electric_furnace",
+      "y": 180
+    },
+    "facing=south,lit=true,tier=intermediate": {
+      "model": "gemstonepower:block/electric_furnace",
+      "y": 180
+    },
+    "facing=south,lit=true,tier=standard": {
+      "model": "gemstonepower:block/electric_furnace",
+      "y": 180
+    },
+    "facing=south,lit=true,tier=ultra": {
+      "model": "gemstonepower:block/electric_furnace",
+      "y": 180
+    },
+    "facing=west,lit=false,tier=advanced": {
       "model": "gemstonepower:block/electric_furnace",
       "y": 270
     },
-    "facing=west,lit=true": {
-      "model": "gemstonepower:block/electric_furnace_lit",
+    "facing=west,lit=false,tier=extreme": {
+      "model": "gemstonepower:block/electric_furnace",
+      "y": 270
+    },
+    "facing=west,lit=false,tier=intermediate": {
+      "model": "gemstonepower:block/electric_furnace",
+      "y": 270
+    },
+    "facing=west,lit=false,tier=standard": {
+      "model": "gemstonepower:block/electric_furnace",
+      "y": 270
+    },
+    "facing=west,lit=false,tier=ultra": {
+      "model": "gemstonepower:block/electric_furnace",
+      "y": 270
+    },
+    "facing=west,lit=true,tier=advanced": {
+      "model": "gemstonepower:block/electric_furnace",
+      "y": 270
+    },
+    "facing=west,lit=true,tier=extreme": {
+      "model": "gemstonepower:block/electric_furnace",
+      "y": 270
+    },
+    "facing=west,lit=true,tier=intermediate": {
+      "model": "gemstonepower:block/electric_furnace",
+      "y": 270
+    },
+    "facing=west,lit=true,tier=standard": {
+      "model": "gemstonepower:block/electric_furnace",
+      "y": 270
+    },
+    "facing=west,lit=true,tier=ultra": {
+      "model": "gemstonepower:block/electric_furnace",
       "y": 270
     }
   }

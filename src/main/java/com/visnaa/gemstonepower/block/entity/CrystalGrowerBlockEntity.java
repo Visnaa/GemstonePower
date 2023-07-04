@@ -2,11 +2,13 @@ package com.visnaa.gemstonepower.block.entity;
 
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.client.screen.menu.CrystalGrowerMenu;
-import com.visnaa.gemstonepower.config.CommonConfig;
+import com.visnaa.gemstonepower.config.ServerConfig;
 import com.visnaa.gemstonepower.data.recipe.CrystalGrowerRecipe;
 import com.visnaa.gemstonepower.network.energy.ForgeEnergyStorage;
 import com.visnaa.gemstonepower.registry.ModBlockEntities;
 import com.visnaa.gemstonepower.registry.ModRecipes;
+import com.visnaa.gemstonepower.util.EnergyUtilities;
+import com.visnaa.gemstonepower.util.Tier;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -84,8 +86,11 @@ public class CrystalGrowerBlockEntity extends BaseContainerBlockEntity implement
         this.quickCheck = RecipeManager.createCheck((RecipeType) ModRecipes.CRYSTAL_GROWER_RECIPE);
     }
 
-    protected Component getDefaultName() {
-        return Component.translatable("menu." + GemstonePower.MOD_ID + ".crystal_grower");
+    protected Component getDefaultName()
+    {
+        String name = Component.translatable("menu." + GemstonePower.MOD_ID + ".crystal_grower").getString();
+        String tier = Component.translatable("menu." + GemstonePower.MOD_ID + ".tier." + this.getBlockState().getValue(Tier.TIER).getSerializedName()).getString();
+        return Component.literal(name + " (" + tier + ")");
     }
 
     protected AbstractContainerMenu createMenu(int id, Inventory inv)
@@ -212,12 +217,12 @@ public class CrystalGrowerBlockEntity extends BaseContainerBlockEntity implement
 
     private static int getTotalTime(Level level, CrystalGrowerBlockEntity blockEntity)
     {
-        return blockEntity.quickCheck.getRecipeFor(blockEntity, level).map(CrystalGrowerRecipe::getProcessingTime).orElse(200);
+        return EnergyUtilities.getTotalTime(blockEntity.getBlockState(), blockEntity.quickCheck.getRecipeFor(blockEntity, level).map(CrystalGrowerRecipe::getProcessingTime).orElse(ServerConfig.DEFAULT_MACHINE_TIME.get()));
     }
 
     private static int getEnergyUsage(Level level, CrystalGrowerBlockEntity blockEntity)
     {
-        return blockEntity.quickCheck.getRecipeFor(blockEntity, level).map(CrystalGrowerRecipe::getEnergyUsage).orElse(40);
+        return EnergyUtilities.getUsage(blockEntity.getBlockState(), blockEntity.quickCheck.getRecipeFor(blockEntity, level).map(CrystalGrowerRecipe::getEnergyUsage).orElse(ServerConfig.DEFAULT_MACHINE_USAGE.get()));
     }
 
     public int[] getSlotsForFace(Direction dir)
@@ -376,7 +381,7 @@ public class CrystalGrowerBlockEntity extends BaseContainerBlockEntity implement
 
     private ForgeEnergyStorage createEnergyStorage()
     {
-        return new ForgeEnergyStorage(CommonConfig.DEFAULT_MACHINE_CAPACITY.get(), Integer.MAX_VALUE, 0) {
+        return new ForgeEnergyStorage(EnergyUtilities.getCapacity(this.getBlockState(), ServerConfig.DEFAULT_MACHINE_CAPACITY.get()), Integer.MAX_VALUE, 0) {
             @Override
             protected void onEnergyChanged() {
                 setChanged();

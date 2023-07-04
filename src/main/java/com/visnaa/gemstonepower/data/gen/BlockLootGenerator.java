@@ -8,6 +8,7 @@ import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.List;
 import java.util.Set;
 
 public class BlockLootGenerator extends BlockLootSubProvider
@@ -89,25 +90,6 @@ public class BlockLootGenerator extends BlockLootSubProvider
         this.add(ModBlocks.ZINC_ORE.get(), block -> createOreDrop(ModBlocks.ZINC_ORE.get(), ModItems.RAW_ZINC.get()));
         this.add(ModBlocks.DEEPSLATE_ZINC_ORE.get(), block -> createOreDrop(ModBlocks.DEEPSLATE_ZINC_ORE.get(), ModItems.RAW_ZINC.get()));
 
-        this.dropSelf(ModBlocks.GEMSTONE_GENERATOR.get());
-        this.dropSelf(ModBlocks.GEMSTONE_CELL.get());
-        this.dropSelf(ModBlocks.CRYSTAL_GROWER.get());
-        this.dropSelf(ModBlocks.CRYSTAL_CHARGER.get());
-
-        this.dropSelf(ModBlocks.ELECTRIC_FURNACE.get());
-        this.dropSelf(ModBlocks.METAL_FORMER.get());
-        this.dropSelf(ModBlocks.PULVERIZER.get());
-        this.dropSelf(ModBlocks.ALLOY_SMELTER.get());
-        this.dropSelf(ModBlocks.EXTRACTOR.get());
-        this.dropSelf(ModBlocks.ORE_WASHER.get());
-        this.dropSelf(ModBlocks.COBBLESTONE_GENERATOR.get());
-        this.dropSelf(ModBlocks.SAWMILL.get());
-        this.dropSelf(ModBlocks.POLARIZER.get());
-
-        this.dropSelf(ModBlocks.SOLAR_PANEL.get());
-        this.dropSelf(ModBlocks.WATER_MILL.get());
-        this.dropSelf(ModBlocks.WIND_TURBINE.get());
-
         this.dropSelf(ModBlocks.RESIN_OAK_SAPLING.get());
         this.dropSelf(ModBlocks.RESIN_OAK_LOG.get());
         this.add(ModBlocks.RESIN_OAK_LEAVES.get(), state -> createOakLeavesDrops(state, ModBlocks.RESIN_OAK_SAPLING.get(), VanillaBlockLoot.NORMAL_LEAVES_SAPLING_CHANCES));
@@ -125,6 +107,10 @@ public class BlockLootGenerator extends BlockLootSubProvider
     @Override
     protected Iterable<Block> getKnownBlocks()
     {
-        return ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
+        List<Block> tiered = List.of(ModBlocks.GEMSTONE_GENERATOR.get(), ModBlocks.GEMSTONE_CELL.get(), ModBlocks.CRYSTAL_GROWER.get(), ModBlocks.CRYSTAL_CHARGER.get(),
+                ModBlocks.ELECTRIC_FURNACE.get(), ModBlocks.METAL_FORMER.get(), ModBlocks.PULVERIZER.get(), ModBlocks.ALLOY_SMELTER.get(), ModBlocks.EXTRACTOR.get(),
+                ModBlocks.ORE_WASHER.get(), ModBlocks.COBBLESTONE_GENERATOR.get(), ModBlocks.SAWMILL.get(), ModBlocks.POLARIZER.get(), ModBlocks.SOLAR_PANEL.get(),
+                ModBlocks.WATER_MILL.get(), ModBlocks.WIND_TURBINE.get());
+        return ModBlocks.BLOCKS.getEntries().stream().filter(block -> !tiered.contains(block.get())).map(RegistryObject::get)::iterator;
     }
 }

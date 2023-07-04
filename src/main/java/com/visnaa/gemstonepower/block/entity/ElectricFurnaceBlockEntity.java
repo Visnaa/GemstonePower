@@ -3,10 +3,12 @@ package com.visnaa.gemstonepower.block.entity;
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.block.ElectricFurnaceBlock;
 import com.visnaa.gemstonepower.client.screen.menu.ElectricFurnaceMenu;
-import com.visnaa.gemstonepower.config.CommonConfig;
+import com.visnaa.gemstonepower.config.ServerConfig;
 import com.visnaa.gemstonepower.data.recipe.CrystalGrowerRecipe;
 import com.visnaa.gemstonepower.network.energy.ForgeEnergyStorage;
 import com.visnaa.gemstonepower.registry.ModBlockEntities;
+import com.visnaa.gemstonepower.util.EnergyUtilities;
+import com.visnaa.gemstonepower.util.Tier;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -43,7 +45,6 @@ import javax.annotation.Nullable;
 public class ElectricFurnaceBlockEntity extends BaseContainerBlockEntity implements WorldlyContainer, RecipeHolder, StackedContentsCompatible
 {
     private static final int[] SLOTS_FOR_INPUT = new int[]{0};
-    private static final int ENERGY_USAGE = 20;
     protected NonNullList<ItemStack> items = NonNullList.withSize(2, ItemStack.EMPTY);
     int cookingProgress;
     int cookingTotalTime;
@@ -84,8 +85,11 @@ public class ElectricFurnaceBlockEntity extends BaseContainerBlockEntity impleme
         this.quickCheck = RecipeManager.createCheck((RecipeType) RecipeType.SMELTING);
     }
 
-    protected Component getDefaultName() {
-        return Component.translatable("menu." + GemstonePower.MOD_ID + ".electric_furnace");
+    protected Component getDefaultName()
+    {
+        String name = Component.translatable("menu." + GemstonePower.MOD_ID + ".electric_furnace").getString();
+        String tier = Component.translatable("menu." + GemstonePower.MOD_ID + ".tier." + this.getBlockState().getValue(Tier.TIER).getSerializedName()).getString();
+        return Component.literal(name + " (" + tier + ")");
     }
 
     protected AbstractContainerMenu createMenu(int id, Inventory inv)
@@ -125,9 +129,10 @@ public class ElectricFurnaceBlockEntity extends BaseContainerBlockEntity impleme
     
     public static void serverTick(Level level, BlockPos pos, BlockState state, ElectricFurnaceBlockEntity blockEntity)
     {
+        int energyUsage = EnergyUtilities.getUsage(state, ServerConfig.DEFAULT_MACHINE_USAGE.get() / 2);
         boolean changed = false;
         boolean isInputPresent = !blockEntity.items.get(0).isEmpty();
-        boolean hasEnergyToProceed = blockEntity.energyStorage.getEnergyStored() > ENERGY_USAGE;
+        boolean hasEnergyToProceed = blockEntity.energyStorage.getEnergyStored() > energyUsage;
 
         if (isInputPresent)
         {
@@ -138,9 +143,9 @@ public class ElectricFurnaceBlockEntity extends BaseContainerBlockEntity impleme
 
             if (blockEntity.canProcess(level.registryAccess(), recipe, blockEntity.items, i) && hasEnergyToProceed)
             {
-                if (blockEntity.energyStorage.getEnergyStored() < ENERGY_USAGE) return;
+                if (blockEntity.energyStorage.getEnergyStored() < energyUsage) return;
                 blockEntity.cookingProgress++;
-                blockEntity.energyStorage.consumeEnergy(ENERGY_USAGE);
+                blockEntity.energyStorage.consumeEnergy(energyUsage);
                 if (blockEntity.cookingProgress == blockEntity.cookingTotalTime) {
                     blockEntity.cookingProgress = 0;
                     blockEntity.cookingTotalTime = getTotalTime(level, blockEntity);
@@ -217,7 +222,7 @@ public class ElectricFurnaceBlockEntity extends BaseContainerBlockEntity impleme
 
     private static int getTotalTime(Level level, ElectricFurnaceBlockEntity blockEntity)
     {
-        return blockEntity.quickCheck.getRecipeFor(blockEntity, level).map(AbstractCookingRecipe::getCookingTime).orElse(200) / 2;
+        return EnergyUtilities.getTotalTime(blockEntity.getBlockState(), blockEntity.quickCheck.getRecipeFor(blockEntity, level).map(AbstractCookingRecipe::getCookingTime).orElse(ServerConfig.DEFAULT_MACHINE_TIME.get()) / 2);
     }
 
     public int[] getSlotsForFace(Direction dir)
@@ -376,7 +381,7 @@ public class ElectricFurnaceBlockEntity extends BaseContainerBlockEntity impleme
 
     private ForgeEnergyStorage createEnergyStorage()
     {
-        return new ForgeEnergyStorage(CommonConfig.DEFAULT_MACHINE_CAPACITY.get(), Integer.MAX_VALUE, 0) {
+        return new ForgeEnergyStorage(EnergyUtilities.getCapacity(this.getBlockState(), ServerConfig.DEFAULT_MACHINE_CAPACITY.get()), Integer.MAX_VALUE, 0) {
             @Override
             protected void onEnergyChanged() {
                 setChanged();

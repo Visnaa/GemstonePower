@@ -3,9 +3,9 @@
 	"render_type": "cutout",
 	"textures": {
 		"machine": "gemstonepower:block/machine",
-		"axle": "gemstonepower:block/machine_axle",
+		"axle": "gemstonepower:block/axle",
 		"mill": "gemstonepower:block/mill",
-		"particle": "gemstonepower:block/machine_axle"
+		"particle": "gemstonepower:block/axle"
 	},
 	"elements": [
 		{
@@ -13,12 +13,19 @@
 			"from": [0, 0, 0],
 			"to": [16, 16, 16],
 			"faces": {
-				"north": {"uv": [0, 0, 16, 16], "texture": "#axle"},
-				"east": {"uv": [0, 0, 16, 16], "texture": "#machine"},
-				"south": {"uv": [0, 0, 16, 16], "texture": "#machine"},
-				"west": {"uv": [0, 0, 16, 16], "texture": "#machine"},
-				"up": {"uv": [0, 0, 16, 16], "texture": "#machine"},
-				"down": {"uv": [0, 0, 16, 16], "texture": "#machine"}
+				"north": {"uv": [0, 0, 16, 16], "texture": "#machine", "tintindex": 0},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#machine", "tintindex": 0},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#machine", "tintindex": 0},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#machine", "tintindex": 0},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#machine", "tintindex": 0},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#machine", "tintindex": 0}
+			}
+		},
+		{
+			"from": [0, 0, 0],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#axle"}
 			}
 		},
 		{

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "gemstonepower:citrine"
+    },
+    "U": {
+      "item": "gemstonepower:intermediate_upgrade"
+    },
+    "Z": {
+      "tag": "forge:ingots/zinc"
+    }
+  },
+  "pattern": [
+    "ZCZ",
+    "CUC",
+    "ZCZ"
+  ],
+  "result": {
+    "item": "gemstonepower:advanced_upgrade"
+  },
+  "show_notification": true
+}

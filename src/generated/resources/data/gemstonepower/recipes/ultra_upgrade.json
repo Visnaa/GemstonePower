@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": {
+      "tag": "forge:ingots/lead"
+    },
+    "T": {
+      "item": "gemstonepower:tanzanite"
+    },
+    "U": {
+      "item": "gemstonepower:advanced_upgrade"
+    }
+  },
+  "pattern": [
+    "LTL",
+    "TUT",
+    "LTL"
+  ],
+  "result": {
+    "item": "gemstonepower:ultra_upgrade"
+  },
+  "show_notification": true
+}

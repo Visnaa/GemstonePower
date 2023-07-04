@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:extreme_upgrade"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_ultra_upgrade": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:ultra_upgrade"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_ultra_upgrade",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:extreme_upgrade"
+    ]
+  },
+  "sends_telemetry_event": false
+}

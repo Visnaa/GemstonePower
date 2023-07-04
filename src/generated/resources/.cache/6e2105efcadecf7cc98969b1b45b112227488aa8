@@ -1,4 +1,5 @@
-// 1.20.1	2023-07-01T15:00:39.7266668	Item Models: gemstonepower
+// 1.20.1	2023-07-04T17:50:57.7767876	Item Models: gemstonepower
+be34f5217cc5560117eb30a30fbad66db313c194 assets/gemstonepower/models/item/advanced_upgrade.json
 e3593875d30c80acaaf80db0b0abb02f8b3afe92 assets/gemstonepower/models/item/aluminum_axe.json
 82316ffbb3b22484a942751c9af83d6c170297f5 assets/gemstonepower/models/item/aluminum_boots.json
 cdbc69f12923cd3cfe44100e30244a1e22cd4964 assets/gemstonepower/models/item/aluminum_chestplate.json
@@ -116,6 +117,7 @@ a5f5aafebf36f6c7b7f1453fdf26afab9bb5fcd1 assets/gemstonepower/models/item/dolomi
 77967f2ab7a3db8f8d6a45451dab7f91606a567a assets/gemstonepower/models/item/electrum_rod.json
 8caef1a21e2e717fd8bfd8a04c6c79976960d908 assets/gemstonepower/models/item/electrum_tiny_pile.json
 b3c4770ca2adc945a8629694f743412b5c73d9e2 assets/gemstonepower/models/item/electrum_wire.json
+be34f5217cc5560117eb30a30fbad66db313c194 assets/gemstonepower/models/item/extreme_upgrade.json
 35103ad4cf0a9664bddfe0bc279e252c3a50b555 assets/gemstonepower/models/item/gemstone_axe.json
 d0a8a55dd89a283dd65267bc09914d59ca544803 assets/gemstonepower/models/item/gemstone_boots.json
 68ce85ff2cef1f05aa1da013b30746b01d1ae5f1 assets/gemstonepower/models/item/gemstone_chestplate.json
@@ -131,6 +133,7 @@ ba2da46670b17cc76b7c335bf3823e42f1d79951 assets/gemstonepower/models/item/gold_o
 80c3eb8f519fb32e40ff75a8fea0f9e78fed52c6 assets/gemstonepower/models/item/gold_plate.json
 77967f2ab7a3db8f8d6a45451dab7f91606a567a assets/gemstonepower/models/item/gold_rod.json
 8caef1a21e2e717fd8bfd8a04c6c79976960d908 assets/gemstonepower/models/item/gold_tiny_pile.json
+be34f5217cc5560117eb30a30fbad66db313c194 assets/gemstonepower/models/item/intermediate_upgrade.json
 e3593875d30c80acaaf80db0b0abb02f8b3afe92 assets/gemstonepower/models/item/invar_axe.json
 82316ffbb3b22484a942751c9af83d6c170297f5 assets/gemstonepower/models/item/invar_boots.json
 cdbc69f12923cd3cfe44100e30244a1e22cd4964 assets/gemstonepower/models/item/invar_chestplate.json
@@ -261,6 +264,7 @@ ba2da46670b17cc76b7c335bf3823e42f1d79951 assets/gemstonepower/models/item/silver
 90fc4bfd7964799b2e4892f572636b43885e4e2b assets/gemstonepower/models/item/silver_shovel.json
 391353e5d592121760c32187073f2c0e30f15707 assets/gemstonepower/models/item/silver_sword.json
 8caef1a21e2e717fd8bfd8a04c6c79976960d908 assets/gemstonepower/models/item/silver_tiny_pile.json
+51d6f17598034372b11c2bae2bb7008ebe685c65 assets/gemstonepower/models/item/solar_panel.json
 e3593875d30c80acaaf80db0b0abb02f8b3afe92 assets/gemstonepower/models/item/steel_axe.json
 82316ffbb3b22484a942751c9af83d6c170297f5 assets/gemstonepower/models/item/steel_boots.json
 cdbc69f12923cd3cfe44100e30244a1e22cd4964 assets/gemstonepower/models/item/steel_chestplate.json
@@ -300,6 +304,7 @@ b3c4770ca2adc945a8629694f743412b5c73d9e2 assets/gemstonepower/models/item/tin_wi
 934a135c5dfb83b0c7b5b1d7dec289917dcc876b assets/gemstonepower/models/item/topaz_charged.json
 1ce271cd88c05d2a75c047bf9faed11a13dc8fce assets/gemstonepower/models/item/topaz_seed.json
 87a9885d1ea8e9a125c178ee6fc20db29d24a456 assets/gemstonepower/models/item/tree_tap.json
+be34f5217cc5560117eb30a30fbad66db313c194 assets/gemstonepower/models/item/ultra_upgrade.json
 5418fccba2a873b87666cf169860ab14e2ec74f2 assets/gemstonepower/models/item/uranium_dust.json
 0b8692cf1073acb1de45e13e94036c203151659e assets/gemstonepower/models/item/uranium_gear.json
 94aedde9610dae40a50612ffc612e08976059d82 assets/gemstonepower/models/item/uranium_ingot.json

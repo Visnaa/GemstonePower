@@ -444,6 +444,12 @@ public class EN_US_LanguageGenerator extends LanguageProvider
 
         this.add("menu." + GemstonePower.MOD_ID + ".energy_shift_tip", "§8Press §bSHIFT §8to get more details");
 
+        this.add("menu." + GemstonePower.MOD_ID + ".tier.standard", "Standard");
+        this.add("menu." + GemstonePower.MOD_ID + ".tier.intermediate", "Intermediate");
+        this.add("menu." + GemstonePower.MOD_ID + ".tier.advanced", "Advanced");
+        this.add("menu." + GemstonePower.MOD_ID + ".tier.ultra", "Ultra");
+        this.add("menu." + GemstonePower.MOD_ID + ".tier.extreme", "Extreme");
+
         this.add("menu." + GemstonePower.MOD_ID + ".config_screen", "Gemstone Power client config");
         this.add("menu." + GemstonePower.MOD_ID + ".config_screen.done", "Done");
         this.add("menu." + GemstonePower.MOD_ID + ".config_screen.energy_unit", "Displayed energy unit");
@@ -462,6 +468,11 @@ public class EN_US_LanguageGenerator extends LanguageProvider
         this.add(ModBlocks.ELECTRUM_CABLE.get(), "Electrum Cable");
 
     // MICS
+        this.add(ModItems.INTERMEDIATE_UPGRADE.get(), "Intermediate Upgrade");
+        this.add(ModItems.ADVANCED_UPGRADE.get(), "Advanced Upgrade");
+        this.add(ModItems.ULTRA_UPGRADE.get(), "Ultra Upgrade");
+        this.add(ModItems.EXTREME_UPGRADE.get(), "Extreme Upgrade");
+
         this.add(ModItems.PLATE_PRESET.get(), "Plate Preset");
         this.add(ModItems.ROD_PRESET.get(), "Rod Preset");
         this.add(ModItems.WIRE_PRESET.get(), "Wire Preset");
@@ -607,6 +618,14 @@ public class EN_US_LanguageGenerator extends LanguageProvider
         this.add("advancement." + GemstonePower.MOD_ID + ".water_mill.description", "Craft a Water Mill");
         this.add("advancement." + GemstonePower.MOD_ID + ".wind_turbine.title", "Energy from thin air");
         this.add("advancement." + GemstonePower.MOD_ID + ".wind_turbine.description", "Craft a Wind Turbine");
+        this.add("advancement." + GemstonePower.MOD_ID + ".intermediate_upgrade.title", "Go faster!");
+        this.add("advancement." + GemstonePower.MOD_ID + ".intermediate_upgrade.description", "Craft an Intermediate Upgrade");
+        this.add("advancement." + GemstonePower.MOD_ID + ".advanced_upgrade.title", "Advanced processing");
+        this.add("advancement." + GemstonePower.MOD_ID + ".advanced_upgrade.description", "Craft an Advanced Upgrade");
+        this.add("advancement." + GemstonePower.MOD_ID + ".ultra_upgrade.title", "Getting there");
+        this.add("advancement." + GemstonePower.MOD_ID + ".ultra_upgrade.description", "Craft an Ultra Upgrade");
+        this.add("advancement." + GemstonePower.MOD_ID + ".extreme_upgrade.title", "Extreme potential");
+        this.add("advancement." + GemstonePower.MOD_ID + ".extreme_upgrade.description", "Craft an Extreme Upgrade");
         this.add("advancement." + GemstonePower.MOD_ID + ".gem.title", "Time for a big guy");
         this.add("advancement." + GemstonePower.MOD_ID + ".gem.description", "Grow a gem in Crystal Grower" );
         this.add("advancement." + GemstonePower.MOD_ID + ".charged_gem.title", "Gemstone Power!");

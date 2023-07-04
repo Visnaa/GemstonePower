@@ -1,7 +1,7 @@
 package com.visnaa.gemstonepower.block.entity;
 
 import com.visnaa.gemstonepower.block.AluminumCableBlock;
-import com.visnaa.gemstonepower.config.CommonConfig;
+import com.visnaa.gemstonepower.config.ServerConfig;
 import com.visnaa.gemstonepower.network.energy.EnergyNetwork;
 import com.visnaa.gemstonepower.registry.ModBlockEntities;
 import net.minecraft.core.BlockPos;
@@ -15,7 +15,7 @@ public class AluminumCableBlockEntity extends NetworkBlockEntity
 {
     public AluminumCableBlockEntity(BlockPos pos, BlockState state)
     {
-        super(ModBlockEntities.ALUMINUM_CABLE.get(), pos, state, CommonConfig.ENERGY_TRANSFER_RATE.get());
+        super(ModBlockEntities.ALUMINUM_CABLE.get(), pos, state, ServerConfig.ENERGY_TRANSFER_RATE.get());
     }
 
     public static void serverTick(Level level, BlockPos pos, BlockState state, AluminumCableBlockEntity blockEntity)

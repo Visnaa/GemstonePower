@@ -4,10 +4,8 @@ import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.client.render.Tints;
 import com.visnaa.gemstonepower.client.render.entity.CrystalArrowRenderer;
 import com.visnaa.gemstonepower.client.screen.*;
-import com.visnaa.gemstonepower.registry.ModBlocks;
-import com.visnaa.gemstonepower.registry.ModContainers;
-import com.visnaa.gemstonepower.registry.ModEntities;
-import com.visnaa.gemstonepower.registry.ModTabs;
+import com.visnaa.gemstonepower.registry.*;
+import com.visnaa.gemstonepower.util.Tier;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.core.registries.Registries;
@@ -66,6 +64,15 @@ public class ClientEvents
     {
         Tints.TINTED_BLOCKS.forEach(block -> event.register((state, getter, pos, layer) -> block.getColor(), (Block) block));
         event.register((state, getter, pos, layer) -> getter != null && pos != null ? BiomeColors.getAverageFoliageColor(getter, pos) : FoliageColor.getDefaultColor(), ModBlocks.RESIN_OAK_LEAVES.get());
+
+        Tier.BLOCKS.forEach(block -> event.register((state, getter, pos, layer) ->
+        {
+            if (layer != 0)
+            {
+                return Tints.EMPTY.getColor();
+            }
+            return Tier.getTierTint(block.getTier(state)).getColor();
+        }, (Block) block));
     }
 
     @SubscribeEvent

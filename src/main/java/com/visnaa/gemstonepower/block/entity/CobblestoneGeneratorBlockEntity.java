@@ -1,8 +1,9 @@
 package com.visnaa.gemstonepower.block.entity;
 
-import com.visnaa.gemstonepower.config.CommonConfig;
+import com.visnaa.gemstonepower.config.ServerConfig;
 import com.visnaa.gemstonepower.network.energy.ForgeEnergyStorage;
 import com.visnaa.gemstonepower.registry.ModBlockEntities;
+import com.visnaa.gemstonepower.util.EnergyUtilities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -49,7 +50,7 @@ public class CobblestoneGeneratorBlockEntity extends BlockEntity
 
     public void generate(Level level, BlockPos pos, BlockState state)
     {
-        if (energyStorage.getEnergyStored() > 40 && cooldown <= 0)
+        if (energyStorage.getEnergyStored() > EnergyUtilities.getUsage(state, ServerConfig.DEFAULT_MACHINE_USAGE.get()) && cooldown <= 0)
         {
             BlockEntity be = level.getBlockEntity(pos.below());
             if (be != null && be.getCapability(ForgeCapabilities.ITEM_HANDLER).isPresent())
@@ -62,8 +63,8 @@ public class CobblestoneGeneratorBlockEntity extends BlockEntity
                             ItemStack stack = handler.insertItem(i, new ItemStack(Blocks.COBBLESTONE), false);
                             if (stack.isEmpty())
                             {
-                                energyStorage.consumeEnergy(40);
-                                cooldown = 100;
+                                energyStorage.consumeEnergy(EnergyUtilities.getUsage(state, ServerConfig.DEFAULT_MACHINE_USAGE.get()));
+                                cooldown = ServerConfig.DEFAULT_MACHINE_TIME.get();
                             }
                             return true;
                         }
@@ -107,7 +108,7 @@ public class CobblestoneGeneratorBlockEntity extends BlockEntity
 
     private ForgeEnergyStorage createEnergyStorage()
     {
-        return new ForgeEnergyStorage(CommonConfig.DEFAULT_MACHINE_CAPACITY.get(), Integer.MAX_VALUE, Integer.MAX_VALUE) {
+        return new ForgeEnergyStorage(EnergyUtilities.getCapacity(this.getBlockState(), ServerConfig.DEFAULT_MACHINE_CAPACITY.get()), Integer.MAX_VALUE, Integer.MAX_VALUE) {
             @Override
             protected void onEnergyChanged() {
                 setChanged();

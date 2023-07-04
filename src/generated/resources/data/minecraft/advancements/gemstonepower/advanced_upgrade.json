@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:gemstonepower/intermediate_upgrade",
+  "criteria": {
+    "has_advanced_upgrade": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:advanced_upgrade"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.gemstonepower.advanced_upgrade.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "gemstonepower:advanced_upgrade"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.gemstonepower.advanced_upgrade.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_advanced_upgrade"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

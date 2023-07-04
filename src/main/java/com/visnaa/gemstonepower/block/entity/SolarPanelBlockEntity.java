@@ -1,8 +1,9 @@
 package com.visnaa.gemstonepower.block.entity;
 
-import com.visnaa.gemstonepower.config.CommonConfig;
+import com.visnaa.gemstonepower.config.ServerConfig;
 import com.visnaa.gemstonepower.network.energy.ForgeEnergyStorage;
 import com.visnaa.gemstonepower.registry.ModBlockEntities;
+import com.visnaa.gemstonepower.util.EnergyUtilities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -46,7 +47,7 @@ public class SolarPanelBlockEntity extends BlockEntity
     {
         if (level.canSeeSky(pos.above()) && (level.getDayTime() % 24000) <= 12500L && level.getBlockState(pos.above()).is(Blocks.AIR))
         {
-            energyStorage.addEnergy(5);
+            energyStorage.addEnergy(EnergyUtilities.getGeneration(state, ServerConfig.IDLE_GENERATOR_GENERATION.get()));
         }
     }
 
@@ -82,7 +83,7 @@ public class SolarPanelBlockEntity extends BlockEntity
 
     private ForgeEnergyStorage createEnergyStorage()
     {
-        return new ForgeEnergyStorage(CommonConfig.DEFAULT_GENERATOR_CAPACITY.get(), 0, Integer.MAX_VALUE) {
+        return new ForgeEnergyStorage(EnergyUtilities.getCapacity(this.getBlockState(), ServerConfig.DEFAULT_GENERATOR_CAPACITY.get()), 0, Integer.MAX_VALUE) {
             @Override
             protected void onEnergyChanged() {
                 setChanged();

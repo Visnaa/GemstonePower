@@ -1,9 +1,10 @@
 package com.visnaa.gemstonepower.block.entity;
 
 import com.visnaa.gemstonepower.block.WindTurbineBlock;
-import com.visnaa.gemstonepower.config.CommonConfig;
+import com.visnaa.gemstonepower.config.ServerConfig;
 import com.visnaa.gemstonepower.network.energy.ForgeEnergyStorage;
 import com.visnaa.gemstonepower.registry.ModBlockEntities;
+import com.visnaa.gemstonepower.util.EnergyUtilities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -47,7 +48,7 @@ public class WindTurbineBlockEntity extends BlockEntity
     {
         if (level.getBlockState(pos.relative(state.getValue(WindTurbineBlock.FACING))).isAir())
         {
-            energyStorage.addEnergy(5);
+            energyStorage.addEnergy(EnergyUtilities.getGeneration(state, ServerConfig.IDLE_GENERATOR_GENERATION.get()));
             isSpinning = true;
         }
         else isSpinning = false;
@@ -90,7 +91,7 @@ public class WindTurbineBlockEntity extends BlockEntity
 
     private ForgeEnergyStorage createEnergyStorage()
     {
-        return new ForgeEnergyStorage(CommonConfig.DEFAULT_GENERATOR_CAPACITY.get(), 0, Integer.MAX_VALUE) {
+        return new ForgeEnergyStorage(EnergyUtilities.getCapacity(this.getBlockState(), ServerConfig.DEFAULT_GENERATOR_CAPACITY.get()), 0, Integer.MAX_VALUE) {
             @Override
             protected void onEnergyChanged() {
                 setChanged();

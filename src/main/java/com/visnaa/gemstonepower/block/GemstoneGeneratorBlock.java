@@ -1,6 +1,7 @@
 package com.visnaa.gemstonepower.block;
 
 import com.visnaa.gemstonepower.block.entity.GemstoneGeneratorBlockEntity;
+import com.visnaa.gemstonepower.block.entity.PulverizerBlockEntity;
 import com.visnaa.gemstonepower.registry.ModBlockEntities;
 import com.visnaa.gemstonepower.registry.ModItems;
 import net.minecraft.core.BlockPos;
@@ -27,6 +28,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.BlockHitResult;
 
 import javax.annotation.Nullable;
@@ -89,22 +91,22 @@ public class GemstoneGeneratorBlock extends BaseEntityBlock
     }
 
     @Override
-    public void playerDestroy(Level level, Player player, BlockPos pos, BlockState state, @Nullable BlockEntity entity, ItemStack stack)
+    public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean willHarvest, FluidState fluid)
     {
-        if (!state.is(state.getBlock()))
+        if (state.is(state.getBlock()))
         {
             BlockEntity blockEntity = level.getBlockEntity(pos);
-            if (blockEntity instanceof GemstoneGeneratorBlockEntity)
+            if (blockEntity instanceof PulverizerBlockEntity)
             {
-                if (level instanceof ServerLevel && !player.isCreative())
+                if (level instanceof ServerLevel && !player.isCreative() && willHarvest)
                 {
-                    Containers.dropContents(level, pos, (GemstoneGeneratorBlockEntity) blockEntity);
+                    Containers.dropContents(level, pos, (PulverizerBlockEntity) blockEntity);
                     Containers.dropContents(level, pos, NonNullList.withSize(1, new ItemStack(ModItems.GEMSTONE_GENERATOR.get())));
                 }
                 level.updateNeighbourForOutputSignal(pos, this);
             }
-            super.playerDestroy(level, player, pos, state, entity, stack);
         }
+        return super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);
     }
 
     public boolean hasAnalogOutputSignal(BlockState state)

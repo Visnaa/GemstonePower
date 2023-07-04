@@ -1,5 +1,14 @@
 <h1 style="font-size: 40px">Gemstone Power version changelog</h1>
 
+<h3>Version: Beta 0.2</h3>
+<ul>
+<li>Added machine tiers (Standard, Intermediate, Advanced, Ultra and Extreme)
+<li>Added tier upgrades
+<li>Added new tier advancements
+<li>Added machine tier multipliers to sever config
+<li>Replaced common config with server config
+</ul>
+
 <h3>Version: Beta 0.1.4</h3>
 <ul>
 <li>Added new machine - Polarizer

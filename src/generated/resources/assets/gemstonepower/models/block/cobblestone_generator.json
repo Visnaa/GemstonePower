@@ -1,12 +1,7 @@
 {
-  "parent": "minecraft:block/cube",
+  "parent": "gemstonepower:block/machine",
   "textures": {
-    "down": "gemstonepower:block/machine",
-    "east": "gemstonepower:block/cobblestone_generator",
-    "north": "gemstonepower:block/cobblestone_generator",
-    "particle": "gemstonepower:block/cobblestone_generator",
-    "south": "gemstonepower:block/cobblestone_generator",
-    "up": "gemstonepower:block/machine",
-    "west": "gemstonepower:block/cobblestone_generator"
+    "machine": "gemstonepower:block/cobblestone_generator",
+    "particle": "gemstonepower:block/cobblestone_generator"
   }
 }

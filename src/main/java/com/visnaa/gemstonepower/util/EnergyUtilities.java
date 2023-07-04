@@ -2,11 +2,13 @@ package com.visnaa.gemstonepower.util;
 
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.config.ClientConfig;
+import com.visnaa.gemstonepower.config.ServerConfig;
 import net.minecraft.client.PrioritizeChunkUpdates;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.ByIdMap;
 import net.minecraft.util.OptionEnum;
+import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,6 +59,39 @@ public final class EnergyUtilities
             components.add(shift);
         }
         return components;
+    }
+
+    public static int getCapacity(BlockState state, int baseCapacity)
+    {
+        return (int) Math.round(Math.ceil(2 * baseCapacity * getMultiplier(state.getValue(Tier.TIER))));
+    }
+
+    public static int getUsage(BlockState state, int baseUsage)
+    {
+        return (int) Math.round(Math.ceil(baseUsage * getMultiplier(state.getValue(Tier.TIER))));
+    }
+
+    public static int getGeneration(BlockState state, int baseGeneration)
+    {
+        return (int) Math.round(Math.ceil(1.5 * baseGeneration * getMultiplier(state.getValue(Tier.TIER))));
+    }
+
+    public static int getTotalTime(BlockState state, int baseTotalTime)
+    {
+        return (int) Math.round(Math.ceil(baseTotalTime * (1 / getMultiplier(state.getValue(Tier.TIER)))));
+    }
+
+    private static double getMultiplier(Tier tier)
+    {
+        switch (tier)
+        {
+            case STANDARD: return ServerConfig.STANDARD_TIER_MULTIPLIER.get();
+            case INTERMEDIATE: return ServerConfig.INTERMEDIATE_TIER_MULTIPLIER.get();
+            case ADVANCED: return ServerConfig.ADVANCED_TIER_MULTIPLIER.get();
+            case ULTRA: return ServerConfig.ULTRA_TIER_MULTIPLIER.get();
+            case EXTREME: return ServerConfig.EXTREME_TIER_MULTIPLIER.get();
+        }
+        return 1;
     }
 
     public enum EnergyUnits implements OptionEnum

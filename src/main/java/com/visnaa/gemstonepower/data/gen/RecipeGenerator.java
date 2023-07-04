@@ -121,6 +121,8 @@ public class RecipeGenerator extends RecipeProvider
         this.sawmill(consumer);
         this.polarizer(consumer);
 
+        this.upgrades(consumer);
+
         this.armour(consumer, Items.COPPER_INGOT, ModArmors.COPPER_HELMET.get(), ModArmors.COPPER_CHESTPLATE.get(), ModArmors.COPPER_LEGGINGS.get(), ModArmors.COPPER_BOOTS.get());
         this.armour(consumer, ModItems.ALUMINUM_INGOT.get(), ModArmors.ALUMINUM_HELMET.get(), ModArmors.ALUMINUM_CHESTPLATE.get(), ModArmors.ALUMINUM_LEGGINGS.get(), ModArmors.ALUMINUM_BOOTS.get());
         this.armour(consumer, ModItems.BRONZE_INGOT.get(), ModArmors.BRONZE_HELMET.get(), ModArmors.BRONZE_CHESTPLATE.get(), ModArmors.BRONZE_LEGGINGS.get(), ModArmors.BRONZE_BOOTS.get());
@@ -961,6 +963,51 @@ public class RecipeGenerator extends RecipeProvider
         PolarizerRecipeBuilder.create(Ingredient.of(ModItems.STEEL_ROD.get()), ModItems.STEEL_ROD_POLARIZED.get(), 1, 200, 80)
                 .unlockedBy(hasName(ModItems.STEEL_ROD.get()), has(ModItems.STEEL_ROD.get()))
                 .save(consumer, getFileName(ModItems.STEEL_ROD_POLARIZED.get(), ModItems.STEEL_ROD.get()));
+    }
+
+    private void upgrades(Consumer<FinishedRecipe> consumer)
+    {
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.INTERMEDIATE_UPGRADE.get(), 1)
+                .pattern("MLM")
+                .pattern("LDL")
+                .pattern("MLM")
+                .define('M', ForgeTags.Items.INGOTS_MAGNESIUM)
+                .define('L', ForgeTags.Items.INGOTS_LITHIUM)
+                .define('D', Tags.Items.GEMS_DIAMOND)
+                .unlockedBy("has_diamond", has(Tags.Items.GEMS_DIAMOND))
+                .save(consumer, getFileName(ModItems.INTERMEDIATE_UPGRADE.get()));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ADVANCED_UPGRADE.get(), 1)
+                .pattern("ZCZ")
+                .pattern("CUC")
+                .pattern("ZCZ")
+                .define('Z', ForgeTags.Items.INGOTS_ZINC)
+                .define('C', ModItems.CITRINE.get())
+                .define('U', ModItems.INTERMEDIATE_UPGRADE.get())
+                .unlockedBy(hasName(ModItems.INTERMEDIATE_UPGRADE.get()), has(ModItems.INTERMEDIATE_UPGRADE.get()))
+                .save(consumer, getFileName(ModItems.ADVANCED_UPGRADE.get()));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ULTRA_UPGRADE.get(), 1)
+                .pattern("LTL")
+                .pattern("TUT")
+                .pattern("LTL")
+                .define('L', ForgeTags.Items.INGOTS_LEAD)
+                .define('T', ModItems.TANZANITE.get())
+                .define('U', ModItems.ADVANCED_UPGRADE.get())
+                .unlockedBy(hasName(ModItems.ADVANCED_UPGRADE.get()), has(ModItems.ADVANCED_UPGRADE.get()))
+                .save(consumer, getFileName(ModItems.ULTRA_UPGRADE.get()));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.EXTREME_UPGRADE.get(), 1)
+                .pattern("BIB")
+                .pattern("PUP")
+                .pattern("MIM")
+                .define('I', ForgeTags.Items.INGOTS_URANIUM)
+                .define('B', ModItems.BERYLLIUM.get())
+                .define('P', ModItems.PERIDOT.get())
+                .define('M', ModItems.MALACHITE.get())
+                .define('U', ModItems.ULTRA_UPGRADE.get())
+                .unlockedBy(hasName(ModItems.ULTRA_UPGRADE.get()), has(ModItems.ULTRA_UPGRADE.get()))
+                .save(consumer, getFileName(ModItems.EXTREME_UPGRADE.get()));
     }
 
     private String hasName(ItemLike item)

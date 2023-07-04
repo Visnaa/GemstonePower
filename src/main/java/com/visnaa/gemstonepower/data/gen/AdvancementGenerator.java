@@ -139,6 +139,38 @@ public class AdvancementGenerator implements AdvancementSubProvider
                         .hasItems(ItemPredicate.Builder.item().of(ModItems.SAWMILL.get()).build()))
                 .save(consumer, getName("sawmill"));
 
+        Advancement intermediateUpgrade = Advancement.Builder.advancement().parent(gemstoneCell)
+                .display(ModItems.INTERMEDIATE_UPGRADE.get(),
+                        getTitleLocation("intermediate_upgrade"), getDescLocation("intermediate_upgrade"), null,
+                        FrameType.TASK, true, true, false)
+                .addCriterion("has_intermediate_upgrade", InventoryChangeTrigger.TriggerInstance
+                        .hasItems(ItemPredicate.Builder.item().of(ModItems.INTERMEDIATE_UPGRADE.get()).build()))
+                .save(consumer, getName("intermediate_upgrade"));
+
+        Advancement advancedUpgrade = Advancement.Builder.advancement().parent(intermediateUpgrade)
+                .display(ModItems.ADVANCED_UPGRADE.get(),
+                        getTitleLocation("advanced_upgrade"), getDescLocation("advanced_upgrade"), null,
+                        FrameType.TASK, true, true, false)
+                .addCriterion("has_advanced_upgrade", InventoryChangeTrigger.TriggerInstance
+                        .hasItems(ItemPredicate.Builder.item().of(ModItems.ADVANCED_UPGRADE.get()).build()))
+                .save(consumer, getName("advanced_upgrade"));
+
+        Advancement ultraUpgrade = Advancement.Builder.advancement().parent(advancedUpgrade)
+                .display(ModItems.ULTRA_UPGRADE.get(),
+                        getTitleLocation("ultra_upgrade"), getDescLocation("ultra_upgrade"), null,
+                        FrameType.TASK, true, true, false)
+                .addCriterion("has_ultra_upgrade", InventoryChangeTrigger.TriggerInstance
+                        .hasItems(ItemPredicate.Builder.item().of(ModItems.ULTRA_UPGRADE.get()).build()))
+                .save(consumer, getName("ultra_upgrade"));
+
+        Advancement extremeUpgrade = Advancement.Builder.advancement().parent(ultraUpgrade)
+                .display(ModItems.EXTREME_UPGRADE.get(),
+                        getTitleLocation("extreme_upgrade"), getDescLocation("extreme_upgrade"), null,
+                        FrameType.TASK, true, true, false)
+                .addCriterion("has_extreme_upgrade", InventoryChangeTrigger.TriggerInstance
+                        .hasItems(ItemPredicate.Builder.item().of(ModItems.EXTREME_UPGRADE.get()).build()))
+                .save(consumer, getName("extreme_upgrade"));
+
         Advancement solarPanel = Advancement.Builder.advancement().parent(gemstoneGenerator)
                 .display(ModItems.SOLAR_PANEL.get(),
                         getTitleLocation("solar_panel"), getDescLocation("solar_panel"), null,

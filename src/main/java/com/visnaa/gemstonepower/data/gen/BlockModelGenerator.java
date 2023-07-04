@@ -116,116 +116,78 @@ public class BlockModelGenerator extends BlockStateProvider
         this.blockWithItem(ModBlocks.CRYSTAL_GROWER.get(),"crystal_grower");
         this.getVariantBuilder(ModBlocks.CRYSTAL_GROWER.get())
                 .forAllStates(state -> ConfiguredModel.builder()
-                    .modelFile(models().cube("crystal_grower",
-                            modLoc("block/machine"),
-                            modLoc("block/machine"),
-                            modLoc("block/crystal_grower"),
-                            modLoc("block/machine"),
-                            modLoc("block/machine"),
-                            modLoc("block/machine")).texture("particle", modLoc("block/crystal_grower")))
-                    .rotationY((int) state.getValue(HORIZONTAL_FACING).getOpposite().toYRot())
-                    .build());
+                        .modelFile(models().withExistingParent("crystal_grower", modLoc("block/machine"))
+                                .texture("machine", modLoc("block/crystal_grower"))
+                                .texture("particle", modLoc("block/crystal_grower")))
+                        .rotationY((int) state.getValue(HORIZONTAL_FACING).getOpposite().toYRot())
+                        .build());
 
         this.blockWithItem(ModBlocks.CRYSTAL_CHARGER.get(),"crystal_charger");
         this.getVariantBuilder(ModBlocks.CRYSTAL_CHARGER.get())
                 .forAllStates(state -> ConfiguredModel.builder()
-                        .modelFile(models().cube("crystal_charger",
-                                modLoc("block/machine"),
-                                modLoc("block/machine"),
-                                modLoc("block/crystal_charger"),
-                                modLoc("block/machine"),
-                                modLoc("block/machine"),
-                                modLoc("block/machine")).texture("particle", modLoc("block/crystal_charger")))
+                        .modelFile(models().withExistingParent("crystal_charger", modLoc("block/machine"))
+                                .texture("machine", modLoc("block/crystal_charger"))
+                                .texture("particle", modLoc("block/crystal_charger")))
                         .rotationY((int) state.getValue(HORIZONTAL_FACING).getOpposite().toYRot())
                         .build());
 
         this.blockWithItem(ModBlocks.ELECTRIC_FURNACE.get(),"electric_furnace");
         this.getVariantBuilder(ModBlocks.ELECTRIC_FURNACE.get())
                 .forAllStates(state -> ConfiguredModel.builder()
-                        .modelFile(models().cube(state.getValue(LIT) ? "electric_furnace_lit" : "electric_furnace",
-                                modLoc("block/machine"),
-                                modLoc("block/machine"),
-                                state.getValue(LIT) ? modLoc("block/electric_furnace_lit") : modLoc("block/electric_furnace"),
-                                modLoc("block/machine"),
-                                modLoc("block/machine"),
-                                modLoc("block/machine")).texture("particle", modLoc("block/electric_furnace")))
+                        .modelFile(models().withExistingParent("electric_furnace", modLoc("block/machine"))
+                                .texture("machine", modLoc("block/electric_furnace"))
+                                .texture("particle", modLoc("block/electric_furnace")))
                         .rotationY((int) state.getValue(HORIZONTAL_FACING).getOpposite().toYRot())
                         .build());
 
         this.blockWithItem(ModBlocks.METAL_FORMER.get(),"metal_former");
         this.getVariantBuilder(ModBlocks.METAL_FORMER.get())
                 .forAllStates(state -> ConfiguredModel.builder()
-                        .modelFile(models().cube("metal_former",
-                                modLoc("block/machine"),
-                                modLoc("block/machine"),
-                                modLoc("block/metal_former"),
-                                modLoc("block/machine"),
-                                modLoc("block/machine"),
-                                modLoc("block/machine")).texture("particle", modLoc("block/metal_former")))
+                        .modelFile(models().withExistingParent("metal_former", modLoc("block/machine"))
+                                .texture("machine", modLoc("block/metal_former"))
+                                .texture("particle", modLoc("block/metal_former")))
                         .rotationY((int) state.getValue(HORIZONTAL_FACING).getOpposite().toYRot())
                         .build());
 
         this.blockWithItem(ModBlocks.PULVERIZER.get(),"pulverizer");
         this.getVariantBuilder(ModBlocks.PULVERIZER.get())
                 .forAllStates(state -> ConfiguredModel.builder()
-                        .modelFile(models().cube("pulverizer",
-                                modLoc("block/machine"),
-                                modLoc("block/machine"),
-                                modLoc("block/pulverizer"),
-                                modLoc("block/machine"),
-                                modLoc("block/machine"),
-                                modLoc("block/machine")).texture("particle", modLoc("block/pulverizer")))
+                        .modelFile(models().withExistingParent("pulverizer", modLoc("block/machine"))
+                                .texture("machine", modLoc("block/pulverizer"))
+                                .texture("particle", modLoc("block/pulverizer")))
                         .rotationY((int) state.getValue(HORIZONTAL_FACING).getOpposite().toYRot())
                         .build());
 
         this.blockWithItem(ModBlocks.ALLOY_SMELTER.get(),"alloy_smelter");
         this.getVariantBuilder(ModBlocks.ALLOY_SMELTER.get())
                 .forAllStates(state -> ConfiguredModel.builder()
-                        .modelFile(models().cube("alloy_smelter",
-                                modLoc("block/machine"),
-                                modLoc("block/machine"),
-                                modLoc("block/alloy_smelter"),
-                                modLoc("block/machine"),
-                                modLoc("block/machine"),
-                                modLoc("block/machine")).texture("particle", modLoc("block/alloy_smelter")))
+                        .modelFile(models().withExistingParent("alloy_smelter", modLoc("block/machine"))
+                                .texture("machine", modLoc("block/alloy_smelter"))
+                                .texture("particle", modLoc("block/alloy_smelter")))
                         .rotationY((int) state.getValue(HORIZONTAL_FACING).getOpposite().toYRot())
                         .build());
+
         this.blockWithItem(ModBlocks.EXTRACTOR.get(),"extractor");
         this.getVariantBuilder(ModBlocks.EXTRACTOR.get())
                 .forAllStates(state -> ConfiguredModel.builder()
-                        .modelFile(models().cube("extractor",
-                                modLoc("block/machine"),
-                                modLoc("block/machine"),
-                                modLoc("block/extractor"),
-                                modLoc("block/machine"),
-                                modLoc("block/machine"),
-                                modLoc("block/machine")).texture("particle", modLoc("block/extractor")))
+                        .modelFile(models().withExistingParent("extractor", modLoc("block/machine"))
+                                .texture("machine", modLoc("block/extractor"))
+                                .texture("particle", modLoc("block/extractor")))
                         .rotationY((int) state.getValue(HORIZONTAL_FACING).getOpposite().toYRot())
                         .build());
 
         this.blockWithItem(ModBlocks.ORE_WASHER.get(),"ore_washer");
         this.getVariantBuilder(ModBlocks.ORE_WASHER.get())
                 .forAllStates(state -> ConfiguredModel.builder()
-                        .modelFile(models().cube("ore_washer",
-                                modLoc("block/machine"),
-                                modLoc("block/machine"),
-                                modLoc("block/ore_washer"),
-                                modLoc("block/machine"),
-                                modLoc("block/machine"),
-                                modLoc("block/machine")).texture("particle", modLoc("block/ore_washer")))
+                        .modelFile(models().withExistingParent("ore_washer", modLoc("block/machine"))
+                                .texture("machine", modLoc("block/ore_washer"))
+                                .texture("particle", modLoc("block/ore_washer")))
                         .rotationY((int) state.getValue(HORIZONTAL_FACING).getOpposite().toYRot())
                         .build());
 
-        this.blockWithItem(ModBlocks.SOLAR_PANEL.get(),"solar_panel");
         this.getVariantBuilder(ModBlocks.SOLAR_PANEL.get())
                 .forAllStates(state -> ConfiguredModel.builder()
-                        .modelFile(models().cube("solar_panel",
-                                modLoc("block/machine"),
-                                modLoc("block/solar_panel"),
-                                modLoc("block/machine"),
-                                modLoc("block/machine"),
-                                modLoc("block/machine"),
-                                modLoc("block/machine")).texture("particle", modLoc("block/solar_panel")))
+                        .modelFile(models().getExistingFile(modLoc("solar_panel")))
                         .build());
 
         this.getVariantBuilder(ModBlocks.WATER_MILL.get())
@@ -243,38 +205,27 @@ public class BlockModelGenerator extends BlockStateProvider
         this.blockWithItem(ModBlocks.COBBLESTONE_GENERATOR.get(),"cobblestone_generator");
         this.getVariantBuilder(ModBlocks.COBBLESTONE_GENERATOR.get())
                 .forAllStates(state -> ConfiguredModel.builder()
-                        .modelFile(models().cube("cobblestone_generator",
-                                modLoc("block/machine"),
-                                modLoc("block/machine"),
-                                modLoc("block/cobblestone_generator"),
-                                modLoc("block/cobblestone_generator"),
-                                modLoc("block/cobblestone_generator"),
-                                modLoc("block/cobblestone_generator")).texture("particle", modLoc("block/cobblestone_generator")))
+                        .modelFile(models().withExistingParent("cobblestone_generator", modLoc("block/machine"))
+                                .texture("machine", modLoc("block/cobblestone_generator"))
+                                .texture("particle", modLoc("block/cobblestone_generator")))
+                        .rotationY((int) state.getValue(HORIZONTAL_FACING).getOpposite().toYRot())
                         .build());
 
         this.blockWithItem(ModBlocks.SAWMILL.get(),"sawmill");
         this.getVariantBuilder(ModBlocks.SAWMILL.get())
                 .forAllStates(state -> ConfiguredModel.builder()
-                        .modelFile(models().cube("sawmill",
-                                modLoc("block/machine"),
-                                modLoc("block/machine"),
-                                modLoc("block/sawmill"),
-                                modLoc("block/machine"),
-                                modLoc("block/machine"),
-                                modLoc("block/machine")).texture("particle", modLoc("block/sawmill")))
+                        .modelFile(models().withExistingParent("sawmill", modLoc("block/machine"))
+                                .texture("machine", modLoc("block/sawmill"))
+                                .texture("particle", modLoc("block/sawmill")))
                         .rotationY((int) state.getValue(HORIZONTAL_FACING).getOpposite().toYRot())
                         .build());
 
         this.blockWithItem(ModBlocks.POLARIZER.get(),"polarizer");
         this.getVariantBuilder(ModBlocks.POLARIZER.get())
                 .forAllStates(state -> ConfiguredModel.builder()
-                        .modelFile(models().cube("polarizer",
-                                modLoc("block/machine"),
-                                modLoc("block/machine"),
-                                modLoc("block/polarizer"),
-                                modLoc("block/machine"),
-                                modLoc("block/machine"),
-                                modLoc("block/machine")).texture("particle", modLoc("block/polarizer")))
+                        .modelFile(models().withExistingParent("polarizer", modLoc("block/machine"))
+                                .texture("machine", modLoc("block/polarizer"))
+                                .texture("particle", modLoc("block/polarizer")))
                         .rotationY((int) state.getValue(HORIZONTAL_FACING).getOpposite().toYRot())
                         .build());
 

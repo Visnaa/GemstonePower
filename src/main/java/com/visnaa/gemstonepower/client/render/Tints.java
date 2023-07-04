@@ -1,5 +1,7 @@
 package com.visnaa.gemstonepower.client.render;
 
+import org.openjdk.nashorn.internal.ir.Block;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,7 +47,13 @@ public enum Tints
     SUN_STONE(0xFFE3A5),
     CITRINE(0xEFB84E),
     DOLOMITE(0xF6D0EC),
-    TANZANITE(0x6E1FDC);
+    TANZANITE(0x6E1FDC),
+
+    STANDARD(0x22EBC3),
+    INTERMEDIATE(0xFF69B4),
+    ADVANCED(0xFFD700),
+    ULTRA(0xB57EDC),
+    EXTREME(0x9ACD32);
 
     private final int color;
 

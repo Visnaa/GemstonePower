@@ -2,7 +2,7 @@ package com.visnaa.gemstonepower.block.entity;
 
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.client.screen.menu.GemstoneCellMenu;
-import com.visnaa.gemstonepower.config.CommonConfig;
+import com.visnaa.gemstonepower.config.ServerConfig;
 import com.visnaa.gemstonepower.network.energy.ForgeEnergyStorage;
 import com.visnaa.gemstonepower.registry.ModBlockEntities;
 import net.minecraft.core.BlockPos;
@@ -80,7 +80,7 @@ public class GemstoneCellBlockEntity extends BaseContainerBlockEntity
 
             if (outputs.size() > 0)
             {
-                int energy = Math.min(capacity.get() / outputs.size(), CommonConfig.ENERGY_TRANSFER_RATE.get());
+                int energy = Math.min(capacity.get() / outputs.size(), ServerConfig.ENERGY_TRANSFER_RATE.get());
                 for (BlockEntity be : outputs)
                 {
                     be.getCapability(ForgeCapabilities.ENERGY).map(handler ->
@@ -120,7 +120,7 @@ public class GemstoneCellBlockEntity extends BaseContainerBlockEntity
 
     private ForgeEnergyStorage createEnergyStorage()
     {
-        return new ForgeEnergyStorage(1000000000, CommonConfig.ENERGY_TRANSFER_RATE.get(), CommonConfig.ENERGY_TRANSFER_RATE.get())
+        return new ForgeEnergyStorage(1000000000, ServerConfig.ENERGY_TRANSFER_RATE.get(), ServerConfig.ENERGY_TRANSFER_RATE.get())
         {
             @Override
             protected void onEnergyChanged() {
