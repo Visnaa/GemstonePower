@@ -1,4 +1,4 @@
-// 1.20.1	2023-07-04T15:52:09.1296262	Block States: gemstonepower
+// 1.20.1	2023-07-09T19:25:57.3277357	Block States: gemstonepower
 d64b6a987545931049089336705e3824c4d7a706 assets/gemstonepower/blockstates/alloy_smelter.json
 82e779ca55602bc3c1a921eeba5199a80496b336 assets/gemstonepower/blockstates/aluminum_block.json
 c8bfa41b107b508305585782c062b564d797e499 assets/gemstonepower/blockstates/aluminum_cable.json
@@ -33,7 +33,7 @@ c8bfa41b107b508305585782c062b564d797e499 assets/gemstonepower/blockstates/electr
 cb21ad375567e62d4498012a132988567fe2d4dd assets/gemstonepower/blockstates/electrum_wire.json
 576355c3bfc0d9558362a268efcff5e7762e1a01 assets/gemstonepower/blockstates/extractor.json
 d1c73bb46eaf5a98bfb354155d7bfef7983035ff assets/gemstonepower/blockstates/gemstone_cell.json
-4bd0921af216c3258be73315f1f438c60bf0565a assets/gemstonepower/blockstates/gemstone_generator.json
+792908ecd548c3fa44f1eca72f592b57a0f26671 assets/gemstonepower/blockstates/gemstone_generator.json
 16817195ce4c9c1289b045b94de4a747a223d3a1 assets/gemstonepower/blockstates/invar_block.json
 6e674fabb378ded8eb0c0d7f502bb08199b957af assets/gemstonepower/blockstates/jade_crystals.json
 9a80ee6e873f7a41c3535072ad2af504271e4ca8 assets/gemstonepower/blockstates/lead_block.json

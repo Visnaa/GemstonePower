@@ -13,7 +13,10 @@ import net.minecraft.util.GsonHelper;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.StackedContents;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.*;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.util.RecipeMatcher;
 import org.jetbrains.annotations.Nullable;
@@ -21,7 +24,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AlloySmelterRecipe implements Recipe<Container>
+public class AlloySmelterRecipe implements EnergyRecipe
 {
     public static final ResourceLocation TYPE_ID = new ResourceLocation(GemstonePower.MOD_ID, "alloy_smelter");
     private final ResourceLocation id;

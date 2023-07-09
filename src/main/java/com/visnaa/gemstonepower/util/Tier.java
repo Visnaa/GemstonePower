@@ -4,9 +4,7 @@ import com.visnaa.gemstonepower.block.TieredBlock;
 import com.visnaa.gemstonepower.client.render.Tints;
 import com.visnaa.gemstonepower.registry.ModItems;
 import net.minecraft.util.StringRepresentable;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.MapItem;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 
 import java.util.ArrayList;

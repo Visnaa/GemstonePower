@@ -1,6 +1,6 @@
 package com.visnaa.gemstonepower.network.energy;
 
-import com.visnaa.gemstonepower.block.entity.NetworkBlockEntity;
+import com.visnaa.gemstonepower.block.entity.cable.CableBE;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class EnergyNetwork
 {
-    private List<NetworkBlockEntity> cables;
+    private List<CableBE> cables;
     public List<BlockEntity> inputs;
     public List<BlockEntity> batteries;
 
@@ -24,7 +24,7 @@ public class EnergyNetwork
         this.batteries = new ArrayList<>();
     }
 
-    public void registerToNetwork(NetworkBlockEntity cable)
+    public void registerToNetwork(CableBE cable)
     {
         if (!this.cables.contains(cable))
             this.cables.add(cable);
@@ -65,7 +65,7 @@ public class EnergyNetwork
     {
         if (newHost == this) return this;
 
-        for (NetworkBlockEntity cable : this.cables)
+        for (CableBE cable : this.cables)
         {
             if (!newHost.cables.contains(cable))
             {
@@ -143,7 +143,7 @@ public class EnergyNetwork
 
     private void destroy()
     {
-        for (NetworkBlockEntity cable : this.cables)
+        for (CableBE cable : this.cables)
         {
             if (cable != null)
             {

@@ -3,10 +3,8 @@ package com.visnaa.gemstonepower;
 import com.mojang.logging.LogUtils;
 import com.visnaa.gemstonepower.config.ClientConfig;
 import com.visnaa.gemstonepower.config.ServerConfig;
-import com.visnaa.gemstonepower.config.ConfigScreen;
 import com.visnaa.gemstonepower.registry.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.client.ConfigScreenHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -35,8 +33,6 @@ public class GemstonePower
         ModRecipes.RECIPE_SERIALIZERS.register(bus);
         ModEntities.ENTITIES.register(bus);
 
-        ModLoadingContext.get().registerExtensionPoint(ConfigScreenHandler.ConfigScreenFactory.class,
-                () -> new ConfigScreenHandler.ConfigScreenFactory((minecraft, screen) -> new ConfigScreen()));
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ClientConfig.CONFIG, "gemstonepower/gemstonepower-client.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, ServerConfig.CONFIG, "gemstonepower-server.toml");
 

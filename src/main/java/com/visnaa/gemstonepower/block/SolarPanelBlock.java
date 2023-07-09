@@ -1,7 +1,6 @@
 package com.visnaa.gemstonepower.block;
 
-import com.visnaa.gemstonepower.block.entity.SawmillBlockEntity;
-import com.visnaa.gemstonepower.block.entity.SolarPanelBlockEntity;
+import com.visnaa.gemstonepower.block.entity.SolarPanelBE;
 import com.visnaa.gemstonepower.registry.ModBlockEntities;
 import com.visnaa.gemstonepower.registry.ModItems;
 import com.visnaa.gemstonepower.util.Tier;
@@ -46,7 +45,7 @@ public class SolarPanelBlock extends BaseEntityBlock implements TieredBlock<Sola
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state)
     {
-        return new SolarPanelBlockEntity(pos, state);
+        return new SolarPanelBE(pos, state);
     }
 
     @Nullable
@@ -61,7 +60,7 @@ public class SolarPanelBlock extends BaseEntityBlock implements TieredBlock<Sola
         if (state.is(state.getBlock()))
         {
             BlockEntity blockEntity = level.getBlockEntity(pos);
-            if (blockEntity instanceof SolarPanelBlockEntity)
+            if (blockEntity instanceof SolarPanelBE)
             {
                 if (level instanceof ServerLevel && !player.isCreative() && willHarvest)
                 {
@@ -87,8 +86,8 @@ public class SolarPanelBlock extends BaseEntityBlock implements TieredBlock<Sola
     }
 
     @Nullable
-    protected static <T extends BlockEntity> BlockEntityTicker<T> createTicker(Level level, BlockEntityType<T> blockEntity, BlockEntityType<? extends SolarPanelBlockEntity> generator)
+    protected static <T extends BlockEntity> BlockEntityTicker<T> createTicker(Level level, BlockEntityType<T> blockEntity, BlockEntityType<? extends SolarPanelBE> generator)
     {
-        return level.isClientSide ? null : createTickerHelper(blockEntity, generator, SolarPanelBlockEntity::serverTick);
+        return level.isClientSide ? null : createTickerHelper(blockEntity, generator, SolarPanelBE::serverTick);
     }
 }

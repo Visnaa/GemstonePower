@@ -3,7 +3,6 @@ package com.visnaa.gemstonepower.util;
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.config.ClientConfig;
 import com.visnaa.gemstonepower.config.ServerConfig;
-import net.minecraft.client.PrioritizeChunkUpdates;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.ByIdMap;
@@ -73,7 +72,7 @@ public final class EnergyUtilities
 
     public static int getGeneration(BlockState state, int baseGeneration)
     {
-        return (int) Math.round(Math.ceil(1.5 * baseGeneration * getMultiplier(state.getValue(Tier.TIER))));
+        return (int) Math.round(Math.ceil(baseGeneration * getMultiplier(state.getValue(Tier.TIER))));
     }
 
     public static int getTotalTime(BlockState state, int baseTotalTime)

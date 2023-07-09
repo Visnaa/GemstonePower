@@ -4,7 +4,11 @@ import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.client.render.Tints;
 import com.visnaa.gemstonepower.client.render.entity.CrystalArrowRenderer;
 import com.visnaa.gemstonepower.client.screen.*;
-import com.visnaa.gemstonepower.registry.*;
+import com.visnaa.gemstonepower.config.ConfigScreen;
+import com.visnaa.gemstonepower.registry.ModBlocks;
+import com.visnaa.gemstonepower.registry.ModContainers;
+import com.visnaa.gemstonepower.registry.ModEntities;
+import com.visnaa.gemstonepower.registry.ModTabs;
 import com.visnaa.gemstonepower.util.Tier;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.BiomeColors;
@@ -15,9 +19,11 @@ import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.ConfigScreenHandler;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.registries.RegisterEvent;
@@ -28,6 +34,9 @@ public class ClientEvents
     @SubscribeEvent
     public static void clientSetup(FMLClientSetupEvent event)
     {
+        ModLoadingContext.get().registerExtensionPoint(ConfigScreenHandler.ConfigScreenFactory.class,
+                () -> new ConfigScreenHandler.ConfigScreenFactory((minecraft, screen) -> new ConfigScreen()));
+
         event.enqueueWork(() -> {
             MenuScreens.register(ModContainers.GEMSTONE_GENERATOR.get(), GemstoneGeneratorScreen::new);
             MenuScreens.register(ModContainers.GEMSTONE_CELL.get(), GemstoneCellScreen::new);

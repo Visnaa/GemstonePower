@@ -2,39 +2,30 @@ package com.visnaa.gemstonepower.client.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.visnaa.gemstonepower.GemstonePower;
-import com.visnaa.gemstonepower.client.screen.menu.GemstoneGeneratorMenu;
+import com.visnaa.gemstonepower.menu.machine.GemstoneGeneratorMenu;
 import com.visnaa.gemstonepower.util.EnergyUtilities;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import org.joml.Vector2i;
 
 @OnlyIn(Dist.CLIENT)
-public class GemstoneGeneratorScreen extends AbstractContainerScreen<GemstoneGeneratorMenu>
+public class GemstoneGeneratorScreen extends MachineScreen<GemstoneGeneratorMenu>
 {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(GemstonePower.MOD_ID ,"textures/gui/gemstone_generator_gui.png");
-
-    public GemstoneGeneratorScreen(GemstoneGeneratorMenu menu, Inventory inventory, Component component)
+    public GemstoneGeneratorScreen(GemstoneGeneratorMenu menu, Inventory inventory, Component name)
     {
-        super(menu, inventory, component);
+        super(menu, new ScreenData(inventory, name, GemstonePower.getId("textures/gui/gemstone_generator_gui.png"),
+                new ScreenData.ProgressBarData(
+                        new Vector2i(77, 38),
+                        new Vector2i(176, 16),
+                        new Vector2i(23, 16))));
     }
 
-    public void init()
-    {
-        super.init();
-        this.titleLabelX = (this.imageWidth - this.font.width(this.title)) / 2;
-    }
-
-    public void containerTick()
-    {
-        super.containerTick();
-    }
-
+    @Override
     public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTicks)
     {
         this.renderBackground(graphics);
@@ -43,21 +34,24 @@ public class GemstoneGeneratorScreen extends AbstractContainerScreen<GemstoneGen
 
         if (mouseX >= this.leftPos + 110 && mouseX <= this.leftPos + 120 && mouseY >= this.topPos + 38 && mouseY <= this.topPos + 54)
         {
-            graphics.renderTooltip(Minecraft.getInstance().font, EnergyUtilities.getDefaultTooltips(menu.getData(2), menu.getData(3)), ItemStack.EMPTY.getTooltipImage(), mouseX, mouseY);
+            graphics.renderTooltip(Minecraft.getInstance().font, EnergyUtilities.getDefaultTooltips(menu.getEnergy(), menu.getCapacity()), ItemStack.EMPTY.getTooltipImage(), mouseX, mouseY);
         }
     }
 
+    @Override
     protected void renderBg(GuiGraphics graphics, float partialTicks, int mouseX, int mouseY)
     {
-        RenderSystem.setShaderTexture(0, TEXTURE);
-        int i = this.leftPos;
-        int j = this.topPos;
-        graphics.blit(TEXTURE, i, j, 0, 0, this.imageWidth, this.imageHeight);
+        RenderSystem.setShaderTexture(0, this.data.texture());
+        int x = this.leftPos;
+        int y = this.topPos;
+        graphics.blit(this.data.texture(), x, y, 0, 0, this.imageWidth, this.imageHeight);
 
-        int progress = this.menu.getChargingProgress();
-        graphics.blit(TEXTURE, i + 77, j + 38, 176, 16, progress + 1, 16);
+        graphics.blit(this.data.texture(),
+                x + this.data.progressBar().pos().x(), y + this.data.progressBar().pos().y(),
+                this.data.progressBar().overlayPos().x(), this.data.progressBar().overlayPos().y(),
+                this.menu.getProcessingProcess(this.data.progressBar().dimensions().x()), this.data.progressBar().dimensions().y());
 
-        int energy = this.menu.getEnergy();
-        graphics.blit(TEXTURE, i + 110, j + 38 + energy, 176, energy, 10, 16 - energy);
+        int energy = this.menu.getEnergyLevel();
+        graphics.blit(this.data.texture(), x + 110, y + 38 + energy, 176, energy, 10, 16 - energy);
     }
 }

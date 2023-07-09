@@ -41,9 +41,8 @@ public class StringProperty extends Property<String>
     public boolean equals(Object object) {
         if (this == object) {
             return true;
-        } else if (object instanceof StringProperty && super.equals(object)) {
-            StringProperty stringProperty = (StringProperty)object;
-            return this.values.equals(stringProperty.values);
+        } else if (object instanceof StringProperty property && super.equals(object)) {
+            return this.values.equals(property.values);
         } else {
             return false;
         }

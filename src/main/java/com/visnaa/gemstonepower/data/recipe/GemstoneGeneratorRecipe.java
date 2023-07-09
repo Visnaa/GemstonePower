@@ -13,13 +13,12 @@ import net.minecraft.util.GsonHelper;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
-public class GemstoneGeneratorRecipe implements Recipe<Container>
+public class GemstoneGeneratorRecipe implements EnergyRecipe
 {
     public static final ResourceLocation TYPE_ID = new ResourceLocation(GemstonePower.MOD_ID, "gemstone_generator");
     private final ResourceLocation id;
@@ -86,9 +85,16 @@ public class GemstoneGeneratorRecipe implements Recipe<Container>
         return true;
     }
 
-    public int getBurnTime()
+    @Override
+    public int getProcessingTime()
     {
-        return burnTime;
+        return this.burnTime;
+    }
+
+    @Override
+    public int getEnergyUsage()
+    {
+        return 0;
     }
 
     public int getEnergy()
@@ -154,7 +160,7 @@ public class GemstoneGeneratorRecipe implements Recipe<Container>
             {
                 ing.toNetwork(buffer);
             }
-            buffer.writeInt(recipe.getBurnTime());
+            buffer.writeInt(recipe.getProcessingTime());
             buffer.writeInt(recipe.getEnergy());
         }
     }

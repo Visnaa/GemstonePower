@@ -1,7 +1,6 @@
 package com.visnaa.gemstonepower.block;
 
-import com.visnaa.gemstonepower.block.entity.SawmillBlockEntity;
-import com.visnaa.gemstonepower.block.entity.WaterMillBlockEntity;
+import com.visnaa.gemstonepower.block.entity.WaterMillBE;
 import com.visnaa.gemstonepower.registry.ModBlockEntities;
 import com.visnaa.gemstonepower.registry.ModItems;
 import com.visnaa.gemstonepower.util.Tier;
@@ -42,7 +41,7 @@ public class WaterMillBlock extends BaseEntityBlock implements TieredBlock<Water
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state)
     {
-        return new WaterMillBlockEntity(pos, state);
+        return new WaterMillBE(pos, state);
     }
 
     @Nullable
@@ -57,7 +56,7 @@ public class WaterMillBlock extends BaseEntityBlock implements TieredBlock<Water
         if (state.is(state.getBlock()))
         {
             BlockEntity blockEntity = level.getBlockEntity(pos);
-            if (blockEntity instanceof WaterMillBlockEntity)
+            if (blockEntity instanceof WaterMillBE)
             {
                 if (level instanceof ServerLevel && !player.isCreative() && willHarvest)
                 {
@@ -77,9 +76,9 @@ public class WaterMillBlock extends BaseEntityBlock implements TieredBlock<Water
     }
 
     @Nullable
-    protected static <T extends BlockEntity> BlockEntityTicker<T> createTicker(Level level, BlockEntityType<T> blockEntity, BlockEntityType<? extends WaterMillBlockEntity> generator)
+    protected static <T extends BlockEntity> BlockEntityTicker<T> createTicker(Level level, BlockEntityType<T> blockEntity, BlockEntityType<? extends WaterMillBE> generator)
     {
-        return level.isClientSide ? null : createTickerHelper(blockEntity, generator, WaterMillBlockEntity::serverTick);
+        return level.isClientSide ? null : createTickerHelper(blockEntity, generator, WaterMillBE::serverTick);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.visnaa.gemstonepower.integration.jei.category;
 
 import com.visnaa.gemstonepower.GemstonePower;
+import com.visnaa.gemstonepower.config.ClientConfig;
 import com.visnaa.gemstonepower.data.recipe.OreWasherRecipe;
 import com.visnaa.gemstonepower.integration.jei.GemstonePowerJEIPlugin;
 import com.visnaa.gemstonepower.registry.ModBlocks;
@@ -84,6 +85,6 @@ public class OreWasherRecipeCategory implements IRecipeCategory<OreWasherRecipe>
     {
         this.progressAnimated.draw(graphics, 23, 21);
         this.energyAnimated.draw(graphics, 97, 21);
-        graphics.drawString(Minecraft.getInstance().font, "Energy: " + recipe.getEnergyUsage() * recipe.getProcessingTime() + " FE", 0, 0, 0x888888, false);
+        graphics.drawString(Minecraft.getInstance().font, "Energy: " + recipe.getEnergyUsage() * recipe.getProcessingTime() + " " + ClientConfig.ENERGY_UNIT.get(), 0, 0, 0x888888, false);
     }
 }

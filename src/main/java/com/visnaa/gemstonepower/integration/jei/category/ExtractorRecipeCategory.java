@@ -1,6 +1,7 @@
 package com.visnaa.gemstonepower.integration.jei.category;
 
 import com.visnaa.gemstonepower.GemstonePower;
+import com.visnaa.gemstonepower.config.ClientConfig;
 import com.visnaa.gemstonepower.data.recipe.ExtractorRecipe;
 import com.visnaa.gemstonepower.integration.jei.GemstonePowerJEIPlugin;
 import com.visnaa.gemstonepower.registry.ModBlocks;
@@ -81,6 +82,6 @@ public class ExtractorRecipeCategory implements IRecipeCategory<ExtractorRecipe>
     {
         this.progressAnimated.draw(graphics, 28, 14);
         this.energyAnimated.draw(graphics, 97, 11);
-        graphics.drawString(Minecraft.getInstance().font, "Energy: " + recipe.getEnergyUsage() * recipe.getProcessingTime() + " FE", 0, 0, 0x888888, false);
+        graphics.drawString(Minecraft.getInstance().font, "Energy: " + recipe.getEnergyUsage() * recipe.getProcessingTime() + " " + ClientConfig.ENERGY_UNIT.get(), 0, 0, 0x888888, false);
     }
 }

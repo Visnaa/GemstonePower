@@ -2,9 +2,9 @@ package com.visnaa.gemstonepower.integration.jei;
 
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.client.screen.*;
-import com.visnaa.gemstonepower.client.screen.menu.*;
 import com.visnaa.gemstonepower.data.recipe.*;
 import com.visnaa.gemstonepower.integration.jei.category.*;
+import com.visnaa.gemstonepower.menu.machine.*;
 import com.visnaa.gemstonepower.registry.ModBlocks;
 import com.visnaa.gemstonepower.registry.ModContainers;
 import com.visnaa.gemstonepower.registry.ModRecipes;

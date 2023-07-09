@@ -1,6 +1,7 @@
 package com.visnaa.gemstonepower.integration.jei.category;
 
 import com.visnaa.gemstonepower.GemstonePower;
+import com.visnaa.gemstonepower.config.ClientConfig;
 import com.visnaa.gemstonepower.data.recipe.SawmillRecipe;
 import com.visnaa.gemstonepower.integration.jei.GemstonePowerJEIPlugin;
 import com.visnaa.gemstonepower.registry.ModBlocks;
@@ -38,7 +39,7 @@ public class SawmillRecipeCategory implements IRecipeCategory<SawmillRecipe>
     {
         this.background = helper.createDrawable(TEXTURE, 52, 27, 108, 28);
         this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.SAWMILL.get()));
-        this.progress = helper.createDrawable(TEXTURE, 176, 16, 24, 13);
+        this.progress = helper.createDrawable(TEXTURE, 176, 16, 27, 13);
         this.energy = helper.createDrawable(TEXTURE, 176, 0, 10, 16);
 
         this.progressAnimated = helper.createAnimatedDrawable(this.progress, 180, IDrawableAnimated.StartDirection.LEFT, false);
@@ -81,6 +82,6 @@ public class SawmillRecipeCategory implements IRecipeCategory<SawmillRecipe>
     {
         this.progressAnimated.draw(graphics, 23, 12);
         this.energyAnimated.draw(graphics, 97, 11);
-        graphics.drawString(Minecraft.getInstance().font, "Energy: " + recipe.getEnergyUsage() * recipe.getProcessingTime() + " FE", 0, 0, 0x888888, false);
+        graphics.drawString(Minecraft.getInstance().font, "Energy: " + recipe.getEnergyUsage() * recipe.getProcessingTime() + " " + ClientConfig.ENERGY_UNIT.get(), 0, 0, 0x888888, false);
     }
 }

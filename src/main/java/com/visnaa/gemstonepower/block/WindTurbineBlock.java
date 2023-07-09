@@ -1,7 +1,6 @@
 package com.visnaa.gemstonepower.block;
 
-import com.visnaa.gemstonepower.block.entity.SawmillBlockEntity;
-import com.visnaa.gemstonepower.block.entity.WindTurbineBlockEntity;
+import com.visnaa.gemstonepower.block.entity.WindTurbineBE;
 import com.visnaa.gemstonepower.registry.ModBlockEntities;
 import com.visnaa.gemstonepower.registry.ModItems;
 import com.visnaa.gemstonepower.util.Tier;
@@ -42,7 +41,7 @@ public class WindTurbineBlock extends BaseEntityBlock implements TieredBlock<Win
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state)
     {
-        return new WindTurbineBlockEntity(pos, state);
+        return new WindTurbineBE(pos, state);
     }
 
     @Nullable
@@ -57,7 +56,7 @@ public class WindTurbineBlock extends BaseEntityBlock implements TieredBlock<Win
         if (state.is(state.getBlock()))
         {
             BlockEntity blockEntity = level.getBlockEntity(pos);
-            if (blockEntity instanceof WindTurbineBlockEntity)
+            if (blockEntity instanceof WindTurbineBE)
             {
                 if (level instanceof ServerLevel && !player.isCreative() && willHarvest)
                 {
@@ -77,9 +76,9 @@ public class WindTurbineBlock extends BaseEntityBlock implements TieredBlock<Win
     }
 
     @Nullable
-    protected static <T extends BlockEntity> BlockEntityTicker<T> createTicker(Level level, BlockEntityType<T> blockEntity, BlockEntityType<? extends WindTurbineBlockEntity> generator)
+    protected static <T extends BlockEntity> BlockEntityTicker<T> createTicker(Level level, BlockEntityType<T> blockEntity, BlockEntityType<? extends WindTurbineBE> generator)
     {
-        return level.isClientSide ? null : createTickerHelper(blockEntity, generator, WindTurbineBlockEntity::serverTick);
+        return level.isClientSide ? null : createTickerHelper(blockEntity, generator, WindTurbineBE::serverTick);
     }
 
     @Override

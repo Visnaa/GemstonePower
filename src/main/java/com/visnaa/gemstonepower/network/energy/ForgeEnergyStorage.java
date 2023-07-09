@@ -19,6 +19,12 @@ public class ForgeEnergyStorage extends EnergyStorage
         onEnergyChanged();
     }
 
+    public void setCapacity(int capacity)
+    {
+        this.capacity = capacity;
+        onEnergyChanged();
+    }
+
     public void addEnergy(int energy)
     {
         this.energy += energy;
@@ -37,5 +43,19 @@ public class ForgeEnergyStorage extends EnergyStorage
             this.energy = 0;
         }
         onEnergyChanged();
+    }
+
+    @Override
+    public int receiveEnergy(int maxReceive, boolean simulate)
+    {
+        onEnergyChanged();
+        return super.receiveEnergy(maxReceive, simulate);
+    }
+
+    @Override
+    public int extractEnergy(int maxExtract, boolean simulate)
+    {
+        onEnergyChanged();
+        return super.extractEnergy(maxExtract, simulate);
     }
 }

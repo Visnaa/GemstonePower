@@ -2,7 +2,9 @@ package com.visnaa.gemstonepower.registry;
 
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.block.*;
+import com.visnaa.gemstonepower.block.cable.*;
 import com.visnaa.gemstonepower.block.grower.ResinOakGrower;
+import com.visnaa.gemstonepower.block.machine.*;
 import com.visnaa.gemstonepower.client.render.Tints;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -69,12 +71,12 @@ public final class ModBlocks
     public static final RegistryObject<Block> ZINC_ORE = BLOCKS.register("zinc_ore", () -> new TintedBlock(BlockBehaviour.Properties.copy(Blocks.IRON_ORE).requiresCorrectToolForDrops(), Tints.ZINC));
     public static final RegistryObject<Block> DEEPSLATE_ZINC_ORE = BLOCKS.register("deepslate_zinc_ore", () -> new TintedBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_IRON_ORE).requiresCorrectToolForDrops(), Tints.ZINC));
     
-    public static final RegistryObject<Block> GEMSTONE_GENERATOR = BLOCKS.register("gemstone_generator", () -> new GemstoneGeneratorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops().lightLevel((state) -> state.getValue(BlockStateProperties.POWERED) ? 14 : 0)));
+    public static final RegistryObject<Block> GEMSTONE_GENERATOR = BLOCKS.register("gemstone_generator", () -> new GemstoneGeneratorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops().lightLevel(state -> state.getValue(BlockStateProperties.POWERED) ? 14 : 0)));
     public static final RegistryObject<Block> GEMSTONE_CELL = BLOCKS.register("gemstone_cell", () -> new GemstoneCellBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> CRYSTAL_GROWER = BLOCKS.register("crystal_grower", () -> new CrystalGrowerBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> CRYSTAL_CHARGER = BLOCKS.register("crystal_charger", () -> new CrystalChargerBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops()));
 
-    public static final RegistryObject<Block> ELECTRIC_FURNACE = BLOCKS.register("electric_furnace", () -> new ElectricFurnaceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> ELECTRIC_FURNACE = BLOCKS.register("electric_furnace", () -> new ElectricFurnaceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops().lightLevel(state -> state.getValue(BlockStateProperties.LIT) ? 14 : 0)));
     public static final RegistryObject<Block> METAL_FORMER = BLOCKS.register("metal_former", () -> new MetalFormerBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> PULVERIZER = BLOCKS.register("pulverizer", () -> new PulverizerBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> ALLOY_SMELTER = BLOCKS.register("alloy_smelter", () -> new AlloySmelterBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops()));

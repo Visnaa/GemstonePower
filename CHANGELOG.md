@@ -1,5 +1,12 @@
 <h1 style="font-size: 40px">Gemstone Power version changelog</h1>
 
+<h3>Version: Beta 0.2.1</h3>
+<ul>
+<li>Optimized and refactored code for machines
+<li>Made JEI use energy unit specified in mod's client config
+<li>Fixed energy not being synchronised between server and client
+</ul>
+
 <h3>Version: Beta 0.2</h3>
 <ul>
 <li>Added machine tiers (Standard, Intermediate, Advanced, Ultra and Extreme)

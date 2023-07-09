@@ -3,6 +3,7 @@ package com.visnaa.gemstonepower.event.mod;
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.data.gen.*;
 import com.visnaa.gemstonepower.data.recipe.*;
+import com.visnaa.gemstonepower.networking.ModPackets;
 import com.visnaa.gemstonepower.registry.ModRecipes;
 import net.minecraft.Util;
 import net.minecraft.core.HolderLookup;
@@ -15,6 +16,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegisterEvent;
 
@@ -25,6 +27,12 @@ import java.util.concurrent.CompletableFuture;
 @Mod.EventBusSubscriber(modid = GemstonePower.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class CommonEvents
 {
+    @SubscribeEvent
+    public static void commonSetup(FMLCommonSetupEvent event)
+    {
+        ModPackets.register();
+    }
+
     @SubscribeEvent
     public static void registerRecipeTypes(RegisterEvent event)
     {

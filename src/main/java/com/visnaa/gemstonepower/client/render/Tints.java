@@ -1,7 +1,5 @@
 package com.visnaa.gemstonepower.client.render;
 
-import org.openjdk.nashorn.internal.ir.Block;
-
 import java.util.ArrayList;
 import java.util.List;
 
