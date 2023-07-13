@@ -1,5 +1,10 @@
 <h1 style="font-size: 40px">Gemstone Power version changelog</h1>
 
+<h3>Version: Beta 0.2.2</h3>
+<ul>
+<li>Radioactive items and blocks can be eaten (do not eat uranium in real life)
+</ul>
+
 <h3>Version: Beta 0.2.1</h3>
 <ul>
 <li>Optimized and refactored code for machines

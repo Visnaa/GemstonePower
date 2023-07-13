@@ -2,7 +2,10 @@ package com.visnaa.gemstonepower.item;
 
 import com.visnaa.gemstonepower.client.render.Tints;
 import com.visnaa.gemstonepower.registry.ModDamageTypes;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -11,7 +14,7 @@ public class RadioactiveBlockItem extends TintedBlockItem
 {
     public RadioactiveBlockItem(Block block, Properties properties, Tints color)
     {
-        super(block, properties, color);
+        super(block, properties.food(new FoodProperties.Builder().alwaysEat().effect(() -> new MobEffectInstance(MobEffects.HARM, 1, 2), 1.0F).build()), color);
     }
 
     @Override
