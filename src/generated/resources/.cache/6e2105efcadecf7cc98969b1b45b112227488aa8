@@ -1,4 +1,4 @@
-// 1.20.1	2023-07-04T17:50:57.7767876	Item Models: gemstonepower
+// 1.20.1	2023-08-09T18:02:29.3294765	Item Models: gemstonepower
 be34f5217cc5560117eb30a30fbad66db313c194 assets/gemstonepower/models/item/advanced_upgrade.json
 e3593875d30c80acaaf80db0b0abb02f8b3afe92 assets/gemstonepower/models/item/aluminum_axe.json
 82316ffbb3b22484a942751c9af83d6c170297f5 assets/gemstonepower/models/item/aluminum_boots.json
@@ -216,6 +216,7 @@ d69e5e4d9d5e5cc82c0018a9710f0bb662ea9fd0 assets/gemstonepower/models/item/perido
 0e5fb7c3647b50f1daf6c46bd9af82c04d3df3c7 assets/gemstonepower/models/item/peridot_arrow.json
 d69e5e4d9d5e5cc82c0018a9710f0bb662ea9fd0 assets/gemstonepower/models/item/peridot_charged.json
 1ce271cd88c05d2a75c047bf9faed11a13dc8fce assets/gemstonepower/models/item/peridot_seed.json
+1d4335373aa20e077488200c671e2cbd48a4dbb3 assets/gemstonepower/models/item/pipe_extractor_upgrade.json
 39fdcc64e791e0156a5db7c4364680854f60388e assets/gemstonepower/models/item/plate_preset.json
 5418fccba2a873b87666cf169860ab14e2ec74f2 assets/gemstonepower/models/item/platinum_dust.json
 0b8692cf1073acb1de45e13e94036c203151659e assets/gemstonepower/models/item/platinum_gear.json

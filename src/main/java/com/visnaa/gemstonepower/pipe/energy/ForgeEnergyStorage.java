@@ -1,4 +1,4 @@
-package com.visnaa.gemstonepower.network.energy;
+package com.visnaa.gemstonepower.pipe.energy;
 
 import net.minecraftforge.energy.EnergyStorage;
 

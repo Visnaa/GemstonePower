@@ -1,6 +1,6 @@
-package com.visnaa.gemstonepower.block.cable;
+package com.visnaa.gemstonepower.block.pipe.cable;
 
-import com.visnaa.gemstonepower.block.entity.cable.AluminumCableBE;
+import com.visnaa.gemstonepower.block.entity.pipe.cable.AluminumCableBE;
 import com.visnaa.gemstonepower.registry.ModDamageTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

@@ -1,6 +1,6 @@
-package com.visnaa.gemstonepower.network.energy;
+package com.visnaa.gemstonepower.pipe.energy;
 
-import com.visnaa.gemstonepower.block.entity.cable.CableBE;
+import com.visnaa.gemstonepower.block.entity.pipe.cable.CableBE;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;

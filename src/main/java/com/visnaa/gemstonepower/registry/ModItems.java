@@ -263,6 +263,8 @@ public final class ModItems
     public static final RegistryObject<Item> ULTRA_UPGRADE = ITEMS.register("ultra_upgrade", () -> new UpgradeItem(new Item.Properties(), Tier.ULTRA, Tints.ULTRA));
     public static final RegistryObject<Item> EXTREME_UPGRADE = ITEMS.register("extreme_upgrade", () -> new UpgradeItem(new Item.Properties(), Tier.EXTREME, Tints.EXTREME));
 
+    public static final RegistryObject<Item> PIPE_EXTRACTOR_UPGRADE = ITEMS.register("pipe_extractor_upgrade", () -> new PipeExtractorItem(new Item.Properties()));
+
     public static final RegistryObject<Item> COPPER_WIRE = ITEMS.register("copper_wire", () -> new TintedBlockItem(ModBlocks.COPPER_WIRE.get(), new Item.Properties(), Tints.COPPER));
     public static final RegistryObject<Item> COPPER_CABLE = ITEMS.register("copper_cable", () -> new TintedBlockItem(ModBlocks.COPPER_CABLE.get(), new Item.Properties(), Tints.COPPER));
     public static final RegistryObject<Item> ALUMINUM_WIRE = ITEMS.register("aluminum_wire", () -> new TintedBlockItem(ModBlocks.ALUMINUM_WIRE.get(), new Item.Properties(), Tints.ALUMINUM));
@@ -271,6 +273,8 @@ public final class ModItems
     public static final RegistryObject<Item> TIN_CABLE = ITEMS.register("tin_cable", () -> new TintedBlockItem(ModBlocks.TIN_CABLE.get(), new Item.Properties(), Tints.TIN));
     public static final RegistryObject<Item> ELECTRUM_WIRE = ITEMS.register("electrum_wire", () -> new TintedBlockItem(ModBlocks.ELECTRUM_WIRE.get(), new Item.Properties(), Tints.ELECTRUM));
     public static final RegistryObject<Item> ELECTRUM_CABLE = ITEMS.register("electrum_cable", () -> new TintedBlockItem(ModBlocks.ELECTRUM_CABLE.get(), new Item.Properties(), Tints.ELECTRUM));
+
+    public static final RegistryObject<Item> ITEM_PIPE = ITEMS.register("item_pipe", () -> new TintedBlockItem(ModBlocks.ITEM_PIPE.get(), new Item.Properties(), Tints.EMPTY));
 
     public static final RegistryObject<Item> LIGHT_GEMSTONE = ITEMS.register("light_gemstone", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> DARK_GEMSTONE = ITEMS.register("dark_gemstone", () -> new Item(new Item.Properties()));

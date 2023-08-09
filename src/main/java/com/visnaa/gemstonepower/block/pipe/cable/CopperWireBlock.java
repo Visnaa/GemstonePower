@@ -1,6 +1,6 @@
-package com.visnaa.gemstonepower.block.cable;
+package com.visnaa.gemstonepower.block.pipe.cable;
 
-import com.visnaa.gemstonepower.block.entity.cable.TinCableBE;
+import com.visnaa.gemstonepower.block.entity.pipe.cable.CopperCableBE;
 import com.visnaa.gemstonepower.registry.ModDamageTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -19,11 +19,11 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 
-public class TinWireBlock extends TinCableBlock
+public class CopperWireBlock extends CopperCableBlock
 {
     public static final BooleanProperty ISOLATED = BooleanProperty.create("isolated");
 
-    public TinWireBlock(Properties properties)
+    public CopperWireBlock(Properties properties)
     {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(ISOLATED, false));
@@ -32,20 +32,20 @@ public class TinWireBlock extends TinCableBlock
     @Override
     public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity)
     {
-        if (((TinCableBE) Objects.requireNonNull(level.getBlockEntity(pos))).network.getEnergy() > 0)
+        if (((CopperCableBE) Objects.requireNonNull(level.getBlockEntity(pos))).network.getEnergy() > 0)
             entity.hurt(level.damageSources().source(ModDamageTypes.ELECTROCUTED, null, null), 7f);
     }
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context)
     {
-        VoxelShape shape = Block.box(7, 7, 7, 9, 9, 9),
-                north = Block.box(7, 7, 0, 9, 9, 7),
-                south = Block.box(7, 7, 9, 9, 9, 16),
-                east = Block.box(9, 7, 7, 16, 9, 9),
-                west = Block.box(0, 7, 7, 7, 9, 9),
-                up = Block.box(7, 9, 7, 9, 16, 9),
-                down = Block.box(7, 0, 7, 9, 9, 9);
+        VoxelShape shape = box(7, 7, 7, 9, 9, 9),
+                north = box(7, 7, 0, 9, 9, 7),
+                south = box(7, 7, 9, 9, 9, 16),
+                east = box(9, 7, 7, 16, 9, 9),
+                west = box(0, 7, 7, 7, 9, 9),
+                up = box(7, 9, 7, 9, 16, 9),
+                down = box(7, 0, 7, 9, 9, 9);
         if (state.getValue(CONNECTIONS.get(Direction.NORTH)))
             shape = Shapes.or(shape, north);
         if (state.getValue(CONNECTIONS.get(Direction.SOUTH)))
@@ -61,6 +61,8 @@ public class TinWireBlock extends TinCableBlock
 
         return shape;
     }
+
+
 
     @Override
     public @Nullable BlockState getStateForPlacement(BlockPlaceContext context)

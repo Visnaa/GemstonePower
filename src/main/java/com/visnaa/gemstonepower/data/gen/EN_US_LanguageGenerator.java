@@ -457,7 +457,7 @@ public class EN_US_LanguageGenerator extends LanguageProvider
         this.add("menu." + GemstonePower.MOD_ID + ".config_screen.energy_unit.fe", "FE (Forge Energy)");
         this.add("menu." + GemstonePower.MOD_ID + ".config_screen.energy_unit.rf", "RF (Redstone Flux)");
 
-    // CABLES
+    // CABLES & PIPES
         this.add(ModBlocks.COPPER_WIRE.get(), "Copper Wire");
         this.add(ModBlocks.COPPER_CABLE.get(), "Copper Cable");
         this.add(ModBlocks.ALUMINUM_WIRE.get(), "Aluminum Wire");
@@ -467,11 +467,15 @@ public class EN_US_LanguageGenerator extends LanguageProvider
         this.add(ModBlocks.ELECTRUM_WIRE.get(), "Electrum Wire");
         this.add(ModBlocks.ELECTRUM_CABLE.get(), "Electrum Cable");
 
+        this.add(ModBlocks.ITEM_PIPE.get(), "Item Pipe");
+
     // MICS
         this.add(ModItems.INTERMEDIATE_UPGRADE.get(), "Intermediate Upgrade");
         this.add(ModItems.ADVANCED_UPGRADE.get(), "Advanced Upgrade");
         this.add(ModItems.ULTRA_UPGRADE.get(), "Ultra Upgrade");
         this.add(ModItems.EXTREME_UPGRADE.get(), "Extreme Upgrade");
+
+        this.add(ModItems.PIPE_EXTRACTOR_UPGRADE.get(), "Pipe Extractor Upgrade");
 
         this.add(ModItems.PLATE_PRESET.get(), "Plate Preset");
         this.add(ModItems.ROD_PRESET.get(), "Rod Preset");

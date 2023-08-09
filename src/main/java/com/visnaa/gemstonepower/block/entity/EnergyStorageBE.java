@@ -2,9 +2,9 @@ package com.visnaa.gemstonepower.block.entity;
 
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.config.ServerConfig;
-import com.visnaa.gemstonepower.network.energy.ForgeEnergyStorage;
 import com.visnaa.gemstonepower.networking.ModPackets;
 import com.visnaa.gemstonepower.networking.packet.EnergySyncS2C;
+import com.visnaa.gemstonepower.pipe.energy.ForgeEnergyStorage;
 import com.visnaa.gemstonepower.util.EnergyUtilities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

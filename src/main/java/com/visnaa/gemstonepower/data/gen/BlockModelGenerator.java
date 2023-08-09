@@ -242,6 +242,8 @@ public class BlockModelGenerator extends BlockStateProvider
         this.cable(ModBlocks.TIN_CABLE.get());
         this.wire(ModBlocks.ELECTRUM_WIRE.get());
         this.cable(ModBlocks.ELECTRUM_CABLE.get());
+        
+        this.pipe(ModBlocks.ITEM_PIPE.get());
     }
 
     public void block(Block block, String parentName)
@@ -304,6 +306,51 @@ public class BlockModelGenerator extends BlockStateProvider
                 .end()
             .part()
                 .modelFile(parent(block, texture))
+                .rotationY(90)
+                .addModel()
+                .condition(EAST, true)
+                .end();
+    }
+
+    public void pipe(Block block)
+    {
+        this.blockItem(block, "item_pipe_dot");
+        this.getMultipartBuilder(block)
+                .part()
+                .modelFile(models().getExistingFile(modLoc("item_pipe_dot")))
+                .addModel()
+                .end()
+                .part()
+                .modelFile(models().getExistingFile(modLoc("item_pipe_arm")))
+                .rotationX(270)
+                .addModel()
+                .condition(UP, true)
+                .end()
+                .part()
+                .modelFile(models().getExistingFile(modLoc("item_pipe_arm")))
+                .rotationX(90)
+                .addModel()
+                .condition(DOWN, true)
+                .end()
+                .part()
+                .modelFile(models().getExistingFile(modLoc("item_pipe_arm")))
+                .addModel()
+                .condition(NORTH, true)
+                .end()
+                .part()
+                .modelFile(models().getExistingFile(modLoc("item_pipe_arm")))
+                .rotationY(180)
+                .addModel()
+                .condition(SOUTH, true)
+                .end()
+                .part()
+                .modelFile(models().getExistingFile(modLoc("item_pipe_arm")))
+                .rotationY(270)
+                .addModel()
+                .condition(WEST, true)
+                .end()
+                .part()
+                .modelFile(models().getExistingFile(modLoc("item_pipe_arm")))
                 .rotationY(90)
                 .addModel()
                 .condition(EAST, true)

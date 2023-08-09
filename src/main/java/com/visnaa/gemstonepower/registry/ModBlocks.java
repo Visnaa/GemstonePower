@@ -2,9 +2,10 @@ package com.visnaa.gemstonepower.registry;
 
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.block.*;
-import com.visnaa.gemstonepower.block.cable.*;
 import com.visnaa.gemstonepower.block.grower.ResinOakGrower;
 import com.visnaa.gemstonepower.block.machine.*;
+import com.visnaa.gemstonepower.block.pipe.cable.*;
+import com.visnaa.gemstonepower.block.pipe.item.ItemPipeBlock;
 import com.visnaa.gemstonepower.client.render.Tints;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -98,6 +99,8 @@ public final class ModBlocks
     public static final RegistryObject<Block> TIN_CABLE = BLOCKS.register("tin_cable", () -> new TinCableBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).noOcclusion()));
     public static final RegistryObject<Block> ELECTRUM_WIRE = BLOCKS.register("electrum_wire", () -> new ElectrumWireBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).noOcclusion()));
     public static final RegistryObject<Block> ELECTRUM_CABLE = BLOCKS.register("electrum_cable", () -> new ElectrumCableBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).noOcclusion()));
+
+    public static final RegistryObject<Block> ITEM_PIPE = BLOCKS.register("item_pipe", () -> new ItemPipeBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).noOcclusion()));
 
     public static final RegistryObject<Block> RUBY_CRYSTALS = BLOCKS.register("ruby_crystals", () -> new CrystalBlock(BlockBehaviour.Properties.copy(Blocks.AMETHYST_CLUSTER).requiresCorrectToolForDrops().strength(5.0f).noOcclusion(), Tints.RUBY));
     public static final RegistryObject<Block> SAPPHIRE_CRYSTALS = BLOCKS.register("sapphire_crystals", () -> new CrystalBlock(BlockBehaviour.Properties.copy(Blocks.AMETHYST_CLUSTER).requiresCorrectToolForDrops().strength(5.0f).noOcclusion(), Tints.SAPPHIRE));

@@ -1,8 +1,8 @@
-package com.visnaa.gemstonepower.block.entity.cable;
+package com.visnaa.gemstonepower.block.entity.pipe.cable;
 
-import com.visnaa.gemstonepower.block.cable.AluminumCableBlock;
+import com.visnaa.gemstonepower.block.pipe.cable.TinCableBlock;
 import com.visnaa.gemstonepower.config.ServerConfig;
-import com.visnaa.gemstonepower.network.energy.EnergyNetwork;
+import com.visnaa.gemstonepower.pipe.energy.EnergyNetwork;
 import com.visnaa.gemstonepower.registry.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -11,14 +11,14 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 
-public class AluminumCableBE extends CableBE
+public class TinCableBE extends CableBE
 {
-    public AluminumCableBE(BlockPos pos, BlockState state)
+    public TinCableBE(BlockPos pos, BlockState state)
     {
-        super(ModBlockEntities.ALUMINUM_CABLE.get(), pos, state, ServerConfig.ENERGY_TRANSFER_RATE.get());
+        super(ModBlockEntities.TIN_CABLE.get(), pos, state, ServerConfig.ENERGY_TRANSFER_RATE.get());
     }
 
-    public static void serverTick(Level level, BlockPos pos, BlockState state, AluminumCableBE blockEntity)
+    public static void serverTick(Level level, BlockPos pos, BlockState state, TinCableBE blockEntity)
     {
         blockEntity.updateConnections(level, pos, state);
         blockEntity.refreshNetwork(level, pos, state);
@@ -32,12 +32,12 @@ public class AluminumCableBE extends CableBE
         for (Direction direction : Direction.values())
         {
             BlockEntity be = level.getBlockEntity(pos.relative(direction.getOpposite()));
-            if (be != null && ((!(be instanceof CableBE) || be instanceof AluminumCableBE) || be.getCapability(ForgeCapabilities.ENERGY, direction).isPresent()))
+            if (be != null && ((!(be instanceof CableBE) || be instanceof TinCableBE) || be.getCapability(ForgeCapabilities.ENERGY, direction).isPresent()))
             {
-                level.setBlockAndUpdate(pos, level.getBlockState(pos).setValue(AluminumCableBlock.CONNECTIONS.get(direction.getOpposite()), true));
+                level.setBlockAndUpdate(pos, level.getBlockState(pos).setValue(TinCableBlock.CONNECTIONS.get(direction.getOpposite()), true));
                 setChanged(level, pos, state);
             } else {
-                level.setBlockAndUpdate(pos, level.getBlockState(pos).setValue(AluminumCableBlock.CONNECTIONS.get(direction.getOpposite()), false));
+                level.setBlockAndUpdate(pos, level.getBlockState(pos).setValue(TinCableBlock.CONNECTIONS.get(direction.getOpposite()), false));
                 setChanged(level, pos, state);
             }
         }
@@ -55,7 +55,7 @@ public class AluminumCableBE extends CableBE
         for (Direction direction : Direction.values())
         {
             BlockEntity be = level.getBlockEntity(pos.relative(direction.getOpposite()));
-            if (be != null && be instanceof AluminumCableBE cable && cable.network != null)
+            if (be != null && be instanceof TinCableBE cable && cable.network != null)
             {
                 cable.network.merge(this.network);
                 setChanged(level, pos, state);

@@ -2,7 +2,7 @@ package com.visnaa.gemstonepower.block.entity;
 
 import com.visnaa.gemstonepower.block.WindTurbineBlock;
 import com.visnaa.gemstonepower.config.ServerConfig;
-import com.visnaa.gemstonepower.network.energy.ForgeEnergyStorage;
+import com.visnaa.gemstonepower.pipe.energy.ForgeEnergyStorage;
 import com.visnaa.gemstonepower.registry.ModBlockEntities;
 import com.visnaa.gemstonepower.util.EnergyUtilities;
 import net.minecraft.core.BlockPos;

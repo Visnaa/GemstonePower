@@ -1,6 +1,6 @@
-package com.visnaa.gemstonepower.block.cable;
+package com.visnaa.gemstonepower.block.pipe.cable;
 
-import com.visnaa.gemstonepower.block.entity.cable.AluminumCableBE;
+import com.visnaa.gemstonepower.block.entity.pipe.cable.ElectrumCableBE;
 import com.visnaa.gemstonepower.client.render.Tintable;
 import com.visnaa.gemstonepower.client.render.Tints;
 import com.visnaa.gemstonepower.registry.ModBlockEntities;
@@ -26,11 +26,11 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
 
-public class AluminumCableBlock extends BaseEntityBlock implements Tintable
+public class ElectrumCableBlock extends BaseEntityBlock implements Tintable
 {
     public static final HashMap<Direction, BooleanProperty> CONNECTIONS = createConnections();
 
-    public AluminumCableBlock(Properties properties)
+    public ElectrumCableBlock(Properties properties)
     {
         super(properties);
         registerStates();
@@ -136,24 +136,24 @@ public class AluminumCableBlock extends BaseEntityBlock implements Tintable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state)
     {
-        return new AluminumCableBE(pos, state);
+        return new ElectrumCableBE(pos, state);
     }
 
     @Nullable
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntity)
     {
-        return createTicker(level, blockEntity, ModBlockEntities.ALUMINUM_CABLE.get());
+        return createTicker(level, blockEntity, ModBlockEntities.ELECTRUM_CABLE.get());
     }
 
     @Nullable
-    protected static <T extends BlockEntity> BlockEntityTicker<T> createTicker(Level level, BlockEntityType<T> blockEntity, BlockEntityType<? extends AluminumCableBE> cable)
+    protected static <T extends BlockEntity> BlockEntityTicker<T> createTicker(Level level, BlockEntityType<T> blockEntity, BlockEntityType<? extends ElectrumCableBE> cable)
     {
-        return level.isClientSide ? null : createTickerHelper(blockEntity, cable, AluminumCableBE::serverTick);
+        return level.isClientSide ? null : createTickerHelper(blockEntity, cable, ElectrumCableBE::serverTick);
     }
 
     @Override
     public int getColor()
     {
-        return Tints.ALUMINUM.getColor();
+        return Tints.ELECTRUM.getColor();
     }
 }

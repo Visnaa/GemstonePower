@@ -4,11 +4,12 @@ import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.block.entity.SolarPanelBE;
 import com.visnaa.gemstonepower.block.entity.WaterMillBE;
 import com.visnaa.gemstonepower.block.entity.WindTurbineBE;
-import com.visnaa.gemstonepower.block.entity.cable.AluminumCableBE;
-import com.visnaa.gemstonepower.block.entity.cable.CopperCableBE;
-import com.visnaa.gemstonepower.block.entity.cable.ElectrumCableBE;
-import com.visnaa.gemstonepower.block.entity.cable.TinCableBE;
 import com.visnaa.gemstonepower.block.entity.machine.*;
+import com.visnaa.gemstonepower.block.entity.pipe.cable.AluminumCableBE;
+import com.visnaa.gemstonepower.block.entity.pipe.cable.CopperCableBE;
+import com.visnaa.gemstonepower.block.entity.pipe.cable.ElectrumCableBE;
+import com.visnaa.gemstonepower.block.entity.pipe.cable.TinCableBE;
+import com.visnaa.gemstonepower.block.entity.pipe.item.ItemPipeBE;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -42,4 +43,6 @@ public final class ModBlockEntities
     public static final RegistryObject<BlockEntityType<AluminumCableBE>> ALUMINUM_CABLE = BLOCK_ENTITIES.register("aluminum_cable", () -> BlockEntityType.Builder.of(AluminumCableBE::new, ModBlocks.ALUMINUM_WIRE.get(), ModBlocks.ALUMINUM_CABLE.get()).build(null));
     public static final RegistryObject<BlockEntityType<TinCableBE>> TIN_CABLE = BLOCK_ENTITIES.register("tin_cable", () -> BlockEntityType.Builder.of(TinCableBE::new, ModBlocks.TIN_WIRE.get(), ModBlocks.TIN_CABLE.get()).build(null));
     public static final RegistryObject<BlockEntityType<ElectrumCableBE>> ELECTRUM_CABLE = BLOCK_ENTITIES.register("electrum_cable", () -> BlockEntityType.Builder.of(ElectrumCableBE::new, ModBlocks.ELECTRUM_WIRE.get(), ModBlocks.ELECTRUM_CABLE.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<ItemPipeBE>> ITEM_PIPE = BLOCK_ENTITIES.register("item_pipe", () -> BlockEntityType.Builder.of(ItemPipeBE::new, ModBlocks.ITEM_PIPE.get()).build(null));
 }

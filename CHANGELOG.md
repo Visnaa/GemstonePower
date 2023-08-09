@@ -1,5 +1,11 @@
 <h1 style="font-size: 40px">Gemstone Power version changelog</h1>
 
+<h3>Version: Beta 0.2.3</h3>
+<ul>
+<li>Added item pipes which transport items from blocks with inventories 
+<li>Added extractor upgrade for item pipes which allows a pipe to extract items from a block
+</ul>
+
 <h3>Version: Beta 0.2.2</h3>
 <ul>
 <li>Radioactive items and blocks can be eaten (do not eat uranium in real life)

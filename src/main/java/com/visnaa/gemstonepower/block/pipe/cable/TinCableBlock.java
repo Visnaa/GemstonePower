@@ -1,6 +1,6 @@
-package com.visnaa.gemstonepower.block.cable;
+package com.visnaa.gemstonepower.block.pipe.cable;
 
-import com.visnaa.gemstonepower.block.entity.cable.CopperCableBE;
+import com.visnaa.gemstonepower.block.entity.pipe.cable.TinCableBE;
 import com.visnaa.gemstonepower.client.render.Tintable;
 import com.visnaa.gemstonepower.client.render.Tints;
 import com.visnaa.gemstonepower.registry.ModBlockEntities;
@@ -26,11 +26,11 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
 
-public class CopperCableBlock extends BaseEntityBlock implements Tintable
+public class TinCableBlock extends BaseEntityBlock implements Tintable
 {
     public static final HashMap<Direction, BooleanProperty> CONNECTIONS = createConnections();
 
-    public CopperCableBlock(Properties properties)
+    public TinCableBlock(Properties properties)
     {
         super(properties);
         registerStates();
@@ -136,24 +136,24 @@ public class CopperCableBlock extends BaseEntityBlock implements Tintable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state)
     {
-        return new CopperCableBE(pos, state);
+        return new TinCableBE(pos, state);
     }
 
     @Nullable
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntity)
     {
-        return createTicker(level, blockEntity, ModBlockEntities.COPPER_CABLE.get());
+        return createTicker(level, blockEntity, ModBlockEntities.TIN_CABLE.get());
     }
 
     @Nullable
-    protected static <T extends BlockEntity> BlockEntityTicker<T> createTicker(Level level, BlockEntityType<T> blockEntity, BlockEntityType<? extends CopperCableBE> cable)
+    protected static <T extends BlockEntity> BlockEntityTicker<T> createTicker(Level level, BlockEntityType<T> blockEntity, BlockEntityType<? extends TinCableBE> cable)
     {
-        return level.isClientSide ? null : createTickerHelper(blockEntity, cable, CopperCableBE::serverTick);
+        return level.isClientSide ? null : createTickerHelper(blockEntity, cable, TinCableBE::serverTick);
     }
 
     @Override
     public int getColor()
     {
-        return Tints.COPPER.getColor();
+        return Tints.TIN.getColor();
     }
 }

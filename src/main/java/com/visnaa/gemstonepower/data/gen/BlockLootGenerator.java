@@ -110,7 +110,7 @@ public class BlockLootGenerator extends BlockLootSubProvider
         List<Block> tiered = List.of(ModBlocks.GEMSTONE_GENERATOR.get(), ModBlocks.GEMSTONE_CELL.get(), ModBlocks.CRYSTAL_GROWER.get(), ModBlocks.CRYSTAL_CHARGER.get(),
                 ModBlocks.ELECTRIC_FURNACE.get(), ModBlocks.METAL_FORMER.get(), ModBlocks.PULVERIZER.get(), ModBlocks.ALLOY_SMELTER.get(), ModBlocks.EXTRACTOR.get(),
                 ModBlocks.ORE_WASHER.get(), ModBlocks.COBBLESTONE_GENERATOR.get(), ModBlocks.SAWMILL.get(), ModBlocks.POLARIZER.get(), ModBlocks.SOLAR_PANEL.get(),
-                ModBlocks.WATER_MILL.get(), ModBlocks.WIND_TURBINE.get());
+                ModBlocks.WATER_MILL.get(), ModBlocks.WIND_TURBINE.get(), ModBlocks.ITEM_PIPE.get());
         return ModBlocks.BLOCKS.getEntries().stream().filter(block -> !tiered.contains(block.get())).map(RegistryObject::get)::iterator;
     }
 }

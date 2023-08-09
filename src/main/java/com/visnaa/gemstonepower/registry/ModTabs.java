@@ -43,6 +43,8 @@ public class ModTabs
                 output.accept(ModItems.ULTRA_UPGRADE.get());
                 output.accept(ModItems.EXTREME_UPGRADE.get());
 
+                output.accept(ModItems.PIPE_EXTRACTOR_UPGRADE.get());
+
                 output.accept(ModItems.PLATE_PRESET.get());
                 output.accept(ModItems.ROD_PRESET.get());
                 output.accept(ModItems.WIRE_PRESET.get());
@@ -61,6 +63,8 @@ public class ModTabs
                 output.accept(ModItems.TIN_CABLE.get());
                 output.accept(ModItems.ELECTRUM_WIRE.get());
                 output.accept(ModItems.ELECTRUM_CABLE.get());
+
+                output.accept(ModItems.ITEM_PIPE.get());
             }).build();
 
     public static final Supplier<CreativeModeTab> RESOURCES_TAB = () -> CreativeModeTab.builder()

@@ -155,6 +155,8 @@ public class RecipeGenerator extends RecipeProvider
         this.metalDefault(MetalGroups.URANIUM.getGroup(), consumer);
         this.metalDefault(MetalGroups.LEAD.getGroup(), consumer);
         this.metalDefault(MetalGroups.ZINC.getGroup(), consumer);
+
+        this.pipes(consumer);
         
         this.crystalArrows(consumer, ModItems.RUBY.get(), ModItems.RUBY_CHARGED.get(), ModItems.RUBY_ARROW.get(), ModItems.CHARGED_RUBY_ARROW.get());
         this.crystalArrows(consumer, ModItems.SAPPHIRE.get(), ModItems.SAPPHIRE_CHARGED.get(), ModItems.SAPPHIRE_ARROW.get(), ModItems.CHARGED_SAPPHIRE_ARROW.get());
@@ -413,6 +415,27 @@ public class RecipeGenerator extends RecipeProvider
                 .define('S', Tags.Items.RODS_WOODEN)
                 .unlockedBy(hasName(ingredient), has(ingredient))
                 .save(consumer, getFileName(hoe, ingredient));
+    }
+
+    private void pipes(Consumer<FinishedRecipe> consumer)
+    {
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.PIPE_EXTRACTOR_UPGRADE.get())
+                .pattern("N N")
+                .pattern(" P ")
+                .pattern("N N")
+                .define('N', Tags.Items.NUGGETS)
+                .define('P', Items.STICKY_PISTON)
+                .unlockedBy(hasName(Items.STICKY_PISTON), has(Items.STICKY_PISTON))
+                .save(consumer, getFileName(ModItems.PIPE_EXTRACTOR_UPGRADE.get()));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ITEM_PIPE.get())
+                .pattern("I")
+                .pattern("R")
+                .pattern("I")
+                .define('I', Tags.Items.INGOTS_IRON)
+                .define('R', Tags.Items.DUSTS_REDSTONE)
+                .unlockedBy(hasName(Items.IRON_INGOT), has(Tags.Items.INGOTS_IRON))
+                .save(consumer, getFileName(ModItems.ITEM_PIPE.get()));
     }
 
     private void crystalArrows(Consumer<FinishedRecipe> consumer, ItemLike crystal, ItemLike charged, CrystalArrowItem crystalArrow, CrystalArrowItem chargedArrow)
