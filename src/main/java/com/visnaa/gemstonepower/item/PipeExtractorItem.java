@@ -1,7 +1,7 @@
 package com.visnaa.gemstonepower.item;
 
-import com.visnaa.gemstonepower.block.entity.pipe.item.BaseItemPipeBE;
-import com.visnaa.gemstonepower.block.pipe.item.BaseItemPipeBlock;
+import com.visnaa.gemstonepower.block.entity.pipe.item.ItemPipeBE;
+import com.visnaa.gemstonepower.block.pipe.item.ItemPipeBlock;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -23,20 +23,20 @@ public class PipeExtractorItem extends Item
     public InteractionResult useOn(UseOnContext context)
     {
         BlockState state = context.getLevel().getBlockState(context.getClickedPos());
-        if (state.getBlock() instanceof BaseItemPipeBlock)
+        if (state.getBlock() instanceof ItemPipeBlock)
         {
-            if (state.hasProperty(BaseItemPipeBlock.EXTRACTS))
+            if (state.hasProperty(ItemPipeBlock.EXTRACTS))
             {
-                if (!state.getValue(BaseItemPipeBlock.EXTRACTS))
+                if (!state.getValue(ItemPipeBlock.EXTRACTS))
                 {
                     context.getLevel().playLocalSound(context.getClickedPos(), SoundEvents.ANVIL_USE, SoundSource.BLOCKS, 1.0F, 1.0F, false);
                     if (!context.getLevel().isClientSide())
                     {
-                        BaseItemPipeBE pipe = (BaseItemPipeBE) context.getLevel().getBlockEntity(context.getClickedPos());
+                        ItemPipeBE pipe = (ItemPipeBE) context.getLevel().getBlockEntity(context.getClickedPos());
                         pipe.network.destroy(pipe);
                         context.getItemInHand().shrink(1);
                         CompoundTag tag = context.getLevel().getBlockEntity(context.getClickedPos()).saveWithFullMetadata();
-                        context.getLevel().setBlock(context.getClickedPos(), state.setValue(BaseItemPipeBlock.EXTRACTS, true), 18);
+                        context.getLevel().setBlock(context.getClickedPos(), state.setValue(ItemPipeBlock.EXTRACTS, true), 18);
                         context.getLevel().getBlockEntity(context.getClickedPos()).setRemoved();
                         context.getLevel().getBlockEntity(context.getClickedPos()).load(tag);
                     }

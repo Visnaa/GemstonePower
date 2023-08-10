@@ -32,7 +32,7 @@ public class AluminumCableBE extends CableBE
         for (Direction direction : Direction.values())
         {
             BlockEntity be = level.getBlockEntity(pos.relative(direction.getOpposite()));
-            if (be != null && ((!(be instanceof CableBE) || be instanceof AluminumCableBE) || be.getCapability(ForgeCapabilities.ENERGY, direction).isPresent()))
+            if (be != null && (be instanceof AluminumCableBE || be.getCapability(ForgeCapabilities.ENERGY, direction).isPresent()))
             {
                 level.setBlockAndUpdate(pos, level.getBlockState(pos).setValue(AluminumCableBlock.CONNECTIONS.get(direction.getOpposite()), true));
                 setChanged(level, pos, state);

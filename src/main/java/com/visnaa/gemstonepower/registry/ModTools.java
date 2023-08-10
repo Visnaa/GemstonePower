@@ -17,7 +17,6 @@ public class ModTools
     public static final RegistryObject<Item> GEMSTONE_AXE = TOOLS.register("gemstone_axe", () -> new AxeItem(ToolMaterial.GEMSTONE, 6.0F, -3.1F, new Item.Properties()));
     public static final RegistryObject<Item> GEMSTONE_HOE = TOOLS.register("gemstone_hoe", () -> new HoeItem(ToolMaterial.GEMSTONE, -4, 0.0F, new Item.Properties()));
 
-
     public static final RegistryObject<Item> COPPER_SWORD = TOOLS.register("copper_sword", () -> new TintedSwordItem(ToolMaterial.COPPER, 3, -2.4F, new Item.Properties()));
     public static final RegistryObject<Item> COPPER_SHOVEL = TOOLS.register("copper_shovel", () -> new TintedShovelItem(ToolMaterial.COPPER, 1.5F, -3F, new Item.Properties()));
     public static final RegistryObject<Item> COPPER_PICKAXE = TOOLS.register("copper_pickaxe", () -> new TintedPickaxeItem(ToolMaterial.COPPER, 1, -2.8F, new Item.Properties()));

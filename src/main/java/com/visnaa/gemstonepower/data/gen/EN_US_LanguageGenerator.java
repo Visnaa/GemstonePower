@@ -467,7 +467,11 @@ public class EN_US_LanguageGenerator extends LanguageProvider
         this.add(ModBlocks.ELECTRUM_WIRE.get(), "Electrum Wire");
         this.add(ModBlocks.ELECTRUM_CABLE.get(), "Electrum Cable");
 
-        this.add(ModBlocks.ITEM_PIPE.get(), "Item Pipe");
+        this.add(ModBlocks.IRON_ITEM_PIPE.get(), "Iron Item Pipe");
+        this.add(ModBlocks.GOLD_ITEM_PIPE.get(), "Gold Item Pipe");
+        this.add(ModBlocks.COPPER_ITEM_PIPE.get(), "Copper Item Pipe");
+        this.add(ModBlocks.PLATINUM_ITEM_PIPE.get(), "Platinum Item Pipe");
+        this.add(ModBlocks.LEAD_ITEM_PIPE.get(), "Lead Item Pipe");
 
     // MICS
         this.add(ModItems.INTERMEDIATE_UPGRADE.get(), "Intermediate Upgrade");

@@ -32,7 +32,7 @@ public class ElectrumCableBE extends CableBE
         for (Direction direction : Direction.values())
         {
             BlockEntity be = level.getBlockEntity(pos.relative(direction.getOpposite()));
-            if (be != null && ((!(be instanceof CableBE) || be instanceof ElectrumCableBE) || be.getCapability(ForgeCapabilities.ENERGY, direction).isPresent()))
+            if (be != null && (be instanceof ElectrumCableBE || be.getCapability(ForgeCapabilities.ENERGY, direction).isPresent()))
             {
                 level.setBlockAndUpdate(pos, level.getBlockState(pos).setValue(ElectrumCableBlock.CONNECTIONS.get(direction.getOpposite()), true));
                 setChanged(level, pos, state);

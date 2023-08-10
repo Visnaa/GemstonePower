@@ -1,5 +1,13 @@
 <h1 style="font-size: 40px">Gemstone Power version changelog</h1>
 
+<h3>Version: Beta 0.2.4</h3>
+<ul>
+<li>Added new item pipes (Iron, Gold, Copper, Platinum, Lead)
+<li>Item pipes no longer attach to block entities that do not have an item handler
+<li>Cables and wires no longer attach to block entities that do not have an energy handler
+<li>Fixed bug causing item pipes don't work properly with machines
+</ul>
+
 <h3>Version: Beta 0.2.3</h3>
 <ul>
 <li>Added item pipes which transport items from blocks with inventories 

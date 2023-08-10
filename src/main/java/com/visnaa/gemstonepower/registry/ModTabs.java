@@ -64,7 +64,11 @@ public class ModTabs
                 output.accept(ModItems.ELECTRUM_WIRE.get());
                 output.accept(ModItems.ELECTRUM_CABLE.get());
 
-                output.accept(ModItems.ITEM_PIPE.get());
+                output.accept(ModItems.IRON_ITEM_PIPE.get());
+                output.accept(ModItems.GOLD_ITEM_PIPE.get());
+                output.accept(ModItems.COPPER_ITEM_PIPE.get());
+                output.accept(ModItems.PLATINUM_ITEM_PIPE.get());
+                output.accept(ModItems.LEAD_ITEM_PIPE.get());
             }).build();
 
     public static final Supplier<CreativeModeTab> RESOURCES_TAB = () -> CreativeModeTab.builder()

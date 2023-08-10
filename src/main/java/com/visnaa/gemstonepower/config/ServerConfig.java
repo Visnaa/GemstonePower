@@ -20,6 +20,8 @@ public class ServerConfig
     public static final ForgeConfigSpec.DoubleValue ULTRA_TIER_MULTIPLIER;
     public static final ForgeConfigSpec.DoubleValue EXTREME_TIER_MULTIPLIER;
 
+    public static final ForgeConfigSpec.LongValue ITEM_PIPE_FREQUENCY;
+
     static
     {
         BUILDER.push("Gemstone Power configurations");
@@ -55,6 +57,13 @@ public class ServerConfig
                 .defineInRange("ultra_multiplier", 3.25, 0.1, Integer.MAX_VALUE);
         EXTREME_TIER_MULTIPLIER = BUILDER.comment("Extreme tier multiplier")
                 .defineInRange("extreme_multiplier", 5.0, 0.1, Integer.MAX_VALUE);
+
+        BUILDER.comment("#".repeat(29));
+        BUILDER.comment(" Fluid & Item pipe settings" + " ".repeat(1) + "#");
+        BUILDER.comment("#".repeat(29));
+
+        ITEM_PIPE_FREQUENCY = BUILDER.comment("Sets in what time intervals item pipes distribute items (in ticks)")
+                .defineInRange("item_pipe_frequency", 1L, 1L, Long.MAX_VALUE);
 
         BUILDER.pop();
         CONFIG = BUILDER.build();

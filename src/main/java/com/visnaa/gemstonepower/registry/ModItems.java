@@ -274,7 +274,11 @@ public final class ModItems
     public static final RegistryObject<Item> ELECTRUM_WIRE = ITEMS.register("electrum_wire", () -> new TintedBlockItem(ModBlocks.ELECTRUM_WIRE.get(), new Item.Properties(), Tints.ELECTRUM));
     public static final RegistryObject<Item> ELECTRUM_CABLE = ITEMS.register("electrum_cable", () -> new TintedBlockItem(ModBlocks.ELECTRUM_CABLE.get(), new Item.Properties(), Tints.ELECTRUM));
 
-    public static final RegistryObject<Item> ITEM_PIPE = ITEMS.register("item_pipe", () -> new TintedBlockItem(ModBlocks.ITEM_PIPE.get(), new Item.Properties(), Tints.EMPTY));
+    public static final RegistryObject<Item> IRON_ITEM_PIPE = ITEMS.register("iron_item_pipe", () -> new TintedBlockItem(ModBlocks.IRON_ITEM_PIPE.get(), new Item.Properties(), Tints.IRON));
+    public static final RegistryObject<Item> GOLD_ITEM_PIPE = ITEMS.register("gold_item_pipe", () -> new TintedBlockItem(ModBlocks.GOLD_ITEM_PIPE.get(), new Item.Properties(), Tints.GOLD));
+    public static final RegistryObject<Item> COPPER_ITEM_PIPE = ITEMS.register("copper_item_pipe", () -> new TintedBlockItem(ModBlocks.COPPER_ITEM_PIPE.get(), new Item.Properties(), Tints.COPPER));
+    public static final RegistryObject<Item> PLATINUM_ITEM_PIPE = ITEMS.register("platinum_item_pipe", () -> new TintedBlockItem(ModBlocks.PLATINUM_ITEM_PIPE.get(), new Item.Properties(), Tints.PLATINUM));
+    public static final RegistryObject<Item> LEAD_ITEM_PIPE = ITEMS.register("lead_item_pipe", () -> new TintedBlockItem(ModBlocks.LEAD_ITEM_PIPE.get(), new Item.Properties(), Tints.LEAD));
 
     public static final RegistryObject<Item> LIGHT_GEMSTONE = ITEMS.register("light_gemstone", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> DARK_GEMSTONE = ITEMS.register("dark_gemstone", () -> new Item(new Item.Properties()));

@@ -428,14 +428,50 @@ public class RecipeGenerator extends RecipeProvider
                 .unlockedBy(hasName(Items.STICKY_PISTON), has(Items.STICKY_PISTON))
                 .save(consumer, getFileName(ModItems.PIPE_EXTRACTOR_UPGRADE.get()));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ITEM_PIPE.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.IRON_ITEM_PIPE.get())
                 .pattern("I")
                 .pattern("R")
                 .pattern("I")
                 .define('I', Tags.Items.INGOTS_IRON)
                 .define('R', Tags.Items.DUSTS_REDSTONE)
                 .unlockedBy(hasName(Items.IRON_INGOT), has(Tags.Items.INGOTS_IRON))
-                .save(consumer, getFileName(ModItems.ITEM_PIPE.get()));
+                .save(consumer, getFileName(ModItems.IRON_ITEM_PIPE.get()));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.GOLD_ITEM_PIPE.get())
+                .pattern("I")
+                .pattern("R")
+                .pattern("I")
+                .define('I', Tags.Items.INGOTS_GOLD)
+                .define('R', Tags.Items.DUSTS_REDSTONE)
+                .unlockedBy(hasName(Items.GOLD_INGOT), has(Tags.Items.INGOTS_GOLD))
+                .save(consumer, getFileName(ModItems.GOLD_ITEM_PIPE.get()));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.COPPER_ITEM_PIPE.get())
+                .pattern("I")
+                .pattern("R")
+                .pattern("I")
+                .define('I', Tags.Items.INGOTS_COPPER)
+                .define('R', Tags.Items.DUSTS_REDSTONE)
+                .unlockedBy(hasName(Items.COPPER_INGOT), has(Tags.Items.INGOTS_COPPER))
+                .save(consumer, getFileName(ModItems.COPPER_ITEM_PIPE.get()));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.PLATINUM_ITEM_PIPE.get())
+                .pattern("I")
+                .pattern("R")
+                .pattern("I")
+                .define('I', ForgeTags.Items.INGOTS_PLATINUM)
+                .define('R', Tags.Items.DUSTS_REDSTONE)
+                .unlockedBy(hasName(ModItems.PLATINUM_INGOT.get()), has(ForgeTags.Items.INGOTS_PLATINUM))
+                .save(consumer, getFileName(ModItems.PLATINUM_ITEM_PIPE.get()));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.LEAD_ITEM_PIPE.get())
+                .pattern("I")
+                .pattern("R")
+                .pattern("I")
+                .define('I', ForgeTags.Items.INGOTS_LEAD)
+                .define('R', Tags.Items.DUSTS_REDSTONE)
+                .unlockedBy(hasName(ModItems.LEAD_INGOT.get()), has(ForgeTags.Items.INGOTS_LEAD))
+                .save(consumer, getFileName(ModItems.LEAD_ITEM_PIPE.get()));
     }
 
     private void crystalArrows(Consumer<FinishedRecipe> consumer, ItemLike crystal, ItemLike charged, CrystalArrowItem crystalArrow, CrystalArrowItem chargedArrow)

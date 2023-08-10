@@ -276,15 +276,21 @@ public abstract class MachineBE<T extends Recipe<Container>> extends EnergyStora
     }
 
     @Override
-    public boolean canPlaceItemThroughFace(int slot, ItemStack itemStack, @Nullable Direction dir)
+    public boolean canPlaceItemThroughFace(int id, ItemStack itemStack, @Nullable Direction dir)
     {
-        return List.of(inputSlots).contains(slot) && this.canPlaceItem(slot, itemStack);
+        for (int slot : inputSlots)
+            if (slot == id)
+                return true;
+        return false;
     }
 
     @Override
-    public boolean canTakeItemThroughFace(int slot, ItemStack itemStack, Direction dir)
+    public boolean canTakeItemThroughFace(int id, ItemStack itemStack, Direction dir)
     {
-        return List.of(outputSlots).contains(slot) && dir == Direction.DOWN;
+        for (int slot : outputSlots)
+            if (slot == id)
+                return true;
+        return false;
     }
 
     @Override
@@ -301,7 +307,10 @@ public abstract class MachineBE<T extends Recipe<Container>> extends EnergyStora
     @Override
     public boolean canPlaceItem(int id, ItemStack itemStack)
     {
-        return List.of(inputSlots).contains(id);
+        for (int slot : inputSlots)
+            if (slot == id)
+                return true;
+        return false;
     }
 
     @Override

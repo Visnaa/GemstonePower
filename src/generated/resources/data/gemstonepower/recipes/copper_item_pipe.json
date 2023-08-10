@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "I": {
-      "tag": "forge:ingots/iron"
+      "tag": "forge:ingots/copper"
     },
     "R": {
       "tag": "forge:dusts/redstone"
@@ -15,7 +15,7 @@
     "I"
   ],
   "result": {
-    "item": "gemstonepower:item_pipe"
+    "item": "gemstonepower:copper_item_pipe"
   },
   "show_notification": true
 }

@@ -243,7 +243,11 @@ public class BlockModelGenerator extends BlockStateProvider
         this.wire(ModBlocks.ELECTRUM_WIRE.get());
         this.cable(ModBlocks.ELECTRUM_CABLE.get());
         
-        this.pipe(ModBlocks.ITEM_PIPE.get());
+        this.pipe(ModBlocks.IRON_ITEM_PIPE.get());
+        this.pipe(ModBlocks.GOLD_ITEM_PIPE.get());
+        this.pipe(ModBlocks.COPPER_ITEM_PIPE.get());
+        this.pipe(ModBlocks.PLATINUM_ITEM_PIPE.get());
+        this.pipe(ModBlocks.LEAD_ITEM_PIPE.get());
     }
 
     public void block(Block block, String parentName)

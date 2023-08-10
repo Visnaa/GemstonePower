@@ -32,7 +32,7 @@ public class CopperCableBE extends CableBE
         for (Direction direction : Direction.values())
         {
             BlockEntity be = level.getBlockEntity(pos.relative(direction.getOpposite()));
-            if (be != null && ((!(be instanceof CableBE) || be instanceof CopperCableBE) || be.getCapability(ForgeCapabilities.ENERGY, direction).isPresent()))
+            if (be != null && (be instanceof CopperCableBE || be.getCapability(ForgeCapabilities.ENERGY, direction).isPresent()))
             {
                 level.setBlockAndUpdate(pos, level.getBlockState(pos).setValue(CopperCableBlock.CONNECTIONS.get(direction.getOpposite()), true));
                 setChanged(level, pos, state);

@@ -8,7 +8,7 @@ import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.RegistryObject;
 
-import java.util.List;
+import java.util.HashSet;
 import java.util.Set;
 
 public class BlockLootGenerator extends BlockLootSubProvider
@@ -107,10 +107,15 @@ public class BlockLootGenerator extends BlockLootSubProvider
     @Override
     protected Iterable<Block> getKnownBlocks()
     {
-        List<Block> tiered = List.of(ModBlocks.GEMSTONE_GENERATOR.get(), ModBlocks.GEMSTONE_CELL.get(), ModBlocks.CRYSTAL_GROWER.get(), ModBlocks.CRYSTAL_CHARGER.get(),
+        Set<Block> machines = Set.of(ModBlocks.GEMSTONE_GENERATOR.get(), ModBlocks.GEMSTONE_CELL.get(), ModBlocks.CRYSTAL_GROWER.get(), ModBlocks.CRYSTAL_CHARGER.get(),
                 ModBlocks.ELECTRIC_FURNACE.get(), ModBlocks.METAL_FORMER.get(), ModBlocks.PULVERIZER.get(), ModBlocks.ALLOY_SMELTER.get(), ModBlocks.EXTRACTOR.get(),
                 ModBlocks.ORE_WASHER.get(), ModBlocks.COBBLESTONE_GENERATOR.get(), ModBlocks.SAWMILL.get(), ModBlocks.POLARIZER.get(), ModBlocks.SOLAR_PANEL.get(),
-                ModBlocks.WATER_MILL.get(), ModBlocks.WIND_TURBINE.get(), ModBlocks.ITEM_PIPE.get());
-        return ModBlocks.BLOCKS.getEntries().stream().filter(block -> !tiered.contains(block.get())).map(RegistryObject::get)::iterator;
+                ModBlocks.WATER_MILL.get(), ModBlocks.WIND_TURBINE.get());
+        Set<Block> pipes = Set.of(ModBlocks.IRON_ITEM_PIPE.get(), ModBlocks.GOLD_ITEM_PIPE.get(), ModBlocks.COPPER_ITEM_PIPE.get(), ModBlocks.PLATINUM_ITEM_PIPE.get(), ModBlocks.LEAD_ITEM_PIPE.get());
+
+        Set<Block> excluded = new HashSet<>();
+        excluded.addAll(machines);
+        excluded.addAll(pipes);
+        return ModBlocks.BLOCKS.getEntries().stream().filter(block -> !excluded.contains(block.get())).map(RegistryObject::get)::iterator;
     }
 }

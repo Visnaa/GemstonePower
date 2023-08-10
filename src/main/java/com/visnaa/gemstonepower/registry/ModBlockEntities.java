@@ -9,7 +9,7 @@ import com.visnaa.gemstonepower.block.entity.pipe.cable.AluminumCableBE;
 import com.visnaa.gemstonepower.block.entity.pipe.cable.CopperCableBE;
 import com.visnaa.gemstonepower.block.entity.pipe.cable.ElectrumCableBE;
 import com.visnaa.gemstonepower.block.entity.pipe.cable.TinCableBE;
-import com.visnaa.gemstonepower.block.entity.pipe.item.ItemPipeBE;
+import com.visnaa.gemstonepower.block.entity.pipe.item.*;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -44,5 +44,9 @@ public final class ModBlockEntities
     public static final RegistryObject<BlockEntityType<TinCableBE>> TIN_CABLE = BLOCK_ENTITIES.register("tin_cable", () -> BlockEntityType.Builder.of(TinCableBE::new, ModBlocks.TIN_WIRE.get(), ModBlocks.TIN_CABLE.get()).build(null));
     public static final RegistryObject<BlockEntityType<ElectrumCableBE>> ELECTRUM_CABLE = BLOCK_ENTITIES.register("electrum_cable", () -> BlockEntityType.Builder.of(ElectrumCableBE::new, ModBlocks.ELECTRUM_WIRE.get(), ModBlocks.ELECTRUM_CABLE.get()).build(null));
 
-    public static final RegistryObject<BlockEntityType<ItemPipeBE>> ITEM_PIPE = BLOCK_ENTITIES.register("item_pipe", () -> BlockEntityType.Builder.of(ItemPipeBE::new, ModBlocks.ITEM_PIPE.get()).build(null));
+    public static final RegistryObject<BlockEntityType<IronItemPipeBE>> IRON_ITEM_PIPE = BLOCK_ENTITIES.register("iron_item_pipe", () -> BlockEntityType.Builder.of(IronItemPipeBE::new, ModBlocks.IRON_ITEM_PIPE.get()).build(null));
+    public static final RegistryObject<BlockEntityType<GoldItemPipeBE>> GOLD_ITEM_PIPE = BLOCK_ENTITIES.register("gold_item_pipe", () -> BlockEntityType.Builder.of(GoldItemPipeBE::new, ModBlocks.GOLD_ITEM_PIPE.get()).build(null));
+    public static final RegistryObject<BlockEntityType<CopperItemPipeBE>> COPPER_ITEM_PIPE = BLOCK_ENTITIES.register("copper_item_pipe", () -> BlockEntityType.Builder.of(CopperItemPipeBE::new, ModBlocks.COPPER_ITEM_PIPE.get()).build(null));
+    public static final RegistryObject<BlockEntityType<PlatinumItemPipeBE>> PLATINUM_ITEM_PIPE = BLOCK_ENTITIES.register("platinum_item_pipe", () -> BlockEntityType.Builder.of(PlatinumItemPipeBE::new, ModBlocks.PLATINUM_ITEM_PIPE.get()).build(null));
+    public static final RegistryObject<BlockEntityType<LeadItemPipeBE>> LEAD_ITEM_PIPE = BLOCK_ENTITIES.register("lead_item_pipe", () -> BlockEntityType.Builder.of(LeadItemPipeBE::new, ModBlocks.LEAD_ITEM_PIPE.get()).build(null));
 }

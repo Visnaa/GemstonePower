@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "tag": "forge:ingots/lead"
+    },
+    "R": {
+      "tag": "forge:dusts/redstone"
+    }
+  },
+  "pattern": [
+    "I",
+    "R",
+    "I"
+  ],
+  "result": {
+    "item": "gemstonepower:lead_item_pipe"
+  },
+  "show_notification": true
+}
