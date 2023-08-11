@@ -2,8 +2,8 @@ package com.visnaa.gemstonepower.block.entity;
 
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.config.ServerConfig;
-import com.visnaa.gemstonepower.networking.ModPackets;
-import com.visnaa.gemstonepower.networking.packet.EnergySyncS2C;
+import com.visnaa.gemstonepower.network.ModPackets;
+import com.visnaa.gemstonepower.network.packet.EnergySyncS2C;
 import com.visnaa.gemstonepower.pipe.energy.ForgeEnergyStorage;
 import com.visnaa.gemstonepower.util.EnergyUtilities;
 import net.minecraft.core.BlockPos;
@@ -22,7 +22,7 @@ import org.jetbrains.annotations.Nullable;
 
 public abstract class EnergyStorageBE extends BaseContainerBlockEntity
 {
-    protected final ForgeEnergyStorage energyStorage = createEnergyStorage();
+    protected ForgeEnergyStorage energyStorage = createEnergyStorage();
     private LazyOptional<IEnergyStorage> energy = LazyOptional.of(() -> energyStorage);
 
     public EnergyStorageBE(BlockEntityType<?> type, BlockPos pos, BlockState state)

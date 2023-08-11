@@ -1,5 +1,6 @@
 package com.visnaa.gemstonepower.block;
 
+import com.visnaa.gemstonepower.block.entity.TickingBlockEntity;
 import com.visnaa.gemstonepower.block.entity.WaterMillBE;
 import com.visnaa.gemstonepower.registry.ModBlockEntities;
 import com.visnaa.gemstonepower.registry.ModItems;
@@ -78,7 +79,7 @@ public class WaterMillBlock extends BaseEntityBlock implements TieredBlock<Water
     @Nullable
     protected static <T extends BlockEntity> BlockEntityTicker<T> createTicker(Level level, BlockEntityType<T> blockEntity, BlockEntityType<? extends WaterMillBE> generator)
     {
-        return level.isClientSide ? null : createTickerHelper(blockEntity, generator, WaterMillBE::serverTick);
+        return level.isClientSide ? null : createTickerHelper(blockEntity, generator, TickingBlockEntity::serverTick);
     }
 
     @Override

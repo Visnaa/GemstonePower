@@ -62,22 +62,30 @@ public final class EnergyUtilities
 
     public static int getCapacity(BlockState state, int baseCapacity)
     {
-        return (int) Math.round(Math.ceil(2 * baseCapacity * getMultiplier(state.getValue(Tier.TIER))));
+        if (state.hasProperty(Tier.TIER))
+            return (int) Math.round(Math.ceil(2 * baseCapacity * getMultiplier(state.getValue(Tier.TIER))));
+        return 0;
     }
 
     public static int getUsage(BlockState state, int baseUsage)
     {
-        return (int) Math.round(Math.ceil(baseUsage * getMultiplier(state.getValue(Tier.TIER))));
+        if (state.hasProperty(Tier.TIER))
+            return (int) Math.round(Math.ceil(baseUsage * getMultiplier(state.getValue(Tier.TIER))));
+        return 0;
     }
 
     public static int getGeneration(BlockState state, int baseGeneration)
     {
-        return (int) Math.round(Math.ceil(baseGeneration * getMultiplier(state.getValue(Tier.TIER))));
+        if (state.hasProperty(Tier.TIER))
+            return (int) Math.round(Math.ceil(baseGeneration * getMultiplier(state.getValue(Tier.TIER))));
+        return 0;
     }
 
     public static int getTotalTime(BlockState state, int baseTotalTime)
     {
-        return (int) Math.round(Math.ceil(baseTotalTime * (1 / getMultiplier(state.getValue(Tier.TIER)))));
+        if (state.hasProperty(Tier.TIER))
+            return (int) Math.round(Math.ceil(baseTotalTime * (1 / getMultiplier(state.getValue(Tier.TIER)))));
+        return 0;
     }
 
     private static double getMultiplier(Tier tier)

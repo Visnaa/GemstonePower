@@ -1,5 +1,6 @@
 package com.visnaa.gemstonepower.block.pipe.cable;
 
+import com.visnaa.gemstonepower.block.entity.TickingBlockEntity;
 import com.visnaa.gemstonepower.block.entity.pipe.cable.AluminumCableBE;
 import com.visnaa.gemstonepower.client.render.Tintable;
 import com.visnaa.gemstonepower.client.render.Tints;
@@ -148,7 +149,7 @@ public class AluminumCableBlock extends BaseEntityBlock implements Tintable
     @Nullable
     protected static <T extends BlockEntity> BlockEntityTicker<T> createTicker(Level level, BlockEntityType<T> blockEntity, BlockEntityType<? extends AluminumCableBE> cable)
     {
-        return level.isClientSide ? null : createTickerHelper(blockEntity, cable, AluminumCableBE::serverTick);
+        return level.isClientSide ? null : createTickerHelper(blockEntity, cable, TickingBlockEntity::serverTick);
     }
 
     @Override

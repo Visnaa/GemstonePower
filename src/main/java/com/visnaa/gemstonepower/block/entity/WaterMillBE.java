@@ -19,7 +19,7 @@ import net.minecraftforge.energy.IEnergyStorage;
 
 import javax.annotation.Nullable;
 
-public class WaterMillBE extends BlockEntity
+public class WaterMillBE extends BlockEntity implements TickingBlockEntity
 {
     private boolean isSpinning;
 
@@ -39,10 +39,11 @@ public class WaterMillBE extends BlockEntity
         super.saveAdditional(tag);
         tag.put("Energy", energyStorage.serializeNBT());
     }
-    
-    public static void serverTick(Level level, BlockPos pos, BlockState state, WaterMillBE blockEntity)
+
+    @Override
+    public void tick(Level level, BlockPos pos, BlockState state)
     {
-        blockEntity.generate(level, pos, state);
+        generate(level, pos, state);
     }
 
     public void generate(Level level, BlockPos pos, BlockState state)

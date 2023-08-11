@@ -91,6 +91,8 @@ public final class ModBlocks
     public static final RegistryObject<Block> WATER_MILL = BLOCKS.register("water_mill", () -> new WaterMillBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> WIND_TURBINE = BLOCKS.register("wind_turbine", () -> new WindTurbineBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops()));
 
+    public static final RegistryObject<Block> TANK = BLOCKS.register("tank", () -> new TankBlock(BlockBehaviour.Properties.copy(Blocks.GLASS)));
+
     public static final RegistryObject<Block> COPPER_WIRE = BLOCKS.register("copper_wire", () -> new CopperWireBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).noOcclusion()));
     public static final RegistryObject<Block> COPPER_CABLE = BLOCKS.register("copper_cable", () -> new CopperCableBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).noOcclusion()));
     public static final RegistryObject<Block> ALUMINUM_WIRE = BLOCKS.register("aluminum_wire", () -> new AluminumWireBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).noOcclusion()));

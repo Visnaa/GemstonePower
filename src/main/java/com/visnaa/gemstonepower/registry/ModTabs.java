@@ -38,6 +38,8 @@ public class ModTabs
                 output.accept(ModItems.WATER_MILL.get());
                 output.accept(ModItems.WIND_TURBINE.get());
 
+                output.accept(ModItems.TANK.get());
+
                 output.accept(ModItems.INTERMEDIATE_UPGRADE.get());
                 output.accept(ModItems.ADVANCED_UPGRADE.get());
                 output.accept(ModItems.ULTRA_UPGRADE.get());

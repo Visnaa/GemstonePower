@@ -12,12 +12,12 @@ public class GoldItemPipeBE extends ItemPipeBE
         super(ModBlockEntities.GOLD_ITEM_PIPE.get(), pos, state);
     }
 
-    public static void serverTick(Level level, BlockPos pos, BlockState state, GoldItemPipeBE blockEntity)
+    @Override
+    public void tick(Level level, BlockPos pos, BlockState state)
     {
-        blockEntity.updateConnections(level, pos, state, GoldItemPipeBE.class);
-        blockEntity.refreshNetwork(level, pos, state, GoldItemPipeBE.class);
-        blockEntity.refreshOutputs(level, pos, state);
-        blockEntity.distributeItems(level, pos, state);
+        updateConnections(level, pos, state, GoldItemPipeBE.class);
+        refreshNetwork(level, pos, state, GoldItemPipeBE.class);
+        super.tick(level, pos, state);
     }
 
     @Override

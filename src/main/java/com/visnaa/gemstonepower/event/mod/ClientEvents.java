@@ -2,13 +2,11 @@ package com.visnaa.gemstonepower.event.mod;
 
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.client.render.Tints;
+import com.visnaa.gemstonepower.client.render.block.TankBER;
 import com.visnaa.gemstonepower.client.render.entity.CrystalArrowRenderer;
 import com.visnaa.gemstonepower.client.screen.*;
 import com.visnaa.gemstonepower.config.ConfigScreen;
-import com.visnaa.gemstonepower.registry.ModBlocks;
-import com.visnaa.gemstonepower.registry.ModContainers;
-import com.visnaa.gemstonepower.registry.ModEntities;
-import com.visnaa.gemstonepower.registry.ModTabs;
+import com.visnaa.gemstonepower.registry.*;
 import com.visnaa.gemstonepower.util.Tier;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.BiomeColors;
@@ -87,6 +85,8 @@ public class ClientEvents
     @SubscribeEvent
     public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event)
     {
+        event.registerBlockEntityRenderer(ModBlockEntities.TANK.get(), TankBER::new);
+
         event.registerEntityRenderer(ModEntities.RUBY_ARROW.get(), CrystalArrowRenderer::new);
         event.registerEntityRenderer(ModEntities.SAPPHIRE_ARROW.get(), CrystalArrowRenderer::new);
         event.registerEntityRenderer(ModEntities.AQUAMARINE_ARROW.get(), CrystalArrowRenderer::new);

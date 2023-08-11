@@ -1,5 +1,6 @@
 package com.visnaa.gemstonepower.block;
 
+import com.visnaa.gemstonepower.block.entity.TickingBlockEntity;
 import com.visnaa.gemstonepower.block.entity.WindTurbineBE;
 import com.visnaa.gemstonepower.registry.ModBlockEntities;
 import com.visnaa.gemstonepower.registry.ModItems;
@@ -78,7 +79,7 @@ public class WindTurbineBlock extends BaseEntityBlock implements TieredBlock<Win
     @Nullable
     protected static <T extends BlockEntity> BlockEntityTicker<T> createTicker(Level level, BlockEntityType<T> blockEntity, BlockEntityType<? extends WindTurbineBE> generator)
     {
-        return level.isClientSide ? null : createTickerHelper(blockEntity, generator, WindTurbineBE::serverTick);
+        return level.isClientSide ? null : createTickerHelper(blockEntity, generator, TickingBlockEntity::serverTick);
     }
 
     @Override

@@ -252,6 +252,8 @@ public final class ModItems
     public static final RegistryObject<Item> WATER_MILL = ITEMS.register("water_mill", () -> new TintedBlockItem(ModBlocks.WATER_MILL.get(), new Item.Properties(), Tints.STANDARD));
     public static final RegistryObject<Item> WIND_TURBINE = ITEMS.register("wind_turbine", () -> new TintedBlockItem(ModBlocks.WIND_TURBINE.get(), new Item.Properties(), Tints.STANDARD));
 
+    public static final RegistryObject<Item> TANK = ITEMS.register("tank", () -> new TankItem(new Item.Properties()));
+
     public static final RegistryObject<Item> PLATE_PRESET = ITEMS.register("plate_preset", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> ROD_PRESET = ITEMS.register("rod_preset", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> WIRE_PRESET = ITEMS.register("wire_preset", () -> new Item(new Item.Properties()));

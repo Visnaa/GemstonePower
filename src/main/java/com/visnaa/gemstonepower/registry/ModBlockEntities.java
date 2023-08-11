@@ -2,6 +2,7 @@ package com.visnaa.gemstonepower.registry;
 
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.block.entity.SolarPanelBE;
+import com.visnaa.gemstonepower.block.entity.TankBE;
 import com.visnaa.gemstonepower.block.entity.WaterMillBE;
 import com.visnaa.gemstonepower.block.entity.WindTurbineBE;
 import com.visnaa.gemstonepower.block.entity.machine.*;
@@ -38,6 +39,8 @@ public final class ModBlockEntities
     public static final RegistryObject<BlockEntityType<SolarPanelBE>> SOLAR_PANEL = BLOCK_ENTITIES.register("solar_panel", () -> BlockEntityType.Builder.of(SolarPanelBE::new, ModBlocks.SOLAR_PANEL.get()).build(null));
     public static final RegistryObject<BlockEntityType<WaterMillBE>> WATER_MILL = BLOCK_ENTITIES.register("water_mill", () -> BlockEntityType.Builder.of(WaterMillBE::new, ModBlocks.WATER_MILL.get()).build(null));
     public static final RegistryObject<BlockEntityType<WindTurbineBE>> WIND_TURBINE = BLOCK_ENTITIES.register("wind_turbine", () -> BlockEntityType.Builder.of(WindTurbineBE::new, ModBlocks.WIND_TURBINE.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<TankBE>> TANK = BLOCK_ENTITIES.register("tank", () -> BlockEntityType.Builder.of(TankBE::new, ModBlocks.TANK.get()).build(null));
 
     public static final RegistryObject<BlockEntityType<CopperCableBE>> COPPER_CABLE = BLOCK_ENTITIES.register("copper_cable", () -> BlockEntityType.Builder.of(CopperCableBE::new, ModBlocks.COPPER_WIRE.get(), ModBlocks.COPPER_CABLE.get()).build(null));
     public static final RegistryObject<BlockEntityType<AluminumCableBE>> ALUMINUM_CABLE = BLOCK_ENTITIES.register("aluminum_cable", () -> BlockEntityType.Builder.of(AluminumCableBE::new, ModBlocks.ALUMINUM_WIRE.get(), ModBlocks.ALUMINUM_CABLE.get()).build(null));

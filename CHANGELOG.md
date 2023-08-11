@@ -1,5 +1,10 @@
 <h1 style="font-size: 40px">Gemstone Power version changelog</h1>
 
+<h3>Version: Beta 0.2.5</h3>
+<ul>
+<li>Added new block: Fluid Tank
+</ul>
+
 <h3>Version: Beta 0.2.4</h3>
 <ul>
 <li>Added new item pipes (Iron, Gold, Copper, Platinum, Lead)

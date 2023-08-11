@@ -1,4 +1,4 @@
-// 1.20.1	2023-08-10T02:19:00.1658757	Block States: gemstonepower
+// 1.20.1	2023-08-11T01:43:54.6590543	Block States: gemstonepower
 d64b6a987545931049089336705e3824c4d7a706 assets/gemstonepower/blockstates/alloy_smelter.json
 82e779ca55602bc3c1a921eeba5199a80496b336 assets/gemstonepower/blockstates/aluminum_block.json
 c8bfa41b107b508305585782c062b564d797e499 assets/gemstonepower/blockstates/aluminum_cable.json
@@ -71,6 +71,7 @@ be3c73de353b27619b46cd2c8af06c04ecd8f166 assets/gemstonepower/blockstates/silver
 fac262f111741f667c4d13120b9bcade93437bec assets/gemstonepower/blockstates/solar_panel.json
 16c383fd636c8e597e67d102a11d2d17e4918791 assets/gemstonepower/blockstates/steel_block.json
 09e45c71c594b3f3e4a1d2dde065fe5e5629e71e assets/gemstonepower/blockstates/sun_stone_crystals.json
+567c93723af6f05ef04a453c726e5c35404e1709 assets/gemstonepower/blockstates/tank.json
 1a7afe5cb60e6c1ea5f72de2edffe8d5462e395c assets/gemstonepower/blockstates/tanzanite_crystals.json
 ea67d1acfa20fcf74b1420dff5ec4e31c9421792 assets/gemstonepower/blockstates/tin_block.json
 c8bfa41b107b508305585782c062b564d797e499 assets/gemstonepower/blockstates/tin_cable.json
@@ -145,6 +146,7 @@ b9a611bd33770d8f2213f85ed07d02b13554f3ae assets/gemstonepower/models/block/polar
 1c203e9a413d525d77991d45fbc4d24a18a4564f assets/gemstonepower/models/block/silver_ore.json
 08cdad216dc5c8d3724cf1900bceee4dcd7a5f4c assets/gemstonepower/models/block/steel_block.json
 175cdfa92fa5ff1bed381f5ed67623becc35add2 assets/gemstonepower/models/block/sun_stone_crystals.json
+ea619bcdba8fe2d772b66894cfd954e1dc4f15a4 assets/gemstonepower/models/block/tank.json
 175cdfa92fa5ff1bed381f5ed67623becc35add2 assets/gemstonepower/models/block/tanzanite_crystals.json
 08cdad216dc5c8d3724cf1900bceee4dcd7a5f4c assets/gemstonepower/models/block/tin_block.json
 1c203e9a413d525d77991d45fbc4d24a18a4564f assets/gemstonepower/models/block/tin_ore.json
@@ -224,6 +226,7 @@ f95974019f8774eec17e8ff736a300b8ed00c671 assets/gemstonepower/models/item/silver
 c97964f310e28e939577340d0d27341b4fc3719f assets/gemstonepower/models/item/silver_ore.json
 8cba70a63d0e1671cf3929d2aba721839a171b49 assets/gemstonepower/models/item/steel_block.json
 2e7674ed2425b776da3b612228be6ed239903cf6 assets/gemstonepower/models/item/sun_stone_crystals.json
+64a7bb1608b93ccb46a036ef8bc305cf17988475 assets/gemstonepower/models/item/tank.json
 db27c187783f06ddb55db3c2f90d74005a7b4f10 assets/gemstonepower/models/item/tanzanite_crystals.json
 728f7990a1125ac683332714d70db4ea6bfa3222 assets/gemstonepower/models/item/tin_block.json
 865fc218f00543a0ee4050235948bb56b296f7ff assets/gemstonepower/models/item/tin_cable.json

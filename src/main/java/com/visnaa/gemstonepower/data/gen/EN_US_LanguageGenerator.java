@@ -481,6 +481,8 @@ public class EN_US_LanguageGenerator extends LanguageProvider
 
         this.add(ModItems.PIPE_EXTRACTOR_UPGRADE.get(), "Pipe Extractor Upgrade");
 
+        this.add(ModItems.TANK.get(), "Fluid Tank");
+
         this.add(ModItems.PLATE_PRESET.get(), "Plate Preset");
         this.add(ModItems.ROD_PRESET.get(), "Rod Preset");
         this.add(ModItems.WIRE_PRESET.get(), "Wire Preset");

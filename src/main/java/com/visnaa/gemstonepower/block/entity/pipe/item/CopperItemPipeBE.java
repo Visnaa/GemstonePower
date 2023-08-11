@@ -12,12 +12,12 @@ public class CopperItemPipeBE extends ItemPipeBE
         super(ModBlockEntities.COPPER_ITEM_PIPE.get(), pos, state);
     }
 
-    public static void serverTick(Level level, BlockPos pos, BlockState state, CopperItemPipeBE blockEntity)
+    @Override
+    public void tick(Level level, BlockPos pos, BlockState state)
     {
-        blockEntity.updateConnections(level, pos, state, CopperItemPipeBE.class);
-        blockEntity.refreshNetwork(level, pos, state, CopperItemPipeBE.class);
-        blockEntity.refreshOutputs(level, pos, state);
-        blockEntity.distributeItems(level, pos, state);
+        updateConnections(level, pos, state, CopperItemPipeBE.class);
+        refreshNetwork(level, pos, state, CopperItemPipeBE.class);
+        super.tick(level, pos, state);
     }
 
     @Override

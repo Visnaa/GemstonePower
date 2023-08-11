@@ -32,6 +32,74 @@ public class RecipeGenerator extends RecipeProvider
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> consumer)
     {
+        this.mics(consumer);
+
+        this.gemstoneItems(consumer);
+        this.machines(consumer);
+        this.gemstoneGrower(consumer);
+        this.gemstoneCharger(consumer);
+        this.sawmill(consumer);
+        this.polarizer(consumer);
+
+        this.upgrades(consumer);
+
+        this.armour(consumer, Items.COPPER_INGOT, ModArmors.COPPER_HELMET.get(), ModArmors.COPPER_CHESTPLATE.get(), ModArmors.COPPER_LEGGINGS.get(), ModArmors.COPPER_BOOTS.get());
+        this.armour(consumer, ModItems.ALUMINUM_INGOT.get(), ModArmors.ALUMINUM_HELMET.get(), ModArmors.ALUMINUM_CHESTPLATE.get(), ModArmors.ALUMINUM_LEGGINGS.get(), ModArmors.ALUMINUM_BOOTS.get());
+        this.armour(consumer, ModItems.BRONZE_INGOT.get(), ModArmors.BRONZE_HELMET.get(), ModArmors.BRONZE_CHESTPLATE.get(), ModArmors.BRONZE_LEGGINGS.get(), ModArmors.BRONZE_BOOTS.get());
+        this.armour(consumer, ModItems.SILVER_INGOT.get(), ModArmors.SILVER_HELMET.get(), ModArmors.SILVER_CHESTPLATE.get(), ModArmors.SILVER_LEGGINGS.get(), ModArmors.SILVER_BOOTS.get());
+        this.armour(consumer, ModItems.INVAR_INGOT.get(), ModArmors.INVAR_HELMET.get(), ModArmors.INVAR_CHESTPLATE.get(), ModArmors.INVAR_LEGGINGS.get(), ModArmors.INVAR_BOOTS.get());
+        this.armour(consumer, ModItems.STEEL_INGOT.get(), ModArmors.STEEL_HELMET.get(), ModArmors.STEEL_CHESTPLATE.get(), ModArmors.STEEL_LEGGINGS.get(), ModArmors.STEEL_BOOTS.get());
+
+        this.tools(consumer, Items.COPPER_INGOT, ModTools.COPPER_SWORD.get(), ModTools.COPPER_SHOVEL.get(), ModTools.COPPER_PICKAXE.get(), ModTools.COPPER_AXE.get(), ModTools.COPPER_HOE.get());
+        this.tools(consumer, ModItems.ALUMINUM_INGOT.get(), ModTools.ALUMINUM_SWORD.get(), ModTools.ALUMINUM_SHOVEL.get(), ModTools.ALUMINUM_PICKAXE.get(), ModTools.ALUMINUM_AXE.get(), ModTools.ALUMINUM_HOE.get());
+        this.tools(consumer, ModItems.BRONZE_INGOT.get(), ModTools.BRONZE_SWORD.get(), ModTools.BRONZE_SHOVEL.get(), ModTools.BRONZE_PICKAXE.get(), ModTools.BRONZE_AXE.get(), ModTools.BRONZE_HOE.get());
+        this.tools(consumer, ModItems.SILVER_INGOT.get(), ModTools.SILVER_SWORD.get(), ModTools.SILVER_SHOVEL.get(), ModTools.SILVER_PICKAXE.get(), ModTools.SILVER_AXE.get(), ModTools.SILVER_HOE.get());
+        this.tools(consumer, ModItems.INVAR_INGOT.get(), ModTools.INVAR_SWORD.get(), ModTools.INVAR_SHOVEL.get(), ModTools.INVAR_PICKAXE.get(), ModTools.INVAR_AXE.get(), ModTools.INVAR_HOE.get());
+        this.tools(consumer, ModItems.STEEL_INGOT.get(), ModTools.STEEL_SWORD.get(), ModTools.STEEL_SHOVEL.get(), ModTools.STEEL_PICKAXE.get(), ModTools.STEEL_AXE.get(), ModTools.STEEL_HOE.get());
+
+        this.metalDefault(MetalGroups.IRON.getGroup(), consumer);
+        this.metalDefault(MetalGroups.GOLD.getGroup(), consumer);
+        this.metalDefault(MetalGroups.COPPER.getGroup(), consumer);
+        this.metalDefault(MetalGroups.ALUMINUM.getGroup(), consumer);
+        this.metalDefault(MetalGroups.TIN.getGroup(), consumer);
+        this.metalDefault(MetalGroups.BRONZE.getGroup(), consumer);
+        this.metalDefault(MetalGroups.SILVER.getGroup(), consumer);
+        this.metalDefault(MetalGroups.ELECTRUM.getGroup(), consumer);
+        this.metalDefault(MetalGroups.NICKEL.getGroup(), consumer);
+        this.metalDefault(MetalGroups.INVAR.getGroup(), consumer);
+        this.metalDefault(MetalGroups.CONSTANTAN.getGroup(), consumer);
+        this.metalDefault(MetalGroups.PLATINUM.getGroup(), consumer);
+        this.metalDefault(MetalGroups.STEEL.getGroup(), consumer);
+        this.metalDefault(MetalGroups.LITHIUM.getGroup(), consumer);
+        this.metalDefault(MetalGroups.MAGNESIUM.getGroup(), consumer);
+        this.metalDefault(MetalGroups.URANIUM.getGroup(), consumer);
+        this.metalDefault(MetalGroups.LEAD.getGroup(), consumer);
+        this.metalDefault(MetalGroups.ZINC.getGroup(), consumer);
+
+        this.pipes(consumer);
+        
+        this.crystalArrows(consumer, ModItems.RUBY.get(), ModItems.RUBY_CHARGED.get(), ModItems.RUBY_ARROW.get(), ModItems.CHARGED_RUBY_ARROW.get());
+        this.crystalArrows(consumer, ModItems.SAPPHIRE.get(), ModItems.SAPPHIRE_CHARGED.get(), ModItems.SAPPHIRE_ARROW.get(), ModItems.CHARGED_SAPPHIRE_ARROW.get());
+        this.crystalArrows(consumer, ModItems.AQUAMARINE.get(), ModItems.AQUAMARINE_CHARGED.get(), ModItems.AQUAMARINE_ARROW.get(), ModItems.CHARGED_AQUAMARINE_ARROW.get());
+        this.crystalArrows(consumer, ModItems.JADE.get(), ModItems.JADE_CHARGED.get(), ModItems.JADE_ARROW.get(), ModItems.CHARGED_JADE_ARROW.get());
+        this.crystalArrows(consumer, ModItems.OPAL.get(), ModItems.OPAL_CHARGED.get(), ModItems.OPAL_ARROW.get(), ModItems.CHARGED_OPAL_ARROW.get());
+        this.crystalArrows(consumer, ModItems.YELLOW_DIAMOND.get(), ModItems.YELLOW_DIAMOND_CHARGED.get(), ModItems.YELLOW_DIAMOND_ARROW.get(), ModItems.CHARGED_YELLOW_DIAMOND_ARROW.get());
+        this.crystalArrows(consumer, ModItems.AMBER.get(), ModItems.AMBER_CHARGED.get(), ModItems.AMBER_ARROW.get(), ModItems.CHARGED_AMBER_ARROW.get());
+        this.crystalArrows(consumer, ModItems.TOPAZ.get(), ModItems.TOPAZ_CHARGED.get(), ModItems.TOPAZ_ARROW.get(), ModItems.CHARGED_TOPAZ_ARROW.get());
+        this.crystalArrows(consumer, ModItems.BERYLLIUM.get(), ModItems.BERYLLIUM_CHARGED.get(), ModItems.BERYLLIUM_ARROW.get(), ModItems.CHARGED_BERYLLIUM_ARROW.get());
+        this.crystalArrows(consumer, ModItems.BIXBIT.get(), ModItems.BIXBIT_CHARGED.get(), ModItems.BIXBIT_ARROW.get(), ModItems.CHARGED_BIXBIT_ARROW.get());
+        this.crystalArrows(consumer, ModItems.MALACHITE.get(), ModItems.MALACHITE_CHARGED.get(), ModItems.MALACHITE_ARROW.get(), ModItems.CHARGED_MALACHITE_ARROW.get());
+        this.crystalArrows(consumer, ModItems.ONYX.get(), ModItems.ONYX_CHARGED.get(), ModItems.ONYX_ARROW.get(), ModItems.CHARGED_ONYX_ARROW.get());
+        this.crystalArrows(consumer, ModItems.PERIDOT.get(), ModItems.PERIDOT_CHARGED.get(), ModItems.PERIDOT_ARROW.get(), ModItems.CHARGED_PERIDOT_ARROW.get());
+        this.crystalArrows(consumer, ModItems.MOON_STONE.get(), ModItems.MOON_STONE_CHARGED.get(), ModItems.MOON_STONE_ARROW.get(), ModItems.CHARGED_MOON_STONE_ARROW.get());
+        this.crystalArrows(consumer, ModItems.SUN_STONE.get(), ModItems.SUN_STONE_CHARGED.get(), ModItems.SUN_STONE_ARROW.get(), ModItems.CHARGED_SUN_STONE_ARROW.get());
+        this.crystalArrows(consumer, ModItems.CITRINE.get(), ModItems.CITRINE_CHARGED.get(), ModItems.CITRINE_ARROW.get(), ModItems.CHARGED_CITRINE_ARROW.get());
+        this.crystalArrows(consumer, ModItems.DOLOMITE.get(), ModItems.DOLOMITE_CHARGED.get(), ModItems.DOLOMITE_ARROW.get(), ModItems.CHARGED_DOLOMITE_ARROW.get());
+        this.crystalArrows(consumer, ModItems.TANZANITE.get(), ModItems.TANZANITE_CHARGED.get(), ModItems.TANZANITE_ARROW.get(), ModItems.CHARGED_TANZANITE_ARROW.get());
+    }
+
+    private void mics(Consumer<FinishedRecipe> consumer)
+    {
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(ItemTags.LOGS), RecipeCategory.MISC, ModItems.RESIN.get(), 0.1F, 200)
                 .unlockedBy("has_log", inventoryTrigger(ItemPredicate.Builder.item().of(ItemTags.LOGS).build()))
                 .save(consumer, getFileName(ModItems.RESIN.get()));
@@ -114,68 +182,14 @@ public class RecipeGenerator extends RecipeProvider
                 .unlockedBy(hasName(ModItems.RESIN_OAK_LOG.get()), has(ModItems.RESIN_OAK_LOG.get()))
                 .save(consumer, getFileName(ModItems.RESIN.get(), ModItems.RESIN_OAK_LOG.get()));
 
-        this.gemstoneItems(consumer);
-        this.machines(consumer);
-        this.gemstoneGrower(consumer);
-        this.gemstoneCharger(consumer);
-        this.sawmill(consumer);
-        this.polarizer(consumer);
-
-        this.upgrades(consumer);
-
-        this.armour(consumer, Items.COPPER_INGOT, ModArmors.COPPER_HELMET.get(), ModArmors.COPPER_CHESTPLATE.get(), ModArmors.COPPER_LEGGINGS.get(), ModArmors.COPPER_BOOTS.get());
-        this.armour(consumer, ModItems.ALUMINUM_INGOT.get(), ModArmors.ALUMINUM_HELMET.get(), ModArmors.ALUMINUM_CHESTPLATE.get(), ModArmors.ALUMINUM_LEGGINGS.get(), ModArmors.ALUMINUM_BOOTS.get());
-        this.armour(consumer, ModItems.BRONZE_INGOT.get(), ModArmors.BRONZE_HELMET.get(), ModArmors.BRONZE_CHESTPLATE.get(), ModArmors.BRONZE_LEGGINGS.get(), ModArmors.BRONZE_BOOTS.get());
-        this.armour(consumer, ModItems.SILVER_INGOT.get(), ModArmors.SILVER_HELMET.get(), ModArmors.SILVER_CHESTPLATE.get(), ModArmors.SILVER_LEGGINGS.get(), ModArmors.SILVER_BOOTS.get());
-        this.armour(consumer, ModItems.INVAR_INGOT.get(), ModArmors.INVAR_HELMET.get(), ModArmors.INVAR_CHESTPLATE.get(), ModArmors.INVAR_LEGGINGS.get(), ModArmors.INVAR_BOOTS.get());
-        this.armour(consumer, ModItems.STEEL_INGOT.get(), ModArmors.STEEL_HELMET.get(), ModArmors.STEEL_CHESTPLATE.get(), ModArmors.STEEL_LEGGINGS.get(), ModArmors.STEEL_BOOTS.get());
-
-        this.tools(consumer, Items.COPPER_INGOT, ModTools.COPPER_SWORD.get(), ModTools.COPPER_SHOVEL.get(), ModTools.COPPER_PICKAXE.get(), ModTools.COPPER_AXE.get(), ModTools.COPPER_HOE.get());
-        this.tools(consumer, ModItems.ALUMINUM_INGOT.get(), ModTools.ALUMINUM_SWORD.get(), ModTools.ALUMINUM_SHOVEL.get(), ModTools.ALUMINUM_PICKAXE.get(), ModTools.ALUMINUM_AXE.get(), ModTools.ALUMINUM_HOE.get());
-        this.tools(consumer, ModItems.BRONZE_INGOT.get(), ModTools.BRONZE_SWORD.get(), ModTools.BRONZE_SHOVEL.get(), ModTools.BRONZE_PICKAXE.get(), ModTools.BRONZE_AXE.get(), ModTools.BRONZE_HOE.get());
-        this.tools(consumer, ModItems.SILVER_INGOT.get(), ModTools.SILVER_SWORD.get(), ModTools.SILVER_SHOVEL.get(), ModTools.SILVER_PICKAXE.get(), ModTools.SILVER_AXE.get(), ModTools.SILVER_HOE.get());
-        this.tools(consumer, ModItems.INVAR_INGOT.get(), ModTools.INVAR_SWORD.get(), ModTools.INVAR_SHOVEL.get(), ModTools.INVAR_PICKAXE.get(), ModTools.INVAR_AXE.get(), ModTools.INVAR_HOE.get());
-        this.tools(consumer, ModItems.STEEL_INGOT.get(), ModTools.STEEL_SWORD.get(), ModTools.STEEL_SHOVEL.get(), ModTools.STEEL_PICKAXE.get(), ModTools.STEEL_AXE.get(), ModTools.STEEL_HOE.get());
-
-        this.metalDefault(MetalGroups.IRON.getGroup(), consumer);
-        this.metalDefault(MetalGroups.GOLD.getGroup(), consumer);
-        this.metalDefault(MetalGroups.COPPER.getGroup(), consumer);
-        this.metalDefault(MetalGroups.ALUMINUM.getGroup(), consumer);
-        this.metalDefault(MetalGroups.TIN.getGroup(), consumer);
-        this.metalDefault(MetalGroups.BRONZE.getGroup(), consumer);
-        this.metalDefault(MetalGroups.SILVER.getGroup(), consumer);
-        this.metalDefault(MetalGroups.ELECTRUM.getGroup(), consumer);
-        this.metalDefault(MetalGroups.NICKEL.getGroup(), consumer);
-        this.metalDefault(MetalGroups.INVAR.getGroup(), consumer);
-        this.metalDefault(MetalGroups.CONSTANTAN.getGroup(), consumer);
-        this.metalDefault(MetalGroups.PLATINUM.getGroup(), consumer);
-        this.metalDefault(MetalGroups.STEEL.getGroup(), consumer);
-        this.metalDefault(MetalGroups.LITHIUM.getGroup(), consumer);
-        this.metalDefault(MetalGroups.MAGNESIUM.getGroup(), consumer);
-        this.metalDefault(MetalGroups.URANIUM.getGroup(), consumer);
-        this.metalDefault(MetalGroups.LEAD.getGroup(), consumer);
-        this.metalDefault(MetalGroups.ZINC.getGroup(), consumer);
-
-        this.pipes(consumer);
-        
-        this.crystalArrows(consumer, ModItems.RUBY.get(), ModItems.RUBY_CHARGED.get(), ModItems.RUBY_ARROW.get(), ModItems.CHARGED_RUBY_ARROW.get());
-        this.crystalArrows(consumer, ModItems.SAPPHIRE.get(), ModItems.SAPPHIRE_CHARGED.get(), ModItems.SAPPHIRE_ARROW.get(), ModItems.CHARGED_SAPPHIRE_ARROW.get());
-        this.crystalArrows(consumer, ModItems.AQUAMARINE.get(), ModItems.AQUAMARINE_CHARGED.get(), ModItems.AQUAMARINE_ARROW.get(), ModItems.CHARGED_AQUAMARINE_ARROW.get());
-        this.crystalArrows(consumer, ModItems.JADE.get(), ModItems.JADE_CHARGED.get(), ModItems.JADE_ARROW.get(), ModItems.CHARGED_JADE_ARROW.get());
-        this.crystalArrows(consumer, ModItems.OPAL.get(), ModItems.OPAL_CHARGED.get(), ModItems.OPAL_ARROW.get(), ModItems.CHARGED_OPAL_ARROW.get());
-        this.crystalArrows(consumer, ModItems.YELLOW_DIAMOND.get(), ModItems.YELLOW_DIAMOND_CHARGED.get(), ModItems.YELLOW_DIAMOND_ARROW.get(), ModItems.CHARGED_YELLOW_DIAMOND_ARROW.get());
-        this.crystalArrows(consumer, ModItems.AMBER.get(), ModItems.AMBER_CHARGED.get(), ModItems.AMBER_ARROW.get(), ModItems.CHARGED_AMBER_ARROW.get());
-        this.crystalArrows(consumer, ModItems.TOPAZ.get(), ModItems.TOPAZ_CHARGED.get(), ModItems.TOPAZ_ARROW.get(), ModItems.CHARGED_TOPAZ_ARROW.get());
-        this.crystalArrows(consumer, ModItems.BERYLLIUM.get(), ModItems.BERYLLIUM_CHARGED.get(), ModItems.BERYLLIUM_ARROW.get(), ModItems.CHARGED_BERYLLIUM_ARROW.get());
-        this.crystalArrows(consumer, ModItems.BIXBIT.get(), ModItems.BIXBIT_CHARGED.get(), ModItems.BIXBIT_ARROW.get(), ModItems.CHARGED_BIXBIT_ARROW.get());
-        this.crystalArrows(consumer, ModItems.MALACHITE.get(), ModItems.MALACHITE_CHARGED.get(), ModItems.MALACHITE_ARROW.get(), ModItems.CHARGED_MALACHITE_ARROW.get());
-        this.crystalArrows(consumer, ModItems.ONYX.get(), ModItems.ONYX_CHARGED.get(), ModItems.ONYX_ARROW.get(), ModItems.CHARGED_ONYX_ARROW.get());
-        this.crystalArrows(consumer, ModItems.PERIDOT.get(), ModItems.PERIDOT_CHARGED.get(), ModItems.PERIDOT_ARROW.get(), ModItems.CHARGED_PERIDOT_ARROW.get());
-        this.crystalArrows(consumer, ModItems.MOON_STONE.get(), ModItems.MOON_STONE_CHARGED.get(), ModItems.MOON_STONE_ARROW.get(), ModItems.CHARGED_MOON_STONE_ARROW.get());
-        this.crystalArrows(consumer, ModItems.SUN_STONE.get(), ModItems.SUN_STONE_CHARGED.get(), ModItems.SUN_STONE_ARROW.get(), ModItems.CHARGED_SUN_STONE_ARROW.get());
-        this.crystalArrows(consumer, ModItems.CITRINE.get(), ModItems.CITRINE_CHARGED.get(), ModItems.CITRINE_ARROW.get(), ModItems.CHARGED_CITRINE_ARROW.get());
-        this.crystalArrows(consumer, ModItems.DOLOMITE.get(), ModItems.DOLOMITE_CHARGED.get(), ModItems.DOLOMITE_ARROW.get(), ModItems.CHARGED_DOLOMITE_ARROW.get());
-        this.crystalArrows(consumer, ModItems.TANZANITE.get(), ModItems.TANZANITE_CHARGED.get(), ModItems.TANZANITE_ARROW.get(), ModItems.CHARGED_TANZANITE_ARROW.get());
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.TANK.get())
+                .pattern("SGS")
+                .pattern("GGG")
+                .pattern("SGS")
+                .define('G', Tags.Items.GLASS)
+                .define('S', ForgeTags.Items.INGOTS_STEEL)
+                .unlockedBy(hasName(Blocks.GLASS), has(Blocks.GLASS))
+                .save(consumer, getFileName(ModItems.TANK.get()));
     }
 
     private void metalDefault(MetalGroup group, Consumer<FinishedRecipe> consumer)

@@ -112,10 +112,12 @@ public class BlockLootGenerator extends BlockLootSubProvider
                 ModBlocks.ORE_WASHER.get(), ModBlocks.COBBLESTONE_GENERATOR.get(), ModBlocks.SAWMILL.get(), ModBlocks.POLARIZER.get(), ModBlocks.SOLAR_PANEL.get(),
                 ModBlocks.WATER_MILL.get(), ModBlocks.WIND_TURBINE.get());
         Set<Block> pipes = Set.of(ModBlocks.IRON_ITEM_PIPE.get(), ModBlocks.GOLD_ITEM_PIPE.get(), ModBlocks.COPPER_ITEM_PIPE.get(), ModBlocks.PLATINUM_ITEM_PIPE.get(), ModBlocks.LEAD_ITEM_PIPE.get());
+        Set<Block> mics = Set.of(ModBlocks.TANK.get());
 
         Set<Block> excluded = new HashSet<>();
         excluded.addAll(machines);
         excluded.addAll(pipes);
+        excluded.addAll(mics);
         return ModBlocks.BLOCKS.getEntries().stream().filter(block -> !excluded.contains(block.get())).map(RegistryObject::get)::iterator;
     }
 }

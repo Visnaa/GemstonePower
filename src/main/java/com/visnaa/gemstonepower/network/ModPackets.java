@@ -1,8 +1,9 @@
-package com.visnaa.gemstonepower.networking;
+package com.visnaa.gemstonepower.network;
 
 import com.visnaa.gemstonepower.GemstonePower;
-import com.visnaa.gemstonepower.networking.packet.EnergySyncS2C;
-import com.visnaa.gemstonepower.networking.packet.RecipeProgressSyncS2C;
+import com.visnaa.gemstonepower.network.packet.EnergySyncS2C;
+import com.visnaa.gemstonepower.network.packet.FluidSyncS2C;
+import com.visnaa.gemstonepower.network.packet.RecipeProgressSyncS2C;
 import net.minecraftforge.network.NetworkDirection;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.PacketDistributor;
@@ -39,6 +40,12 @@ public class ModPackets
                 .decoder(RecipeProgressSyncS2C::new)
                 .encoder(RecipeProgressSyncS2C::toBytes)
                 .consumerMainThread(RecipeProgressSyncS2C::handle)
+                .add();
+
+        channel.messageBuilder(FluidSyncS2C.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(FluidSyncS2C::new)
+                .encoder(FluidSyncS2C::toBytes)
+                .consumerMainThread(FluidSyncS2C::handle)
                 .add();
     }
 

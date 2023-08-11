@@ -1,0 +1,7 @@
+{
+  "parent": "gemstonepower:block/no_cullface",
+  "textures": {
+    "block": "gemstonepower:block/tank",
+    "particle": "gemstonepower:block/tank"
+  }
+}

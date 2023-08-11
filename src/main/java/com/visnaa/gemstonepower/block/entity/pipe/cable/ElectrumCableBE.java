@@ -18,13 +18,11 @@ public class ElectrumCableBE extends CableBE
         super(ModBlockEntities.ELECTRUM_CABLE.get(), pos, state, ServerConfig.ENERGY_TRANSFER_RATE.get() * 4);
     }
 
-    public static void serverTick(Level level, BlockPos pos, BlockState state, ElectrumCableBE blockEntity)
+    @Override
+    public void tick(Level level, BlockPos pos, BlockState state)
     {
-        blockEntity.updateConnections(level, pos, state);
-        blockEntity.refreshNetwork(level, pos, state);
-        blockEntity.refreshInputs(level, pos, state);
-        blockEntity.distributeEnergy(level, pos, state);
-        blockEntity.checkExplode(level, pos, state);
+        updateConnections(level, pos, state);
+        super.tick(level, pos, state);
     }
 
     protected void updateConnections(Level level, BlockPos pos, BlockState state)

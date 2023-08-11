@@ -1,4 +1,4 @@
-package com.visnaa.gemstonepower.networking.packet;
+package com.visnaa.gemstonepower.network.packet;
 
 import com.visnaa.gemstonepower.block.entity.machine.MachineBE;
 import net.minecraft.client.Minecraft;

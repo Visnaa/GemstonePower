@@ -12,12 +12,12 @@ public class IronItemPipeBE extends ItemPipeBE
         super(ModBlockEntities.IRON_ITEM_PIPE.get(), pos, state);
     }
 
-    public static void serverTick(Level level, BlockPos pos, BlockState state, IronItemPipeBE blockEntity)
+    @Override
+    public void tick(Level level, BlockPos pos, BlockState state)
     {
-        blockEntity.updateConnections(level, pos, state, IronItemPipeBE.class);
-        blockEntity.refreshNetwork(level, pos, state, IronItemPipeBE.class);
-        blockEntity.refreshOutputs(level, pos, state);
-        blockEntity.distributeItems(level, pos, state);
+        updateConnections(level, pos, state, IronItemPipeBE.class);
+        refreshNetwork(level, pos, state, IronItemPipeBE.class);
+        super.tick(level, pos, state);
     }
 
     @Override

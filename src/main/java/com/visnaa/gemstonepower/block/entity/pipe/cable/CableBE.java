@@ -1,5 +1,6 @@
 package com.visnaa.gemstonepower.block.entity.pipe.cable;
 
+import com.visnaa.gemstonepower.block.entity.TickingBlockEntity;
 import com.visnaa.gemstonepower.pipe.energy.EnergyNetwork;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -12,7 +13,7 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.energy.IEnergyStorage;
 
-public abstract class CableBE extends BlockEntity
+public abstract class CableBE extends BlockEntity implements TickingBlockEntity
 {
     private final int TRANSFER_RATE;
     public EnergyNetwork network = new EnergyNetwork();
@@ -21,6 +22,15 @@ public abstract class CableBE extends BlockEntity
     {
         super(type, pos, state);
         this.TRANSFER_RATE = transferRate;
+    }
+
+    @Override
+    public void tick(Level level, BlockPos pos, BlockState state)
+    {
+        refreshNetwork(level, pos, state);
+        refreshInputs(level, pos, state);
+        distributeEnergy(level, pos, state);
+        checkExplode(level, pos, state);
     }
 
     protected void refreshNetwork(Level level, BlockPos pos, BlockState state)

@@ -3,7 +3,7 @@ package com.visnaa.gemstonepower.event.mod;
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.data.gen.*;
 import com.visnaa.gemstonepower.data.recipe.*;
-import com.visnaa.gemstonepower.networking.ModPackets;
+import com.visnaa.gemstonepower.network.ModPackets;
 import com.visnaa.gemstonepower.registry.ModRecipes;
 import net.minecraft.Util;
 import net.minecraft.core.HolderLookup;

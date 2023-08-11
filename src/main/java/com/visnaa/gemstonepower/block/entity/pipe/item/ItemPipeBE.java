@@ -1,5 +1,6 @@
 package com.visnaa.gemstonepower.block.entity.pipe.item;
 
+import com.visnaa.gemstonepower.block.entity.TickingBlockEntity;
 import com.visnaa.gemstonepower.block.pipe.item.IronItemPipeBlock;
 import com.visnaa.gemstonepower.block.pipe.item.ItemPipeBlock;
 import com.visnaa.gemstonepower.pipe.item.ItemPipeNetwork;
@@ -15,7 +16,7 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class ItemPipeBE extends BlockEntity
+public abstract class ItemPipeBE extends BlockEntity implements TickingBlockEntity
 {
     public ItemPipeNetwork network = new ItemPipeNetwork();
 
@@ -25,6 +26,13 @@ public abstract class ItemPipeBE extends BlockEntity
     }
 
     public abstract int getTransfer();
+
+    @Override
+    public void tick(Level level, BlockPos pos, BlockState state)
+    {
+        refreshOutputs(level, pos, state);
+        distributeItems(level, pos, state);
+    }
 
     public List<ItemStack> getItems()
     {

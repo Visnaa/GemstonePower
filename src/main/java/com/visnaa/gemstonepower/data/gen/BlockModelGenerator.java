@@ -3,6 +3,7 @@ package com.visnaa.gemstonepower.data.gen;
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.registry.ModBlocks;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
@@ -185,23 +186,6 @@ public class BlockModelGenerator extends BlockStateProvider
                         .rotationY((int) state.getValue(HORIZONTAL_FACING).getOpposite().toYRot())
                         .build());
 
-        this.getVariantBuilder(ModBlocks.SOLAR_PANEL.get())
-                .forAllStates(state -> ConfiguredModel.builder()
-                        .modelFile(models().getExistingFile(modLoc("solar_panel")))
-                        .build());
-
-        this.getVariantBuilder(ModBlocks.WATER_MILL.get())
-                .forAllStates(state -> ConfiguredModel.builder()
-                        .modelFile(models().getExistingFile(modLoc("water_mill")))
-                        .rotationY((int) state.getValue(HORIZONTAL_FACING).getOpposite().toYRot())
-                        .build());
-
-        this.getVariantBuilder(ModBlocks.WIND_TURBINE.get())
-                .forAllStates(state -> ConfiguredModel.builder()
-                        .modelFile(models().getExistingFile(modLoc("wind_turbine")))
-                        .rotationY((int) state.getValue(HORIZONTAL_FACING).getOpposite().toYRot())
-                        .build());
-
         this.blockWithItem(ModBlocks.COBBLESTONE_GENERATOR.get(),"cobblestone_generator");
         this.getVariantBuilder(ModBlocks.COBBLESTONE_GENERATOR.get())
                 .forAllStates(state -> ConfiguredModel.builder()
@@ -228,6 +212,25 @@ public class BlockModelGenerator extends BlockStateProvider
                                 .texture("particle", modLoc("block/polarizer")))
                         .rotationY((int) state.getValue(HORIZONTAL_FACING).getOpposite().toYRot())
                         .build());
+
+        this.getVariantBuilder(ModBlocks.SOLAR_PANEL.get())
+                .forAllStates(state -> ConfiguredModel.builder()
+                        .modelFile(models().getExistingFile(modLoc("solar_panel")))
+                        .build());
+
+        this.getVariantBuilder(ModBlocks.WATER_MILL.get())
+                .forAllStates(state -> ConfiguredModel.builder()
+                        .modelFile(models().getExistingFile(modLoc("water_mill")))
+                        .rotationY((int) state.getValue(HORIZONTAL_FACING).getOpposite().toYRot())
+                        .build());
+
+        this.getVariantBuilder(ModBlocks.WIND_TURBINE.get())
+                .forAllStates(state -> ConfiguredModel.builder()
+                        .modelFile(models().getExistingFile(modLoc("wind_turbine")))
+                        .rotationY((int) state.getValue(HORIZONTAL_FACING).getOpposite().toYRot())
+                        .build());
+
+        this.noCullface(ModBlocks.TANK.get(), modLoc("block/tank"));
 
         this.simpleBlock(ModBlocks.RESIN_OAK_SAPLING.get(), models().cross("resin_oak_sapling", modLoc("block/resin_oak_sapling")).renderType("cutout"));
         this.blockWithItem(ModBlocks.RESIN_OAK_LOG.get(), "resin_oak_log");
@@ -268,6 +271,11 @@ public class BlockModelGenerator extends BlockStateProvider
     public void ore(Block block, String parentName)
     {
         this.simpleBlockWithItem(block, parent(block, parentName).renderType("cutout"));
+    }
+
+    public void noCullface(Block block, ResourceLocation texture)
+    {
+        this.simpleBlockWithItem(block, parent(block, "no_cullface").texture("block", texture).texture("particle", texture));
     }
 
     public BlockModelBuilder parent(Block block, String parentName)

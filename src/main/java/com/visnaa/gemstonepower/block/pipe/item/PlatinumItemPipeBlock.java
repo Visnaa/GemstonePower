@@ -1,5 +1,6 @@
 package com.visnaa.gemstonepower.block.pipe.item;
 
+import com.visnaa.gemstonepower.block.entity.TickingBlockEntity;
 import com.visnaa.gemstonepower.block.entity.pipe.item.PlatinumItemPipeBE;
 import com.visnaa.gemstonepower.client.render.Tints;
 import com.visnaa.gemstonepower.registry.ModBlockEntities;
@@ -41,6 +42,6 @@ public class PlatinumItemPipeBlock extends ItemPipeBlock
     @Nullable
     protected static <T extends BlockEntity> BlockEntityTicker<T> createTicker(Level level, BlockEntityType<T> blockEntity, BlockEntityType<? extends PlatinumItemPipeBE> pipe)
     {
-        return level.isClientSide ? null : createTickerHelper(blockEntity, pipe, PlatinumItemPipeBE::serverTick);
+        return level.isClientSide ? null : createTickerHelper(blockEntity, pipe, TickingBlockEntity::serverTick);
     }
 }

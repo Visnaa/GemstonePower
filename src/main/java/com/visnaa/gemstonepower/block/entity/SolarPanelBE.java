@@ -18,7 +18,7 @@ import net.minecraftforge.energy.IEnergyStorage;
 
 import javax.annotation.Nullable;
 
-public class SolarPanelBE extends BlockEntity
+public class SolarPanelBE extends BlockEntity implements TickingBlockEntity
 {
 
     public SolarPanelBE(BlockPos pos, BlockState state)
@@ -37,10 +37,11 @@ public class SolarPanelBE extends BlockEntity
         super.saveAdditional(tag);
         tag.put("Energy", energyStorage.serializeNBT());
     }
-    
-    public static void serverTick(Level level, BlockPos pos, BlockState state, SolarPanelBE blockEntity)
+
+    @Override
+    public void tick(Level level, BlockPos pos, BlockState state)
     {
-        blockEntity.generate(level, pos, state);
+        generate(level, pos, state);
     }
 
     public void generate(Level level, BlockPos pos, BlockState state)
