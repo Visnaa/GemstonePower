@@ -1,7 +1,7 @@
 package com.visnaa.gemstonepower.block.entity.machine;
 
 import com.visnaa.gemstonepower.GemstonePower;
-import com.visnaa.gemstonepower.block.entity.EnergyStorageBE;
+import com.visnaa.gemstonepower.block.entity.FluidEnergyStorageBE;
 import com.visnaa.gemstonepower.config.ServerConfig;
 import com.visnaa.gemstonepower.data.recipe.EnergyRecipe;
 import com.visnaa.gemstonepower.network.ModPackets;
@@ -30,6 +30,7 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
@@ -39,10 +40,11 @@ import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public abstract class MachineBE<T extends Recipe<Container>> extends EnergyStorageBE implements WorldlyContainer, RecipeHolder, StackedContentsCompatible
+public abstract class FluidMachineBE<T extends Recipe<Container>> extends FluidEnergyStorageBE implements WorldlyContainer, RecipeHolder, StackedContentsCompatible
 {
     protected LazyOptional<? extends IItemHandler>[] itemHandlers = SidedInvWrapper.create(this, Direction.UP, Direction.DOWN, Direction.NORTH);
     protected NonNullList<ItemStack> items;
@@ -55,9 +57,9 @@ public abstract class MachineBE<T extends Recipe<Container>> extends EnergyStora
     protected int processingProgress;
     protected int processingTotalTime;
 
-    public MachineBE(BlockEntityType<?> type, RecipeType<T> recipe, BlockPos pos, BlockState state, int inputSlotCount, int outputSlotCount)
+    public FluidMachineBE(BlockEntityType<?> type, RecipeType<T> recipe, BlockPos pos, BlockState state, HashMap<Fluid, Integer> tanks, int inputSlotCount, int outputSlotCount)
     {
-        super(type, pos, state);
+        super(type, pos, state, tanks);
         this.items = NonNullList.withSize(inputSlotCount + outputSlotCount, ItemStack.EMPTY);
         this.quickCheck = RecipeManager.createCheck(recipe);
         this.inputSlots = IntStream.range(0, inputSlotCount).toArray();
@@ -201,13 +203,13 @@ public abstract class MachineBE<T extends Recipe<Container>> extends EnergyStora
         return false;
     }
 
-    protected static <R extends Recipe<Container>> int getTotalTime(Level level, MachineBE<R> blockEntity, R recipe)
+    protected static <R extends Recipe<Container>> int getTotalTime(Level level, FluidMachineBE<R> blockEntity, R recipe)
     {
         if (!(recipe instanceof EnergyRecipe energyRecipe)) return MachineUtil.getUsage(blockEntity.getBlockState(), ServerConfig.DEFAULT_MACHINE_TIME.get());
         return MachineUtil.getTotalTime(blockEntity.getBlockState(), blockEntity.quickCheck.getRecipeFor(blockEntity, level).map((r) -> energyRecipe.getProcessingTime()).orElse(ServerConfig.DEFAULT_MACHINE_TIME.get()));
     }
 
-    protected static <R extends Recipe<Container>> int getEnergyUsage(Level level, MachineBE<R> blockEntity, R recipe)
+    protected static <R extends Recipe<Container>> int getEnergyUsage(Level level, FluidMachineBE<R> blockEntity, R recipe)
     {
         if (!(recipe instanceof EnergyRecipe energyRecipe)) return MachineUtil.getUsage(blockEntity.getBlockState(), ServerConfig.DEFAULT_MACHINE_USAGE.get());
         return MachineUtil.getUsage(blockEntity.getBlockState(), blockEntity.quickCheck.getRecipeFor(blockEntity, level).map((r) -> energyRecipe.getEnergyUsage()).orElse(ServerConfig.DEFAULT_MACHINE_USAGE.get()));
@@ -346,7 +348,8 @@ public abstract class MachineBE<T extends Recipe<Container>> extends EnergyStora
     }
 
     @Override
-    public <I> @NotNull LazyOptional<I> getCapability(@NotNull Capability<I> capability, @Nullable Direction facing)
+    @NotNull
+    public <I> LazyOptional<I> getCapability(@NotNull Capability<I> capability, @Nullable Direction facing)
     {
         if (!this.remove)
         {

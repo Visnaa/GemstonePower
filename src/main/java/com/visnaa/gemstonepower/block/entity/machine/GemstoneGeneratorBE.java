@@ -11,7 +11,7 @@ import com.visnaa.gemstonepower.network.packet.RecipeProgressSyncS2C;
 import com.visnaa.gemstonepower.pipe.energy.ForgeEnergyStorage;
 import com.visnaa.gemstonepower.registry.ModBlockEntities;
 import com.visnaa.gemstonepower.registry.ModRecipes;
-import com.visnaa.gemstonepower.util.EnergyUtilities;
+import com.visnaa.gemstonepower.util.MachineUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -32,12 +32,6 @@ public class GemstoneGeneratorBE extends MachineBE<GemstoneGeneratorRecipe>
         return new GemstoneGeneratorMenu(new MenuData(id, inv, this, 1, MenuData.createSlots(1)), this.getBlockPos());
     }
 
-    public static void serverTick(Level level, BlockPos pos, BlockState state, MachineBE<?> machine)
-    {
-        if (level.isClientSide()) return;
-        machine.process(level, pos, state);
-    }
-
     @Override
     public void process(Level level, BlockPos pos, BlockState state)
     {
@@ -55,7 +49,7 @@ public class GemstoneGeneratorBE extends MachineBE<GemstoneGeneratorRecipe>
                 {
                     this.processingProgress = 0;
                     this.processingTotalTime = getTotalTime(level, this, recipe);
-                    this.energyStorage.addEnergy(EnergyUtilities.getGeneration(state, recipe.getEnergy()));
+                    this.energyStorage.addEnergy(MachineUtil.getGeneration(state, recipe.getEnergy()));
                     this.items.get(0).shrink(1);
                 }
                 changed = true;
@@ -85,7 +79,7 @@ public class GemstoneGeneratorBE extends MachineBE<GemstoneGeneratorRecipe>
     @Override
     protected ForgeEnergyStorage createEnergyStorage()
     {
-        return new ForgeEnergyStorage(EnergyUtilities.getCapacity(this.getBlockState(), ServerConfig.DEFAULT_GENERATOR_CAPACITY.get()), 0, Integer.MAX_VALUE) {
+        return new ForgeEnergyStorage(MachineUtil.getCapacity(this.getBlockState(), ServerConfig.DEFAULT_GENERATOR_CAPACITY.get()), 0, Integer.MAX_VALUE) {
             @Override
             public void onEnergyChanged() {
                 setChanged();

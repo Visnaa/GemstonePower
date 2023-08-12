@@ -31,11 +31,4 @@ public class SawmillBlock extends MachineBlock<SawmillBlock>
     {
         return createTicker(level, blockEntity, ModBlockEntities.SAWMILL.get());
     }
-
-    @Nullable
-    @Override
-    protected <B extends BlockEntity> BlockEntityTicker<B> createTicker(Level level, BlockEntityType<B> blockEntity, BlockEntityType<? extends MachineBE<?>> machine)
-    {
-        return createTickerHelper(blockEntity, machine, SawmillBE::serverTick);
-    }
 }

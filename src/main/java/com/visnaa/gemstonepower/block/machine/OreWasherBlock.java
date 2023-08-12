@@ -31,11 +31,4 @@ public class OreWasherBlock extends MachineBlock<OreWasherBlock>
     {
         return createTicker(level, blockEntity, ModBlockEntities.ORE_WASHER.get());
     }
-
-    @Nullable
-    @Override
-    protected <B extends BlockEntity> BlockEntityTicker<B> createTicker(Level level, BlockEntityType<B> blockEntity, BlockEntityType<? extends MachineBE<?>> machine)
-    {
-        return createTickerHelper(blockEntity, machine, OreWasherBE::serverTick);
-    }
 }

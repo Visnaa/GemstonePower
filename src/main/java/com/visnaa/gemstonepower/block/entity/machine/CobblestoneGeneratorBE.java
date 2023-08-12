@@ -2,7 +2,7 @@ package com.visnaa.gemstonepower.block.entity.machine;
 
 import com.visnaa.gemstonepower.config.ServerConfig;
 import com.visnaa.gemstonepower.registry.ModBlockEntities;
-import com.visnaa.gemstonepower.util.EnergyUtilities;
+import com.visnaa.gemstonepower.util.MachineUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
@@ -31,16 +31,10 @@ public class CobblestoneGeneratorBE extends MachineBE<Recipe<Container>>
         return null;
     }
 
-    public static void serverTick(Level level, BlockPos pos, BlockState state, MachineBE<?> machine)
-    {
-        if (level.isClientSide()) return;
-        machine.process(level, pos, state);
-    }
-
     @Override
     public void process(Level level, BlockPos pos, BlockState state)
     {
-        if (energyStorage.getEnergyStored() > EnergyUtilities.getUsage(state, ServerConfig.DEFAULT_MACHINE_USAGE.get()) && cooldown <= 0)
+        if (energyStorage.getEnergyStored() > MachineUtil.getUsage(state, ServerConfig.DEFAULT_MACHINE_USAGE.get()) && cooldown <= 0)
         {
             BlockEntity be = level.getBlockEntity(pos.below());
             if (be != null && be.getCapability(ForgeCapabilities.ITEM_HANDLER).isPresent())
@@ -53,7 +47,7 @@ public class CobblestoneGeneratorBE extends MachineBE<Recipe<Container>>
                             ItemStack stack = handler.insertItem(i, new ItemStack(Blocks.COBBLESTONE), false);
                             if (stack.isEmpty())
                             {
-                                energyStorage.consumeEnergy(EnergyUtilities.getUsage(state, ServerConfig.DEFAULT_MACHINE_USAGE.get()));
+                                energyStorage.consumeEnergy(MachineUtil.getUsage(state, ServerConfig.DEFAULT_MACHINE_USAGE.get()));
                                 cooldown = ServerConfig.DEFAULT_MACHINE_TIME.get();
                             }
                             return true;

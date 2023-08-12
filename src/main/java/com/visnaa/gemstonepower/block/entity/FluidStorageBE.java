@@ -12,6 +12,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluid;
@@ -28,16 +29,14 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
 
-public abstract class FluidEnergyStorageBE extends EnergyStorageBE
+public abstract class FluidStorageBE extends BlockEntity implements TickingBlockEntity
 {
     protected final MultiFluidTank tanks;
-    private final LazyOptional<IFluidHandler> fluidHandler;
 
-    public FluidEnergyStorageBE(BlockEntityType<?> type, BlockPos pos, BlockState state, HashMap<Fluid, Integer> tanks)
+    public FluidStorageBE(BlockEntityType<? extends FluidStorageBE> type, BlockPos pos, BlockState state, HashMap<Fluid, Integer> tanks)
     {
         super(type, pos, state);
         this.tanks = new MultiFluidTank(tanks, this::fluidChanged);
-        fluidHandler = LazyOptional.of(() -> this.tanks);
     }
 
     @Override
@@ -136,15 +135,8 @@ public abstract class FluidEnergyStorageBE extends EnergyStorageBE
     public <T> LazyOptional<T> getCapability(@NotNull Capability<T> capability, @Nullable Direction direction)
     {
         if (capability == ForgeCapabilities.FLUID_HANDLER)
-            return fluidHandler.cast();
-        return super.getCapability(capability, direction);
-    }
-
-    @Override
-    public void invalidateCaps()
-    {
-        super.invalidateCaps();
-        fluidHandler.invalidate();
+            return LazyOptional.of(() -> tanks).cast();
+        return LazyOptional.empty();
     }
 
     @Override

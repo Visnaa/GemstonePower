@@ -31,11 +31,4 @@ public class CobblestoneGeneratorBlock extends MachineBlock<CobblestoneGenerator
     {
         return createTicker(level, blockEntity, ModBlockEntities.COBBLESTONE_GENERATOR.get());
     }
-
-    @Nullable
-    @Override
-    protected <B extends BlockEntity> BlockEntityTicker<B> createTicker(Level level, BlockEntityType<B> blockEntity, BlockEntityType<? extends MachineBE<?>> machine)
-    {
-        return createTickerHelper(blockEntity, machine, CobblestoneGeneratorBE::serverTick);
-    }
 }

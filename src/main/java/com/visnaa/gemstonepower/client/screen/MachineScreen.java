@@ -2,11 +2,21 @@ package com.visnaa.gemstonepower.client.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.visnaa.gemstonepower.menu.machine.MachineMenu;
-import com.visnaa.gemstonepower.util.EnergyUtilities;
+import com.visnaa.gemstonepower.util.MachineUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.renderer.texture.TextureAtlas;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.capability.templates.FluidTank;
+
+import java.util.List;
 
 public abstract class MachineScreen<T extends MachineMenu> extends AbstractContainerScreen<T>
 {
@@ -38,10 +48,8 @@ public abstract class MachineScreen<T extends MachineMenu> extends AbstractConta
         super.render(graphics, mouseX, mouseY, partialTicks);
         this.renderTooltip(graphics, mouseX, mouseY);
 
-        if (mouseX >= this.leftPos + 148 && mouseX <= this.leftPos + 159 && mouseY >= this.topPos + 38 && mouseY <= this.topPos + 54)
-        {
-            graphics.renderTooltip(Minecraft.getInstance().font, EnergyUtilities.getDefaultTooltips(menu.getEnergy(), menu.getCapacity()), ItemStack.EMPTY.getTooltipImage(), mouseX, mouseY);
-        }
+        if (isMouseInArea(mouseX, mouseY, this.leftPos + 148, this.topPos + 38, 11, 16))
+            graphics.renderTooltip(Minecraft.getInstance().font, MachineUtil.getDefaultTooltips(menu.getEnergy(), menu.getCapacity()), ItemStack.EMPTY.getTooltipImage(), mouseX, mouseY);
     }
 
     @Override
@@ -61,5 +69,76 @@ public abstract class MachineScreen<T extends MachineMenu> extends AbstractConta
         // Battery
         int energy = this.menu.getEnergyLevel();
         graphics.blit(this.data.texture(), x + 149, y + 38 + energy, 176, energy, 10, 16 - energy);
+    }
+
+    protected void renderFluid(GuiGraphics graphics, int mouseX, int mouseY)
+    {
+        renderFluid(graphics, mouseX, mouseY, this.leftPos + 15, this.topPos + 20, 46);
+    }
+
+    protected void renderFluid(GuiGraphics graphics, int mouseX, int mouseY, int x, int y, int height)
+    {
+        RenderSystem.defaultBlendFunc();
+        RenderSystem.enableDepthTest();
+
+        FluidTank fluidTank = menu.getFluidTank(0);
+        if (!fluidTank.isEmpty())
+        {
+            FluidStack fluidStack = fluidTank.getFluid();
+            IClientFluidTypeExtensions fluid = IClientFluidTypeExtensions.of(fluidStack.getFluid());
+            ResourceLocation texture = fluid.getStillTexture(fluidStack);
+            if (texture != null)
+            {
+                if (Minecraft.getInstance().getTextureManager().getTexture(InventoryMenu.BLOCK_ATLAS) instanceof TextureAtlas atlas)
+                {
+                    TextureAtlasSprite sprite = atlas.getSprite(texture);
+
+                    int color = fluid.getTintColor();
+                    RenderSystem.setShaderColor(
+                            (color >> 16 & 255) / 255.0F,
+                            (color >> 8 & 255) / 255.0F,
+                            (color & 255) / 255.0F,
+                            (color >>> 24) / 255.0F);
+                    RenderSystem.enableBlend();
+
+                    int stored = fluidTank.getFluidAmount();
+                    float capacity = fluidTank.getCapacity();
+                    float filledVolume = stored / capacity;
+                    int rendererHeight = (int) (filledVolume * height);
+
+
+                    int atlasWidth = (int) (sprite.contents().width() / (sprite.getU1() - sprite.getU0()));
+                    int atlasHeight = (int) (sprite.contents().height() / (sprite.getV1() - sprite.getV0()));
+
+                    graphics.pose().pushPose();
+                    graphics.pose().translate(0, height - 16, 0);
+                    for (int i = 0; i < Math.ceil(rendererHeight / 16f); i++)
+                    {
+                        int drawingHeight = Math.min(16, rendererHeight - 16 * i);
+                        int notDrawingHeight = 16 - drawingHeight;
+                        graphics.blit(InventoryMenu.BLOCK_ATLAS, x, y + notDrawingHeight, 0,
+                                sprite.getU0() * atlasWidth, sprite.getV0() * atlasHeight + notDrawingHeight,
+                                16, drawingHeight, atlasWidth, atlasHeight);
+                        graphics.pose().translate(0, -16, 0);
+                    }
+                    RenderSystem.setShaderColor(1, 1, 1, 1);
+                    graphics.pose().popPose();
+                }
+            }
+        }
+        RenderSystem.disableDepthTest();
+
+        if (isMouseInArea(mouseX, mouseY, this.leftPos + 15, this.topPos + 20, 16, 46))
+        {
+            FluidStack fluid = fluidTank.getFluid();
+            Component fluidName = Component.literal("§fFluid: §6" + fluid.getDisplayName().getString());
+            Component fluidAmount = Component.literal("§fAmount: §b" + fluid.getAmount() + " §fmB");
+            graphics.renderTooltip(Minecraft.getInstance().font, List.of(fluidName, fluidAmount), ItemStack.EMPTY.getTooltipImage(), mouseX, mouseY);
+        }
+    }
+
+    public static boolean isMouseInArea(int mouseX, int mouseY, int x, int y, int width, int height)
+    {
+        return mouseX >= x && mouseX < x + width && mouseY >= y && mouseY < y + height;
     }
 }

@@ -31,11 +31,4 @@ public class CrystalGrowerBlock extends MachineBlock<CrystalGrowerBlock>
     {
         return createTicker(level, blockEntity, ModBlockEntities.CRYSTAL_GROWER.get());
     }
-
-    @Nullable
-    @Override
-    protected <B extends BlockEntity> BlockEntityTicker<B> createTicker(Level level, BlockEntityType<B> blockEntity, BlockEntityType<? extends MachineBE<?>> machine)
-    {
-        return createTickerHelper(blockEntity, machine, CrystalGrowerBE::serverTick);
-    }
 }

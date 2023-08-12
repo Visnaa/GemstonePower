@@ -52,11 +52,4 @@ public class ElectricFurnaceBlock extends MachineBlock<ElectricFurnaceBlock>
     {
         return createTicker(level, blockEntity, ModBlockEntities.ELECTRIC_FURNACE.get());
     }
-
-    @Nullable
-    @Override
-    protected <B extends BlockEntity> BlockEntityTicker<B> createTicker(Level level, BlockEntityType<B> blockEntity, BlockEntityType<? extends MachineBE<?>> machine)
-    {
-        return createTickerHelper(blockEntity, machine, ElectricFurnaceBE::serverTick);
-    }
 }

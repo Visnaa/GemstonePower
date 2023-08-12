@@ -1,5 +1,6 @@
 package com.visnaa.gemstonepower.network.packet;
 
+import com.visnaa.gemstonepower.block.entity.machine.FluidMachineBE;
 import com.visnaa.gemstonepower.block.entity.machine.MachineBE;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
@@ -40,6 +41,11 @@ public class RecipeProgressSyncS2C
         NetworkEvent.Context context = supplier.get();
         context.enqueueWork(() -> {
             if (Minecraft.getInstance().level.getBlockEntity(pos) instanceof MachineBE<?> blockEntity)
+            {
+                blockEntity.setProcessingProgress(progress);
+                blockEntity.setProcessingTotalTime(totalTime);
+            }
+            else if (Minecraft.getInstance().level.getBlockEntity(pos) instanceof FluidMachineBE<?> blockEntity)
             {
                 blockEntity.setProcessingProgress(progress);
                 blockEntity.setProcessingTotalTime(totalTime);

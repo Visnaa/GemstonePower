@@ -5,7 +5,7 @@ import com.visnaa.gemstonepower.config.ServerConfig;
 import com.visnaa.gemstonepower.network.ModPackets;
 import com.visnaa.gemstonepower.network.packet.EnergySyncS2C;
 import com.visnaa.gemstonepower.pipe.energy.ForgeEnergyStorage;
-import com.visnaa.gemstonepower.util.EnergyUtilities;
+import com.visnaa.gemstonepower.util.MachineUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -18,9 +18,10 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public abstract class EnergyStorageBE extends BaseContainerBlockEntity
+public abstract class EnergyStorageBE extends BaseContainerBlockEntity implements TickingBlockEntity
 {
     protected ForgeEnergyStorage energyStorage = createEnergyStorage();
     private LazyOptional<IEnergyStorage> energy = LazyOptional.of(() -> energyStorage);
@@ -71,12 +72,11 @@ public abstract class EnergyStorageBE extends BaseContainerBlockEntity
     }
 
     @Override
-    public <T> LazyOptional<T> getCapability(Capability<T> capability, @Nullable Direction facing)
+    @NotNull
+    public <T> LazyOptional<T> getCapability(@NotNull Capability<T> capability, @Nullable Direction facing)
     {
         if (!this.isRemoved() && capability == ForgeCapabilities.ENERGY)
-        {
             return energy.cast();
-        }
         return super.getCapability(capability, facing);
     }
 
@@ -96,11 +96,11 @@ public abstract class EnergyStorageBE extends BaseContainerBlockEntity
 
     protected ForgeEnergyStorage createEnergyStorage()
     {
-        return new ForgeEnergyStorage(EnergyUtilities.getCapacity(this.getBlockState(), ServerConfig.DEFAULT_MACHINE_CAPACITY.get()), Integer.MAX_VALUE, 0) {
+        return new ForgeEnergyStorage(MachineUtil.getCapacity(this.getBlockState(), ServerConfig.DEFAULT_MACHINE_CAPACITY.get()), Integer.MAX_VALUE, 0) {
             @Override
             public void onEnergyChanged() {
                 setChanged();
-                if (!level.isClientSide())
+                if (level != null && !level.isClientSide())
                     ModPackets.sendToClient(new EnergySyncS2C(getEnergy(), getCapacity(), getBlockPos()));
             }
 

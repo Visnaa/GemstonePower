@@ -10,7 +10,8 @@ public interface TickingBlockEntity
 {
     static void serverTick(Level level, BlockPos pos, BlockState state, TickingBlockEntity blockEntity)
     {
-        blockEntity.tick(level, pos, state);
+        if (!level.isClientSide())
+            blockEntity.tick(level, pos, state);
     }
 
     public void tick(Level level, BlockPos pos, BlockState state);

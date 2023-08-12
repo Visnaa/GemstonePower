@@ -2,7 +2,7 @@ package com.visnaa.gemstonepower.config;
 
 import com.mojang.serialization.Codec;
 import com.visnaa.gemstonepower.GemstonePower;
-import com.visnaa.gemstonepower.util.EnergyUtilities;
+import com.visnaa.gemstonepower.util.MachineUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.OptionInstance;
 import net.minecraft.client.gui.GuiGraphics;
@@ -19,7 +19,7 @@ import java.util.List;
 public class ConfigScreen extends Screen
 {
     private OptionsList optionsList;
-    private OptionInstance<EnergyUtilities.EnergyUnits> energyUnit;
+    private OptionInstance<MachineUtil.EnergyUnits> energyUnit;
     private Button doneButton;
 
     public ConfigScreen()
@@ -35,8 +35,8 @@ public class ConfigScreen extends Screen
                 .pos((this.width - 200) / 2, this.height - 26)
                 .size(200, 20).build();
         this.energyUnit = new OptionInstance<>("menu." + GemstonePower.MOD_ID + ".config_screen.energy_unit",
-                OptionInstance.noTooltip(), OptionInstance.forOptionEnum(), new OptionInstance.Enum<>(List.of(EnergyUtilities.EnergyUnits.values()),
-                Codec.INT.xmap(EnergyUtilities.EnergyUnits::byId, EnergyUtilities.EnergyUnits::getId)), ClientConfig.ENERGY_UNIT.get(),
+                OptionInstance.noTooltip(), OptionInstance.forOptionEnum(), new OptionInstance.Enum<>(List.of(MachineUtil.EnergyUnits.values()),
+                Codec.INT.xmap(MachineUtil.EnergyUnits::byId, MachineUtil.EnergyUnits::getId)), ClientConfig.ENERGY_UNIT.get(),
                 (value) -> {
                     ClientConfig.ENERGY_UNIT.set(value);
                     ClientConfig.ENERGY_UNIT.save();

@@ -31,11 +31,4 @@ public class AlloySmelterBlock extends MachineBlock<AlloySmelterBlock>
     {
         return createTicker(level, blockEntity, ModBlockEntities.ALLOY_SMELTER.get());
     }
-
-    @Nullable
-    @Override
-    protected <B extends BlockEntity> BlockEntityTicker<B> createTicker(Level level, BlockEntityType<B> blockEntity, BlockEntityType<? extends MachineBE<?>> machine)
-    {
-        return createTickerHelper(blockEntity, machine, AlloySmelterBE::serverTick);
-    }
 }

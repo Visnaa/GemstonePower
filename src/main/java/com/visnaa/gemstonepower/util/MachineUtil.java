@@ -8,12 +8,15 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.util.ByIdMap;
 import net.minecraft.util.OptionEnum;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.Fluids;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.function.IntFunction;
 
-public final class EnergyUtilities
+public final class MachineUtil
 {
     public static String getEnergyScaled(int energy)
     {
@@ -46,7 +49,7 @@ public final class EnergyUtilities
         List<Component> components = new ArrayList<>();
         Component energyText = Component.literal("Energy:");
         Component energyAmount = Component.literal(energy + " " + unit + " / " + maxEnergy + " " + unit);
-        Component energyScaled = Component.literal(EnergyUtilities.getEnergyScaled(energy) + " / " + EnergyUtilities.getEnergyScaled(maxEnergy));
+        Component energyScaled = Component.literal(MachineUtil.getEnergyScaled(energy) + " / " + MachineUtil.getEnergyScaled(maxEnergy));
         Component shift = Component.translatable("menu." + GemstonePower.MOD_ID + ".energy_shift_tip");
         if (Screen.hasShiftDown())
         {
@@ -99,6 +102,14 @@ public final class EnergyUtilities
             case EXTREME: return ServerConfig.EXTREME_TIER_MULTIPLIER.get();
         }
         return 1;
+    }
+
+    public static HashMap<Fluid, Integer> createFluidTank(List<Fluid> fluids, List<Integer> capacities)
+    {
+        HashMap<Fluid, Integer> tanks = new HashMap<>();
+        for (int i = 0; i < Math.max(fluids.size(), capacities.size()); i++)
+            tanks.put(fluids.get(i) == null ? Fluids.EMPTY : fluids.get(0), capacities.get(i) == null ? 0 : capacities.get(i));
+        return tanks;
     }
 
     public enum EnergyUnits implements OptionEnum

@@ -31,11 +31,4 @@ public class MetalFormerBlock extends MachineBlock<MetalFormerBlock>
     {
         return createTicker(level, blockEntity, ModBlockEntities.METAL_FORMER.get());
     }
-
-    @Nullable
-    @Override
-    protected <B extends BlockEntity> BlockEntityTicker<B> createTicker(Level level, BlockEntityType<B> blockEntity, BlockEntityType<? extends MachineBE<?>> machine)
-    {
-        return createTickerHelper(blockEntity, machine, MetalFormerBE::serverTick);
-    }
 }

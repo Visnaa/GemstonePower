@@ -4,7 +4,7 @@ import com.visnaa.gemstonepower.block.WaterMillBlock;
 import com.visnaa.gemstonepower.config.ServerConfig;
 import com.visnaa.gemstonepower.pipe.energy.ForgeEnergyStorage;
 import com.visnaa.gemstonepower.registry.ModBlockEntities;
-import com.visnaa.gemstonepower.util.EnergyUtilities;
+import com.visnaa.gemstonepower.util.MachineUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -50,7 +50,7 @@ public class WaterMillBE extends BlockEntity implements TickingBlockEntity
     {
         if (level.getBlockState(pos.relative(state.getValue(WaterMillBlock.FACING))).is(Blocks.WATER))
         {
-            energyStorage.addEnergy(EnergyUtilities.getGeneration(state, ServerConfig.IDLE_GENERATOR_GENERATION.get() * 2));
+            energyStorage.addEnergy(MachineUtil.getGeneration(state, ServerConfig.IDLE_GENERATOR_GENERATION.get() * 2));
             isSpinning = true;
         }
         else isSpinning = false;
@@ -93,7 +93,7 @@ public class WaterMillBE extends BlockEntity implements TickingBlockEntity
 
     private ForgeEnergyStorage createEnergyStorage()
     {
-        return new ForgeEnergyStorage(EnergyUtilities.getCapacity(this.getBlockState(), ServerConfig.DEFAULT_GENERATOR_CAPACITY.get()), 0, Integer.MAX_VALUE) {
+        return new ForgeEnergyStorage(MachineUtil.getCapacity(this.getBlockState(), ServerConfig.DEFAULT_GENERATOR_CAPACITY.get()), 0, Integer.MAX_VALUE) {
             @Override
             protected void onEnergyChanged() {
                 setChanged();

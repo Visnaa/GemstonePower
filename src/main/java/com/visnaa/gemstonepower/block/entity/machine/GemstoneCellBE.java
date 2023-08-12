@@ -29,9 +29,9 @@ public class GemstoneCellBE extends MachineBE<Recipe<Container>>
         return new GemstoneCellMenu(new MenuData(id, inv, this, 0, MenuData.createSlots(0)), getBlockPos());
     }
 
-    public static void serverTick(Level level, BlockPos pos, BlockState state, MachineBE<?> blockEntity)
+    @Override
+    public void tick(Level level, BlockPos pos, BlockState state)
     {
-        if (level.isClientSide()) return;
     }
 
     @Override
@@ -48,7 +48,8 @@ public class GemstoneCellBE extends MachineBE<Recipe<Container>>
             @Override
             protected void onEnergyChanged() {
                 setChanged();
-                ModPackets.sendToClient(new EnergySyncS2C(this.energy, this.capacity, getBlockPos()));
+                if (level != null && !level.isClientSide())
+                    ModPackets.sendToClient(new EnergySyncS2C(this.energy, this.capacity, getBlockPos()));
             }
 
             @Override

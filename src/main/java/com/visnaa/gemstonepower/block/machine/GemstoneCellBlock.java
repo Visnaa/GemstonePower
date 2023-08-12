@@ -30,11 +30,4 @@ public class GemstoneCellBlock extends MachineBlock<GemstoneCellBlock>
     {
         return createTicker(level, blockEntity, ModBlockEntities.GEMSTONE_CELL.get());
     }
-
-    @Nullable
-    @Override
-    protected <B extends BlockEntity> BlockEntityTicker<B> createTicker(Level level, BlockEntityType<B> blockEntity, BlockEntityType<? extends MachineBE<?>> machine)
-    {
-        return createTickerHelper(blockEntity, machine, GemstoneCellBE::serverTick);
-    }
 }

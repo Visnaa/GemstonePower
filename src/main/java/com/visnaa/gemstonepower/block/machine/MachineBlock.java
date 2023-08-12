@@ -1,6 +1,9 @@
 package com.visnaa.gemstonepower.block.machine;
 
 import com.visnaa.gemstonepower.block.TieredBlock;
+import com.visnaa.gemstonepower.block.entity.EnergyStorageBE;
+import com.visnaa.gemstonepower.block.entity.TickingBlockEntity;
+import com.visnaa.gemstonepower.block.entity.machine.FluidMachineBE;
 import com.visnaa.gemstonepower.block.entity.machine.MachineBE;
 import com.visnaa.gemstonepower.util.Tier;
 import net.minecraft.core.BlockPos;
@@ -27,6 +30,8 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import net.minecraftforge.fluids.FluidUtil;
 import net.minecraftforge.network.NetworkHooks;
 
 import javax.annotation.Nullable;
@@ -49,17 +54,23 @@ public abstract class MachineBlock<T extends MachineBlock<T>> extends BaseEntity
         {
             NetworkHooks.openScreen((ServerPlayer) player, machine, machine.getBlockPos());
         }
+        else if (level.getBlockEntity(pos) instanceof FluidMachineBE<?> machine && !level.isClientSide())
+        {
+            NetworkHooks.openScreen((ServerPlayer) player, machine, machine.getBlockPos());
+        }
     }
 
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult)
     {
-        if (level.isClientSide) {
-            return InteractionResult.SUCCESS;
-        } else {
+        if (level.getBlockEntity(pos) instanceof FluidMachineBE<?> machine && FluidUtil.getFluidHandler(player.getItemInHand(hand)).isPresent())
+            return machine.fillFromItem(level, player, hand);
+        else if (!level.isClientSide())
+        {
             this.openContainer(level, pos, player);
             return InteractionResult.CONSUME;
         }
+        return InteractionResult.SUCCESS;
     }
 
     @Override
@@ -141,5 +152,8 @@ public abstract class MachineBlock<T extends MachineBlock<T>> extends BaseEntity
     abstract public <B extends BlockEntity> BlockEntityTicker<B> getTicker(Level level, BlockState state, BlockEntityType<B> blockEntity);
 
     @Nullable
-    abstract protected <B extends BlockEntity> BlockEntityTicker<B> createTicker(Level level, BlockEntityType<B> blockEntity, BlockEntityType<? extends MachineBE<?>> machine);
+    protected <B extends BlockEntity> BlockEntityTicker<B> createTicker(Level level, BlockEntityType<B> blockEntity, BlockEntityType<? extends EnergyStorageBE> machine)
+    {
+        return createTickerHelper(blockEntity, machine, TickingBlockEntity::serverTick);
+    }
 }

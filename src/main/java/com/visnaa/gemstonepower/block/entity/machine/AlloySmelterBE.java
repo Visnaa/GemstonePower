@@ -29,12 +29,6 @@ public class AlloySmelterBE extends MachineBE<AlloySmelterRecipe>
         return new AlloySmelterMenu(new MenuData(id, inv, this, 3, MenuData.createSlots(3)), this.getBlockPos());
     }
 
-    public static void serverTick(Level level, BlockPos pos, BlockState state, MachineBE<?> machine)
-    {
-        if (level.isClientSide()) return;
-        machine.process(level, pos, state);
-    }
-
     @Override
     protected boolean canProcess(RegistryAccess access, @Nullable AlloySmelterRecipe recipe, NonNullList<ItemStack> items, int size)
     {

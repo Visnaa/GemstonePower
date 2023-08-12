@@ -119,6 +119,12 @@ public class MultiFluidTank implements IFluidHandler
     @Override
     public int fill(FluidStack resource, FluidAction action)
     {
+        for (FluidTank tank : tanks)
+        {
+            int amount = tank.fill(resource, action);
+            if (amount > 0)
+                return amount;
+        }
         return 0;
     }
 
@@ -126,6 +132,12 @@ public class MultiFluidTank implements IFluidHandler
     @Override
     public FluidStack drain(FluidStack resource, FluidAction action)
     {
+        for (FluidTank tank : tanks)
+        {
+            FluidStack fluid = tank.drain(resource, action);
+            if (!fluid.isEmpty())
+                return fluid;
+        }
         return FluidStack.EMPTY;
     }
 
@@ -133,6 +145,12 @@ public class MultiFluidTank implements IFluidHandler
     @Override
     public FluidStack drain(int maxDrain, FluidAction action)
     {
+        for (FluidTank tank : tanks)
+        {
+            FluidStack fluid = tank.drain(maxDrain, action);
+            if (!fluid.isEmpty())
+                return fluid;
+        }
         return FluidStack.EMPTY;
     }
 }

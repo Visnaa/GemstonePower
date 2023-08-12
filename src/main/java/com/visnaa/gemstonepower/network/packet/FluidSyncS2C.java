@@ -1,8 +1,7 @@
 package com.visnaa.gemstonepower.network.packet;
 
-import com.visnaa.gemstonepower.block.entity.EnergyStorageBE;
 import com.visnaa.gemstonepower.block.entity.FluidEnergyStorageBE;
-import com.visnaa.gemstonepower.block.entity.TankBE;
+import com.visnaa.gemstonepower.block.entity.FluidStorageBE;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
@@ -46,7 +45,12 @@ public class FluidSyncS2C
     {
         NetworkEvent.Context context = supplier.get();
         context.enqueueWork(() -> {
-            if (Minecraft.getInstance().level.getBlockEntity(pos) instanceof FluidEnergyStorageBE blockEntity)
+            if (Minecraft.getInstance().level != null && Minecraft.getInstance().level.getBlockEntity(pos) instanceof FluidStorageBE blockEntity)
+            {
+                blockEntity.setFluid(tankId, stack);
+                blockEntity.setCapacity(tankId, capacity);
+            }
+            else if (Minecraft.getInstance().level != null && Minecraft.getInstance().level.getBlockEntity(pos) instanceof FluidEnergyStorageBE blockEntity)
             {
                 blockEntity.setFluid(tankId, stack);
                 blockEntity.setCapacity(tankId, capacity);

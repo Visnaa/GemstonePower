@@ -22,10 +22,4 @@ public class PolarizerBE extends MachineBE<PolarizerRecipe>
     {
         return new PolarizerMenu(new MenuData(id, inv, this, 2, MenuData.createSlots(2)), this.getBlockPos());
     }
-
-    public static void serverTick(Level level, BlockPos pos, BlockState state, MachineBE<?> machine)
-    {
-        if (level.isClientSide()) return;
-        machine.process(level, pos, state);
-    }
 }

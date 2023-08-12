@@ -31,11 +31,4 @@ public class CrystalChargerBlock extends MachineBlock<CrystalChargerBlock>
     {
         return createTicker(level, blockEntity, ModBlockEntities.CRYSTAL_CHARGER.get());
     }
-
-    @Nullable
-    @Override
-    protected <B extends BlockEntity> BlockEntityTicker<B> createTicker(Level level, BlockEntityType<B> blockEntity, BlockEntityType<? extends MachineBE<?>> machine)
-    {
-        return createTickerHelper(blockEntity, machine, CrystalChargerBE::serverTick);
-    }
 }

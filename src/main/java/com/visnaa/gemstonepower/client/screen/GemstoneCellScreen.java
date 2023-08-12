@@ -3,7 +3,7 @@ package com.visnaa.gemstonepower.client.screen;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.menu.machine.GemstoneCellMenu;
-import com.visnaa.gemstonepower.util.EnergyUtilities;
+import com.visnaa.gemstonepower.util.MachineUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
@@ -32,7 +32,7 @@ public class GemstoneCellScreen extends MachineScreen<GemstoneCellMenu>
 
         if (mouseX >= this.leftPos + 110 && mouseX <= this.leftPos + 120 && mouseY >= this.topPos + 38 && mouseY <= this.topPos + 54)
         {
-            graphics.renderTooltip(Minecraft.getInstance().font, EnergyUtilities.getDefaultTooltips(menu.getEnergy(), menu.getCapacity()), ItemStack.EMPTY.getTooltipImage(), mouseX, mouseY);
+            graphics.renderTooltip(Minecraft.getInstance().font, MachineUtil.getDefaultTooltips(menu.getEnergy(), menu.getCapacity()), ItemStack.EMPTY.getTooltipImage(), mouseX, mouseY);
         }
     }
 

@@ -31,11 +31,4 @@ public class PulverizerBlock extends MachineBlock<PulverizerBlock>
     {
         return createTicker(level, blockEntity, ModBlockEntities.PULVERIZER.get());
     }
-
-    @Nullable
-    @Override
-    protected <B extends BlockEntity> BlockEntityTicker<B> createTicker(Level level, BlockEntityType<B> blockEntity, BlockEntityType<? extends MachineBE<?>> machine)
-    {
-        return createTickerHelper(blockEntity, machine, PulverizerBE::serverTick);
-    }
 }

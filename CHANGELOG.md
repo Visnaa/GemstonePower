@@ -1,5 +1,11 @@
 <h1 style="font-size: 40px">Gemstone Power version changelog</h1>
 
+<h3>Version: Beta 0.2.6</h3>
+<ul>
+<li>Ore washer now requires water
+<li>Fixed bug causing gemstone cell to freeze minecraft client
+</ul>
+
 <h3>Version: Beta 0.2.5</h3>
 <ul>
 <li>Added new block: Fluid Tank

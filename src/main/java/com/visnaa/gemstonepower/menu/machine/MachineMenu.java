@@ -1,7 +1,9 @@
 package com.visnaa.gemstonepower.menu.machine;
 
 import com.visnaa.gemstonepower.GemstonePower;
+import com.visnaa.gemstonepower.block.entity.machine.FluidMachineBE;
 import com.visnaa.gemstonepower.block.entity.machine.MachineBE;
+import com.visnaa.gemstonepower.block.machine.MachineBlock;
 import com.visnaa.gemstonepower.data.recipe.EnergyRecipe;
 import com.visnaa.gemstonepower.menu.MenuData;
 import net.minecraft.core.BlockPos;
@@ -14,12 +16,14 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraftforge.fluids.capability.templates.FluidTank;
 
 public abstract class MachineMenu extends AbstractContainerMenu
 {
     private final MenuData data;
     protected final Level level;
-    protected final MachineBE<?> blockEntity;
+    protected final BlockEntity blockEntity;
     private final RecipeType<? extends EnergyRecipe> recipeType;
 
     public MachineMenu(MenuType<?> type, RecipeType<? extends EnergyRecipe> recipe, MenuData data, BlockPos pos)
@@ -27,7 +31,7 @@ public abstract class MachineMenu extends AbstractContainerMenu
         super(type, data.windowId());
         this.data = data;
         this.level = data.inventory().player.level();
-        this.blockEntity = pos == null ? null : (MachineBE<?>) this.level.getBlockEntity(pos);
+        this.blockEntity = pos == null ? null : this.level.getBlockEntity(pos);
         this.recipeType = recipe;
 
         checkContainerSize(data.container(), data.containerSize());
@@ -115,8 +119,18 @@ public abstract class MachineMenu extends AbstractContainerMenu
 
     public int getProcessingProcess(int progressBarWidth)
     {
-        int progress = blockEntity != null ? blockEntity.getProcessingProgress() : 0;
-        int total = blockEntity != null ? blockEntity.getProcessingTotalTime() : 0;
+        int progress = 0;
+        int total = 0;
+        if (blockEntity instanceof MachineBE<?> machine)
+        {
+            progress = machine.getProcessingProgress();
+            total = machine.getProcessingTotalTime();
+        }
+        else if (blockEntity instanceof FluidMachineBE<?> machine)
+        {
+            progress = machine.getProcessingProgress();
+            total = machine.getProcessingTotalTime();
+        }
         return total != 0 && progress != 0 ? progress * (progressBarWidth + 1) / total : 0;
     }
 
@@ -132,11 +146,26 @@ public abstract class MachineMenu extends AbstractContainerMenu
 
     public int getEnergy()
     {
-        return blockEntity != null ? blockEntity.getEnergy() : 0;
+        if (blockEntity instanceof MachineBE<?> machine)
+            return machine.getEnergy();
+        else if (blockEntity instanceof FluidMachineBE<?> machine)
+            return machine.getEnergy();
+        return 0;
     }
 
     public int getCapacity()
     {
-        return blockEntity != null ? blockEntity.getCapacity() : 0;
+        if (blockEntity instanceof MachineBE<?> machine)
+            return machine.getCapacity();
+        else if (blockEntity instanceof FluidMachineBE<?> machine)
+            return machine.getCapacity();
+        return 0;
+    }
+
+    public FluidTank getFluidTank(int tank)
+    {
+        if (blockEntity instanceof FluidMachineBE<?> machine)
+            return machine.getTank(tank);
+        return new FluidTank(0);
     }
 }

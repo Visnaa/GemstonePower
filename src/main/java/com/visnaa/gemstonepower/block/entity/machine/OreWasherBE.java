@@ -5,22 +5,31 @@ import com.visnaa.gemstonepower.menu.MenuData;
 import com.visnaa.gemstonepower.menu.machine.OreWasherMenu;
 import com.visnaa.gemstonepower.registry.ModBlockEntities;
 import com.visnaa.gemstonepower.registry.ModRecipes;
+import com.visnaa.gemstonepower.util.MachineUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
+import net.minecraft.network.Connection;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Fluids;
+import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.FluidUtil;
+import net.minecraftforge.fluids.capability.IFluidHandler;
+import net.minecraftforge.fluids.capability.IFluidHandlerItem;
 
 import javax.annotation.Nullable;
+import java.util.List;
 
-public class OreWasherBE extends MachineBE<OreWasherRecipe>
+public class OreWasherBE extends FluidMachineBE<OreWasherRecipe>
 {
     public OreWasherBE(BlockPos pos, BlockState state)
     {
-        super(ModBlockEntities.ORE_WASHER.get(), ModRecipes.ORE_WASHER_RECIPE, pos, state, 1, 4);
+        super(ModBlockEntities.ORE_WASHER.get(), ModRecipes.ORE_WASHER_RECIPE, pos, state,
+                MachineUtil.createFluidTank(List.of(Fluids.EMPTY), List.of(10000)), 1, 4);
     }
 
     protected AbstractContainerMenu createMenu(int id, Inventory inv)
@@ -28,16 +37,10 @@ public class OreWasherBE extends MachineBE<OreWasherRecipe>
         return new OreWasherMenu(new MenuData(id, inv, this, 5, MenuData.createSlots(5)), this.getBlockPos());
     }
 
-    public static void serverTick(Level level, BlockPos pos, BlockState state, MachineBE<?> machine)
-    {
-        if (level.isClientSide()) return;
-        machine.process(level, pos, state);
-    }
-
     @Override
     protected boolean canProcess(RegistryAccess access, @Nullable OreWasherRecipe recipe, NonNullList<ItemStack> items, int size)
     {
-        if (!items.get(0).isEmpty() && recipe != null)
+        if (!items.get(0).isEmpty() && recipe != null && !getTank(0).isEmpty() && getTank(0).getFluid().getAmount() >= 250)
         {
             NonNullList<ItemStack> results = recipe.getResultItems();
             for (int i = 0; i < results.size(); i++)
@@ -68,6 +71,14 @@ public class OreWasherBE extends MachineBE<OreWasherRecipe>
     {
         if (recipe != null && this.canProcess(access, recipe, items, size))
         {
+            if (tanks.getTank(0).isEmpty())
+                return false;
+
+            FluidStack fluid = tanks.getTank(0).drain(250, IFluidHandler.FluidAction.SIMULATE);
+            if (fluid.getAmount() != 250)
+                return false;
+            tanks.getTank(0).drain(250, IFluidHandler.FluidAction.EXECUTE);
+
             ItemStack input = items.get(0);
             NonNullList<ItemStack> results = recipe.getResultItems();
 
@@ -81,7 +92,6 @@ public class OreWasherBE extends MachineBE<OreWasherRecipe>
                     items.get(i + 1).grow(results.get(i).getCount());
                 }
             }
-
             input.shrink(1);
             return true;
         }

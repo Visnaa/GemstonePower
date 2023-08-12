@@ -31,11 +31,4 @@ public class PolarizerBlock extends MachineBlock<PolarizerBlock>
     {
         return createTicker(level, blockEntity, ModBlockEntities.POLARIZER.get());
     }
-
-    @Nullable
-    @Override
-    protected <B extends BlockEntity> BlockEntityTicker<B> createTicker(Level level, BlockEntityType<B> blockEntity, BlockEntityType<? extends MachineBE<?>> machine)
-    {
-        return createTickerHelper(blockEntity, machine, PolarizerBE::serverTick);
-    }
 }

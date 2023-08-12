@@ -39,7 +39,7 @@ public class EnergySyncS2C
     {
         NetworkEvent.Context context = supplier.get();
         context.enqueueWork(() -> {
-            if (Minecraft.getInstance().level.getBlockEntity(pos) instanceof EnergyStorageBE blockEntity)
+            if (Minecraft.getInstance().level != null && Minecraft.getInstance().level.getBlockEntity(pos) instanceof EnergyStorageBE blockEntity)
             {
                 blockEntity.setEnergy(energy);
                 blockEntity.setCapacity(capacity);
