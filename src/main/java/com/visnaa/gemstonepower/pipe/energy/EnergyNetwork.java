@@ -8,20 +8,22 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.energy.IEnergyStorage;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class EnergyNetwork
 {
     private List<CableBE> cables;
-    public List<BlockEntity> inputs;
-    public List<BlockEntity> batteries;
+    public Set<BlockEntity> inputs;
+    public Set<BlockEntity> batteries;
 
     public EnergyNetwork()
     {
         this.cables = new ArrayList<>();
-        this.inputs = new ArrayList<>();
-        this.batteries = new ArrayList<>();
+        this.inputs = new HashSet<>();
+        this.batteries = new HashSet<>();
     }
 
     public void registerToNetwork(CableBE cable)
@@ -32,12 +34,12 @@ public class EnergyNetwork
 
     public void registerInput(BlockEntity input)
     {
-        if (input != null && !this.inputs.contains(input)) this.inputs.add(input);
+        if (input != null) this.inputs.add(input);
     }
 
     public void registerBattery(BlockEntity battery)
     {
-        if (battery != null && !this.batteries.contains(battery)) this.batteries.add(battery);
+        if (battery != null) this.batteries.add(battery);
     }
 
     public void refresh()
@@ -61,9 +63,9 @@ public class EnergyNetwork
         });
     }
 
-    public EnergyNetwork merge(EnergyNetwork newHost)
+    public void merge(EnergyNetwork newHost)
     {
-        if (newHost == this) return this;
+        if (newHost == this) return;
 
         for (CableBE cable : this.cables)
         {
@@ -74,7 +76,12 @@ public class EnergyNetwork
             }
         }
 
-        return newHost;
+        for (BlockEntity input : this.inputs)
+            if (!newHost.inputs.contains(input))
+                newHost.registerInput(input);
+        for (BlockEntity battery : this.batteries)
+            if (!newHost.batteries.contains(battery))
+                newHost.registerBattery(battery);
     }
 
     public boolean withdrawFromNetwork(int amount)

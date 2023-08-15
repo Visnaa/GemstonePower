@@ -1,6 +1,5 @@
 package com.visnaa.gemstonepower.pipe.item;
 
-import com.visnaa.gemstonepower.block.entity.pipe.item.IronItemPipeBE;
 import com.visnaa.gemstonepower.block.entity.pipe.item.ItemPipeBE;
 import com.visnaa.gemstonepower.block.pipe.item.ItemPipeBlock;
 import com.visnaa.gemstonepower.config.ServerConfig;
@@ -13,38 +12,36 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class ItemPipeNetwork
 {
     private List<ItemPipeBE> pipes;
-    public List<BlockEntity> inputs;
-    public List<BlockEntity> outputs;
+    public Set<BlockEntity> inputs;
+    public Set<BlockEntity> outputs;
     private long lastDistribution;
 
     public ItemPipeNetwork()
     {
         this.pipes = new ArrayList<>();
-        this.inputs = new ArrayList<>();
-        this.outputs = new ArrayList<>();
+        this.inputs = new HashSet<>();
+        this.outputs = new HashSet<>();
     }
 
-    public void registerToNetwork(ItemPipeBE cable)
+    public void registerToNetwork(ItemPipeBE pipe)
     {
-        if (!this.pipes.contains(cable))
-            this.pipes.add(cable);
+        if (!this.pipes.contains(pipe))
+            this.pipes.add(pipe);
     }
 
     public void registerInput(BlockEntity input)
     {
-        if (input != null && !this.inputs.contains(input)) this.inputs.add(input);
+        if (input != null) this.inputs.add(input);
     }
 
-    public void registerOutput(BlockEntity battery)
+    public void registerOutput(BlockEntity output)
     {
-        if (battery != null && !this.outputs.contains(battery)) this.outputs.add(battery);
+        if (output != null) this.outputs.add(output);
     }
 
     public void refresh()
@@ -78,6 +75,13 @@ public class ItemPipeNetwork
                 pipe.network = newHost;
             }
         }
+
+        for (BlockEntity input : this.inputs)
+            if (!newHost.inputs.contains(input))
+                newHost.registerInput(input);
+        for (BlockEntity output : this.outputs)
+            if (!newHost.outputs.contains(output))
+                newHost.registerOutput(output);
     }
 
     public void distribute(Level level, BlockState state, int transfer)
@@ -115,7 +119,7 @@ public class ItemPipeNetwork
                                                 {
                                                     Direction direction = Direction.NORTH;
                                                     for (Direction dir : Direction.values())
-                                                        if (level.getBlockEntity(input.getBlockPos().relative(dir)) instanceof IronItemPipeBE)
+                                                        if (level.getBlockEntity(input.getBlockPos().relative(dir)) instanceof ItemPipeBE)
                                                             direction = dir;
 
                                                     if (be.canTakeItemThroughFace(finalISlot, stack, direction))

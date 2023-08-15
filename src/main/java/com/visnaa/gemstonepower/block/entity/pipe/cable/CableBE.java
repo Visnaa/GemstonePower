@@ -1,6 +1,7 @@
 package com.visnaa.gemstonepower.block.entity.pipe.cable;
 
 import com.visnaa.gemstonepower.block.entity.TickingBlockEntity;
+import com.visnaa.gemstonepower.block.pipe.cable.AluminumCableBlock;
 import com.visnaa.gemstonepower.pipe.energy.EnergyNetwork;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -27,13 +28,28 @@ public abstract class CableBE extends BlockEntity implements TickingBlockEntity
     @Override
     public void tick(Level level, BlockPos pos, BlockState state)
     {
-        refreshNetwork(level, pos, state);
         refreshInputs(level, pos, state);
         distributeEnergy(level, pos, state);
         checkExplode(level, pos, state);
     }
 
-    protected void refreshNetwork(Level level, BlockPos pos, BlockState state)
+    protected <T extends CableBE> void updateConnections(Level level, BlockPos pos, BlockState state, Class<T> type)
+    {
+        for (Direction direction : Direction.values())
+        {
+            BlockEntity be = level.getBlockEntity(pos.relative(direction.getOpposite()));
+            if (be != null && (type.isAssignableFrom(be.getClass()) || be.getCapability(ForgeCapabilities.ENERGY, direction).isPresent()))
+            {
+                level.setBlockAndUpdate(pos, level.getBlockState(pos).setValue(AluminumCableBlock.CONNECTIONS.get(direction.getOpposite()), true));
+                setChanged(level, pos, state);
+            } else {
+                level.setBlockAndUpdate(pos, level.getBlockState(pos).setValue(AluminumCableBlock.CONNECTIONS.get(direction.getOpposite()), false));
+                setChanged(level, pos, state);
+            }
+        }
+    }
+
+    protected <T extends CableBE> void refreshNetwork(Level level, BlockPos pos, BlockState state, Class<T> type)
     {
         if (this.network == null) this.network = new EnergyNetwork();
         this.network.refresh();
@@ -44,13 +60,10 @@ public abstract class CableBE extends BlockEntity implements TickingBlockEntity
         for (Direction direction : Direction.values())
         {
             BlockEntity be = level.getBlockEntity(pos.relative(direction.getOpposite()));
-            if (be != null && be instanceof CableBE && ((CableBE) be).network != null)
-            {
+            if (be != null && type.isAssignableFrom(be.getClass()) && ((CableBE) be).network != null)
                 ((CableBE) be).network.merge(this.network);
-                setChanged(level, pos, state);
-                return;
-            }
         }
+        setChanged(level, pos, state);
     }
 
     protected void refreshInputs(Level level, BlockPos pos, BlockState state)

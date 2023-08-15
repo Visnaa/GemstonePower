@@ -1,5 +1,13 @@
 <h1 style="font-size: 40px">Gemstone Power version changelog</h1>
 
+<h3>Version: Beta 0.2.7</h3>
+<ul>
+<li>Added support for NeoForge
+<li>Fluid tank now has a new model
+<li>Fixed inventory display of cables and pipes
+<li>Fixed bug causing cables' and pipes' networks merge incorrectly
+</ul>
+
 <h3>Version: Beta 0.2.6</h3>
 <ul>
 <li>Ore washer now requires water

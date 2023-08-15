@@ -3,7 +3,6 @@ package com.visnaa.gemstonepower.menu.machine;
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.block.entity.machine.FluidMachineBE;
 import com.visnaa.gemstonepower.block.entity.machine.MachineBE;
-import com.visnaa.gemstonepower.block.machine.MachineBlock;
 import com.visnaa.gemstonepower.data.recipe.EnergyRecipe;
 import com.visnaa.gemstonepower.menu.MenuData;
 import net.minecraft.core.BlockPos;

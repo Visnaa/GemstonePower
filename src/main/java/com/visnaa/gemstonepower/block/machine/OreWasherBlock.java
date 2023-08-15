@@ -1,6 +1,5 @@
 package com.visnaa.gemstonepower.block.machine;
 
-import com.visnaa.gemstonepower.block.entity.machine.MachineBE;
 import com.visnaa.gemstonepower.block.entity.machine.OreWasherBE;
 import com.visnaa.gemstonepower.registry.ModBlockEntities;
 import net.minecraft.core.BlockPos;

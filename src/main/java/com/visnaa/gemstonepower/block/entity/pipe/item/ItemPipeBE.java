@@ -86,12 +86,9 @@ public abstract class ItemPipeBE extends BlockEntity implements TickingBlockEnti
         {
             BlockEntity be = level.getBlockEntity(pos.relative(direction.getOpposite()));
             if (be != null && type.isAssignableFrom(be.getClass()) && ((ItemPipeBE) be).network != null)
-            {
                 ((ItemPipeBE) be).network.merge(this.network);
-                setChanged(level, pos, state);
-                return;
-            }
         }
+        setChanged(level, pos, state);
     }
 
     protected void refreshOutputs(Level level, BlockPos pos, BlockState state)

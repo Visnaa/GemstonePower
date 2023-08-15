@@ -3,12 +3,12 @@ package com.visnaa.gemstonepower.data.gen;
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.registry.ModBlocks;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -230,7 +230,7 @@ public class BlockModelGenerator extends BlockStateProvider
                         .rotationY((int) state.getValue(HORIZONTAL_FACING).getOpposite().toYRot())
                         .build());
 
-        this.noCullface(ModBlocks.TANK.get(), modLoc("block/tank"));
+        this.custom(ModBlocks.TANK.get(), "tank");
 
         this.simpleBlock(ModBlocks.RESIN_OAK_SAPLING.get(), models().cross("resin_oak_sapling", modLoc("block/resin_oak_sapling")).renderType("cutout"));
         this.blockWithItem(ModBlocks.RESIN_OAK_LOG.get(), "resin_oak_log");
@@ -273,14 +273,19 @@ public class BlockModelGenerator extends BlockStateProvider
         this.simpleBlockWithItem(block, parent(block, parentName).renderType("cutout"));
     }
 
-    public void noCullface(Block block, ResourceLocation texture)
+    public void custom(Block block, String parentName)
     {
-        this.simpleBlockWithItem(block, parent(block, "no_cullface").texture("block", texture).texture("particle", texture));
+        this.simpleBlockWithItem(block, model(parentName));
     }
 
     public BlockModelBuilder parent(Block block, String parentName)
     {
         return models().withExistingParent(ForgeRegistries.BLOCKS.getKey(block).getPath(), modLoc(parentName));
+    }
+
+    public ModelFile.ExistingModelFile model(String parentName)
+    {
+        return models().getExistingFile(modLoc(parentName));
     }
 
     public void crystal(Block block, String texture)
