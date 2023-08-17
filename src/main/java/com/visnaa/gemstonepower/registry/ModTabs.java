@@ -71,6 +71,11 @@ public class ModTabs
                 output.accept(ModItems.COPPER_ITEM_PIPE.get());
                 output.accept(ModItems.PLATINUM_ITEM_PIPE.get());
                 output.accept(ModItems.LEAD_ITEM_PIPE.get());
+
+                output.accept(ModItems.GOLD_FLUID_PIPE.get());
+                output.accept(ModItems.COPPER_FLUID_PIPE.get());
+                output.accept(ModItems.INVAR_FLUID_PIPE.get());
+                output.accept(ModItems.STEEL_FLUID_PIPE.get());
             }).build();
 
     public static final Supplier<CreativeModeTab> RESOURCES_TAB = () -> CreativeModeTab.builder()

@@ -5,6 +5,10 @@ import com.visnaa.gemstonepower.block.*;
 import com.visnaa.gemstonepower.block.grower.ResinOakGrower;
 import com.visnaa.gemstonepower.block.machine.*;
 import com.visnaa.gemstonepower.block.pipe.cable.*;
+import com.visnaa.gemstonepower.block.pipe.fluid.CopperFluidPipeBlock;
+import com.visnaa.gemstonepower.block.pipe.fluid.GoldFluidPipeBlock;
+import com.visnaa.gemstonepower.block.pipe.fluid.InvarFluidPipeBlock;
+import com.visnaa.gemstonepower.block.pipe.fluid.SteelFluidPipeBlock;
 import com.visnaa.gemstonepower.block.pipe.item.*;
 import com.visnaa.gemstonepower.client.render.Tints;
 import net.minecraft.world.level.block.*;
@@ -107,6 +111,11 @@ public final class ModBlocks
     public static final RegistryObject<Block> COPPER_ITEM_PIPE = BLOCKS.register("copper_item_pipe", () -> new CopperItemPipeBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
     public static final RegistryObject<Block> PLATINUM_ITEM_PIPE = BLOCKS.register("platinum_item_pipe", () -> new PlatinumItemPipeBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
     public static final RegistryObject<Block> LEAD_ITEM_PIPE = BLOCKS.register("lead_item_pipe", () -> new LeadItemPipeBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+
+    public static final RegistryObject<Block> GOLD_FLUID_PIPE = BLOCKS.register("gold_fluid_pipe", () -> new GoldFluidPipeBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+    public static final RegistryObject<Block> COPPER_FLUID_PIPE = BLOCKS.register("copper_fluid_pipe", () -> new CopperFluidPipeBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+    public static final RegistryObject<Block> INVAR_FLUID_PIPE = BLOCKS.register("invar_fluid_pipe", () -> new InvarFluidPipeBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+    public static final RegistryObject<Block> STEEL_FLUID_PIPE = BLOCKS.register("steel_fluid_pipe", () -> new SteelFluidPipeBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
 
     public static final RegistryObject<Block> RUBY_CRYSTALS = BLOCKS.register("ruby_crystals", () -> new CrystalBlock(BlockBehaviour.Properties.copy(Blocks.AMETHYST_CLUSTER).requiresCorrectToolForDrops().strength(5.0f).noOcclusion(), Tints.RUBY));
     public static final RegistryObject<Block> SAPPHIRE_CRYSTALS = BLOCKS.register("sapphire_crystals", () -> new CrystalBlock(BlockBehaviour.Properties.copy(Blocks.AMETHYST_CLUSTER).requiresCorrectToolForDrops().strength(5.0f).noOcclusion(), Tints.SAPPHIRE));

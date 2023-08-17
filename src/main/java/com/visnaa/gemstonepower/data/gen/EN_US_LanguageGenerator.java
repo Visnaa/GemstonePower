@@ -473,6 +473,11 @@ public class EN_US_LanguageGenerator extends LanguageProvider
         this.add(ModBlocks.PLATINUM_ITEM_PIPE.get(), "Platinum Item Pipe");
         this.add(ModBlocks.LEAD_ITEM_PIPE.get(), "Lead Item Pipe");
 
+        this.add(ModBlocks.GOLD_FLUID_PIPE.get(), "Gold Fluid Pipe");
+        this.add(ModBlocks.COPPER_FLUID_PIPE.get(), "Copper Fluid Pipe");
+        this.add(ModBlocks.INVAR_FLUID_PIPE.get(), "Invar Fluid Pipe");
+        this.add(ModBlocks.STEEL_FLUID_PIPE.get(), "Steel Fluid Pipe");
+
     // MICS
         this.add(ModItems.INTERMEDIATE_UPGRADE.get(), "Intermediate Upgrade");
         this.add(ModItems.ADVANCED_UPGRADE.get(), "Advanced Upgrade");

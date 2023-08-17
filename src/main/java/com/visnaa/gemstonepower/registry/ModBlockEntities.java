@@ -10,6 +10,10 @@ import com.visnaa.gemstonepower.block.entity.pipe.cable.AluminumCableBE;
 import com.visnaa.gemstonepower.block.entity.pipe.cable.CopperCableBE;
 import com.visnaa.gemstonepower.block.entity.pipe.cable.ElectrumCableBE;
 import com.visnaa.gemstonepower.block.entity.pipe.cable.TinCableBE;
+import com.visnaa.gemstonepower.block.entity.pipe.fluid.CopperFluidPipeBE;
+import com.visnaa.gemstonepower.block.entity.pipe.fluid.GoldFluidPipeBE;
+import com.visnaa.gemstonepower.block.entity.pipe.fluid.InvarFluidPipeBE;
+import com.visnaa.gemstonepower.block.entity.pipe.fluid.SteelFluidPipeBE;
 import com.visnaa.gemstonepower.block.entity.pipe.item.*;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.registries.DeferredRegister;
@@ -52,4 +56,9 @@ public final class ModBlockEntities
     public static final RegistryObject<BlockEntityType<CopperItemPipeBE>> COPPER_ITEM_PIPE = BLOCK_ENTITIES.register("copper_item_pipe", () -> BlockEntityType.Builder.of(CopperItemPipeBE::new, ModBlocks.COPPER_ITEM_PIPE.get()).build(null));
     public static final RegistryObject<BlockEntityType<PlatinumItemPipeBE>> PLATINUM_ITEM_PIPE = BLOCK_ENTITIES.register("platinum_item_pipe", () -> BlockEntityType.Builder.of(PlatinumItemPipeBE::new, ModBlocks.PLATINUM_ITEM_PIPE.get()).build(null));
     public static final RegistryObject<BlockEntityType<LeadItemPipeBE>> LEAD_ITEM_PIPE = BLOCK_ENTITIES.register("lead_item_pipe", () -> BlockEntityType.Builder.of(LeadItemPipeBE::new, ModBlocks.LEAD_ITEM_PIPE.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<GoldFluidPipeBE>> GOLD_FLUID_PIPE = BLOCK_ENTITIES.register("gold_fluid_pipe", () -> BlockEntityType.Builder.of(GoldFluidPipeBE::new, ModBlocks.GOLD_FLUID_PIPE.get()).build(null));
+    public static final RegistryObject<BlockEntityType<CopperFluidPipeBE>> COPPER_FLUID_PIPE = BLOCK_ENTITIES.register("copper_fluid_pipe", () -> BlockEntityType.Builder.of(CopperFluidPipeBE::new, ModBlocks.COPPER_FLUID_PIPE.get()).build(null));
+    public static final RegistryObject<BlockEntityType<InvarFluidPipeBE>> INVAR_FLUID_PIPE = BLOCK_ENTITIES.register("invar_fluid_pipe", () -> BlockEntityType.Builder.of(InvarFluidPipeBE::new, ModBlocks.INVAR_FLUID_PIPE.get()).build(null));
+    public static final RegistryObject<BlockEntityType<SteelFluidPipeBE>> STEEL_FLUID_PIPE = BLOCK_ENTITIES.register("steel_fluid_pipe", () -> BlockEntityType.Builder.of(SteelFluidPipeBE::new, ModBlocks.STEEL_FLUID_PIPE.get()).build(null));
 }

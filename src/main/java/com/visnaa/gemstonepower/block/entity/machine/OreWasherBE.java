@@ -36,7 +36,7 @@ public class OreWasherBE extends FluidMachineBE<OreWasherRecipe>
     @Override
     protected boolean canProcess(RegistryAccess access, @Nullable OreWasherRecipe recipe, NonNullList<ItemStack> items, int size)
     {
-        if (!items.get(0).isEmpty() && recipe != null && !getTank(0).isEmpty() && getTank(0).getFluid().getAmount() >= 250)
+        if (!items.get(0).isEmpty() && recipe != null && !getTank(0).isEmpty() && getTank(0).getFluid().getAmount() >= recipe.getFluid().getAmount())
         {
             NonNullList<ItemStack> results = recipe.getResultItems();
             for (int i = 0; i < results.size(); i++)
@@ -70,10 +70,10 @@ public class OreWasherBE extends FluidMachineBE<OreWasherRecipe>
             if (tanks.getTank(0).isEmpty())
                 return false;
 
-            FluidStack fluid = tanks.getTank(0).drain(250, IFluidHandler.FluidAction.SIMULATE);
-            if (fluid.getAmount() != 250)
+            FluidStack fluid = tanks.getTank(0).drain(recipe.getFluid(), IFluidHandler.FluidAction.SIMULATE);
+            if (fluid.getAmount() != recipe.getFluid().getAmount())
                 return false;
-            tanks.getTank(0).drain(250, IFluidHandler.FluidAction.EXECUTE);
+            tanks.getTank(0).drain(recipe.getFluid(), IFluidHandler.FluidAction.EXECUTE);
 
             ItemStack input = items.get(0);
             NonNullList<ItemStack> results = recipe.getResultItems();

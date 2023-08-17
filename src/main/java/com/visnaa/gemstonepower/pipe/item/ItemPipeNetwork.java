@@ -1,8 +1,10 @@
 package com.visnaa.gemstonepower.pipe.item;
 
+import com.visnaa.gemstonepower.block.entity.pipe.PipeBE;
 import com.visnaa.gemstonepower.block.entity.pipe.item.ItemPipeBE;
 import com.visnaa.gemstonepower.block.pipe.item.ItemPipeBlock;
 import com.visnaa.gemstonepower.config.ServerConfig;
+import com.visnaa.gemstonepower.pipe.PipeNetwork;
 import net.minecraft.core.Direction;
 import net.minecraft.world.Container;
 import net.minecraft.world.WorldlyContainer;
@@ -14,7 +16,7 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 
 import java.util.*;
 
-public class ItemPipeNetwork
+public class ItemPipeNetwork implements PipeNetwork
 {
     private List<ItemPipeBE> pipes;
     public Set<BlockEntity> inputs;
@@ -153,7 +155,7 @@ public class ItemPipeNetwork
         }
     }
 
-    public void destroy(ItemPipeBE caller)
+    public void destroy(PipeBE caller)
     {
         if (!Objects.requireNonNull(caller.getLevel()).isClientSide())
         {

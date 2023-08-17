@@ -21,6 +21,7 @@ public class ServerConfig
     public static final ForgeConfigSpec.DoubleValue EXTREME_TIER_MULTIPLIER;
 
     public static final ForgeConfigSpec.LongValue ITEM_PIPE_FREQUENCY;
+    public static final ForgeConfigSpec.LongValue FLUID_PIPE_FREQUENCY;
 
     static
     {
@@ -64,6 +65,8 @@ public class ServerConfig
 
         ITEM_PIPE_FREQUENCY = BUILDER.comment("Sets in what time intervals item pipes distribute items (in ticks)")
                 .defineInRange("item_pipe_frequency", 1L, 1L, Long.MAX_VALUE);
+        FLUID_PIPE_FREQUENCY = BUILDER.comment("Sets in what time intervals fluid pipes distribute fluids (in ticks)")
+                .defineInRange("fluid_pipe_frequency", 1L, 1L, Long.MAX_VALUE);
 
         BUILDER.pop();
         CONFIG = BUILDER.build();

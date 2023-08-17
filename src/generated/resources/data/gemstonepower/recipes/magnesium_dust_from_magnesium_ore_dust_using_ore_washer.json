@@ -1,6 +1,10 @@
 {
   "type": "gemstonepower:ore_washer",
   "energyUsage": 40,
+  "fluid": {
+    "amount": 250,
+    "name": "minecraft:water"
+  },
   "input": {
     "item": "gemstonepower:magnesium_ore_dust"
   },

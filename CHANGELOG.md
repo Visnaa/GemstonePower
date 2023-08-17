@@ -1,5 +1,10 @@
 <h1 style="font-size: 40px">Gemstone Power version changelog</h1>
 
+<h3>Version: Beta 0.2.8</h3>
+<ul>
+<li>Added fluid pipes (Gold, Copper, Invar, Steel)
+</ul>
+
 <h3>Version: Beta 0.2.7</h3>
 <ul>
 <li>Added support for NeoForge

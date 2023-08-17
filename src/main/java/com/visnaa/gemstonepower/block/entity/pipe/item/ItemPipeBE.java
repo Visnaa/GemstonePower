@@ -1,6 +1,6 @@
 package com.visnaa.gemstonepower.block.entity.pipe.item;
 
-import com.visnaa.gemstonepower.block.entity.TickingBlockEntity;
+import com.visnaa.gemstonepower.block.entity.pipe.PipeBE;
 import com.visnaa.gemstonepower.block.pipe.item.IronItemPipeBlock;
 import com.visnaa.gemstonepower.block.pipe.item.ItemPipeBlock;
 import com.visnaa.gemstonepower.pipe.item.ItemPipeNetwork;
@@ -16,7 +16,7 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class ItemPipeBE extends BlockEntity implements TickingBlockEntity
+public abstract class ItemPipeBE extends PipeBE
 {
     public ItemPipeNetwork network = new ItemPipeNetwork();
 
@@ -30,6 +30,8 @@ public abstract class ItemPipeBE extends BlockEntity implements TickingBlockEnti
     @Override
     public void tick(Level level, BlockPos pos, BlockState state)
     {
+        updateConnections(level, pos, state);
+        refreshNetwork(level, pos, state);
         refreshOutputs(level, pos, state);
         distributeItems(level, pos, state);
     }
@@ -58,12 +60,12 @@ public abstract class ItemPipeBE extends BlockEntity implements TickingBlockEnti
         return items.stream().toList();
     }
 
-    protected <T extends ItemPipeBE> void updateConnections(Level level, BlockPos pos, BlockState state, Class<T> type)
+    protected void updateConnections(Level level, BlockPos pos, BlockState state)
     {
         for (Direction direction : Direction.values())
         {
             BlockEntity be = level.getBlockEntity(pos.relative(direction.getOpposite()));
-            if (be != null && (type.isAssignableFrom(be.getClass()) || be.getCapability(ForgeCapabilities.ITEM_HANDLER, direction).isPresent()))
+            if (be != null && (getClass().isAssignableFrom(be.getClass()) || be.getCapability(ForgeCapabilities.ITEM_HANDLER, direction).isPresent()))
             {
                 level.setBlockAndUpdate(pos, level.getBlockState(pos).setValue(IronItemPipeBlock.CONNECTIONS.get(direction.getOpposite()), true));
                 setChanged(level, pos, state);
@@ -74,7 +76,7 @@ public abstract class ItemPipeBE extends BlockEntity implements TickingBlockEnti
         }
     }
 
-    protected <T extends ItemPipeBE> void refreshNetwork(Level level, BlockPos pos, BlockState state, Class<T> type)
+    protected void refreshNetwork(Level level, BlockPos pos, BlockState state)
     {
         if (this.network == null) this.network = new ItemPipeNetwork();
         this.network.refresh();
@@ -85,7 +87,7 @@ public abstract class ItemPipeBE extends BlockEntity implements TickingBlockEnti
         for (Direction direction : Direction.values())
         {
             BlockEntity be = level.getBlockEntity(pos.relative(direction.getOpposite()));
-            if (be != null && type.isAssignableFrom(be.getClass()) && ((ItemPipeBE) be).network != null)
+            if (be != null && getClass().isAssignableFrom(be.getClass()) && ((ItemPipeBE) be).network != null)
                 ((ItemPipeBE) be).network.merge(this.network);
         }
         setChanged(level, pos, state);
@@ -110,5 +112,11 @@ public abstract class ItemPipeBE extends BlockEntity implements TickingBlockEnti
     {
         if (state.getValue(ItemPipeBlock.EXTRACTS))
             network.distribute(level, state, getTransfer());
+    }
+
+    @Override
+    public ItemPipeNetwork getNetwork()
+    {
+        return network;
     }
 }

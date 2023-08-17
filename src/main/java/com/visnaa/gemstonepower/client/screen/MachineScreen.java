@@ -73,18 +73,29 @@ public abstract class MachineScreen<T extends MachineMenu> extends AbstractConta
 
     protected void renderFluid(GuiGraphics graphics, int mouseX, int mouseY)
     {
-        renderFluid(graphics, mouseX, mouseY, this.leftPos + 15, this.topPos + 20, 46);
+        renderFluid(graphics, this.leftPos + 15, this.topPos + 20, 46, menu.getFluidTank(0));
+        renderFluidTooltip(graphics, mouseX, mouseY);
     }
 
-    protected void renderFluid(GuiGraphics graphics, int mouseX, int mouseY, int x, int y, int height)
+    protected void renderFluidTooltip(GuiGraphics graphics, int mouseX, int mouseY)
+    {
+        if (isMouseInArea(mouseX, mouseY, this.leftPos + 15, this.topPos + 20, 16, 46))
+        {
+            FluidStack fluid = menu.getFluidTank(0).getFluid();
+            Component fluidName = Component.literal("§fFluid: §6" + fluid.getDisplayName().getString());
+            Component fluidAmount = Component.literal("§fAmount: §b" + fluid.getAmount() + " §fmB");
+            graphics.renderTooltip(Minecraft.getInstance().font, List.of(fluidName, fluidAmount), ItemStack.EMPTY.getTooltipImage(), mouseX, mouseY);
+        }
+    }
+
+    public static void renderFluid(GuiGraphics graphics, int x, int y, int height, FluidTank tank)
     {
         RenderSystem.defaultBlendFunc();
         RenderSystem.enableDepthTest();
 
-        FluidTank fluidTank = menu.getFluidTank(0);
-        if (!fluidTank.isEmpty())
+        if (!tank.isEmpty())
         {
-            FluidStack fluidStack = fluidTank.getFluid();
+            FluidStack fluidStack = tank.getFluid();
             IClientFluidTypeExtensions fluid = IClientFluidTypeExtensions.of(fluidStack.getFluid());
             ResourceLocation texture = fluid.getStillTexture(fluidStack);
             if (texture != null)
@@ -101,8 +112,8 @@ public abstract class MachineScreen<T extends MachineMenu> extends AbstractConta
                             (color >>> 24) / 255.0F);
                     RenderSystem.enableBlend();
 
-                    int stored = fluidTank.getFluidAmount();
-                    float capacity = fluidTank.getCapacity();
+                    int stored = tank.getFluidAmount();
+                    float capacity = tank.getCapacity();
                     float filledVolume = stored / capacity;
                     int rendererHeight = (int) (filledVolume * height);
 
@@ -127,14 +138,6 @@ public abstract class MachineScreen<T extends MachineMenu> extends AbstractConta
             }
         }
         RenderSystem.disableDepthTest();
-
-        if (isMouseInArea(mouseX, mouseY, this.leftPos + 15, this.topPos + 20, 16, 46))
-        {
-            FluidStack fluid = fluidTank.getFluid();
-            Component fluidName = Component.literal("§fFluid: §6" + fluid.getDisplayName().getString());
-            Component fluidAmount = Component.literal("§fAmount: §b" + fluid.getAmount() + " §fmB");
-            graphics.renderTooltip(Minecraft.getInstance().font, List.of(fluidName, fluidAmount), ItemStack.EMPTY.getTooltipImage(), mouseX, mouseY);
-        }
     }
 
     public static boolean isMouseInArea(int mouseX, int mouseY, int x, int y, int width, int height)

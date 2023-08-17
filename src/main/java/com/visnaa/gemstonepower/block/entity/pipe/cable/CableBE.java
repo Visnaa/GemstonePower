@@ -28,17 +28,19 @@ public abstract class CableBE extends BlockEntity implements TickingBlockEntity
     @Override
     public void tick(Level level, BlockPos pos, BlockState state)
     {
+        updateConnections(level, pos, state);
+        refreshNetwork(level, pos, state);
         refreshInputs(level, pos, state);
         distributeEnergy(level, pos, state);
         checkExplode(level, pos, state);
     }
 
-    protected <T extends CableBE> void updateConnections(Level level, BlockPos pos, BlockState state, Class<T> type)
+    protected void updateConnections(Level level, BlockPos pos, BlockState state)
     {
         for (Direction direction : Direction.values())
         {
             BlockEntity be = level.getBlockEntity(pos.relative(direction.getOpposite()));
-            if (be != null && (type.isAssignableFrom(be.getClass()) || be.getCapability(ForgeCapabilities.ENERGY, direction).isPresent()))
+            if (be != null && (getClass().isAssignableFrom(be.getClass()) || be.getCapability(ForgeCapabilities.ENERGY, direction).isPresent()))
             {
                 level.setBlockAndUpdate(pos, level.getBlockState(pos).setValue(AluminumCableBlock.CONNECTIONS.get(direction.getOpposite()), true));
                 setChanged(level, pos, state);
@@ -49,7 +51,7 @@ public abstract class CableBE extends BlockEntity implements TickingBlockEntity
         }
     }
 
-    protected <T extends CableBE> void refreshNetwork(Level level, BlockPos pos, BlockState state, Class<T> type)
+    protected void refreshNetwork(Level level, BlockPos pos, BlockState state)
     {
         if (this.network == null) this.network = new EnergyNetwork();
         this.network.refresh();
@@ -60,7 +62,7 @@ public abstract class CableBE extends BlockEntity implements TickingBlockEntity
         for (Direction direction : Direction.values())
         {
             BlockEntity be = level.getBlockEntity(pos.relative(direction.getOpposite()));
-            if (be != null && type.isAssignableFrom(be.getClass()) && ((CableBE) be).network != null)
+            if (be != null && getClass().isAssignableFrom(be.getClass()) && ((CableBE) be).network != null)
                 ((CableBE) be).network.merge(this.network);
         }
         setChanged(level, pos, state);

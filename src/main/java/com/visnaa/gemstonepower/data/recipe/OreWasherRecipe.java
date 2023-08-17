@@ -1,6 +1,5 @@
 package com.visnaa.gemstonepower.data.recipe;
 
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.registry.ModBlocks;
@@ -17,22 +16,25 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.fluids.FluidStack;
 import org.jetbrains.annotations.Nullable;
 
-public class OreWasherRecipe implements EnergyRecipe
+public class OreWasherRecipe implements EnergyRecipe, FluidRecipe
 {
     public static final ResourceLocation TYPE_ID = new ResourceLocation(GemstonePower.MOD_ID, "ore_washer");
     private final ResourceLocation id;
     private final Ingredient input;
+    private final FluidStack fluid;
     private final NonNullList<ItemStack> outputs;
     private final int[] counts;
     private final int processingTime;
     private final int energyUsage;
 
-    public OreWasherRecipe(ResourceLocation id, Ingredient input, NonNullList<ItemStack> outputs, int[] counts, int processingTime, int energyUsage)
+    public OreWasherRecipe(ResourceLocation id, Ingredient input, FluidStack fluid, NonNullList<ItemStack> outputs, int[] counts, int processingTime, int energyUsage)
     {
         this.id = id;
         this.input = input;
+        this.fluid = fluid;
         this.outputs = outputs;
         this.counts = counts;
         this.processingTime = processingTime;
@@ -109,6 +111,12 @@ public class OreWasherRecipe implements EnergyRecipe
         return energyUsage;
     }
 
+    @Override
+    public FluidStack getFluid()
+    {
+        return fluid;
+    }
+
     public ItemStack getIcon()
     {
         return new ItemStack(ModBlocks.ORE_WASHER.get());
@@ -132,10 +140,10 @@ public class OreWasherRecipe implements EnergyRecipe
     public static class Serializer implements RecipeSerializer<OreWasherRecipe>
     {
         @Override
-        public OreWasherRecipe fromJson(ResourceLocation recipeID, JsonObject json)
+        public OreWasherRecipe fromJson(ResourceLocation recipeId, JsonObject json)
         {
-            JsonElement seedElement = GsonHelper.getAsJsonObject(json, "input");
-            Ingredient input = Ingredient.fromJson(seedElement);
+            Ingredient input = Ingredient.fromJson(GsonHelper.getAsJsonObject(json, "input"));
+            FluidStack fluid = FluidRecipe.fromJson(GsonHelper.getAsJsonObject(json, "fluid"));
 
             JsonObject outputsJson = GsonHelper.getAsJsonObject(json, "outputs");
             NonNullList<ItemStack> outputs = NonNullList.withSize(outputsJson.size(), ItemStack.EMPTY);
@@ -150,18 +158,20 @@ public class OreWasherRecipe implements EnergyRecipe
             int processingTime = GsonHelper.getAsInt(json, "processingTime");
             int energyUsage = GsonHelper.getAsInt(json, "energyUsage");
 
-            return new OreWasherRecipe(recipeID, input, outputs, counts, processingTime, energyUsage);
+            return new OreWasherRecipe(recipeId, input, fluid, outputs, counts, processingTime, energyUsage);
         }
 
         @Nullable
         @Override
-        public OreWasherRecipe fromNetwork(ResourceLocation recipeID, FriendlyByteBuf buffer)
+        public OreWasherRecipe fromNetwork(ResourceLocation recipeId, FriendlyByteBuf buffer)
         {
             NonNullList<Ingredient> inputs = NonNullList.withSize(buffer.readInt(), Ingredient.EMPTY);
             for (int i = 0; i < inputs.size(); i++)
             {
                 inputs.set(i, Ingredient.fromNetwork(buffer));
             }
+
+            FluidStack fluid = FluidStack.readFromPacket(buffer);
 
             NonNullList<ItemStack> outputs = NonNullList.withSize(buffer.readInt(), ItemStack.EMPTY);
             int[] counts = new int[4];
@@ -173,7 +183,7 @@ public class OreWasherRecipe implements EnergyRecipe
 
             int processingTime = buffer.readInt();
             int energyUsage = buffer.readInt();
-            return new OreWasherRecipe(recipeID, inputs.get(0), outputs, counts, processingTime, energyUsage);
+            return new OreWasherRecipe(recipeId, inputs.get(0), fluid, outputs, counts, processingTime, energyUsage);
         }
 
         @Override
@@ -184,6 +194,8 @@ public class OreWasherRecipe implements EnergyRecipe
             {
                 seed.toNetwork(buffer);
             }
+
+            buffer.writeFluidStack(recipe.getFluid());
 
             buffer.writeInt(recipe.getResultItems().size());
             for (int i = 0; i < recipe.getResultItems().size(); i++)

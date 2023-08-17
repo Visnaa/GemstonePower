@@ -22,7 +22,7 @@ public class ConfigScreen extends Screen
     private OptionInstance<MachineUtil.EnergyUnits> energyUnit;
     private Button doneButton;
 
-    public ConfigScreen()
+    public ConfigScreen(Minecraft minecraft, Screen screen)
     {
         super(Component.translatable("menu." + GemstonePower.MOD_ID + ".config_screen"));
     }

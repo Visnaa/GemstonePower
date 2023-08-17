@@ -246,11 +246,16 @@ public class BlockModelGenerator extends BlockStateProvider
         this.wire(ModBlocks.ELECTRUM_WIRE.get());
         this.cable(ModBlocks.ELECTRUM_CABLE.get());
         
-        this.pipe(ModBlocks.IRON_ITEM_PIPE.get());
-        this.pipe(ModBlocks.GOLD_ITEM_PIPE.get());
-        this.pipe(ModBlocks.COPPER_ITEM_PIPE.get());
-        this.pipe(ModBlocks.PLATINUM_ITEM_PIPE.get());
-        this.pipe(ModBlocks.LEAD_ITEM_PIPE.get());
+        this.pipe(ModBlocks.IRON_ITEM_PIPE.get(), "item");
+        this.pipe(ModBlocks.GOLD_ITEM_PIPE.get(), "item");
+        this.pipe(ModBlocks.COPPER_ITEM_PIPE.get(), "item");
+        this.pipe(ModBlocks.PLATINUM_ITEM_PIPE.get(), "item");
+        this.pipe(ModBlocks.LEAD_ITEM_PIPE.get(), "item");
+
+        this.pipe(ModBlocks.GOLD_FLUID_PIPE.get(), "fluid");
+        this.pipe(ModBlocks.COPPER_FLUID_PIPE.get(), "fluid");
+        this.pipe(ModBlocks.INVAR_FLUID_PIPE.get(), "fluid");
+        this.pipe(ModBlocks.STEEL_FLUID_PIPE.get(), "fluid");
     }
 
     public void block(Block block, String parentName)
@@ -329,45 +334,45 @@ public class BlockModelGenerator extends BlockStateProvider
                 .end();
     }
 
-    public void pipe(Block block)
+    public void pipe(Block block, String modelPrefix)
     {
-        this.blockItem(block, "item_pipe_dot");
+        this.blockItem(block, modelPrefix + "_pipe_dot");
         this.getMultipartBuilder(block)
                 .part()
-                .modelFile(models().getExistingFile(modLoc("item_pipe_dot")))
+                .modelFile(models().getExistingFile(modLoc(modelPrefix + "_pipe_dot")))
                 .addModel()
                 .end()
                 .part()
-                .modelFile(models().getExistingFile(modLoc("item_pipe_arm")))
+                .modelFile(models().getExistingFile(modLoc(modelPrefix + "_pipe_arm")))
                 .rotationX(270)
                 .addModel()
                 .condition(UP, true)
                 .end()
                 .part()
-                .modelFile(models().getExistingFile(modLoc("item_pipe_arm")))
+                .modelFile(models().getExistingFile(modLoc(modelPrefix + "_pipe_arm")))
                 .rotationX(90)
                 .addModel()
                 .condition(DOWN, true)
                 .end()
                 .part()
-                .modelFile(models().getExistingFile(modLoc("item_pipe_arm")))
+                .modelFile(models().getExistingFile(modLoc(modelPrefix + "_pipe_arm")))
                 .addModel()
                 .condition(NORTH, true)
                 .end()
                 .part()
-                .modelFile(models().getExistingFile(modLoc("item_pipe_arm")))
+                .modelFile(models().getExistingFile(modLoc(modelPrefix + "_pipe_arm")))
                 .rotationY(180)
                 .addModel()
                 .condition(SOUTH, true)
                 .end()
                 .part()
-                .modelFile(models().getExistingFile(modLoc("item_pipe_arm")))
+                .modelFile(models().getExistingFile(modLoc(modelPrefix + "_pipe_arm")))
                 .rotationY(270)
                 .addModel()
                 .condition(WEST, true)
                 .end()
                 .part()
-                .modelFile(models().getExistingFile(modLoc("item_pipe_arm")))
+                .modelFile(models().getExistingFile(modLoc(modelPrefix + "_pipe_arm")))
                 .rotationY(90)
                 .addModel()
                 .condition(EAST, true)

@@ -33,7 +33,7 @@ public class ClientEvents
     public static void clientSetup(FMLClientSetupEvent event)
     {
         ModLoadingContext.get().registerExtensionPoint(ConfigScreenHandler.ConfigScreenFactory.class,
-                () -> new ConfigScreenHandler.ConfigScreenFactory((minecraft, screen) -> new ConfigScreen()));
+                () -> new ConfigScreenHandler.ConfigScreenFactory(ConfigScreen::new));
 
         event.enqueueWork(() -> {
             MenuScreens.register(ModContainers.GEMSTONE_GENERATOR.get(), GemstoneGeneratorScreen::new);

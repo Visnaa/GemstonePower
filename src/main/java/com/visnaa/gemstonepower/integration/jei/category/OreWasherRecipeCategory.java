@@ -1,6 +1,7 @@
 package com.visnaa.gemstonepower.integration.jei.category;
 
 import com.visnaa.gemstonepower.GemstonePower;
+import com.visnaa.gemstonepower.client.screen.MachineScreen;
 import com.visnaa.gemstonepower.config.ClientConfig;
 import com.visnaa.gemstonepower.data.recipe.OreWasherRecipe;
 import com.visnaa.gemstonepower.integration.jei.GemstonePowerJEIPlugin;
@@ -21,6 +22,9 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.fluids.capability.templates.FluidTank;
+
+import java.util.List;
 
 public class OreWasherRecipeCategory implements IRecipeCategory<OreWasherRecipe>
 {
@@ -29,6 +33,8 @@ public class OreWasherRecipeCategory implements IRecipeCategory<OreWasherRecipe>
 
     private final IDrawable background;
     private final IDrawable icon;
+    private final IDrawableStatic fluidTank;
+    private final IDrawableStatic batterySlot;
     private final IDrawableStatic progress;
     private final IDrawableStatic energy;
 
@@ -37,8 +43,10 @@ public class OreWasherRecipeCategory implements IRecipeCategory<OreWasherRecipe>
 
     public OreWasherRecipeCategory(IGuiHelper helper)
     {
-        this.background = helper.createDrawable(TEXTURE, 52, 17, 108, 47);
+        this.background = helper.createDrawable(TEXTURE, 34, 25, 126, 46);
         this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.ORE_WASHER.get()));
+        this.fluidTank = helper.createDrawable(TEXTURE, 14, 19, 18, 48);
+        this.batterySlot = helper.createDrawable(TEXTURE, 149, 37, 12, 18);
         this.progress = helper.createDrawable(TEXTURE, 176, 16, 19, 15);
         this.energy = helper.createDrawable(TEXTURE, 176, 0, 10, 16);
 
@@ -73,18 +81,29 @@ public class OreWasherRecipeCategory implements IRecipeCategory<OreWasherRecipe>
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, OreWasherRecipe recipe, IFocusGroup focuses)
     {
-        builder.addSlot(RecipeIngredientRole.INPUT, 1, 21).addIngredients(recipe.getIngredients().get(0));
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 48, 11).addItemStack(recipe.getResultItems().size() > 0 ? new ItemStack(recipe.getResultItems().get(0).getItem(), recipe.getCounts()[0]) : ItemStack.EMPTY);
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 67, 11).addItemStack(recipe.getResultItems().size() > 1 ? new ItemStack(recipe.getResultItems().get(1).getItem(), recipe.getCounts()[1]) : ItemStack.EMPTY);
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 48, 30).addItemStack(recipe.getResultItems().size() > 2 ? new ItemStack(recipe.getResultItems().get(2).getItem(), recipe.getCounts()[2]) : ItemStack.EMPTY);
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 67, 30).addItemStack(recipe.getResultItems().size() > 3 ? new ItemStack(recipe.getResultItems().get(3).getItem(), recipe.getCounts()[3]) : ItemStack.EMPTY);
+        builder.addSlot(RecipeIngredientRole.INPUT, 19, 13).addIngredients(recipe.getIngredients().get(0));
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 66, 3).addItemStack(!recipe.getResultItems().isEmpty() ? new ItemStack(recipe.getResultItems().get(0).getItem(), recipe.getCounts()[0]) : ItemStack.EMPTY);
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 85, 3).addItemStack(recipe.getResultItems().size() > 1 ? new ItemStack(recipe.getResultItems().get(1).getItem(), recipe.getCounts()[1]) : ItemStack.EMPTY);
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 66, 22).addItemStack(recipe.getResultItems().size() > 2 ? new ItemStack(recipe.getResultItems().get(2).getItem(), recipe.getCounts()[2]) : ItemStack.EMPTY);
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 85, 22).addItemStack(recipe.getResultItems().size() > 3 ? new ItemStack(recipe.getResultItems().get(3).getItem(), recipe.getCounts()[3]) : ItemStack.EMPTY);
     }
 
     @Override
     public void draw(OreWasherRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics graphics, double mouseX, double mouseY)
     {
-        this.progressAnimated.draw(graphics, 23, 21);
-        this.energyAnimated.draw(graphics, 97, 21);
-        graphics.drawString(Minecraft.getInstance().font, "Energy: " + recipe.getEnergyUsage() * recipe.getProcessingTime() + " " + ClientConfig.ENERGY_UNIT.get(), 0, 0, 0x888888, false);
+        this.progressAnimated.draw(graphics, 41, 13);
+
+        this.energyAnimated.draw(graphics, 115, 13);
+        if (MachineScreen.isMouseInArea((int) mouseX, (int) mouseY, 115, 13, 10, 16))
+            graphics.renderTooltip(Minecraft.getInstance().font, List.of(Component.literal("§fEnergy: §c" + recipe.getEnergyUsage() * recipe.getProcessingTime() + " " + ClientConfig.ENERGY_UNIT.get())), ItemStack.EMPTY.getTooltipImage(), (int) mouseX, (int) mouseY);
+
+        this.fluidTank.draw(graphics, -1, -1);
+        FluidTank tank = new FluidTank(recipe.getFluid().getAmount());
+        tank.setFluid(recipe.getFluid());
+        MachineScreen.renderFluid(graphics, 0, 0, 46, tank);
+        if (MachineScreen.isMouseInArea((int) mouseX, (int) mouseY, 0, 0, 16, 46))
+            graphics.renderTooltip(Minecraft.getInstance().font, List.of(
+                    Component.literal("§fFluid: §6" + recipe.getFluid().getDisplayName().getString()),
+                    Component.literal("§fAmount: §b" + recipe.getFluid().getAmount())), ItemStack.EMPTY.getTooltipImage(), (int) mouseX, (int) mouseY);
     }
 }

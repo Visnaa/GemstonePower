@@ -15,6 +15,7 @@
     "N N"
   ],
   "result": {
+    "count": 8,
     "item": "gemstonepower:pipe_extractor_upgrade"
   },
   "show_notification": true
