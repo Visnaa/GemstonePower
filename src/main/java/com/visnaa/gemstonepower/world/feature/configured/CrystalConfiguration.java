@@ -4,7 +4,7 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.visnaa.gemstonepower.block.CrystalBlock;
-import com.visnaa.gemstonepower.registry.ModBlocks;
+import com.visnaa.gemstonepower.init.ModBlocks;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.Util;
 import net.minecraft.core.Direction;

@@ -1,7 +1,7 @@
 package com.visnaa.gemstonepower.block.machine;
 
 import com.visnaa.gemstonepower.block.entity.machine.GemstoneGeneratorBE;
-import com.visnaa.gemstonepower.registry.ModBlockEntities;
+import com.visnaa.gemstonepower.init.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
@@ -49,6 +49,6 @@ public class GemstoneGeneratorBlock extends MachineBlock<GemstoneGeneratorBlock>
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntity)
     {
-        return createTicker(level, blockEntity, ModBlockEntities.GEMSTONE_GENERATOR.get());
+        return MachineBlock.createTicker(level, blockEntity, ModBlockEntities.GEMSTONE_GENERATOR.get());
     }
 }

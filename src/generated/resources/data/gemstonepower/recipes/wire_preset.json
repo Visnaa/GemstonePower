@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "#": {
-      "tag": "forge:wires"
+      "tag": "c:wires"
     },
     "P": {
       "tag": "minecraft:planks"

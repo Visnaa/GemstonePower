@@ -1,7 +1,6 @@
 package com.visnaa.gemstonepower.block.entity.pipe.cable;
 
-import com.visnaa.gemstonepower.config.ServerConfig;
-import com.visnaa.gemstonepower.registry.ModBlockEntities;
+import com.visnaa.gemstonepower.init.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -9,6 +8,6 @@ public class ElectrumCableBE extends CableBE
 {
     public ElectrumCableBE(BlockPos pos, BlockState state)
     {
-        super(ModBlockEntities.ELECTRUM_CABLE.get(), pos, state, ServerConfig.ENERGY_TRANSFER_RATE.get() * 4);
+        super(ModBlockEntities.ELECTRUM_CABLE.get(), pos, state, 4);
     }
 }

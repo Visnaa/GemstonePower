@@ -2,10 +2,15 @@ package com.visnaa.gemstonepower.block.entity.machine;
 
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.block.entity.EnergyStorageBE;
+import com.visnaa.gemstonepower.block.entity.TickingBlockEntity;
 import com.visnaa.gemstonepower.config.ServerConfig;
 import com.visnaa.gemstonepower.data.recipe.EnergyRecipe;
+import com.visnaa.gemstonepower.menu.MenuData;
+import com.visnaa.gemstonepower.menu.machine.MachineMenu;
 import com.visnaa.gemstonepower.network.ModPackets;
+import com.visnaa.gemstonepower.network.packet.EnergySyncS2C;
 import com.visnaa.gemstonepower.network.packet.RecipeProgressSyncS2C;
+import com.visnaa.gemstonepower.pipe.energy.EnergyStorage;
 import com.visnaa.gemstonepower.util.MachineUtil;
 import com.visnaa.gemstonepower.util.Tier;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
@@ -19,8 +24,11 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.WorldlyContainer;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.StackedContents;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.RecipeHolder;
 import net.minecraft.world.inventory.StackedContentsCompatible;
 import net.minecraft.world.item.ItemStack;
@@ -28,11 +36,13 @@ import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.wrapper.SidedInvWrapper;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -42,12 +52,13 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public abstract class MachineBE<T extends Recipe<Container>> extends EnergyStorageBE implements WorldlyContainer, RecipeHolder, StackedContentsCompatible
+public class MachineBE<T extends Recipe<Container>> extends BaseContainerBlockEntity implements EnergyStorageBE, TickingBlockEntity, WorldlyContainer, RecipeHolder, StackedContentsCompatible
 {
     protected LazyOptional<? extends IItemHandler>[] itemHandlers = SidedInvWrapper.create(this, Direction.UP, Direction.DOWN, Direction.NORTH);
     protected NonNullList<ItemStack> items;
     protected final Object2IntOpenHashMap<ResourceLocation> recipesUsed = new Object2IntOpenHashMap<>();
     protected final RecipeManager.CachedCheck<Container, T> quickCheck;
+    protected final RecipeType<T> recipe;
 
     protected final int[] inputSlots;
     protected final int[] outputSlots;
@@ -55,21 +66,43 @@ public abstract class MachineBE<T extends Recipe<Container>> extends EnergyStora
     protected int processingProgress;
     protected int processingTotalTime;
 
-    public MachineBE(BlockEntityType<?> type, RecipeType<T> recipe, BlockPos pos, BlockState state, int inputSlotCount, int outputSlotCount)
+    protected final EnergyStorage energyStorage = createEnergyStorage();
+    private LazyOptional<IEnergyStorage> lazyEnergy = LazyOptional.of(() -> energyStorage);
+
+    private MenuType<? extends MachineMenu> menu;
+
+    public MachineBE(BlockEntityType<?> type, RecipeType<T> recipe, BlockPos pos, BlockState state, int inputSlotCount, int outputSlotCount, MenuType<? extends MachineMenu> menu)
     {
         super(type, pos, state);
         this.items = NonNullList.withSize(inputSlotCount + outputSlotCount, ItemStack.EMPTY);
         this.quickCheck = RecipeManager.createCheck(recipe);
+        this.recipe = recipe;
         this.inputSlots = IntStream.range(0, inputSlotCount).toArray();
         this.outputSlots = IntStream.range(inputSlotCount, inputSlotCount + outputSlotCount).toArray();
+        this.menu = menu;
     }
 
     @Override
     protected Component getDefaultName()
     {
         String name = Component.translatable("menu." + GemstonePower.MOD_ID + "." + ForgeRegistries.BLOCKS.getKey(getBlockState().getBlock()).getPath()).getString();
-        String tier = Component.translatable("menu." + GemstonePower.MOD_ID + ".tier." + this.getBlockState().getValue(Tier.TIER).getSerializedName()).getString();
-        return Component.literal(name + " (" + tier + ")");
+        String tier = getBlockState().hasProperty(Tier.TIER) ? "(" + Component.translatable("menu." + GemstonePower.MOD_ID + ".tier." + this.getBlockState().getValue(Tier.TIER).getSerializedName()).getString() + ")" : "";
+        return Component.literal(name + tier);
+    }
+
+    @Override
+    protected AbstractContainerMenu createMenu(int id, Inventory inv)
+    {
+        if (menu != null)
+            return new MachineMenu(menu, recipe, new MenuData(id, inv, this, inputSlots.length + outputSlots.length, MenuData.createSlots(inputSlots.length + outputSlots.length)), getBlockPos());
+        return null;
+    }
+
+    @Override
+    public void setChanged()
+    {
+        super.setChanged();
+        energyStorage.onEnergyChanged();
     }
 
     @Override
@@ -87,6 +120,8 @@ public abstract class MachineBE<T extends Recipe<Container>> extends EnergyStora
         {
             this.recipesUsed.put(new ResourceLocation(s), compoundtag.getInt(s));
         }
+        energyStorage.deserializeNBT(tag.get("Energy"));
+        setChanged();
     }
 
     @Override
@@ -101,6 +136,8 @@ public abstract class MachineBE<T extends Recipe<Container>> extends EnergyStora
         CompoundTag compoundtag = new CompoundTag();
         this.recipesUsed.forEach((id, amount) -> compoundtag.putInt(id.toString(), amount));
         tag.put("RecipesUsed", compoundtag);
+        tag.put("Energy", energyStorage.serializeNBT());
+        setChanged();
     }
 
     public void setProcessingProgress(int processingProgress)
@@ -359,7 +396,73 @@ public abstract class MachineBE<T extends Recipe<Container>> extends EnergyStora
                 else
                     return itemHandlers[2].cast();
             }
+            else if (capability == ForgeCapabilities.ENERGY)
+                return lazyEnergy.cast();
         }
         return super.getCapability(capability, facing);
+    }
+
+    @Override
+    public void invalidateCaps()
+    {
+        super.invalidateCaps();
+        lazyEnergy.invalidate();
+    }
+
+    @Override
+    public void reviveCaps()
+    {
+        super.reviveCaps();
+        lazyEnergy = LazyOptional.of(() -> energyStorage);
+    }
+
+    @Override
+    public void setEnergy(int energy)
+    {
+        energyStorage.setEnergy(energy);
+    }
+
+    @Override
+    public void setCapacity(int capacity)
+    {
+        energyStorage.setCapacity(capacity);
+    }
+
+    @Override
+    public int getEnergy()
+    {
+        return energyStorage.getEnergyStored();
+    }
+
+    @Override
+    public int getCapacity()
+    {
+        return energyStorage.getMaxEnergyStored();
+    }
+
+    @Override
+    public EnergyStorage createEnergyStorage()
+    {
+        return new EnergyStorage(ServerConfig.DEFAULT_MACHINE_CAPACITY.get(), ServerConfig.ENERGY_TRANSFER_RATE.get(), ServerConfig.ENERGY_TRANSFER_RATE.get())
+        {
+            @Override
+            public void onEnergyChanged()
+            {
+                if (level != null && !level.isClientSide())
+                    ModPackets.sendToClient(new EnergySyncS2C(energy, capacity, getBlockPos()));
+            }
+
+            @Override
+            public boolean canReceive()
+            {
+                return true;
+            }
+
+            @Override
+            public boolean canExtract()
+            {
+                return false;
+            }
+        };
     }
 }

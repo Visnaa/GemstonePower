@@ -1,8 +1,8 @@
 package com.visnaa.gemstonepower.data.gen;
 
 import com.visnaa.gemstonepower.GemstonePower;
-import com.visnaa.gemstonepower.registry.ModItems;
-import com.visnaa.gemstonepower.registry.ModTags;
+import com.visnaa.gemstonepower.init.ModItems;
+import com.visnaa.gemstonepower.init.ModTags;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.FrameType;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;

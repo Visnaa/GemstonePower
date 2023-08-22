@@ -1,7 +1,12 @@
 package com.visnaa.gemstonepower.block.pipe;
 
+import com.visnaa.gemstonepower.block.entity.pipe.PipeBE;
 import com.visnaa.gemstonepower.block.entity.pipe.item.ItemPipeBE;
-import com.visnaa.gemstonepower.registry.ModItems;
+import com.visnaa.gemstonepower.block.pipe.cable.CableBlock;
+import com.visnaa.gemstonepower.block.pipe.fluid.FluidPipeBlock;
+import com.visnaa.gemstonepower.block.pipe.item.ItemPipeBlock;
+import com.visnaa.gemstonepower.pipe.energy.EnergyStorage;
+import com.visnaa.gemstonepower.util.StringProperty;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
@@ -18,20 +23,23 @@ import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import net.minecraftforge.energy.IEnergyStorage;
+import net.minecraftforge.fluids.capability.IFluidHandler;
+import net.minecraftforge.fluids.capability.templates.EmptyFluidHandler;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.wrapper.EmptyHandler;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
 
 public abstract class PipeBlock extends BaseEntityBlock
 {
-    public static final BooleanProperty EXTRACTS = BooleanProperty.create("extracts");
-    public static final HashMap<Direction, BooleanProperty> CONNECTIONS = createConnections();
+    public static final HashMap<Direction, StringProperty> CONNECTIONS = createConnections();
 
     public PipeBlock(Properties properties)
     {
@@ -41,66 +49,77 @@ public abstract class PipeBlock extends BaseEntityBlock
 
     private void registerStates()
     {
-        registerDefaultState(this.stateDefinition.any().setValue(CONNECTIONS.get(Direction.NORTH), false));
-        registerDefaultState(this.stateDefinition.any().setValue(CONNECTIONS.get(Direction.SOUTH), false));
-        registerDefaultState(this.stateDefinition.any().setValue(CONNECTIONS.get(Direction.EAST), false));
-        registerDefaultState(this.stateDefinition.any().setValue(CONNECTIONS.get(Direction.WEST), false));
-        registerDefaultState(this.stateDefinition.any().setValue(CONNECTIONS.get(Direction.UP), false));
-        registerDefaultState(this.stateDefinition.any().setValue(CONNECTIONS.get(Direction.DOWN), false));
+        for (Direction direction : Direction.values())
+            registerDefaultState(this.stateDefinition.any().setValue(CONNECTIONS.get(direction), "false"));
     }
 
-    private static HashMap<Direction, BooleanProperty> createConnections()
+    private static HashMap<Direction, StringProperty> createConnections()
     {
-        HashMap<Direction, BooleanProperty> map = new HashMap<>();
-        map.put(Direction.NORTH, BooleanProperty.create("north"));
-        map.put(Direction.SOUTH, BooleanProperty.create("south"));
-        map.put(Direction.EAST, BooleanProperty.create("east"));
-        map.put(Direction.WEST, BooleanProperty.create("west"));
-        map.put(Direction.UP, BooleanProperty.create("up"));
-        map.put(Direction.DOWN, BooleanProperty.create("down"));
+        HashMap<Direction, StringProperty> map = new HashMap<>();
+        for (Direction direction : Direction.values())
+            map.put(direction, StringProperty.create(direction.getName(), "false", "true", "extracts"));
         return map;
+    }
+
+    public void cycleConnection(Level level, BlockPos pos, BlockState state, Direction direction)
+    {
+        if (level == null || level.isClientSide() || !(level.getBlockEntity(pos) instanceof PipeBE pipe) || !state.hasProperty(CONNECTIONS.get(direction)))
+            return;
+
+        StringProperty connection = CONNECTIONS.get(direction);
+        BlockEntity be = level.getBlockEntity(pos.relative(direction));
+        switch (state.getValue(connection))
+        {
+            case "false" -> state = state.setValue(connection, "true");
+            case "true" -> state = be instanceof PipeBE ? state.setValue(connection, "false") : state.setValue(connection, "extracts");
+            case "extracts" -> state = state.setValue(connection, "false");
+        }
+        pipe.playerChangedConnection(level, pos, direction, state.getValue(connection).equals("false"));
+        level.setBlockAndUpdate(pos, state);
     }
 
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context)
     {
-        for (BooleanProperty connection : CONNECTIONS.values())
-        {
-            defaultBlockState().setValue(connection, false);
-        }
+        for (StringProperty connection : CONNECTIONS.values())
+            defaultBlockState().setValue(connection, "false");
 
         BlockState state = defaultBlockState();
         for (Direction direction : Direction.values())
         {
             BlockEntity be = context.getLevel().getBlockEntity(context.getClickedPos().relative(direction.getOpposite()));
-            if (be != null)
+            if (be == null)
+                continue;
+
+            if (be.getCapability(ForgeCapabilities.ENERGY).isPresent() && this instanceof CableBlock)
             {
-                be.getCapability(ForgeCapabilities.ENERGY, direction).map(handler ->
-                {
-                    if (handler.getMaxEnergyStored() > 0)
-                    {
-                        state.setValue(CONNECTIONS.get(direction.getOpposite()), true);
-                    }
-                    return false;
-                });
+                IEnergyStorage handler = be.getCapability(ForgeCapabilities.ENERGY, direction).orElse(EnergyStorage.EMPTY);
+                if (handler != EnergyStorage.EMPTY && (handler.canReceive() || handler.canExtract()))
+                    state = state.setValue(CONNECTIONS.get(direction.getOpposite()), "true");
+            }
+            else if (be.getCapability(ForgeCapabilities.ITEM_HANDLER).isPresent() && this instanceof ItemPipeBlock)
+            {
+                IItemHandler handler = be.getCapability(ForgeCapabilities.ITEM_HANDLER, direction).orElse(EmptyHandler.INSTANCE);
+                if (handler != EmptyHandler.INSTANCE && handler.getSlots() > 0)
+                    state = state.setValue(CONNECTIONS.get(direction.getOpposite()), "true");
+            }
+            else if (be.getCapability(ForgeCapabilities.FLUID_HANDLER).isPresent() && this instanceof FluidPipeBlock)
+            {
+                IFluidHandler handler = be.getCapability(ForgeCapabilities.FLUID_HANDLER, direction).orElse(EmptyFluidHandler.INSTANCE);
+                if (handler != EmptyFluidHandler.INSTANCE)
+                    state = state.setValue(CONNECTIONS.get(direction.getOpposite()), "true");
             }
         }
-
-        return state.setValue(EXTRACTS, false);
+        return state;
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder)
     {
         super.createBlockStateDefinition(builder);
-        builder.add(EXTRACTS);
-        builder.add(CONNECTIONS.get(Direction.NORTH));
-        builder.add(CONNECTIONS.get(Direction.SOUTH));
-        builder.add(CONNECTIONS.get(Direction.EAST));
-        builder.add(CONNECTIONS.get(Direction.WEST));
-        builder.add(CONNECTIONS.get(Direction.UP));
-        builder.add(CONNECTIONS.get(Direction.DOWN));
+        for (Direction direction : Direction.values())
+            builder.add(CONNECTIONS.get(direction));
     }
 
     @Override
@@ -113,17 +132,17 @@ public abstract class PipeBlock extends BaseEntityBlock
                 west = Block.box(0, 5, 5, 5, 11, 11),
                 up = Block.box(5, 11, 5, 11, 16, 11),
                 down = Block.box(5, 0, 5, 11, 11, 11);
-        if (state.getValue(CONNECTIONS.get(Direction.NORTH)))
+        if (!state.getValue(CONNECTIONS.get(Direction.NORTH)).equals("false"))
             shape = Shapes.or(shape, north);
-        if (state.getValue(CONNECTIONS.get(Direction.SOUTH)))
+        if (!state.getValue(CONNECTIONS.get(Direction.SOUTH)).equals("false"))
             shape = Shapes.or(shape, south);
-        if (state.getValue(CONNECTIONS.get(Direction.EAST)))
+        if (!state.getValue(CONNECTIONS.get(Direction.EAST)).equals("false"))
             shape = Shapes.or(shape, east);
-        if (state.getValue(CONNECTIONS.get(Direction.WEST)))
+        if (!state.getValue(CONNECTIONS.get(Direction.WEST)).equals("false"))
             shape = Shapes.or(shape, west);
-        if (state.getValue(CONNECTIONS.get(Direction.UP)))
+        if (!state.getValue(CONNECTIONS.get(Direction.UP)).equals("false"))
             shape = Shapes.or(shape, up);
-        if (state.getValue(CONNECTIONS.get(Direction.DOWN)))
+        if (!state.getValue(CONNECTIONS.get(Direction.DOWN)).equals("false"))
             shape = Shapes.or(shape, down);
 
         return shape;
@@ -143,10 +162,7 @@ public abstract class PipeBlock extends BaseEntityBlock
             if (level.getBlockEntity(pos) instanceof ItemPipeBE)
             {
                 if (level instanceof ServerLevel && !player.isCreative() && willHarvest)
-                {
-                    Containers.dropContents(level, pos, NonNullList.withSize(1, new ItemStack(ModItems.PIPE_EXTRACTOR_UPGRADE.get())));
                     Containers.dropContents(level, pos, NonNullList.withSize(1, new ItemStack(this.asItem())));
-                }
                 level.updateNeighbourForOutputSignal(pos, this);
             }
         }

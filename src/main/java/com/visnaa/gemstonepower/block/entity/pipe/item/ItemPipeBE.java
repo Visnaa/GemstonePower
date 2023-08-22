@@ -1,8 +1,8 @@
 package com.visnaa.gemstonepower.block.entity.pipe.item;
 
 import com.visnaa.gemstonepower.block.entity.pipe.PipeBE;
-import com.visnaa.gemstonepower.block.pipe.item.IronItemPipeBlock;
-import com.visnaa.gemstonepower.block.pipe.item.ItemPipeBlock;
+import com.visnaa.gemstonepower.block.pipe.PipeBlock;
+import com.visnaa.gemstonepower.config.ServerConfig;
 import com.visnaa.gemstonepower.pipe.item.ItemPipeNetwork;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -19,21 +19,18 @@ import java.util.List;
 public abstract class ItemPipeBE extends PipeBE
 {
     public ItemPipeNetwork network = new ItemPipeNetwork();
+    public final int transfer;
 
-    public ItemPipeBE(BlockEntityType<?> type, BlockPos pos, BlockState state)
+    public ItemPipeBE(BlockEntityType<?> type, BlockPos pos, BlockState state, int transfer)
     {
         super(type, pos, state);
+        this.transfer = (int) (ServerConfig.ITEM_PIPE_TRANSFER_MUL.get() * transfer);
     }
 
-    public abstract int getTransfer();
-
     @Override
-    public void tick(Level level, BlockPos pos, BlockState state)
+    public int getTransfer()
     {
-        updateConnections(level, pos, state);
-        refreshNetwork(level, pos, state);
-        refreshOutputs(level, pos, state);
-        distributeItems(level, pos, state);
+        return transfer;
     }
 
     public List<ItemStack> getItems()
@@ -60,58 +57,71 @@ public abstract class ItemPipeBE extends PipeBE
         return items.stream().toList();
     }
 
+    @Override
     protected void updateConnections(Level level, BlockPos pos, BlockState state)
     {
         for (Direction direction : Direction.values())
         {
-            BlockEntity be = level.getBlockEntity(pos.relative(direction.getOpposite()));
-            if (be != null && (getClass().isAssignableFrom(be.getClass()) || be.getCapability(ForgeCapabilities.ITEM_HANDLER, direction).isPresent()))
+            if (!(state.getBlock() instanceof PipeBlock))
+                continue;
+
+            BlockEntity be = level.getBlockEntity(pos.relative(direction));
+            if (prohibitedConnections.get(direction))
+                continue;
+
+            if (be == null && !state.getValue(PipeBlock.CONNECTIONS.get(direction)).equals("false"))
             {
-                level.setBlockAndUpdate(pos, level.getBlockState(pos).setValue(IronItemPipeBlock.CONNECTIONS.get(direction.getOpposite()), true));
+                level.setBlockAndUpdate(pos, state = level.getBlockState(pos).setValue(PipeBlock.CONNECTIONS.get(direction), "false"));
                 setChanged(level, pos, state);
-            } else {
-                level.setBlockAndUpdate(pos, level.getBlockState(pos).setValue(IronItemPipeBlock.CONNECTIONS.get(direction.getOpposite()), false));
+            }
+            else if (be != null && (getClass().isAssignableFrom(be.getClass()) || be.getCapability(ForgeCapabilities.ITEM_HANDLER, direction).isPresent()) && state.getValue(PipeBlock.CONNECTIONS.get(direction)).equals("false"))
+            {
+                level.setBlockAndUpdate(pos, state = level.getBlockState(pos).setValue(PipeBlock.CONNECTIONS.get(direction), "true"));
                 setChanged(level, pos, state);
             }
         }
     }
 
+    @Override
     protected void refreshNetwork(Level level, BlockPos pos, BlockState state)
     {
-        if (this.network == null) this.network = new ItemPipeNetwork();
+        if (this.network == null)
+            this.network = new ItemPipeNetwork();
         this.network.refresh();
-        if (this.network == null) this.network = new ItemPipeNetwork();
+        if (this.network == null)
+            this.network = new ItemPipeNetwork();
         this.network.registerToNetwork(this);
         this.setChanged();
 
         for (Direction direction : Direction.values())
         {
-            BlockEntity be = level.getBlockEntity(pos.relative(direction.getOpposite()));
-            if (be != null && getClass().isAssignableFrom(be.getClass()) && ((ItemPipeBE) be).network != null)
-                ((ItemPipeBE) be).network.merge(this.network);
+            BlockEntity be = level.getBlockEntity(pos.relative(direction));
+            if (be instanceof ItemPipeBE pipe && getClass().isAssignableFrom(pipe.getClass()) && pipe.network != null && canMerge(level, pos, direction))
+                pipe.network.merge(this.network);
         }
         setChanged(level, pos, state);
     }
 
-    protected void refreshOutputs(Level level, BlockPos pos, BlockState state)
+    @Override
+    protected void registerNeighbours(Level level, BlockPos pos, BlockState state)
     {
         for (Direction direction : Direction.values())
         {
-            BlockEntity be = level.getBlockEntity(getBlockPos().relative(direction.getOpposite()));
+            BlockEntity be = level.getBlockEntity(getBlockPos().relative(direction));
             if (be != null && be.getCapability(ForgeCapabilities.ITEM_HANDLER, direction).isPresent())
             {
-                if (state.getValue(ItemPipeBlock.EXTRACTS))
-                    network.registerInput(be);
-                else
-                    network.registerOutput(be);
+                if (state.getValue(PipeBlock.CONNECTIONS.get(direction)).equals("extracts"))
+                    network.registerInput(be, direction);
+                else if (state.getValue(PipeBlock.CONNECTIONS.get(direction)).equals("true"))
+                    network.registerOutput(be, direction);
             }
         }
     }
 
-    protected void distributeItems(Level level, BlockPos pos, BlockState state)
+    @Override
+    protected void distribute(Level level, BlockPos pos, BlockState state)
     {
-        if (state.getValue(ItemPipeBlock.EXTRACTS))
-            network.distribute(level, state, getTransfer());
+        network.distribute(level, state, pos, getTransfer());
     }
 
     @Override

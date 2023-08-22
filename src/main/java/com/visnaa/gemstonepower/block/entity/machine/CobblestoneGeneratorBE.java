@@ -1,7 +1,7 @@
 package com.visnaa.gemstonepower.block.entity.machine;
 
 import com.visnaa.gemstonepower.config.ServerConfig;
-import com.visnaa.gemstonepower.registry.ModBlockEntities;
+import com.visnaa.gemstonepower.init.ModBlockEntities;
 import com.visnaa.gemstonepower.util.MachineUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.Container;
@@ -22,7 +22,7 @@ public class CobblestoneGeneratorBE extends MachineBE<Recipe<Container>>
 
     public CobblestoneGeneratorBE(BlockPos pos, BlockState state)
     {
-        super(ModBlockEntities.COBBLESTONE_GENERATOR.get(), null, pos, state, 1, 1);
+        super(ModBlockEntities.COBBLESTONE_GENERATOR.get(), null, pos, state, 1, 1, null);
     }
 
     @Override

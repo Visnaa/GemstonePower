@@ -1,5 +1,17 @@
 <h1 style="font-size: 40px">Gemstone Power version changelog</h1>
 
+<h3>Version: Beta 0.2.9</h3>
+<ul>
+<li>Added option for custom energy unit in client config
+<li>Added metal and crystal wrench
+<li>Added ability to configure pipes and cables using wrench
+<li>Refactored and optimized code
+<li>Displayed energy units are now red
+<li>Removed pipes extraction upgrade
+<li>Fixed support for common tags
+<li>Fixed issue <a href="https://github.com/Visnaa/GemstonePower/issues/1">#1</a>
+</ul>
+
 <h3>Version: Beta 0.2.8</h3>
 <ul>
 <li>Added fluid pipes (Gold, Copper, Invar, Steel)

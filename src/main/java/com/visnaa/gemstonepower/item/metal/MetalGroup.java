@@ -8,7 +8,7 @@ import java.util.List;
 
 public class MetalGroup
 {
-    private final boolean alloy;
+    private final boolean isAlloy;
     private final List<Item> alloyIngots;
     private final List<Block> alloyBlocks;
     private final List<Item> alloyNuggets;
@@ -35,7 +35,7 @@ public class MetalGroup
 
     public MetalGroup(Item ingot, Block block, Block oreStone, Block oreDeepslate, Item raw, Item nugget, Item dust, Item tinyPile, Item oreDust, NonNullList<Item> oreDustWashing, Item plate, Item rod, Item gear, Block wire, Block cable)
     {
-        this.alloy = false;
+        this.isAlloy = false;
         this.alloyIngots = null;
         this.alloyBlocks = null;
         this.alloyNuggets = null;
@@ -63,7 +63,7 @@ public class MetalGroup
 
     public MetalGroup(List<Item> alloyIngots, List<Block> alloyBlocks, List<Item> alloyNuggets, List<Item> alloyDusts, List<Item> alloyTinyPiles, int amount1, int amount2, int amount, Item ingot, Block block, Item nugget, Item dust, Item tinyPile, Item plate, Item rod, Item gear, Block wire, Block cable)
     {
-        this.alloy = true;
+        this.isAlloy = true;
         this.alloyIngots = alloyIngots;
         this.alloyBlocks = alloyBlocks;
         this.alloyNuggets = alloyNuggets;
@@ -91,7 +91,7 @@ public class MetalGroup
 
     public boolean isAlloy()
     {
-        return alloy;
+        return isAlloy;
     }
 
     public List<Item> getAlloyIngots()

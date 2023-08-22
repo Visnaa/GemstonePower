@@ -1,7 +1,7 @@
 package com.visnaa.gemstonepower.item.tool;
 
 import com.visnaa.gemstonepower.client.render.Tints;
-import com.visnaa.gemstonepower.registry.ModItems;
+import com.visnaa.gemstonepower.init.ModItems;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.LazyLoadedValue;

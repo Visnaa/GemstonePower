@@ -9,7 +9,7 @@
       "item": "gemstonepower:intermediate_upgrade"
     },
     "Z": {
-      "tag": "forge:ingots/zinc"
+      "tag": "c:ingots/zinc"
     }
   },
   "pattern": [

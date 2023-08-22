@@ -1,7 +1,7 @@
 package com.visnaa.gemstonepower.data.gen;
 
 import com.visnaa.gemstonepower.GemstonePower;
-import com.visnaa.gemstonepower.registry.ModDamageTypes;
+import com.visnaa.gemstonepower.init.ModDamageTypes;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;

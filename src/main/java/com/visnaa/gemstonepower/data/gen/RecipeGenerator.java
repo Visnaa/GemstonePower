@@ -2,11 +2,11 @@ package com.visnaa.gemstonepower.data.gen;
 
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.data.gen.builder.*;
-import com.visnaa.gemstonepower.data.tag.ForgeTags;
+import com.visnaa.gemstonepower.data.tag.CommonTags;
+import com.visnaa.gemstonepower.init.*;
 import com.visnaa.gemstonepower.item.CrystalArrowItem;
 import com.visnaa.gemstonepower.item.metal.MetalGroup;
 import com.visnaa.gemstonepower.item.metal.MetalGroups;
-import com.visnaa.gemstonepower.registry.*;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
@@ -112,11 +112,29 @@ public class RecipeGenerator extends RecipeProvider
                 .unlockedBy(hasName(ModItems.COAL_DUST.get()), has(ModItems.COAL_DUST.get()))
                 .save(consumer, getFileName(Items.COAL, ModItems.COAL_DUST.get()));
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.METAL_WRENCH.get(), 1)
+                .pattern("I I")
+                .pattern("III")
+                .pattern(" S ")
+                .define('I', Tags.Items.INGOTS)
+                .define('S', Tags.Items.RODS_WOODEN)
+                .unlockedBy("has_ingots", inventoryTrigger(ItemPredicate.Builder.item().of(Tags.Items.INGOTS).build()))
+                .save(consumer, getFileName(ModItems.METAL_WRENCH.get()));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.CRYSTAL_WRENCH.get(), 1)
+                .pattern("G G")
+                .pattern("GGG")
+                .pattern(" S ")
+                .define('G', ModTags.GEMS)
+                .define('S', Tags.Items.RODS_WOODEN)
+                .unlockedBy("has_gems", inventoryTrigger(ItemPredicate.Builder.item().of(ModTags.GEMS).build()))
+                .save(consumer, getFileName(ModItems.CRYSTAL_WRENCH.get()));
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.PLATE_PRESET.get(), 1)
                 .pattern("SPS")
                 .pattern("P#P")
                 .pattern("SPS")
-                .define('#', ForgeTags.Items.PLATES)
+                .define('#', CommonTags.Items.PLATES)
                 .define('P', ItemTags.PLANKS)
                 .define('S', Tags.Items.RODS_WOODEN)
                 .unlockedBy("has_planks", inventoryTrigger(ItemPredicate.Builder.item().of(ItemTags.PLANKS).build()))
@@ -134,7 +152,7 @@ public class RecipeGenerator extends RecipeProvider
                 .pattern("SPS")
                 .pattern("P#P")
                 .pattern("SPS")
-                .define('#', ForgeTags.Items.WIRES)
+                .define('#', CommonTags.Items.WIRES)
                 .define('P', ItemTags.PLANKS)
                 .define('S', Items.STICK)
                 .unlockedBy("has_planks", inventoryTrigger(ItemPredicate.Builder.item().of(ItemTags.PLANKS).build()))
@@ -189,7 +207,7 @@ public class RecipeGenerator extends RecipeProvider
                 .pattern("GGG")
                 .pattern("SGS")
                 .define('G', Tags.Items.GLASS)
-                .define('S', ForgeTags.Items.INGOTS_STEEL)
+                .define('S', CommonTags.Items.INGOTS_STEEL)
                 .unlockedBy(hasName(Blocks.GLASS), has(Blocks.GLASS))
                 .save(consumer, getFileName(ModItems.TANK.get()));
     }
@@ -435,15 +453,6 @@ public class RecipeGenerator extends RecipeProvider
 
     private void pipes(Consumer<FinishedRecipe> consumer)
     {
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.PIPE_EXTRACTOR_UPGRADE.get(), 8)
-                .pattern("N N")
-                .pattern(" P ")
-                .pattern("N N")
-                .define('N', Tags.Items.NUGGETS)
-                .define('P', Items.STICKY_PISTON)
-                .unlockedBy(hasName(Items.STICKY_PISTON), has(Items.STICKY_PISTON))
-                .save(consumer, getFileName(ModItems.PIPE_EXTRACTOR_UPGRADE.get()));
-
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.IRON_ITEM_PIPE.get(), 8)
                 .pattern("I")
                 .pattern("R")
@@ -475,18 +484,18 @@ public class RecipeGenerator extends RecipeProvider
                 .pattern("I")
                 .pattern("R")
                 .pattern("I")
-                .define('I', ForgeTags.Items.INGOTS_PLATINUM)
+                .define('I', CommonTags.Items.INGOTS_PLATINUM)
                 .define('R', Tags.Items.DUSTS_REDSTONE)
-                .unlockedBy(hasName(ModItems.PLATINUM_INGOT.get()), has(ForgeTags.Items.INGOTS_PLATINUM))
+                .unlockedBy(hasName(ModItems.PLATINUM_INGOT.get()), has(CommonTags.Items.INGOTS_PLATINUM))
                 .save(consumer, getFileName(ModItems.PLATINUM_ITEM_PIPE.get()));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.LEAD_ITEM_PIPE.get(), 8)
                 .pattern("I")
                 .pattern("R")
                 .pattern("I")
-                .define('I', ForgeTags.Items.INGOTS_LEAD)
+                .define('I', CommonTags.Items.INGOTS_LEAD)
                 .define('R', Tags.Items.DUSTS_REDSTONE)
-                .unlockedBy(hasName(ModItems.LEAD_INGOT.get()), has(ForgeTags.Items.INGOTS_LEAD))
+                .unlockedBy(hasName(ModItems.LEAD_INGOT.get()), has(CommonTags.Items.INGOTS_LEAD))
                 .save(consumer, getFileName(ModItems.LEAD_ITEM_PIPE.get()));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.GOLD_FLUID_PIPE.get(), 8)
@@ -511,18 +520,18 @@ public class RecipeGenerator extends RecipeProvider
                 .pattern("I")
                 .pattern("B")
                 .pattern("I")
-                .define('I', ForgeTags.Items.INGOTS_INVAR)
+                .define('I', CommonTags.Items.INGOTS_INVAR)
                 .define('B', Items.BUCKET)
-                .unlockedBy(hasName(ModItems.INVAR_INGOT.get()), has(ForgeTags.Items.INGOTS_INVAR))
+                .unlockedBy(hasName(ModItems.INVAR_INGOT.get()), has(CommonTags.Items.INGOTS_INVAR))
                 .save(consumer, getFileName(ModItems.INVAR_FLUID_PIPE.get()));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.STEEL_FLUID_PIPE.get(), 8)
                 .pattern("I")
                 .pattern("B")
                 .pattern("I")
-                .define('I', ForgeTags.Items.INGOTS_STEEL)
+                .define('I', CommonTags.Items.INGOTS_STEEL)
                 .define('B', Items.BUCKET)
-                .unlockedBy(hasName(ModItems.STEEL_INGOT.get()), has(ForgeTags.Items.INGOTS_STEEL))
+                .unlockedBy(hasName(ModItems.STEEL_INGOT.get()), has(CommonTags.Items.INGOTS_STEEL))
                 .save(consumer, getFileName(ModItems.STEEL_FLUID_PIPE.get()));
     }
 
@@ -777,7 +786,7 @@ public class RecipeGenerator extends RecipeProvider
                 .pattern("WGL")
                 .pattern("ICI")
                 .define('I', Tags.Items.INGOTS_IRON)
-                .define('S', ForgeTags.Items.INGOTS_STEEL)
+                .define('S', CommonTags.Items.INGOTS_STEEL)
                 .define('W', Items.WATER_BUCKET)
                 .define('G', Tags.Items.GLASS)
                 .define('L', Items.LAVA_BUCKET)
@@ -788,20 +797,20 @@ public class RecipeGenerator extends RecipeProvider
                 .pattern("AAA")
                 .pattern("GGG")
                 .pattern("AEA")
-                .define('A', ForgeTags.Items.INGOTS_ALUMNUM)
-                .define('G', ForgeTags.Items.GEARS_STEEL)
-                .define('E', ForgeTags.Items.WIRES_ELECTRUM)
-                .unlockedBy("has_aluminum_ingot", inventoryTrigger(ItemPredicate.Builder.item().of(ForgeTags.Items.INGOTS_ALUMNUM).build()))
+                .define('A', CommonTags.Items.INGOTS_ALUMNUM)
+                .define('G', CommonTags.Items.GEARS_STEEL)
+                .define('E', CommonTags.Items.WIRES_ELECTRUM)
+                .unlockedBy("has_aluminum_ingot", inventoryTrigger(ItemPredicate.Builder.item().of(CommonTags.Items.INGOTS_ALUMNUM).build()))
                 .save(consumer, getFileName(ModItems.SAWMILL.get()));
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.POLARIZER.get(), 1)
                 .pattern("ZZZ")
                 .pattern("INC")
                 .pattern("WVW")
-                .define('Z', ForgeTags.Items.INGOTS_ZINC)
+                .define('Z', CommonTags.Items.INGOTS_ZINC)
                 .define('I', Tags.Items.INGOTS_IRON)
-                .define('N', ForgeTags.Items.INGOTS_NICKEL)
-                .define('C', ForgeTags.Items.INGOTS_CONSTANTAN)
-                .define('V', ForgeTags.Items.INGOTS_INVAR)
+                .define('N', CommonTags.Items.INGOTS_NICKEL)
+                .define('C', CommonTags.Items.INGOTS_CONSTANTAN)
+                .define('V', CommonTags.Items.INGOTS_INVAR)
                 .define('W', ModBlocks.COPPER_WIRE.get())
                 .unlockedBy("has_copper_wire", inventoryTrigger(ItemPredicate.Builder.item().of(ModBlocks.COPPER_WIRE.get()).build()))
                 .save(consumer, getFileName(ModItems.POLARIZER.get()));
@@ -822,8 +831,8 @@ public class RecipeGenerator extends RecipeProvider
                 .pattern("CRC")
                 .define('P', ItemTags.PLANKS)
                 .define('S', Tags.Items.RODS_WOODEN)
-                .define('T', ForgeTags.Items.INGOTS_TIN)
-                .define('I', ForgeTags.Items.RODS_IRON)
+                .define('T', CommonTags.Items.INGOTS_TIN)
+                .define('I', CommonTags.Items.RODS_IRON)
                 .define('R', Tags.Items.DUSTS_REDSTONE)
                 .define('C', ModItems.COPPER_WIRE.get())
                 .unlockedBy("has_copper_wire", inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.COPPER_WIRE.get()).build()))
@@ -833,8 +842,8 @@ public class RecipeGenerator extends RecipeProvider
                 .pattern("RGR")
                 .pattern("CRC")
                 .define('A', ModItems.ALUMINUM_BLOCK.get())
-                .define('G', ForgeTags.Items.GEARS_IRON)
-                .define('R', ForgeTags.Items.RODS_INVAR)
+                .define('G', CommonTags.Items.GEARS_IRON)
+                .define('R', CommonTags.Items.RODS_INVAR)
                 .define('C', ModItems.COPPER_WIRE.get())
                 .unlockedBy("has_copper_wire", inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.COPPER_WIRE.get()).build()))
                 .save(consumer, getFileName(ModItems.WIND_TURBINE.get()));
@@ -1082,8 +1091,8 @@ public class RecipeGenerator extends RecipeProvider
                 .pattern("MLM")
                 .pattern("LDL")
                 .pattern("MLM")
-                .define('M', ForgeTags.Items.INGOTS_MAGNESIUM)
-                .define('L', ForgeTags.Items.INGOTS_LITHIUM)
+                .define('M', CommonTags.Items.INGOTS_MAGNESIUM)
+                .define('L', CommonTags.Items.INGOTS_LITHIUM)
                 .define('D', Tags.Items.GEMS_DIAMOND)
                 .unlockedBy("has_diamond", has(Tags.Items.GEMS_DIAMOND))
                 .save(consumer, getFileName(ModItems.INTERMEDIATE_UPGRADE.get()));
@@ -1092,7 +1101,7 @@ public class RecipeGenerator extends RecipeProvider
                 .pattern("ZCZ")
                 .pattern("CUC")
                 .pattern("ZCZ")
-                .define('Z', ForgeTags.Items.INGOTS_ZINC)
+                .define('Z', CommonTags.Items.INGOTS_ZINC)
                 .define('C', ModItems.CITRINE.get())
                 .define('U', ModItems.INTERMEDIATE_UPGRADE.get())
                 .unlockedBy(hasName(ModItems.INTERMEDIATE_UPGRADE.get()), has(ModItems.INTERMEDIATE_UPGRADE.get()))
@@ -1102,7 +1111,7 @@ public class RecipeGenerator extends RecipeProvider
                 .pattern("LTL")
                 .pattern("TUT")
                 .pattern("LTL")
-                .define('L', ForgeTags.Items.INGOTS_LEAD)
+                .define('L', CommonTags.Items.INGOTS_LEAD)
                 .define('T', ModItems.TANZANITE.get())
                 .define('U', ModItems.ADVANCED_UPGRADE.get())
                 .unlockedBy(hasName(ModItems.ADVANCED_UPGRADE.get()), has(ModItems.ADVANCED_UPGRADE.get()))
@@ -1112,7 +1121,7 @@ public class RecipeGenerator extends RecipeProvider
                 .pattern("BIB")
                 .pattern("PUP")
                 .pattern("MIM")
-                .define('I', ForgeTags.Items.INGOTS_URANIUM)
+                .define('I', CommonTags.Items.INGOTS_URANIUM)
                 .define('B', ModItems.BERYLLIUM.get())
                 .define('P', ModItems.PERIDOT.get())
                 .define('M', ModItems.MALACHITE.get())

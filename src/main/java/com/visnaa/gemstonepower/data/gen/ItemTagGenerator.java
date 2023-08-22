@@ -1,9 +1,9 @@
 package com.visnaa.gemstonepower.data.gen;
 
 import com.visnaa.gemstonepower.GemstonePower;
-import com.visnaa.gemstonepower.registry.ModArmors;
-import com.visnaa.gemstonepower.registry.ModItems;
-import com.visnaa.gemstonepower.registry.ModTools;
+import com.visnaa.gemstonepower.init.ModArmors;
+import com.visnaa.gemstonepower.init.ModItems;
+import com.visnaa.gemstonepower.init.ModTools;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.Registry;
 import net.minecraft.data.PackOutput;
@@ -16,9 +16,9 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
 
-import static com.visnaa.gemstonepower.data.tag.ForgeTags.Items.*;
-import static com.visnaa.gemstonepower.registry.ModTags.GEMS;
-import static com.visnaa.gemstonepower.registry.ModTags.*;
+import static com.visnaa.gemstonepower.data.tag.CommonTags.Items.*;
+import static com.visnaa.gemstonepower.init.ModTags.GEMS;
+import static com.visnaa.gemstonepower.init.ModTags.*;
 import static net.minecraft.tags.ItemTags.*;
 import static net.minecraftforge.common.Tags.Items.*;
 

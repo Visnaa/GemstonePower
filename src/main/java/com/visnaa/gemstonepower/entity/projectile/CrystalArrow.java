@@ -1,8 +1,8 @@
 package com.visnaa.gemstonepower.entity.projectile;
 
 import com.visnaa.gemstonepower.client.render.Tints;
+import com.visnaa.gemstonepower.init.ModEntities;
 import com.visnaa.gemstonepower.item.CrystalArrowItem;
-import com.visnaa.gemstonepower.registry.ModEntities;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;

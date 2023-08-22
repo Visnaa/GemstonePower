@@ -7,5 +7,5 @@ import org.joml.Vector2i;
 
 public record ScreenData(Inventory inventory, Component name, ResourceLocation texture, ProgressBarData progressBar)
 {
-    protected record ProgressBarData(Vector2i pos, Vector2i overlayPos, Vector2i dimensions) {}
+    public record ProgressBarData(Vector2i pos, Vector2i overlayPos, Vector2i dimensions) {}
 }

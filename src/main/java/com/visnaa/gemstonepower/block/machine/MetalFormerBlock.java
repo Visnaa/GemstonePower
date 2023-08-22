@@ -1,7 +1,7 @@
 package com.visnaa.gemstonepower.block.machine;
 
 import com.visnaa.gemstonepower.block.entity.machine.MetalFormerBE;
-import com.visnaa.gemstonepower.registry.ModBlockEntities;
+import com.visnaa.gemstonepower.init.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -28,6 +28,6 @@ public class MetalFormerBlock extends MachineBlock<MetalFormerBlock>
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntity)
     {
-        return createTicker(level, blockEntity, ModBlockEntities.METAL_FORMER.get());
+        return MachineBlock.createTicker(level, blockEntity, ModBlockEntities.METAL_FORMER.get());
     }
 }

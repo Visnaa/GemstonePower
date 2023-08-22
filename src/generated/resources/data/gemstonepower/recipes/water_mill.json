@@ -6,7 +6,7 @@
       "item": "gemstonepower:copper_wire"
     },
     "I": {
-      "tag": "forge:rods/iron"
+      "tag": "c:rods/iron"
     },
     "P": {
       "tag": "minecraft:planks"
@@ -18,7 +18,7 @@
       "tag": "forge:rods/wooden"
     },
     "T": {
-      "tag": "forge:ingots/tin"
+      "tag": "c:ingots/tin"
     }
   },
   "pattern": [

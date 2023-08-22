@@ -9,10 +9,10 @@
       "item": "gemstonepower:copper_wire"
     },
     "G": {
-      "tag": "forge:gears/iron"
+      "tag": "c:gears/iron"
     },
     "R": {
-      "tag": "forge:rods/invar"
+      "tag": "c:rods/invar"
     }
   },
   "pattern": [

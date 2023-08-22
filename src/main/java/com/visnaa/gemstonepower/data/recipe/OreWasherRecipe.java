@@ -2,8 +2,8 @@ package com.visnaa.gemstonepower.data.recipe;
 
 import com.google.gson.JsonObject;
 import com.visnaa.gemstonepower.GemstonePower;
-import com.visnaa.gemstonepower.registry.ModBlocks;
-import com.visnaa.gemstonepower.registry.ModRecipes;
+import com.visnaa.gemstonepower.init.ModBlocks;
+import com.visnaa.gemstonepower.init.ModRecipes;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
@@ -171,7 +171,7 @@ public class OreWasherRecipe implements EnergyRecipe, FluidRecipe
                 inputs.set(i, Ingredient.fromNetwork(buffer));
             }
 
-            FluidStack fluid = FluidStack.readFromPacket(buffer);
+            FluidStack fluid = buffer.readFluidStack();
 
             NonNullList<ItemStack> outputs = NonNullList.withSize(buffer.readInt(), ItemStack.EMPTY);
             int[] counts = new int[4];
@@ -190,9 +190,9 @@ public class OreWasherRecipe implements EnergyRecipe, FluidRecipe
         public void toNetwork(FriendlyByteBuf buffer, OreWasherRecipe recipe)
         {
             buffer.writeInt(recipe.getIngredients().size());
-            for (Ingredient seed : recipe.getIngredients())
+            for (Ingredient input : recipe.getIngredients())
             {
-                seed.toNetwork(buffer);
+                input.toNetwork(buffer);
             }
 
             buffer.writeFluidStack(recipe.getFluid());

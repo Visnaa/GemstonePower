@@ -1,9 +1,9 @@
 package com.visnaa.gemstonepower.block;
 
 import com.visnaa.gemstonepower.block.entity.TankBE;
-import com.visnaa.gemstonepower.block.entity.TickingBlockEntity;
-import com.visnaa.gemstonepower.registry.ModBlockEntities;
-import com.visnaa.gemstonepower.registry.ModItems;
+import com.visnaa.gemstonepower.block.machine.MachineBlock;
+import com.visnaa.gemstonepower.init.ModBlockEntities;
+import com.visnaa.gemstonepower.init.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.server.level.ServerLevel;
@@ -57,8 +57,7 @@ public class TankBlock extends BaseEntityBlock
                 if (level instanceof ServerLevel && !player.isCreative() && willHarvest)
                 {
                     ItemStack stack = new ItemStack(ModItems.TANK.get(), 1);
-                    tank.getCapability(ForgeCapabilities.FLUID_HANDLER).map(h -> h.getFluidInTank(0)).orElse(FluidStack.EMPTY).writeToNBT(stack.getTag());
-                    stack.getItem().setDamage(stack, 20001 - stack.getTag().getInt("Amount"));
+                    tank.getCapability(ForgeCapabilities.FLUID_HANDLER).map(h -> h.getFluidInTank(0)).orElse(FluidStack.EMPTY).writeToNBT(stack.getOrCreateTag());
                     Containers.dropContents(level, pos, NonNullList.withSize(1, stack));
                 }
                 level.updateNeighbourForOutputSignal(pos, this);
@@ -105,12 +104,6 @@ public class TankBlock extends BaseEntityBlock
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntity)
     {
-        return createTicker(level, blockEntity, ModBlockEntities.TANK.get());
-    }
-
-    @javax.annotation.Nullable
-    protected static <T extends BlockEntity> BlockEntityTicker<T> createTicker(Level level, BlockEntityType<T> blockEntity, BlockEntityType<? extends TankBE> generator)
-    {
-        return level.isClientSide ? null : createTickerHelper(blockEntity, generator, TickingBlockEntity::serverTick);
+        return MachineBlock.createTicker(level, blockEntity, ModBlockEntities.TANK.get());
     }
 }

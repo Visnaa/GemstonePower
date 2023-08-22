@@ -6,10 +6,10 @@
       "tag": "forge:gems/diamond"
     },
     "L": {
-      "tag": "forge:ingots/lithium"
+      "tag": "c:ingots/lithium"
     },
     "M": {
-      "tag": "forge:ingots/magnesium"
+      "tag": "c:ingots/magnesium"
     }
   },
   "pattern": [

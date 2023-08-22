@@ -2,8 +2,10 @@ package com.visnaa.gemstonepower.block.entity;
 
 import com.visnaa.gemstonepower.block.WaterMillBlock;
 import com.visnaa.gemstonepower.config.ServerConfig;
-import com.visnaa.gemstonepower.pipe.energy.ForgeEnergyStorage;
-import com.visnaa.gemstonepower.registry.ModBlockEntities;
+import com.visnaa.gemstonepower.init.ModBlockEntities;
+import com.visnaa.gemstonepower.network.ModPackets;
+import com.visnaa.gemstonepower.network.packet.EnergySyncS2C;
+import com.visnaa.gemstonepower.pipe.energy.EnergyStorage;
 import com.visnaa.gemstonepower.util.MachineUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -19,7 +21,7 @@ import net.minecraftforge.energy.IEnergyStorage;
 
 import javax.annotation.Nullable;
 
-public class WaterMillBE extends BlockEntity implements TickingBlockEntity
+public class WaterMillBE extends BlockEntity implements TickingBlockEntity, EnergyStorageBE
 {
     private boolean isSpinning;
 
@@ -61,7 +63,7 @@ public class WaterMillBE extends BlockEntity implements TickingBlockEntity
         return isSpinning;
     }
 
-    final ForgeEnergyStorage energyStorage = createEnergyStorage();
+    final EnergyStorage energyStorage = createEnergyStorage();
     LazyOptional<IEnergyStorage> energy = LazyOptional.of(() -> energyStorage);
 
     @Override
@@ -91,12 +93,39 @@ public class WaterMillBE extends BlockEntity implements TickingBlockEntity
         this.energy = LazyOptional.of(() -> energyStorage);
     }
 
-    private ForgeEnergyStorage createEnergyStorage()
+    @Override
+    public void setEnergy(int energy)
     {
-        return new ForgeEnergyStorage(MachineUtil.getCapacity(this.getBlockState(), ServerConfig.DEFAULT_GENERATOR_CAPACITY.get()), 0, Integer.MAX_VALUE) {
+        energyStorage.setEnergy(energy);
+    }
+
+    @Override
+    public void setCapacity(int capacity)
+    {
+        energyStorage.setCapacity(capacity);
+    }
+
+    @Override
+    public int getEnergy()
+    {
+        return energyStorage.getEnergyStored();
+    }
+
+    @Override
+    public int getCapacity()
+    {
+        return energyStorage.getMaxEnergyStored();
+    }
+
+    @Override
+    public EnergyStorage createEnergyStorage()
+    {
+        return new EnergyStorage(MachineUtil.getCapacity(this.getBlockState(), ServerConfig.DEFAULT_GENERATOR_CAPACITY.get()), 0, Integer.MAX_VALUE) {
             @Override
-            protected void onEnergyChanged() {
-                setChanged();
+            public void onEnergyChanged()
+            {
+                if (level != null && !level.isClientSide())
+                    ModPackets.sendToClient(new EnergySyncS2C(energy, capacity, getBlockPos()));
             }
 
             @Override

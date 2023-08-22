@@ -10,17 +10,19 @@ import net.minecraft.util.OptionEnum;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.IntFunction;
 
 public final class MachineUtil
 {
     public static String getEnergyScaled(int energy)
     {
-        final String unit = ClientConfig.ENERGY_UNIT.get().getUnit();
+        final String unit = ClientConfig.ENERGY_UNIT.get();
         int wholeDigits;
         int fractionDigits;
         float scaledEnergy;
@@ -29,7 +31,8 @@ public final class MachineUtil
             scaledEnergy = energy / 1000000f;
             wholeDigits = (int) scaledEnergy;
             fractionDigits = (int) (energy % 1000000) / 100;
-            if (fractionDigits == 0) return wholeDigits + " M" + unit;
+            if (fractionDigits == 0)
+                return wholeDigits + " M" + unit;
             return wholeDigits + "." + fractionDigits + " M" + unit;
         }
         else if (energy > 1000)
@@ -37,19 +40,20 @@ public final class MachineUtil
             scaledEnergy = energy / 1000f;
             wholeDigits = (int) scaledEnergy;
             fractionDigits = (int) (energy % 1000) / 100;
-            if (fractionDigits == 0) return wholeDigits + " k" + unit;
+            if (fractionDigits == 0)
+                return wholeDigits + " k" + unit;
             return wholeDigits + "." + fractionDigits + " k" + unit;
         }
-        return energy + " " + unit;
+        return energy + " §c" + unit;
     }
 
     public static List<Component> getDefaultTooltips(int energy, int maxEnergy)
     {
-        final String unit = ClientConfig.ENERGY_UNIT.get().getUnit();
+        final String unit = ClientConfig.ENERGY_UNIT.get();
         List<Component> components = new ArrayList<>();
         Component energyText = Component.literal("Energy:");
-        Component energyAmount = Component.literal(energy + " " + unit + " / " + maxEnergy + " " + unit);
-        Component energyScaled = Component.literal(MachineUtil.getEnergyScaled(energy) + " / " + MachineUtil.getEnergyScaled(maxEnergy));
+        Component energyAmount = Component.literal("§c" + energy + " " + unit + "§f / §c" + maxEnergy + " " + unit);
+        Component energyScaled = Component.literal("§c" + MachineUtil.getEnergyScaled(energy) + "§f / §c" + MachineUtil.getEnergyScaled(maxEnergy));
         Component shift = Component.translatable("menu." + GemstonePower.MOD_ID + ".energy_shift_tip");
         if (Screen.hasShiftDown())
         {
@@ -104,6 +108,11 @@ public final class MachineUtil
         return 1;
     }
 
+    public static HashMap<Fluid, Integer> createFluidTank(Fluid fluid, int capacity)
+    {
+        return createFluidTank(List.of(fluid), List.of(capacity));
+    }
+
     public static HashMap<Fluid, Integer> createFluidTank(List<Fluid> fluids, List<Integer> capacities)
     {
         HashMap<Fluid, Integer> tanks = new HashMap<>();
@@ -114,9 +123,10 @@ public final class MachineUtil
 
     public enum EnergyUnits implements OptionEnum
     {
-        GE(0, "GE"),
-        FE(1, "FE"),
-        RF(2, "RF");
+        CUSTOM(0, "custom"),
+        GE(1, "GE"),
+        FE(2, "FE"),
+        RF(3, "RF");
 
         private static final IntFunction<EnergyUnits> BY_ID = ByIdMap.continuous(EnergyUnits::getId, values(), ByIdMap.OutOfBoundsStrategy.WRAP);
         private final int id;
@@ -128,11 +138,13 @@ public final class MachineUtil
             this.unit = unit;
         }
 
+        @Override
         public int getId() {
             return this.id;
         }
 
         @Override
+        @NotNull
         public String getKey()
         {
             return "menu." + GemstonePower.MOD_ID + ".config_screen.energy_unit." + unit.toLowerCase();
@@ -146,6 +158,14 @@ public final class MachineUtil
         public static EnergyUnits byId(int id)
         {
             return BY_ID.apply(id);
+        }
+
+        public static EnergyUnits byString(String text)
+        {
+            for (EnergyUnits unit : EnergyUnits.values())
+                if (Objects.equals(unit.getUnit(), text))
+                    return unit;
+            return EnergyUnits.GE;
         }
     }
 }

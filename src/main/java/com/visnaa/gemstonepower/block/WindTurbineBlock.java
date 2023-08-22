@@ -1,9 +1,9 @@
 package com.visnaa.gemstonepower.block;
 
-import com.visnaa.gemstonepower.block.entity.TickingBlockEntity;
 import com.visnaa.gemstonepower.block.entity.WindTurbineBE;
-import com.visnaa.gemstonepower.registry.ModBlockEntities;
-import com.visnaa.gemstonepower.registry.ModItems;
+import com.visnaa.gemstonepower.block.machine.MachineBlock;
+import com.visnaa.gemstonepower.init.ModBlockEntities;
+import com.visnaa.gemstonepower.init.ModItems;
 import com.visnaa.gemstonepower.util.Tier;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -48,7 +48,7 @@ public class WindTurbineBlock extends BaseEntityBlock implements TieredBlock<Win
     @Nullable
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntity)
     {
-        return createTicker(level, blockEntity, ModBlockEntities.WIND_TURBINE.get());
+        return MachineBlock.createTicker(level, blockEntity, ModBlockEntities.WIND_TURBINE.get());
     }
 
     @Override
@@ -74,12 +74,6 @@ public class WindTurbineBlock extends BaseEntityBlock implements TieredBlock<Win
     @Override
     public RenderShape getRenderShape(BlockState state) {
         return RenderShape.MODEL;
-    }
-
-    @Nullable
-    protected static <T extends BlockEntity> BlockEntityTicker<T> createTicker(Level level, BlockEntityType<T> blockEntity, BlockEntityType<? extends WindTurbineBE> generator)
-    {
-        return level.isClientSide ? null : createTickerHelper(blockEntity, generator, TickingBlockEntity::serverTick);
     }
 
     @Override

@@ -1,7 +1,7 @@
 package com.visnaa.gemstonepower.item;
 
 import com.visnaa.gemstonepower.client.render.Tints;
-import com.visnaa.gemstonepower.registry.ModDamageTypes;
+import com.visnaa.gemstonepower.init.ModDamageTypes;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;

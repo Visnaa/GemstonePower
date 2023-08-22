@@ -1,7 +1,7 @@
 package com.visnaa.gemstonepower.data.gen;
 
-import com.visnaa.gemstonepower.registry.ModBlocks;
-import com.visnaa.gemstonepower.registry.ModItems;
+import com.visnaa.gemstonepower.init.ModBlocks;
+import com.visnaa.gemstonepower.init.ModItems;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.packs.VanillaBlockLoot;
 import net.minecraft.world.flag.FeatureFlags;

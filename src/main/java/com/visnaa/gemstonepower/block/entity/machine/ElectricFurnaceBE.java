@@ -1,14 +1,11 @@
 package com.visnaa.gemstonepower.block.entity.machine;
 
 import com.visnaa.gemstonepower.block.machine.ElectricFurnaceBlock;
-import com.visnaa.gemstonepower.menu.MenuData;
-import com.visnaa.gemstonepower.menu.machine.ElectricFurnaceMenu;
+import com.visnaa.gemstonepower.init.ModBlockEntities;
+import com.visnaa.gemstonepower.init.ModMenus;
 import com.visnaa.gemstonepower.network.ModPackets;
 import com.visnaa.gemstonepower.network.packet.RecipeProgressSyncS2C;
-import com.visnaa.gemstonepower.registry.ModBlockEntities;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.SmeltingRecipe;
 import net.minecraft.world.level.Level;
@@ -18,12 +15,7 @@ public class ElectricFurnaceBE extends MachineBE<SmeltingRecipe>
 {
     public ElectricFurnaceBE(BlockPos pos, BlockState state)
     {
-        super(ModBlockEntities.ELECTRIC_FURNACE.get(), RecipeType.SMELTING, pos, state, 1, 1);
-    }
-
-    protected AbstractContainerMenu createMenu(int id, Inventory inv)
-    {
-        return new ElectricFurnaceMenu(new MenuData(id, inv, this, 2, MenuData.createSlots(2)), this.getBlockPos());
+        super(ModBlockEntities.ELECTRIC_FURNACE.get(), RecipeType.SMELTING, pos, state, 1, 1, ModMenus.ELECTRIC_FURNACE.get());
     }
 
     @Override

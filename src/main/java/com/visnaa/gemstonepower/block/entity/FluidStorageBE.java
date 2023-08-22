@@ -1,74 +1,32 @@
 package com.visnaa.gemstonepower.block.entity;
 
-import com.visnaa.gemstonepower.network.ModPackets;
-import com.visnaa.gemstonepower.network.packet.FluidSyncS2C;
 import com.visnaa.gemstonepower.pipe.fluid.MultiFluidTank;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluid;
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidUtil;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandlerItem;
 import net.minecraftforge.fluids.capability.templates.FluidTank;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
 
-public abstract class FluidStorageBE extends BlockEntity implements TickingBlockEntity
+public interface FluidStorageBE
 {
-    protected final MultiFluidTank tanks;
+    void setFluid(int tank, FluidStack stack);
 
-    public FluidStorageBE(BlockEntityType<? extends FluidStorageBE> type, BlockPos pos, BlockState state, HashMap<Fluid, Integer> tanks)
-    {
-        super(type, pos, state);
-        this.tanks = new MultiFluidTank(tanks, this::fluidChanged);
-    }
+    void setCapacity(int tank, int capacity);
 
-    @Override
-    public void setChanged()
-    {
-        super.setChanged();
-        tanks.setChanged(level, getBlockPos());
-    }
+    FluidTank getTank(int tank);
 
-    private void fluidChanged(int tank)
-    {
-        setChanged();
-        if (level != null && !level.isClientSide())
-            ModPackets.sendToClient(new FluidSyncS2C(tanks.getFluidInTank(tank), tanks.getTankCapacity(tank), tank, getBlockPos()));
-    }
+    MultiFluidTank createTanks(HashMap<Fluid, Integer> fluidCapacityMap);
 
-    public void setFluid(int tank, FluidStack stack)
-    {
-        getTank(tank).setFluid(stack);
-    }
-
-    public void setCapacity(int tank, int capacity)
-    {
-        getTank(tank).setCapacity(capacity);
-    }
-
-    public FluidTank getTank(int tank)
-    {
-        return tanks.getTank(tank);
-    }
-
-    public InteractionResult fillFromItem(Level level, Player player, InteractionHand hand)
+    static InteractionResult fillFromItem(Level level, Player player, InteractionHand hand, MultiFluidTank tanks)
     {
         ItemStack item = player.getItemInHand(hand);
         if (item.isEmpty())
@@ -128,30 +86,5 @@ public abstract class FluidStorageBE extends BlockEntity implements TickingBlock
             }
         }
         return InteractionResult.PASS;
-    }
-
-    @Override
-    @NotNull
-    public <T> LazyOptional<T> getCapability(@NotNull Capability<T> capability, @Nullable Direction direction)
-    {
-        if (capability == ForgeCapabilities.FLUID_HANDLER)
-            return LazyOptional.of(() -> tanks).cast();
-        return LazyOptional.empty();
-    }
-
-    @Override
-    public void load(CompoundTag tag)
-    {
-        super.load(tag);
-        tanks.readFromNbt(tag);
-        setChanged();
-    }
-
-    @Override
-    protected void saveAdditional(CompoundTag tag)
-    {
-        super.saveAdditional(tag);
-        tanks.writeToNbt(tag);
-        setChanged();
     }
 }

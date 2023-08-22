@@ -1,7 +1,7 @@
 package com.visnaa.gemstonepower.item.armour;
 
 import com.visnaa.gemstonepower.client.render.Tints;
-import com.visnaa.gemstonepower.registry.ModItems;
+import com.visnaa.gemstonepower.init.ModItems;
 import net.minecraft.Util;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;

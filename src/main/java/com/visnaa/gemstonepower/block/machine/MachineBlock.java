@@ -1,7 +1,6 @@
 package com.visnaa.gemstonepower.block.machine;
 
 import com.visnaa.gemstonepower.block.TieredBlock;
-import com.visnaa.gemstonepower.block.entity.EnergyStorageBE;
 import com.visnaa.gemstonepower.block.entity.TickingBlockEntity;
 import com.visnaa.gemstonepower.block.entity.machine.FluidMachineBE;
 import com.visnaa.gemstonepower.block.entity.machine.MachineBE;
@@ -103,7 +102,8 @@ public abstract class MachineBlock<T extends MachineBlock<T>> extends BaseEntity
                     Containers.dropContents(level, pos, machine);
                     Containers.dropContents(level, pos, NonNullList.withSize(1, new ItemStack(this.asItem())));
                     ItemStack upgrade = Tier.getTierUpgrade(state.getValue(TIER));
-                    if (!upgrade.isEmpty()) Containers.dropContents(level, pos, NonNullList.withSize(1, upgrade));
+                    if (!upgrade.isEmpty())
+                        Containers.dropContents(level, pos, NonNullList.withSize(1, upgrade));
                 }
                 level.updateNeighbourForOutputSignal(pos, this);
             }
@@ -151,8 +151,8 @@ public abstract class MachineBlock<T extends MachineBlock<T>> extends BaseEntity
     abstract public <B extends BlockEntity> BlockEntityTicker<B> getTicker(Level level, BlockState state, BlockEntityType<B> blockEntity);
 
     @Nullable
-    protected <B extends BlockEntity> BlockEntityTicker<B> createTicker(Level level, BlockEntityType<B> blockEntity, BlockEntityType<? extends EnergyStorageBE> machine)
+    public static <B extends BlockEntity> BlockEntityTicker<B> createTicker(Level level, BlockEntityType<B> blockEntity, BlockEntityType<? extends BlockEntity> machine)
     {
-        return createTickerHelper(blockEntity, machine, TickingBlockEntity::serverTick);
+        return createTickerHelper(blockEntity, machine, (lev, pos, state, be) -> TickingBlockEntity.serverTick(level, pos, state, (TickingBlockEntity) be));
     }
 }

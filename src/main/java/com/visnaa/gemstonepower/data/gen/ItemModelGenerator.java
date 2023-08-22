@@ -392,7 +392,8 @@ public class ItemModelGenerator extends ItemModelProvider
         this.withExistingParent("ultra_upgrade", modLoc("item/upgrade"));
         this.withExistingParent("extreme_upgrade", modLoc("item/upgrade"));
 
-        this.singleTexture("pipe_extractor_upgrade", mcLoc("item/generated"), "layer0", modLoc("item/pipe_extractor_upgrade"));
+        this.singleTexture("metal_wrench", mcLoc("item/generated"), "layer0", modLoc("item/metal_wrench"));
+        this.singleTexture("crystal_wrench", mcLoc("item/generated"), "layer0", modLoc("item/crystal_wrench"));
 
         this.singleTexture("plate_preset", mcLoc("item/generated"), "layer0", modLoc("item/plate_preset"));
         this.singleTexture("rod_preset", mcLoc("item/generated"), "layer0", modLoc("item/rod_preset"));

@@ -3,13 +3,13 @@
   "category": "misc",
   "key": {
     "A": {
-      "tag": "forge:ingots/aluminum"
+      "tag": "c:ingots/aluminum"
     },
     "E": {
-      "tag": "forge:wires/electrum"
+      "tag": "c:wires/electrum"
     },
     "G": {
-      "tag": "forge:gears/steel"
+      "tag": "c:gears/steel"
     }
   },
   "pattern": [

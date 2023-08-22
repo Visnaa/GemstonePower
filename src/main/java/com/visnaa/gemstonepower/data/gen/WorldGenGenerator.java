@@ -1,8 +1,8 @@
 package com.visnaa.gemstonepower.data.gen;
 
 import com.visnaa.gemstonepower.GemstonePower;
-import com.visnaa.gemstonepower.registry.ModConfiguredFeatures;
-import com.visnaa.gemstonepower.registry.ModPlacedFeatures;
+import com.visnaa.gemstonepower.init.ModConfiguredFeatures;
+import com.visnaa.gemstonepower.init.ModPlacedFeatures;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;

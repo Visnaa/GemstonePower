@@ -1,6 +1,6 @@
 package com.visnaa.gemstonepower.util;
 
-import com.visnaa.gemstonepower.registry.ModItems;
+import com.visnaa.gemstonepower.init.ModItems;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 

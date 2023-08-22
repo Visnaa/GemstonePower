@@ -2,7 +2,7 @@ package com.visnaa.gemstonepower.util;
 
 import com.visnaa.gemstonepower.block.TieredBlock;
 import com.visnaa.gemstonepower.client.render.Tints;
-import com.visnaa.gemstonepower.registry.ModItems;
+import com.visnaa.gemstonepower.init.ModItems;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.properties.EnumProperty;

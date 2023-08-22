@@ -3,7 +3,6 @@ package com.visnaa.gemstonepower.menu.machine;
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.block.entity.machine.FluidMachineBE;
 import com.visnaa.gemstonepower.block.entity.machine.MachineBE;
-import com.visnaa.gemstonepower.data.recipe.EnergyRecipe;
 import com.visnaa.gemstonepower.menu.MenuData;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.Container;
@@ -13,19 +12,20 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.fluids.capability.templates.FluidTank;
 
-public abstract class MachineMenu extends AbstractContainerMenu
+public class MachineMenu extends AbstractContainerMenu
 {
     private final MenuData data;
     protected final Level level;
     protected final BlockEntity blockEntity;
-    private final RecipeType<? extends EnergyRecipe> recipeType;
+    private final RecipeType<? extends Recipe<Container>> recipeType;
 
-    public MachineMenu(MenuType<?> type, RecipeType<? extends EnergyRecipe> recipe, MenuData data, BlockPos pos)
+    public MachineMenu(MenuType<?> type, RecipeType<? extends Recipe<Container>> recipe, MenuData data, BlockPos pos)
     {
         super(type, data.windowId());
         this.data = data;

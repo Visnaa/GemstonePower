@@ -3,7 +3,7 @@ package com.visnaa.gemstonepower.data.gen;
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.client.render.Tints;
 import com.visnaa.gemstonepower.data.gen.provider.TrimMaterialsProvider;
-import com.visnaa.gemstonepower.registry.ModItems;
+import com.visnaa.gemstonepower.init.ModItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Items;
 

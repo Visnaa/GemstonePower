@@ -1,11 +1,11 @@
 package com.visnaa.gemstonepower.integration.jei.category;
 
 import com.visnaa.gemstonepower.GemstonePower;
-import com.visnaa.gemstonepower.client.screen.MachineScreen;
+import com.visnaa.gemstonepower.client.screen.machine.MachineScreen;
 import com.visnaa.gemstonepower.config.ClientConfig;
 import com.visnaa.gemstonepower.data.recipe.OreWasherRecipe;
+import com.visnaa.gemstonepower.init.ModBlocks;
 import com.visnaa.gemstonepower.integration.jei.GemstonePowerJEIPlugin;
-import com.visnaa.gemstonepower.registry.ModBlocks;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;

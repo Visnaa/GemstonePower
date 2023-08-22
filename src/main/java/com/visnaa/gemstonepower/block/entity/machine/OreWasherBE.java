@@ -1,16 +1,13 @@
 package com.visnaa.gemstonepower.block.entity.machine;
 
 import com.visnaa.gemstonepower.data.recipe.OreWasherRecipe;
-import com.visnaa.gemstonepower.menu.MenuData;
-import com.visnaa.gemstonepower.menu.machine.OreWasherMenu;
-import com.visnaa.gemstonepower.registry.ModBlockEntities;
-import com.visnaa.gemstonepower.registry.ModRecipes;
+import com.visnaa.gemstonepower.init.ModBlockEntities;
+import com.visnaa.gemstonepower.init.ModMenus;
+import com.visnaa.gemstonepower.init.ModRecipes;
 import com.visnaa.gemstonepower.util.MachineUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
-import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
@@ -18,19 +15,12 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 
 import javax.annotation.Nullable;
-import java.util.List;
 
 public class OreWasherBE extends FluidMachineBE<OreWasherRecipe>
 {
     public OreWasherBE(BlockPos pos, BlockState state)
     {
-        super(ModBlockEntities.ORE_WASHER.get(), ModRecipes.ORE_WASHER_RECIPE, pos, state,
-                MachineUtil.createFluidTank(List.of(Fluids.EMPTY), List.of(10000)), 1, 4);
-    }
-
-    protected AbstractContainerMenu createMenu(int id, Inventory inv)
-    {
-        return new OreWasherMenu(new MenuData(id, inv, this, 5, MenuData.createSlots(5)), this.getBlockPos());
+        super(ModBlockEntities.ORE_WASHER.get(), ModRecipes.ORE_WASHER_RECIPE, pos, state, 1, 4, ModMenus.ORE_WASHER.get(), MachineUtil.createFluidTank(Fluids.EMPTY, 10000));
     }
 
     @Override

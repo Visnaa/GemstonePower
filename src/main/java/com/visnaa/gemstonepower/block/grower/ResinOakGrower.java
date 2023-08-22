@@ -1,6 +1,6 @@
 package com.visnaa.gemstonepower.block.grower;
 
-import com.visnaa.gemstonepower.registry.ModConfiguredFeatures;
+import com.visnaa.gemstonepower.init.ModConfiguredFeatures;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.grower.AbstractTreeGrower;

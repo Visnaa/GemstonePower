@@ -3,7 +3,7 @@ package com.visnaa.gemstonepower;
 import com.mojang.logging.LogUtils;
 import com.visnaa.gemstonepower.config.ClientConfig;
 import com.visnaa.gemstonepower.config.ServerConfig;
-import com.visnaa.gemstonepower.registry.*;
+import com.visnaa.gemstonepower.init.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -29,7 +29,7 @@ public class GemstonePower
         ModTools.TOOLS.register(bus);
         ModFeatures.FEATURES.register(bus);
         ModBlockEntities.BLOCK_ENTITIES.register(bus);
-        ModContainers.CONTAINERS.register(bus);
+        ModMenus.CONTAINERS.register(bus);
         ModRecipes.RECIPE_SERIALIZERS.register(bus);
         ModEntities.ENTITIES.register(bus);
 

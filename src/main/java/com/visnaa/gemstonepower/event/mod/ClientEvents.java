@@ -4,9 +4,9 @@ import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.client.render.Tints;
 import com.visnaa.gemstonepower.client.render.block.TankBER;
 import com.visnaa.gemstonepower.client.render.entity.CrystalArrowRenderer;
-import com.visnaa.gemstonepower.client.screen.*;
-import com.visnaa.gemstonepower.config.ConfigScreen;
-import com.visnaa.gemstonepower.registry.*;
+import com.visnaa.gemstonepower.client.screen.ClientConfigScreen;
+import com.visnaa.gemstonepower.client.screen.machine.*;
+import com.visnaa.gemstonepower.init.*;
 import com.visnaa.gemstonepower.util.Tier;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.BiomeColors;
@@ -33,21 +33,21 @@ public class ClientEvents
     public static void clientSetup(FMLClientSetupEvent event)
     {
         ModLoadingContext.get().registerExtensionPoint(ConfigScreenHandler.ConfigScreenFactory.class,
-                () -> new ConfigScreenHandler.ConfigScreenFactory(ConfigScreen::new));
+                () -> new ConfigScreenHandler.ConfigScreenFactory(ClientConfigScreen::new));
 
         event.enqueueWork(() -> {
-            MenuScreens.register(ModContainers.GEMSTONE_GENERATOR.get(), GemstoneGeneratorScreen::new);
-            MenuScreens.register(ModContainers.GEMSTONE_CELL.get(), GemstoneCellScreen::new);
-            MenuScreens.register(ModContainers.CRYSTAL_GROWER.get(), CrystalGrowerScreen::new);
-            MenuScreens.register(ModContainers.CRYSTAL_CHARGER.get(), CrystalChargerScreen::new);
-            MenuScreens.register(ModContainers.ELECTRIC_FURNACE.get(), ElectricFurnaceScreen::new);
-            MenuScreens.register(ModContainers.METAL_FORMER.get(), MetalFormerScreen::new);
-            MenuScreens.register(ModContainers.PULVERIZER.get(), PulverizerScreen::new);
-            MenuScreens.register(ModContainers.ALLOY_SMELTER.get(), AlloySmelterScreen::new);
-            MenuScreens.register(ModContainers.EXTRACTOR.get(), ExtractorScreen::new);
-            MenuScreens.register(ModContainers.ORE_WASHER.get(), OreWasherScreen::new);
-            MenuScreens.register(ModContainers.SAWMILL.get(), SawmillScreen::new);
-            MenuScreens.register(ModContainers.POLARIZER.get(), PolarizerScreen::new);
+            MenuScreens.register(ModMenus.GEMSTONE_GENERATOR.get(), GemstoneGeneratorScreen::new);
+            MenuScreens.register(ModMenus.GEMSTONE_CELL.get(), GemstoneCellScreen::new);
+            MenuScreens.register(ModMenus.CRYSTAL_GROWER.get(), CrystalGrowerScreen::new);
+            MenuScreens.register(ModMenus.CRYSTAL_CHARGER.get(), CrystalChargerScreen::new);
+            MenuScreens.register(ModMenus.ELECTRIC_FURNACE.get(), ElectricFurnaceScreen::new);
+            MenuScreens.register(ModMenus.METAL_FORMER.get(), MetalFormerScreen::new);
+            MenuScreens.register(ModMenus.PULVERIZER.get(), PulverizerScreen::new);
+            MenuScreens.register(ModMenus.ALLOY_SMELTER.get(), AlloySmelterScreen::new);
+            MenuScreens.register(ModMenus.EXTRACTOR.get(), ExtractorScreen::new);
+            MenuScreens.register(ModMenus.ORE_WASHER.get(), OreWasherScreen::new);
+            MenuScreens.register(ModMenus.SAWMILL.get(), SawmillScreen::new);
+            MenuScreens.register(ModMenus.POLARIZER.get(), PolarizerScreen::new);
         });
     }
 

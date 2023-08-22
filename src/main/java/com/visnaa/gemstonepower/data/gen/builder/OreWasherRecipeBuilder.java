@@ -3,7 +3,7 @@ package com.visnaa.gemstonepower.data.gen.builder;
 import com.google.gson.JsonObject;
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.data.recipe.FluidRecipe;
-import com.visnaa.gemstonepower.registry.ModRecipes;
+import com.visnaa.gemstonepower.init.ModRecipes;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.CriterionTriggerInstance;

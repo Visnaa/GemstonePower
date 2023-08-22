@@ -16,6 +16,15 @@
     },
     {
       "apply": {
+        "model": "gemstonepower:block/item_pipe_ext",
+        "x": 270
+      },
+      "when": {
+        "up": "extracts"
+      }
+    },
+    {
+      "apply": {
         "model": "gemstonepower:block/item_pipe_arm",
         "x": 90
       },
@@ -25,10 +34,27 @@
     },
     {
       "apply": {
+        "model": "gemstonepower:block/item_pipe_ext",
+        "x": 90
+      },
+      "when": {
+        "down": "extracts"
+      }
+    },
+    {
+      "apply": {
         "model": "gemstonepower:block/item_pipe_arm"
       },
       "when": {
         "north": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "gemstonepower:block/item_pipe_ext"
+      },
+      "when": {
+        "north": "extracts"
       }
     },
     {
@@ -42,6 +68,15 @@
     },
     {
       "apply": {
+        "model": "gemstonepower:block/item_pipe_ext",
+        "y": 180
+      },
+      "when": {
+        "south": "extracts"
+      }
+    },
+    {
+      "apply": {
         "model": "gemstonepower:block/item_pipe_arm",
         "y": 270
       },
@@ -51,11 +86,29 @@
     },
     {
       "apply": {
+        "model": "gemstonepower:block/item_pipe_ext",
+        "y": 270
+      },
+      "when": {
+        "west": "extracts"
+      }
+    },
+    {
+      "apply": {
         "model": "gemstonepower:block/item_pipe_arm",
         "y": 90
       },
       "when": {
         "east": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "gemstonepower:block/item_pipe_ext",
+        "y": 90
+      },
+      "when": {
+        "east": "extracts"
       }
     }
   ]

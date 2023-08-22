@@ -20,8 +20,12 @@ public class ServerConfig
     public static final ForgeConfigSpec.DoubleValue ULTRA_TIER_MULTIPLIER;
     public static final ForgeConfigSpec.DoubleValue EXTREME_TIER_MULTIPLIER;
 
+    public static final ForgeConfigSpec.LongValue ENERGY_CABLE_FREQUENCY;
+    public static final ForgeConfigSpec.DoubleValue ENERGY_CABLE_TRANSFER_MUL;
     public static final ForgeConfigSpec.LongValue ITEM_PIPE_FREQUENCY;
+    public static final ForgeConfigSpec.DoubleValue ITEM_PIPE_TRANSFER_MUL;
     public static final ForgeConfigSpec.LongValue FLUID_PIPE_FREQUENCY;
+    public static final ForgeConfigSpec.DoubleValue FLUID_PIPE_TRANSFER_MUL;
 
     static
     {
@@ -63,10 +67,18 @@ public class ServerConfig
         BUILDER.comment(" Fluid & Item pipe settings" + " ".repeat(1) + "#");
         BUILDER.comment("#".repeat(29));
 
+        ENERGY_CABLE_FREQUENCY = BUILDER.comment("Sets in what time intervals cables and wires distribute energy (in ticks)")
+                .defineInRange("item_pipe_frequency", 1L, 1L, Long.MAX_VALUE);
+        ENERGY_CABLE_TRANSFER_MUL = BUILDER.comment("Multiplies base cable transfer by specified amount")
+                .defineInRange("energy_cable_transfer_mul", 1, 0, Double.MAX_VALUE);
         ITEM_PIPE_FREQUENCY = BUILDER.comment("Sets in what time intervals item pipes distribute items (in ticks)")
                 .defineInRange("item_pipe_frequency", 1L, 1L, Long.MAX_VALUE);
+        ITEM_PIPE_TRANSFER_MUL = BUILDER.comment("Multiplies base item pipe transfer by specified amount")
+                .defineInRange("item_pipe_transfer_mul", 1, 0, Double.MAX_VALUE);
         FLUID_PIPE_FREQUENCY = BUILDER.comment("Sets in what time intervals fluid pipes distribute fluids (in ticks)")
                 .defineInRange("fluid_pipe_frequency", 1L, 1L, Long.MAX_VALUE);
+        FLUID_PIPE_TRANSFER_MUL = BUILDER.comment("Multiplies base fluid pipe transfer by specified amount")
+                .defineInRange("fluid_pipe_transfer_mul", 1, 0, Double.MAX_VALUE);
 
         BUILDER.pop();
         CONFIG = BUILDER.build();

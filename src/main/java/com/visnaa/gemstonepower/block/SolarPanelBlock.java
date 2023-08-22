@@ -1,9 +1,9 @@
 package com.visnaa.gemstonepower.block;
 
 import com.visnaa.gemstonepower.block.entity.SolarPanelBE;
-import com.visnaa.gemstonepower.block.entity.TickingBlockEntity;
-import com.visnaa.gemstonepower.registry.ModBlockEntities;
-import com.visnaa.gemstonepower.registry.ModItems;
+import com.visnaa.gemstonepower.block.machine.MachineBlock;
+import com.visnaa.gemstonepower.init.ModBlockEntities;
+import com.visnaa.gemstonepower.init.ModItems;
 import com.visnaa.gemstonepower.util.Tier;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
@@ -52,7 +52,7 @@ public class SolarPanelBlock extends BaseEntityBlock implements TieredBlock<Sola
     @Nullable
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntity)
     {
-        return createTicker(level, blockEntity, ModBlockEntities.SOLAR_PANEL.get());
+        return MachineBlock.createTicker(level, blockEntity, ModBlockEntities.SOLAR_PANEL.get());
     }
 
     @Override
@@ -84,11 +84,5 @@ public class SolarPanelBlock extends BaseEntityBlock implements TieredBlock<Sola
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder)
     {
         builder.add(TIER);
-    }
-
-    @Nullable
-    protected static <T extends BlockEntity> BlockEntityTicker<T> createTicker(Level level, BlockEntityType<T> blockEntity, BlockEntityType<? extends SolarPanelBE> generator)
-    {
-        return level.isClientSide ? null : createTickerHelper(blockEntity, generator, TickingBlockEntity::serverTick);
     }
 }

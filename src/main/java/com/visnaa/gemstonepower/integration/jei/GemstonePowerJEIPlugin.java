@@ -1,13 +1,13 @@
 package com.visnaa.gemstonepower.integration.jei;
 
 import com.visnaa.gemstonepower.GemstonePower;
-import com.visnaa.gemstonepower.client.screen.*;
+import com.visnaa.gemstonepower.client.screen.machine.*;
 import com.visnaa.gemstonepower.data.recipe.*;
+import com.visnaa.gemstonepower.init.ModBlocks;
+import com.visnaa.gemstonepower.init.ModMenus;
+import com.visnaa.gemstonepower.init.ModRecipes;
 import com.visnaa.gemstonepower.integration.jei.category.*;
 import com.visnaa.gemstonepower.menu.machine.*;
-import com.visnaa.gemstonepower.registry.ModBlocks;
-import com.visnaa.gemstonepower.registry.ModContainers;
-import com.visnaa.gemstonepower.registry.ModRecipes;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.RecipeTypes;
@@ -115,15 +115,15 @@ public class GemstonePowerJEIPlugin implements IModPlugin
     @Override
     public void registerRecipeTransferHandlers(IRecipeTransferRegistration registration)
     {
-        registration.addRecipeTransferHandler(CrystalGrowerMenu.class, ModContainers.CRYSTAL_GROWER.get(), CRYSTAL_GROWER_CATEGORY, 0, 2, 2, 35);
-        registration.addRecipeTransferHandler(CrystalChargerMenu.class, ModContainers.CRYSTAL_CHARGER.get(), CRYSTAL_CHARGER_CATEGORY, 0, 2, 2, 35);
+        registration.addRecipeTransferHandler(CrystalGrowerMenu.class, ModMenus.CRYSTAL_GROWER.get(), CRYSTAL_GROWER_CATEGORY, 0, 2, 2, 35);
+        registration.addRecipeTransferHandler(CrystalChargerMenu.class, ModMenus.CRYSTAL_CHARGER.get(), CRYSTAL_CHARGER_CATEGORY, 0, 2, 2, 35);
 
-        registration.addRecipeTransferHandler(MetalFormerMenu.class, ModContainers.METAL_FORMER.get(), METAL_FORMER_CATEGORY, 0, 3, 3, 36);
-        registration.addRecipeTransferHandler(PulverizerMenu.class, ModContainers.PULVERIZER.get(), PULVERIZER_CATEGORY, 0, 1, 2, 35);
-        registration.addRecipeTransferHandler(AlloySmelterMenu.class, ModContainers.ALLOY_SMELTER.get(), ALLOY_SMELTER_CATEGORY, 0, 3, 3, 36);
-        registration.addRecipeTransferHandler(ExtractorMenu.class, ModContainers.EXTRACTOR.get(), EXTRACTOR_CATEGORY, 0, 1, 2, 35);
-        registration.addRecipeTransferHandler(OreWasherMenu.class, ModContainers.ORE_WASHER.get(), ORE_WASHER_CATEGORY, 0, 1, 2, 35);
-        registration.addRecipeTransferHandler(SawmillMenu.class, ModContainers.SAWMILL.get(), SAWMILL_CATEGORY, 0, 1, 2, 35);
-        registration.addRecipeTransferHandler(PolarizerMenu.class, ModContainers.POLARIZER.get(), POLARIZER_CATEGORY, 0, 1, 2, 35);
+        registration.addRecipeTransferHandler(MetalFormerMenu.class, ModMenus.METAL_FORMER.get(), METAL_FORMER_CATEGORY, 0, 3, 3, 36);
+        registration.addRecipeTransferHandler(PulverizerMenu.class, ModMenus.PULVERIZER.get(), PULVERIZER_CATEGORY, 0, 1, 2, 35);
+        registration.addRecipeTransferHandler(AlloySmelterMenu.class, ModMenus.ALLOY_SMELTER.get(), ALLOY_SMELTER_CATEGORY, 0, 3, 3, 36);
+        registration.addRecipeTransferHandler(ExtractorMenu.class, ModMenus.EXTRACTOR.get(), EXTRACTOR_CATEGORY, 0, 1, 2, 35);
+        registration.addRecipeTransferHandler(OreWasherMenu.class, ModMenus.ORE_WASHER.get(), ORE_WASHER_CATEGORY, 0, 1, 2, 35);
+        registration.addRecipeTransferHandler(SawmillMenu.class, ModMenus.SAWMILL.get(), SAWMILL_CATEGORY, 0, 1, 2, 35);
+        registration.addRecipeTransferHandler(PolarizerMenu.class, ModMenus.POLARIZER.get(), POLARIZER_CATEGORY, 0, 1, 2, 35);
     }
 }

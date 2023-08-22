@@ -1,16 +1,13 @@
 package com.visnaa.gemstonepower.block.entity.machine;
 
 import com.visnaa.gemstonepower.data.recipe.MetalFormerRecipe;
-import com.visnaa.gemstonepower.menu.MenuData;
-import com.visnaa.gemstonepower.menu.machine.MetalFormerMenu;
-import com.visnaa.gemstonepower.registry.ModBlockEntities;
-import com.visnaa.gemstonepower.registry.ModRecipes;
+import com.visnaa.gemstonepower.init.ModBlockEntities;
+import com.visnaa.gemstonepower.init.ModMenus;
+import com.visnaa.gemstonepower.init.ModRecipes;
 import com.visnaa.gemstonepower.util.MachinePresets;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
-import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -20,12 +17,7 @@ public class MetalFormerBE extends MachineBE<MetalFormerRecipe>
 {
     public MetalFormerBE(BlockPos pos, BlockState state)
     {
-        super(ModBlockEntities.METAL_FORMER.get(), ModRecipes.METAL_FORMER_RECIPE, pos, state, 2, 1);
-    }
-
-    protected AbstractContainerMenu createMenu(int id, Inventory inv)
-    {
-        return new MetalFormerMenu(new MenuData(id, inv, this, 3, MenuData.createSlots(3)), this.getBlockPos());
+        super(ModBlockEntities.METAL_FORMER.get(), ModRecipes.METAL_FORMER_RECIPE, pos, state, 2, 1, ModMenus.METAL_FORMER.get());
     }
 
     @Override

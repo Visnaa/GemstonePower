@@ -12,5 +12,5 @@ public interface TickingBlockEntity
             blockEntity.tick(level, pos, state);
     }
 
-    public void tick(Level level, BlockPos pos, BlockState state);
+    void tick(Level level, BlockPos pos, BlockState state);
 }

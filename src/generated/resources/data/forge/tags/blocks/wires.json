@@ -1,8 +1,0 @@
-{
-  "values": [
-    "#forge:wires/copper",
-    "#forge:wires/aluminum",
-    "#forge:wires/tin",
-    "#forge:wires/electrum"
-  ]
-}

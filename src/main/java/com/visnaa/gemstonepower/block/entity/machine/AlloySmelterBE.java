@@ -1,15 +1,12 @@
 package com.visnaa.gemstonepower.block.entity.machine;
 
 import com.visnaa.gemstonepower.data.recipe.AlloySmelterRecipe;
-import com.visnaa.gemstonepower.menu.MenuData;
-import com.visnaa.gemstonepower.menu.machine.AlloySmelterMenu;
-import com.visnaa.gemstonepower.registry.ModBlockEntities;
-import com.visnaa.gemstonepower.registry.ModRecipes;
+import com.visnaa.gemstonepower.init.ModBlockEntities;
+import com.visnaa.gemstonepower.init.ModMenus;
+import com.visnaa.gemstonepower.init.ModRecipes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
-import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -19,13 +16,7 @@ public class AlloySmelterBE extends MachineBE<AlloySmelterRecipe>
 {
     public AlloySmelterBE(BlockPos pos, BlockState state)
     {
-        super(ModBlockEntities.ALLOY_SMELTER.get(), ModRecipes.ALLOY_SMELTER_RECIPE, pos, state, 2, 1);
-    }
-
-    @Override
-    protected AbstractContainerMenu createMenu(int id, Inventory inv)
-    {
-        return new AlloySmelterMenu(new MenuData(id, inv, this, 3, MenuData.createSlots(3)), this.getBlockPos());
+        super(ModBlockEntities.ALLOY_SMELTER.get(), ModRecipes.ALLOY_SMELTER_RECIPE, pos, state, 2, 1, ModMenus.ALLOY_SMELTER.get());
     }
 
     @Override

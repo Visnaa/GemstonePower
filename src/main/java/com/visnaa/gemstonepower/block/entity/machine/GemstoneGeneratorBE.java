@@ -3,18 +3,15 @@ package com.visnaa.gemstonepower.block.entity.machine;
 import com.visnaa.gemstonepower.block.machine.GemstoneGeneratorBlock;
 import com.visnaa.gemstonepower.config.ServerConfig;
 import com.visnaa.gemstonepower.data.recipe.GemstoneGeneratorRecipe;
-import com.visnaa.gemstonepower.menu.MenuData;
-import com.visnaa.gemstonepower.menu.machine.GemstoneGeneratorMenu;
+import com.visnaa.gemstonepower.init.ModBlockEntities;
+import com.visnaa.gemstonepower.init.ModMenus;
+import com.visnaa.gemstonepower.init.ModRecipes;
 import com.visnaa.gemstonepower.network.ModPackets;
 import com.visnaa.gemstonepower.network.packet.EnergySyncS2C;
 import com.visnaa.gemstonepower.network.packet.RecipeProgressSyncS2C;
-import com.visnaa.gemstonepower.pipe.energy.ForgeEnergyStorage;
-import com.visnaa.gemstonepower.registry.ModBlockEntities;
-import com.visnaa.gemstonepower.registry.ModRecipes;
+import com.visnaa.gemstonepower.pipe.energy.EnergyStorage;
 import com.visnaa.gemstonepower.util.MachineUtil;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -24,12 +21,7 @@ public class GemstoneGeneratorBE extends MachineBE<GemstoneGeneratorRecipe>
 
     public GemstoneGeneratorBE(BlockPos pos, BlockState state)
     {
-        super(ModBlockEntities.GEMSTONE_GENERATOR.get(), ModRecipes.GEMSTONE_GENERATOR_RECIPE, pos, state, 1, 0);
-    }
-
-    protected AbstractContainerMenu createMenu(int id, Inventory inv)
-    {
-        return new GemstoneGeneratorMenu(new MenuData(id, inv, this, 1, MenuData.createSlots(1)), this.getBlockPos());
+        super(ModBlockEntities.GEMSTONE_GENERATOR.get(), ModRecipes.GEMSTONE_GENERATOR_RECIPE, pos, state, 1, 0, ModMenus.GEMSTONE_GENERATOR.get());
     }
 
     @Override
@@ -77,9 +69,9 @@ public class GemstoneGeneratorBE extends MachineBE<GemstoneGeneratorRecipe>
     }
 
     @Override
-    protected ForgeEnergyStorage createEnergyStorage()
+    public EnergyStorage createEnergyStorage()
     {
-        return new ForgeEnergyStorage(MachineUtil.getCapacity(this.getBlockState(), ServerConfig.DEFAULT_GENERATOR_CAPACITY.get()), 0, Integer.MAX_VALUE) {
+        return new EnergyStorage(MachineUtil.getCapacity(this.getBlockState(), ServerConfig.DEFAULT_GENERATOR_CAPACITY.get()), 0, Integer.MAX_VALUE) {
             @Override
             public void onEnergyChanged() {
                 setChanged();

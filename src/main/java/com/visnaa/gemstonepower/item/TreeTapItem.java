@@ -1,7 +1,7 @@
 package com.visnaa.gemstonepower.item;
 
-import com.visnaa.gemstonepower.registry.ModBlocks;
-import com.visnaa.gemstonepower.registry.ModItems;
+import com.visnaa.gemstonepower.init.ModBlocks;
+import com.visnaa.gemstonepower.init.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.sounds.SoundEvents;

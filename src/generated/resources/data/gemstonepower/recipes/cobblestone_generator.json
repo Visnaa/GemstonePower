@@ -15,7 +15,7 @@
       "item": "minecraft:lava_bucket"
     },
     "S": {
-      "tag": "forge:ingots/steel"
+      "tag": "c:ingots/steel"
     },
     "W": {
       "item": "minecraft:water_bucket"

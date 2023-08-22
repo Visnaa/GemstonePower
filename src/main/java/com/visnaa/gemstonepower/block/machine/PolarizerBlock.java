@@ -1,7 +1,7 @@
 package com.visnaa.gemstonepower.block.machine;
 
 import com.visnaa.gemstonepower.block.entity.machine.PolarizerBE;
-import com.visnaa.gemstonepower.registry.ModBlockEntities;
+import com.visnaa.gemstonepower.init.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -28,6 +28,6 @@ public class PolarizerBlock extends MachineBlock<PolarizerBlock>
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntity)
     {
-        return createTicker(level, blockEntity, ModBlockEntities.POLARIZER.get());
+        return MachineBlock.createTicker(level, blockEntity, ModBlockEntities.POLARIZER.get());
     }
 }

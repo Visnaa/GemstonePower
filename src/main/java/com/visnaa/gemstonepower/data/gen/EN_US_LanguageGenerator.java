@@ -1,7 +1,7 @@
 package com.visnaa.gemstonepower.data.gen;
 
 import com.visnaa.gemstonepower.GemstonePower;
-import com.visnaa.gemstonepower.registry.*;
+import com.visnaa.gemstonepower.init.*;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.LanguageProvider;
 
@@ -456,6 +456,7 @@ public class EN_US_LanguageGenerator extends LanguageProvider
         this.add("menu." + GemstonePower.MOD_ID + ".config_screen.energy_unit.ge", "GE (Gemstone Energy)");
         this.add("menu." + GemstonePower.MOD_ID + ".config_screen.energy_unit.fe", "FE (Forge Energy)");
         this.add("menu." + GemstonePower.MOD_ID + ".config_screen.energy_unit.rf", "RF (Redstone Flux)");
+        this.add("menu." + GemstonePower.MOD_ID + ".config_screen.energy_unit.custom", "Custom Unit");
 
     // CABLES & PIPES
         this.add(ModBlocks.COPPER_WIRE.get(), "Copper Wire");
@@ -484,9 +485,10 @@ public class EN_US_LanguageGenerator extends LanguageProvider
         this.add(ModItems.ULTRA_UPGRADE.get(), "Ultra Upgrade");
         this.add(ModItems.EXTREME_UPGRADE.get(), "Extreme Upgrade");
 
-        this.add(ModItems.PIPE_EXTRACTOR_UPGRADE.get(), "Pipe Extractor Upgrade");
-
         this.add(ModItems.TANK.get(), "Fluid Tank");
+
+        this.add(ModItems.METAL_WRENCH.get(), "Metal Wrench");
+        this.add(ModItems.CRYSTAL_WRENCH.get(), "Crystal Wrench");
 
         this.add(ModItems.PLATE_PRESET.get(), "Plate Preset");
         this.add(ModItems.ROD_PRESET.get(), "Rod Preset");

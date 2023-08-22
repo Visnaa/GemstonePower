@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "I": {
-      "tag": "forge:ingots/platinum"
+      "tag": "c:ingots/platinum"
     },
     "R": {
       "tag": "forge:dusts/redstone"

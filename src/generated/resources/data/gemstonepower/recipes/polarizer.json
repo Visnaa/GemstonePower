@@ -3,22 +3,22 @@
   "category": "misc",
   "key": {
     "C": {
-      "tag": "forge:ingots/constantan"
+      "tag": "c:ingots/constantan"
     },
     "I": {
       "tag": "forge:ingots/iron"
     },
     "N": {
-      "tag": "forge:ingots/nickel"
+      "tag": "c:ingots/nickel"
     },
     "V": {
-      "tag": "forge:ingots/invar"
+      "tag": "c:ingots/invar"
     },
     "W": {
       "item": "gemstonepower:copper_wire"
     },
     "Z": {
-      "tag": "forge:ingots/zinc"
+      "tag": "c:ingots/zinc"
     }
   },
   "pattern": [

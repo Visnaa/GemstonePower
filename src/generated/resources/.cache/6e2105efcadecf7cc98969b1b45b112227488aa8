@@ -1,4 +1,4 @@
-// 1.20.1	2023-08-09T18:02:29.3294765	Item Models: gemstonepower
+// 1.20.1	2023-08-23T00:22:09.6461042	Item Models: gemstonepower
 be34f5217cc5560117eb30a30fbad66db313c194 assets/gemstonepower/models/item/advanced_upgrade.json
 e3593875d30c80acaaf80db0b0abb02f8b3afe92 assets/gemstonepower/models/item/aluminum_axe.json
 82316ffbb3b22484a942751c9af83d6c170297f5 assets/gemstonepower/models/item/aluminum_boots.json
@@ -101,6 +101,7 @@ ba2da46670b17cc76b7c335bf3823e42f1d79951 assets/gemstonepower/models/item/copper
 391353e5d592121760c32187073f2c0e30f15707 assets/gemstonepower/models/item/copper_sword.json
 8caef1a21e2e717fd8bfd8a04c6c79976960d908 assets/gemstonepower/models/item/copper_tiny_pile.json
 b3c4770ca2adc945a8629694f743412b5c73d9e2 assets/gemstonepower/models/item/copper_wire.json
+1a77e8d63089d85bddac6fac1361cfb600904331 assets/gemstonepower/models/item/crystal_wrench.json
 f31f79468fffa0a58bdf7398f441c846b01d4462 assets/gemstonepower/models/item/cuprite_crystal.json
 f31f79468fffa0a58bdf7398f441c846b01d4462 assets/gemstonepower/models/item/cuprite_crystal_charged.json
 52c934e12fcec0e3e76b8d41181f24e5be03cc51 assets/gemstonepower/models/item/cuprite_crystal_seed.json
@@ -191,6 +192,7 @@ ba2da46670b17cc76b7c335bf3823e42f1d79951 assets/gemstonepower/models/item/magnes
 0e5fb7c3647b50f1daf6c46bd9af82c04d3df3c7 assets/gemstonepower/models/item/malachite_arrow.json
 52b1d96db17be6fc99a74674e741047bfdf8b725 assets/gemstonepower/models/item/malachite_charged.json
 1ce271cd88c05d2a75c047bf9faed11a13dc8fce assets/gemstonepower/models/item/malachite_seed.json
+2e1b70e78ee90c5043561365103707171153a682 assets/gemstonepower/models/item/metal_wrench.json
 6c4dc7d56390609e6836e12bf088bec2a203508c assets/gemstonepower/models/item/moon_stone.json
 0e5fb7c3647b50f1daf6c46bd9af82c04d3df3c7 assets/gemstonepower/models/item/moon_stone_arrow.json
 6c4dc7d56390609e6836e12bf088bec2a203508c assets/gemstonepower/models/item/moon_stone_charged.json
@@ -216,7 +218,6 @@ d69e5e4d9d5e5cc82c0018a9710f0bb662ea9fd0 assets/gemstonepower/models/item/perido
 0e5fb7c3647b50f1daf6c46bd9af82c04d3df3c7 assets/gemstonepower/models/item/peridot_arrow.json
 d69e5e4d9d5e5cc82c0018a9710f0bb662ea9fd0 assets/gemstonepower/models/item/peridot_charged.json
 1ce271cd88c05d2a75c047bf9faed11a13dc8fce assets/gemstonepower/models/item/peridot_seed.json
-1d4335373aa20e077488200c671e2cbd48a4dbb3 assets/gemstonepower/models/item/pipe_extractor_upgrade.json
 39fdcc64e791e0156a5db7c4364680854f60388e assets/gemstonepower/models/item/plate_preset.json
 5418fccba2a873b87666cf169860ab14e2ec74f2 assets/gemstonepower/models/item/platinum_dust.json
 0b8692cf1073acb1de45e13e94036c203151659e assets/gemstonepower/models/item/platinum_gear.json

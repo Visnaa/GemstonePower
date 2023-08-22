@@ -2,9 +2,9 @@ package com.visnaa.gemstonepower.pipe.item;
 
 import com.visnaa.gemstonepower.block.entity.pipe.PipeBE;
 import com.visnaa.gemstonepower.block.entity.pipe.item.ItemPipeBE;
-import com.visnaa.gemstonepower.block.pipe.item.ItemPipeBlock;
 import com.visnaa.gemstonepower.config.ServerConfig;
 import com.visnaa.gemstonepower.pipe.PipeNetwork;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.Container;
 import net.minecraft.world.WorldlyContainer;
@@ -13,49 +13,63 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.wrapper.EmptyHandler;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
-public class ItemPipeNetwork implements PipeNetwork
+public class ItemPipeNetwork implements PipeNetwork<ItemPipeBE>
 {
-    private List<ItemPipeBE> pipes;
-    public Set<BlockEntity> inputs;
-    public Set<BlockEntity> outputs;
+    private Set<ItemPipeBE> pipes;
+    public HashMap<BlockEntity, Direction> inputs;
+    public HashMap<BlockEntity, Direction> outputs;
     private long lastDistribution;
 
     public ItemPipeNetwork()
     {
-        this.pipes = new ArrayList<>();
-        this.inputs = new HashSet<>();
-        this.outputs = new HashSet<>();
+        this.pipes = new HashSet<>();
+        this.inputs = new HashMap<>();
+        this.outputs = new HashMap<>();
     }
 
+    @Override
     public void registerToNetwork(ItemPipeBE pipe)
     {
-        if (!this.pipes.contains(pipe))
-            this.pipes.add(pipe);
+        this.pipes.add(pipe);
     }
 
-    public void registerInput(BlockEntity input)
+    public void registerInput(BlockEntity input, Direction dir)
     {
-        if (input != null) this.inputs.add(input);
+        if (input != null)
+        {
+            inputs.put(input, dir);
+            outputs.remove(input);
+        }
     }
 
-    public void registerOutput(BlockEntity output)
+    public void registerOutput(BlockEntity output, Direction dir)
     {
-        if (output != null) this.outputs.add(output);
+        if (output != null)
+        {
+            outputs.put(output, dir);
+            inputs.remove(output);
+        }
     }
 
     public void refresh()
     {
-        this.inputs.removeIf(be -> be == null ||
-                !be.getCapability(ForgeCapabilities.ITEM_HANDLER).isPresent());
+        for (BlockEntity be : new HashSet<>(inputs.keySet()))
+            if (be.isRemoved() || !be.getCapability(ForgeCapabilities.ITEM_HANDLER, inputs.get(be)).isPresent())
+                inputs.remove(be);
 
-        this.outputs.removeIf(be -> be == null ||
-                !be.getCapability(ForgeCapabilities.ITEM_HANDLER).isPresent());
+        for (BlockEntity be : new HashSet<>(outputs.keySet()))
+            if (be.isRemoved() || !be.getCapability(ForgeCapabilities.ITEM_HANDLER, outputs.get(be)).isPresent())
+                outputs.remove(be);
 
         this.pipes.removeIf(pipe -> {
-            if (pipe.isRemoved())
+            if (pipe == null || pipe.isRemoved())
             {
                 if (pipe.network != null)
                     pipe.network.destroy(pipe);
@@ -78,90 +92,89 @@ public class ItemPipeNetwork implements PipeNetwork
             }
         }
 
-        for (BlockEntity input : this.inputs)
-            if (!newHost.inputs.contains(input))
-                newHost.registerInput(input);
-        for (BlockEntity output : this.outputs)
-            if (!newHost.outputs.contains(output))
-                newHost.registerOutput(output);
+        for (BlockEntity input : this.inputs.keySet())
+            if (!newHost.inputs.containsKey(input))
+                newHost.registerInput(input, this.inputs.get(input));
+
+        for (BlockEntity output : this.outputs.keySet())
+            if (!newHost.outputs.containsKey(output))
+                newHost.registerInput(output, this.outputs.get(output));
     }
 
-    public void distribute(Level level, BlockState state, int transfer)
+    @Override
+    public void distribute(Level level, BlockState state, BlockPos pos, int transfer)
     {
-        if (level.isClientSide() || !state.getValue(ItemPipeBlock.EXTRACTS))
-            return;
-
-        if (level.getGameTime() <= lastDistribution)
+        if (level == null || level.isClientSide() || lastDistribution >= level.getGameTime())
             return;
         lastDistribution = level.getGameTime() + ServerConfig.ITEM_PIPE_FREQUENCY.get() - 1;
 
         for (int i = 0; i < transfer; i++)
         {
-            for (BlockEntity output : outputs)
+            for (BlockEntity input : inputs.keySet())
             {
-                for (BlockEntity input : inputs)
+                boolean success = false;
+
+                for (BlockEntity output : outputs.keySet())
                 {
-                    input.getCapability(ForgeCapabilities.ITEM_HANDLER).map(iHandler ->
+                    IItemHandler iHandler = input.getCapability(ForgeCapabilities.ITEM_HANDLER, inputs.get(input)).orElse(EmptyHandler.INSTANCE);
+                    if (iHandler == EmptyHandler.INSTANCE || iHandler.getSlots() <= 0)
+                        break;
+
+                    IItemHandler oHandler = output.getCapability(ForgeCapabilities.ITEM_HANDLER, outputs.get(output)).orElse(EmptyHandler.INSTANCE);
+                    if (oHandler == EmptyHandler.INSTANCE || oHandler.getSlots() <= 0)
+                        continue;
+
+                    for (int iSlot = iHandler.getSlots() - 1; iSlot >= 0; iSlot--)
                     {
-                        for (int iSlot = iHandler.getSlots() - 1; iSlot >= 0; iSlot--)
+                        ItemStack stack = iHandler.extractItem(iSlot, 1, true);
+                        if (stack.isEmpty())
+                            continue;
+
+                        for (int oSlot = 0; oSlot < oHandler.getSlots(); oSlot++)
                         {
-                            ItemStack stack = iHandler.extractItem(iSlot, 1, true);
-                            if (!stack.isEmpty())
+                            ItemStack left = oHandler.insertItem(oSlot, stack, true);
+                            if (!left.isEmpty())
+                                continue;
+
+                            if (input instanceof Container iContainer && output instanceof Container oContainer)
                             {
-                                int finalISlot = iSlot;
-                                boolean transferred = output.getCapability(ForgeCapabilities.ITEM_HANDLER).map(oHandler -> {
-                                    for (int oSlot = 0; oSlot < oHandler.getSlots(); oSlot++)
+                                if (input instanceof WorldlyContainer be)
+                                {
+                                    if (be.canTakeItemThroughFace(iSlot, stack, inputs.get(input)))
                                     {
-                                        ItemStack left = oHandler.insertItem(oSlot, stack, true);
-                                        if (left.isEmpty())
-                                        {
-                                            if (input instanceof Container container)
-                                            {
-                                                if (input instanceof WorldlyContainer be)
-                                                {
-                                                    Direction direction = Direction.NORTH;
-                                                    for (Direction dir : Direction.values())
-                                                        if (level.getBlockEntity(input.getBlockPos().relative(dir)) instanceof ItemPipeBE)
-                                                            direction = dir;
-
-                                                    if (be.canTakeItemThroughFace(finalISlot, stack, direction))
-                                                    {
-                                                        iHandler.extractItem(finalISlot, 1, false);
-                                                        oHandler.insertItem(oSlot, stack, false);
-                                                        return true;
-                                                    }
-                                                }
-                                                else
-                                                    if (container.canTakeItem(null, finalISlot, stack))
-                                                    {
-                                                        iHandler.extractItem(finalISlot, 1, false);
-                                                        oHandler.insertItem(oSlot, stack, false);
-                                                        return true;
-                                                    }
-                                            }
-                                        }
+                                        iHandler.extractItem(iSlot, 1, false);
+                                        oHandler.insertItem(oSlot, stack, false);
+                                        success = true;
                                     }
-                                    return false;
-                                }).orElse(false);
-
-                                if (transferred)
-                                    break;
+                                }
+                                else if (iContainer.canTakeItem(oContainer, iSlot, stack))
+                                {
+                                    iHandler.extractItem(iSlot, 1, false);
+                                    oHandler.insertItem(oSlot, stack, false);
+                                    success = true;
+                                }
                             }
+                            if (success)
+                                break;
                         }
-                        return true;
-                    });
+                        if (success)
+                            break;
+                    }
+                    if (success)
+                        break;
                 }
+                if (success)
+                    break;
             }
         }
     }
 
+    @Override
     public void destroy(PipeBE caller)
     {
-        if (!Objects.requireNonNull(caller.getLevel()).isClientSide())
-        {
+        if (caller.getLevel() != null && !caller.getLevel().isClientSide())
             for (ItemPipeBE pipe : this.pipes)
                 if (pipe != null)
-                    pipe.network = null;
-        }
+                    pipe.network = new ItemPipeNetwork();
     }
 }
