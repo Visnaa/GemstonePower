@@ -101,7 +101,11 @@ public class BlockTagGenerator extends TagsProvider<Block>
 
                 .add(ModBlocks.SOLAR_PANEL.getKey())
                 .add(ModBlocks.WATER_MILL.getKey())
-                .add(ModBlocks.WIND_TURBINE.getKey());
+                .add(ModBlocks.WIND_TURBINE.getKey())
+
+                .add(ModBlocks.FISSION_REACTOR.getKey())
+                .add(ModBlocks.REACTOR_FRAME.getKey())
+                .add(ModBlocks.REACTOR_WALL.getKey());
 
         this.tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.RUBY_CRYSTALS.getKey())
@@ -155,7 +159,11 @@ public class BlockTagGenerator extends TagsProvider<Block>
 
                 .add(ModBlocks.SOLAR_PANEL.getKey())
                 .add(ModBlocks.WATER_MILL.getKey())
-                .add(ModBlocks.WIND_TURBINE.getKey());
+                .add(ModBlocks.WIND_TURBINE.getKey())
+
+                .add(ModBlocks.FISSION_REACTOR.getKey())
+                .add(ModBlocks.REACTOR_FRAME.getKey())
+                .add(ModBlocks.REACTOR_WALL.getKey());
         this.tag(BlockTags.NEEDS_STONE_TOOL)
                 .add(ModBlocks.ALUMINUM_ORE.getKey())
                 .add(ModBlocks.DEEPSLATE_ALUMINUM_ORE.getKey())

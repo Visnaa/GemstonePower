@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:bucket"
+    },
+    "I": {
+      "tag": "c:ingots/steel"
+    }
+  },
+  "pattern": [
+    "I",
+    "B",
+    "I"
+  ],
+  "result": {
+    "count": 8,
+    "item": "gemstonepower:steel_fluid_pipe"
+  },
+  "show_notification": true
+}

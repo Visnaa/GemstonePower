@@ -2,6 +2,7 @@ package com.visnaa.gemstonepower.init;
 
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.block.*;
+import com.visnaa.gemstonepower.block.entity.ReactorFrameBE;
 import com.visnaa.gemstonepower.block.grower.ResinOakGrower;
 import com.visnaa.gemstonepower.block.machine.*;
 import com.visnaa.gemstonepower.block.pipe.cable.AluminumCableBlock;
@@ -17,6 +18,7 @@ import com.visnaa.gemstonepower.client.render.Tints;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -93,6 +95,16 @@ public final class ModBlocks
     public static final RegistryObject<Block> COBBLESTONE_GENERATOR = BLOCKS.register("cobblestone_generator", () -> new CobblestoneGeneratorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> SAWMILL = BLOCKS.register("sawmill", () -> new SawmillBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> POLARIZER = BLOCKS.register("polarizer", () -> new PolarizerBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<Block> FISSION_REACTOR = BLOCKS.register("fission_reactor", () -> new FissionReactorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> REACTOR_WALL = BLOCKS.register("reactor_wall", () -> new ReactorWallBlock(BlockBehaviour.Properties.of().strength(20.0F, 120.0F).mapColor(MapColor.TERRACOTTA_CYAN).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> REACTOR_FRAME = BLOCKS.register("reactor_frame", () -> new ReactorFrameBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).requiresCorrectToolForDrops(), ReactorFrameBE.Type.FUEL));
+    public static final RegistryObject<Block> WATER_COOLING = BLOCKS.register("water_cooling", () -> new ReactorFrameBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).requiresCorrectToolForDrops(), ReactorFrameBE.Type.WATER));
+    public static final RegistryObject<Block> SNOW_COOLING = BLOCKS.register("snow_cooling", () -> new ReactorFrameBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).requiresCorrectToolForDrops(), ReactorFrameBE.Type.SNOW));
+    public static final RegistryObject<Block> ICE_COOLING = BLOCKS.register("ice_cooling", () -> new ReactorFrameBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).requiresCorrectToolForDrops(), ReactorFrameBE.Type.ICE));
+    public static final RegistryObject<Block> PACKED_ICE_COOLING = BLOCKS.register("packed_ice_cooling", () -> new ReactorFrameBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).requiresCorrectToolForDrops(), ReactorFrameBE.Type.PACKED_ICE));
+    public static final RegistryObject<Block> BLUE_ICE_COOLING = BLOCKS.register("blue_ice_cooling", () -> new ReactorFrameBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).requiresCorrectToolForDrops(), ReactorFrameBE.Type.BLUE_ICE));
+    public static final RegistryObject<Block> PRISMARINE_COOLING = BLOCKS.register("prismarine_cooling", () -> new ReactorFrameBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).requiresCorrectToolForDrops(), ReactorFrameBE.Type.PRISMARINE));
 
     public static final RegistryObject<Block> SOLAR_PANEL = BLOCKS.register("solar_panel", () -> new SolarPanelBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> WATER_MILL = BLOCKS.register("water_mill", () -> new WaterMillBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops()));

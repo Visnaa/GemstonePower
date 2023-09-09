@@ -1,9 +1,7 @@
 package com.visnaa.gemstonepower.network;
 
 import com.visnaa.gemstonepower.GemstonePower;
-import com.visnaa.gemstonepower.network.packet.EnergySyncS2C;
-import com.visnaa.gemstonepower.network.packet.FluidSyncS2C;
-import com.visnaa.gemstonepower.network.packet.RecipeProgressSyncS2C;
+import com.visnaa.gemstonepower.network.packet.*;
 import net.minecraftforge.network.NetworkDirection;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.PacketDistributor;
@@ -47,10 +45,33 @@ public class ModPackets
                 .encoder(FluidSyncS2C::toBytes)
                 .consumerMainThread(FluidSyncS2C::handle)
                 .add();
+
+        channel.messageBuilder(FissionReactorSyncS2C.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(FissionReactorSyncS2C::new)
+                .encoder(FissionReactorSyncS2C::toBytes)
+                .consumerMainThread(FissionReactorSyncS2C::handle)
+                .add();
+
+        channel.messageBuilder(MachineModeSyncC2S.class, id(), NetworkDirection.PLAY_TO_SERVER)
+                .decoder(MachineModeSyncC2S::new)
+                .encoder(MachineModeSyncC2S::toBytes)
+                .consumerMainThread(MachineModeSyncC2S::handle)
+                .add();
+
+        channel.messageBuilder(FissionReactorActivationC2S.class, id(), NetworkDirection.PLAY_TO_SERVER)
+                .decoder(FissionReactorActivationC2S::new)
+                .encoder(FissionReactorActivationC2S::toBytes)
+                .consumerMainThread(FissionReactorActivationC2S::handle)
+                .add();
     }
 
     public static <P> void sendToClient(P packet)
     {
         CHANNEL.send(PacketDistributor.ALL.noArg(), packet);
+    }
+
+    public static <P> void sendToServer(P packet)
+    {
+        CHANNEL.sendToServer(packet);
     }
 }

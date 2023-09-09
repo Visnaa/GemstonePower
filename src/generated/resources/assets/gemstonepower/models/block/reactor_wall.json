@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "gemstonepower:block/reactor_wall"
+  }
+}

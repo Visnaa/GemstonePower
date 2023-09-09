@@ -27,6 +27,8 @@ public class ServerConfig
     public static final ForgeConfigSpec.LongValue FLUID_PIPE_FREQUENCY;
     public static final ForgeConfigSpec.DoubleValue FLUID_PIPE_TRANSFER_MUL;
 
+    public static final ForgeConfigSpec.IntValue MAX_FISSION_REACTOR_SIZE;
+
     static
     {
         BUILDER.push("Gemstone Power configurations");
@@ -79,6 +81,9 @@ public class ServerConfig
                 .defineInRange("fluid_pipe_frequency", 1L, 1L, Long.MAX_VALUE);
         FLUID_PIPE_TRANSFER_MUL = BUILDER.comment("Multiplies base fluid pipe transfer by specified amount")
                 .defineInRange("fluid_pipe_transfer_mul", 1, 0, Double.MAX_VALUE);
+
+        MAX_FISSION_REACTOR_SIZE = BUILDER.comment("Max edge length of fission reactor")
+                .defineInRange("max_fission_reactor_size", 10, 0, Integer.MAX_VALUE);
 
         BUILDER.pop();
         CONFIG = BUILDER.build();

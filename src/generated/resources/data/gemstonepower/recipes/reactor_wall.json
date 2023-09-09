@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "gemstonepower:lead_block"
+    },
+    "L": {
+      "tag": "c:plates/lead"
+    },
+    "O": {
+      "tag": "forge:obsidian"
+    }
+  },
+  "pattern": [
+    "LOL",
+    "OBO",
+    "LOL"
+  ],
+  "result": {
+    "item": "gemstonepower:reactor_wall"
+  },
+  "show_notification": true
+}

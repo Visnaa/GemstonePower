@@ -35,7 +35,7 @@ public class GemstoneGeneratorScreen extends MachineScreen<GemstoneGeneratorMenu
 
         if (mouseX >= this.leftPos + 110 && mouseX <= this.leftPos + 120 && mouseY >= this.topPos + 38 && mouseY <= this.topPos + 54)
         {
-            graphics.renderTooltip(Minecraft.getInstance().font, MachineUtil.getDefaultTooltips(menu.getEnergy(), menu.getCapacity()), ItemStack.EMPTY.getTooltipImage(), mouseX, mouseY);
+            graphics.renderTooltip(Minecraft.getInstance().font, MachineUtil.getEnergyScaled(menu.getEnergy(), menu.getCapacity()), ItemStack.EMPTY.getTooltipImage(), mouseX, mouseY);
         }
     }
 

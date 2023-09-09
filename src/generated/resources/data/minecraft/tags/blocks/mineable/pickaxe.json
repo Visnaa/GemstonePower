@@ -68,6 +68,9 @@
     "gemstonepower:polarizer",
     "gemstonepower:solar_panel",
     "gemstonepower:water_mill",
-    "gemstonepower:wind_turbine"
+    "gemstonepower:wind_turbine",
+    "gemstonepower:fission_reactor",
+    "gemstonepower:reactor_frame",
+    "gemstonepower:reactor_wall"
   ]
 }

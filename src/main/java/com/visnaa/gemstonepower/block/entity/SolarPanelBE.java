@@ -22,7 +22,6 @@ import javax.annotation.Nullable;
 
 public class SolarPanelBE extends BlockEntity implements TickingBlockEntity, EnergyStorageBE
 {
-
     public SolarPanelBE(BlockPos pos, BlockState state)
     {
         super(ModBlockEntities.SOLAR_PANEL.get(), pos, state);

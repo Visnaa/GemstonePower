@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "gemstonepower:gemstone_generator"
+    },
+    "L": {
+      "tag": "c:ingots/lead"
+    },
+    "O": {
+      "tag": "forge:obsidian"
+    }
+  },
+  "pattern": [
+    "LOL",
+    "LGL",
+    "LOL"
+  ],
+  "result": {
+    "item": "gemstonepower:fission_reactor"
+  },
+  "show_notification": true
+}

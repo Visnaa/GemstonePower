@@ -1,6 +1,7 @@
 package com.visnaa.gemstonepower.init;
 
 import com.visnaa.gemstonepower.GemstonePower;
+import com.visnaa.gemstonepower.block.entity.ReactorFrameBE;
 import com.visnaa.gemstonepower.client.render.Tints;
 import com.visnaa.gemstonepower.item.*;
 import com.visnaa.gemstonepower.util.Tier;
@@ -253,6 +254,16 @@ public final class ModItems
     public static final RegistryObject<Item> WIND_TURBINE = ITEMS.register("wind_turbine", () -> new TintedBlockItem(ModBlocks.WIND_TURBINE.get(), new Item.Properties(), Tints.STANDARD));
 
     public static final RegistryObject<Item> TANK = ITEMS.register("tank", () -> new TankItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> FISSION_REACTOR = ITEMS.register("fission_reactor", () -> new BlockItem(ModBlocks.FISSION_REACTOR.get(), new Item.Properties()));
+    public static final RegistryObject<Item> REACTOR_WALL = ITEMS.register("reactor_wall", () -> new BlockItem(ModBlocks.REACTOR_WALL.get(), new Item.Properties()));
+    public static final RegistryObject<Item> REACTOR_FRAME = ITEMS.register("reactor_frame", () -> new BlockItem(ModBlocks.REACTOR_FRAME.get(), new Item.Properties()));
+    public static final RegistryObject<Item> WATER_COOLING = ITEMS.register("water_cooling", () -> new CoolingBlockItem(ModBlocks.WATER_COOLING.get(), new Item.Properties(), ReactorFrameBE.Type.WATER.getCooling()));
+    public static final RegistryObject<Item> SNOW_COOLING = ITEMS.register("snow_cooling", () -> new CoolingBlockItem(ModBlocks.SNOW_COOLING.get(), new Item.Properties(), ReactorFrameBE.Type.SNOW.getCooling()));
+    public static final RegistryObject<Item> ICE_COOLING = ITEMS.register("ice_cooling", () -> new CoolingBlockItem(ModBlocks.ICE_COOLING.get(), new Item.Properties(), ReactorFrameBE.Type.ICE.getCooling()));
+    public static final RegistryObject<Item> PACKED_ICE_COOLING = ITEMS.register("packed_ice_cooling", () -> new CoolingBlockItem(ModBlocks.PACKED_ICE_COOLING.get(), new Item.Properties(), ReactorFrameBE.Type.PACKED_ICE.getCooling()));
+    public static final RegistryObject<Item> BLUE_ICE_COOLING = ITEMS.register("blue_ice_cooling", () -> new CoolingBlockItem(ModBlocks.BLUE_ICE_COOLING.get(), new Item.Properties(), ReactorFrameBE.Type.BLUE_ICE.getCooling()));
+    public static final RegistryObject<Item> PRISMARINE_COOLING = ITEMS.register("prismarine_cooling", () -> new CoolingBlockItem(ModBlocks.PRISMARINE_COOLING.get(), new Item.Properties(), ReactorFrameBE.Type.PRISMARINE.getCooling()));
 
     public static final RegistryObject<Item> METAL_WRENCH = ITEMS.register("metal_wrench", () -> new WrenchItem(new Item.Properties(), 128));
     public static final RegistryObject<Item> CRYSTAL_WRENCH = ITEMS.register("crystal_wrench", () -> new WrenchItem(new Item.Properties(), 1024));

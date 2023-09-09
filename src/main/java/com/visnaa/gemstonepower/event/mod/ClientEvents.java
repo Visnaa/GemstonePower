@@ -48,6 +48,7 @@ public class ClientEvents
             MenuScreens.register(ModMenus.ORE_WASHER.get(), OreWasherScreen::new);
             MenuScreens.register(ModMenus.SAWMILL.get(), SawmillScreen::new);
             MenuScreens.register(ModMenus.POLARIZER.get(), PolarizerScreen::new);
+            MenuScreens.register(ModMenus.FISSION_REACTOR.get(), FissionReactorScreen::new);
         });
     }
 
@@ -63,7 +64,8 @@ public class ClientEvents
     public static void registerColouredItems(RegisterColorHandlersEvent.Item event)
     {
         Tints.TINTED_ITEMS.forEach(item -> event.register((stack, layer) -> layer == 0 ? item.getColor() : 0xFFFFFF, (ItemLike) item));
-        event.register((stack, layer) -> event.getBlockColors().getColor(((BlockItem)stack.getItem()).getBlock().defaultBlockState(), null, null, layer), ModBlocks.RESIN_OAK_LEAVES.get());
+        event.register((stack, layer) -> event.getBlockColors().getColor(((BlockItem) stack.getItem()).getBlock().defaultBlockState(), null, null, layer), ModBlocks.RESIN_OAK_LEAVES.get());
+        event.register((stack, layer) -> event.getBlockColors().getColor(((BlockItem) stack.getItem()).getBlock().defaultBlockState(), null, null, layer), ModBlocks.WATER_COOLING.get());
     }
 
     @SubscribeEvent
@@ -71,6 +73,7 @@ public class ClientEvents
     {
         Tints.TINTED_BLOCKS.forEach(block -> event.register((state, getter, pos, layer) -> block.getColor(), (Block) block));
         event.register((state, getter, pos, layer) -> getter != null && pos != null ? BiomeColors.getAverageFoliageColor(getter, pos) : FoliageColor.getDefaultColor(), ModBlocks.RESIN_OAK_LEAVES.get());
+        event.register((state, getter, pos, layer) -> getter != null && pos != null ? BiomeColors.getAverageWaterColor(getter, pos) : 0x3F76E4, ModBlocks.WATER_COOLING.get());
 
         Tier.BLOCKS.forEach(block -> event.register((state, getter, pos, layer) ->
         {

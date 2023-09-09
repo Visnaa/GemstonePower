@@ -1,5 +1,12 @@
 <h1 style="font-size: 40px">Gemstone Power version changelog</h1>
 
+<h3>Version: Beta 0.3</h3>
+<ul>
+<li>Added fission reactor
+<li>Added reactor walls and frames
+<li>Added reactor coolers (Water, Snow, Ice, Packed Ice, Blue Ice, Prismarine)
+</ul>
+
 <h3>Version: Beta 0.2.9</h3>
 <ul>
 <li>Added option for custom energy unit in client config

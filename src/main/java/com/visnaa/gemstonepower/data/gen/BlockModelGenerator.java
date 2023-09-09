@@ -5,6 +5,7 @@ import com.visnaa.gemstonepower.block.pipe.PipeBlock;
 import com.visnaa.gemstonepower.init.ModBlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
@@ -234,6 +235,17 @@ public class BlockModelGenerator extends BlockStateProvider
 
         this.custom(ModBlocks.TANK.get(), "tank");
 
+        this.blockWithItem(ModBlocks.FISSION_REACTOR.get(), "fission_reactor");
+        this.horizontalBlock(ModBlocks.FISSION_REACTOR.get(), modLoc("block/reactor_wall"), modLoc("block/fission_reactor"), modLoc("block/reactor_wall"));
+        this.simpleBlockWithItem(ModBlocks.REACTOR_WALL.get(), models().cubeAll("reactor_wall", modLoc("block/reactor_wall")));
+        this.simpleBlockWithItem(ModBlocks.REACTOR_FRAME.get(), models().cubeAll("reactor_frame", modLoc("block/reactor_frame")).renderType("cutout"));
+        this.cooling(ModBlocks.WATER_COOLING.get(), mcLoc("block/water_still"));
+        this.cooling(ModBlocks.SNOW_COOLING.get(), mcLoc("block/snow"));
+        this.cooling(ModBlocks.ICE_COOLING.get(), mcLoc("block/ice"));
+        this.cooling(ModBlocks.PACKED_ICE_COOLING.get(), mcLoc("block/packed_ice"));
+        this.cooling(ModBlocks.BLUE_ICE_COOLING.get(), mcLoc("block/blue_ice"));
+        this.cooling(ModBlocks.PRISMARINE_COOLING.get(), mcLoc("block/prismarine"));
+
         this.simpleBlock(ModBlocks.RESIN_OAK_SAPLING.get(), models().cross("resin_oak_sapling", modLoc("block/resin_oak_sapling")).renderType("cutout"));
         this.blockWithItem(ModBlocks.RESIN_OAK_LOG.get(), "resin_oak_log");
         this.logBlock((RotatedPillarBlock) ModBlocks.RESIN_OAK_LOG.get());
@@ -283,6 +295,11 @@ public class BlockModelGenerator extends BlockStateProvider
     public void custom(Block block, String parentName)
     {
         this.simpleBlockWithItem(block, model(parentName));
+    }
+
+    public void cooling(Block block, ResourceLocation type)
+    {
+        this.simpleBlockWithItem(block, parent(block, "cooling").texture("type", type));
     }
 
     public BlockModelBuilder parent(Block block, String parentName)

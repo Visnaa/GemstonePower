@@ -65,6 +65,7 @@ public class MachineBE<T extends Recipe<Container>> extends BaseContainerBlockEn
 
     protected int processingProgress;
     protected int processingTotalTime;
+    protected int mode;
 
     protected final EnergyStorage energyStorage = createEnergyStorage();
     private LazyOptional<IEnergyStorage> lazyEnergy = LazyOptional.of(() -> energyStorage);
@@ -114,13 +115,15 @@ public class MachineBE<T extends Recipe<Container>> extends BaseContainerBlockEn
 
         this.processingProgress = tag.getInt("ProcessingProgress");
         this.processingTotalTime = tag.getInt("ProcessingTotalTime");
+        this.mode = tag.getInt("Mode");
 
         CompoundTag compoundtag = tag.getCompound("RecipesUsed");
         for(String s : compoundtag.getAllKeys())
         {
             this.recipesUsed.put(new ResourceLocation(s), compoundtag.getInt(s));
         }
-        energyStorage.deserializeNBT(tag.get("Energy"));
+        if (tag.contains("Energy"))
+            energyStorage.deserializeNBT(tag.get("Energy"));
         setChanged();
     }
 
@@ -132,6 +135,7 @@ public class MachineBE<T extends Recipe<Container>> extends BaseContainerBlockEn
 
         tag.putInt("ProcessingProgress", this.processingProgress);
         tag.putInt("ProcessingTotalTime", this.processingTotalTime);
+        tag.putInt("Mode", this.mode);
 
         CompoundTag compoundtag = new CompoundTag();
         this.recipesUsed.forEach((id, amount) -> compoundtag.putInt(id.toString(), amount));
@@ -438,6 +442,11 @@ public class MachineBE<T extends Recipe<Container>> extends BaseContainerBlockEn
     public int getCapacity()
     {
         return energyStorage.getMaxEnergyStored();
+    }
+
+    public void setMode(int mode)
+    {
+        this.mode = mode;
     }
 
     @Override

@@ -46,6 +46,18 @@ public abstract class MachineBlock<T extends MachineBlock<T>> extends BaseEntity
         this.registerColors((T) this);
     }
 
+    public MachineBlock(Properties properties, boolean tierable)
+    {
+        super(properties);
+        if (tierable)
+        {
+            this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(TIER, Tier.STANDARD));
+            this.registerColors((T) this);
+        }
+        else
+            this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
+    }
+
     protected void openContainer(Level level, BlockPos pos, Player player)
     {
         if (level.getBlockEntity(pos) instanceof MachineBE<?> machine && !level.isClientSide())

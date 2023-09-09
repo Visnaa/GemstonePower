@@ -42,6 +42,7 @@ public class RecipeGenerator extends RecipeProvider
         this.gemstoneCharger(consumer);
         this.sawmill(consumer);
         this.polarizer(consumer);
+        this.fissionReactor(consumer);
 
         this.upgrades(consumer);
 
@@ -1083,6 +1084,43 @@ public class RecipeGenerator extends RecipeProvider
         PolarizerRecipeBuilder.create(Ingredient.of(ModItems.STEEL_ROD.get()), ModItems.STEEL_ROD_POLARIZED.get(), 1, 200, 80)
                 .unlockedBy(hasName(ModItems.STEEL_ROD.get()), has(ModItems.STEEL_ROD.get()))
                 .save(consumer, getFileName(ModItems.STEEL_ROD_POLARIZED.get(), ModItems.STEEL_ROD.get()));
+    }
+
+    private void fissionReactor(Consumer<FinishedRecipe> consumer)
+    {
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.FISSION_REACTOR.get(), 1)
+                .pattern("LOL")
+                .pattern("LGL")
+                .pattern("LOL")
+                .define('L', CommonTags.Items.INGOTS_LEAD)
+                .define('O', Tags.Items.OBSIDIAN)
+                .define('G', ModItems.GEMSTONE_GENERATOR.get())
+                .unlockedBy(hasName(ModItems.GEMSTONE_GENERATOR.get()), has(ModItems.GEMSTONE_GENERATOR.get()))
+                .save(consumer, getFileName(ModItems.FISSION_REACTOR.get()));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.REACTOR_FRAME.get(), 1)
+                .pattern("LTL")
+                .pattern("LGL")
+                .pattern("LTL")
+                .define('L', CommonTags.Items.INGOTS_LEAD)
+                .define('T', Tags.Items.GLASS_TINTED)
+                .define('G', Tags.Items.GLASS)
+                .unlockedBy(hasName(ModItems.LEAD_INGOT.get()), has(CommonTags.Items.INGOTS_LEAD))
+                .save(consumer, getFileName(ModItems.REACTOR_FRAME.get()));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.REACTOR_WALL.get(), 1)
+                .pattern("LOL")
+                .pattern("OBO")
+                .pattern("LOL")
+                .define('L', CommonTags.Items.PLATES_LEAD)
+                .define('O', Tags.Items.OBSIDIAN)
+                .define('B', ModItems.LEAD_BLOCK.get())
+                .unlockedBy(hasName(ModItems.LEAD_PLATE.get()), has(CommonTags.Items.PLATES_LEAD))
+                .save(consumer, getFileName(ModItems.REACTOR_WALL.get()));
+
+        FissionReactorRecipeBuilder.create(Ingredient.of(ModItems.URANIUM_INGOT.get()), ModItems.LEAD_INGOT.get(), 1200, 120, 60)
+                .unlockedBy(hasName(ModItems.URANIUM_INGOT.get()), has(ModItems.URANIUM_INGOT.get()))
+                .save(consumer, getFileName(ModItems.LEAD_INGOT.get()));
     }
 
     private void upgrades(Consumer<FinishedRecipe> consumer)

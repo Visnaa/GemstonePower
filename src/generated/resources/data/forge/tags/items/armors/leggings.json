@@ -1,0 +1,11 @@
+{
+  "values": [
+    "gemstonepower:gemstone_leggings",
+    "#c:armor/leggings/copper",
+    "#c:armor/leggings/aluminum",
+    "#c:armor/leggings/bronze",
+    "#c:armor/leggings/silver",
+    "#c:armor/leggings/invar",
+    "#c:armor/leggings/steel"
+  ]
+}

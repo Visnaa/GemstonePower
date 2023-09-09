@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:block/block",
+  "render_type": "translucent",
+  "textures": {
+    "particle": "gemstonepower:block/reactor_frame",
+    "frame": "gemstonepower:block/reactor_frame",
+    "type": "gemstonepower:block/reactor_frame"
+  },
+  "elements": [
+    {
+      "from": [ 0, 0, 0 ],
+      "to": [ 16, 16, 16 ],
+      "faces": {
+        "down":  { "texture": "#type", "cullface": "down", "tintindex": 0 },
+        "up":    { "texture": "#type", "cullface": "up", "tintindex": 0 },
+        "north": { "texture": "#type", "cullface": "north", "tintindex": 0 },
+        "south": { "texture": "#type", "cullface": "south", "tintindex": 0 },
+        "west":  { "texture": "#type", "cullface": "west", "tintindex": 0 },
+        "east":  { "texture": "#type", "cullface": "east", "tintindex": 0 }
+      }
+    },
+    {
+      "from": [ 0, 0, 0 ],
+      "to": [ 16, 16, 16 ],
+      "faces": {
+        "down":  { "texture": "#frame", "cullface": "down" },
+        "up":    { "texture": "#frame", "cullface": "up" },
+        "north": { "texture": "#frame", "cullface": "north" },
+        "south": { "texture": "#frame", "cullface": "south" },
+        "west":  { "texture": "#frame", "cullface": "west" },
+        "east":  { "texture": "#frame", "cullface": "east" }
+      }
+    }
+  ]
+}

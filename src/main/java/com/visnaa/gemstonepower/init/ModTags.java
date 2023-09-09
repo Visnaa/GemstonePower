@@ -5,6 +5,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Block;
 
 public class ModTags
 {
@@ -19,6 +20,11 @@ public class ModTags
     private static TagKey<Item> item(String name)
     {
         return TagKey.create(Registries.ITEM, GemstonePower.getId(name));
+    }
+
+    private static TagKey<Block> block(String name)
+    {
+        return TagKey.create(Registries.BLOCK, GemstonePower.getId(name));
     }
 
     private static TagKey<Biome> biome(String name)

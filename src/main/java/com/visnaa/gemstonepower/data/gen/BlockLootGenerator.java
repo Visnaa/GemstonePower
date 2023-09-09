@@ -94,6 +94,15 @@ public class BlockLootGenerator extends BlockLootSubProvider
         this.dropSelf(ModBlocks.RESIN_OAK_LOG.get());
         this.add(ModBlocks.RESIN_OAK_LEAVES.get(), state -> createOakLeavesDrops(state, ModBlocks.RESIN_OAK_SAPLING.get(), VanillaBlockLoot.NORMAL_LEAVES_SAPLING_CHANCES));
 
+        this.dropSelf(ModBlocks.REACTOR_WALL.get());
+        this.dropSelf(ModBlocks.REACTOR_FRAME.get());
+        this.dropSelf(ModBlocks.WATER_COOLING.get());
+        this.dropSelf(ModBlocks.SNOW_COOLING.get());
+        this.dropSelf(ModBlocks.ICE_COOLING.get());
+        this.dropSelf(ModBlocks.PACKED_ICE_COOLING.get());
+        this.dropSelf(ModBlocks.BLUE_ICE_COOLING.get());
+        this.dropSelf(ModBlocks.PRISMARINE_COOLING.get());
+
         this.dropSelf(ModBlocks.COPPER_WIRE.get());
         this.dropSelf(ModBlocks.COPPER_CABLE.get());
         this.dropSelf(ModBlocks.ALUMINUM_WIRE.get());
@@ -110,7 +119,7 @@ public class BlockLootGenerator extends BlockLootSubProvider
         Set<Block> machines = Set.of(ModBlocks.GEMSTONE_GENERATOR.get(), ModBlocks.GEMSTONE_CELL.get(), ModBlocks.CRYSTAL_GROWER.get(), ModBlocks.CRYSTAL_CHARGER.get(),
                 ModBlocks.ELECTRIC_FURNACE.get(), ModBlocks.METAL_FORMER.get(), ModBlocks.PULVERIZER.get(), ModBlocks.ALLOY_SMELTER.get(), ModBlocks.EXTRACTOR.get(),
                 ModBlocks.ORE_WASHER.get(), ModBlocks.COBBLESTONE_GENERATOR.get(), ModBlocks.SAWMILL.get(), ModBlocks.POLARIZER.get(), ModBlocks.SOLAR_PANEL.get(),
-                ModBlocks.WATER_MILL.get(), ModBlocks.WIND_TURBINE.get());
+                ModBlocks.WATER_MILL.get(), ModBlocks.WIND_TURBINE.get(), ModBlocks.FISSION_REACTOR.get());
         Set<Block> pipes = Set.of(ModBlocks.IRON_ITEM_PIPE.get(), ModBlocks.GOLD_ITEM_PIPE.get(), ModBlocks.COPPER_ITEM_PIPE.get(), ModBlocks.PLATINUM_ITEM_PIPE.get(),
                 ModBlocks.LEAD_ITEM_PIPE.get(), ModBlocks.GOLD_FLUID_PIPE.get(), ModBlocks.COPPER_FLUID_PIPE.get(), ModBlocks.INVAR_FLUID_PIPE.get(),
                 ModBlocks.STEEL_FLUID_PIPE.get());

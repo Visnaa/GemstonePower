@@ -40,6 +40,16 @@ public class ModTabs
 
                 output.accept(ModItems.TANK.get());
 
+                output.accept(ModItems.FISSION_REACTOR.get());
+                output.accept(ModItems.REACTOR_WALL.get());
+                output.accept(ModItems.REACTOR_FRAME.get());
+                output.accept(ModItems.WATER_COOLING.get());
+                output.accept(ModItems.SNOW_COOLING.get());
+                output.accept(ModItems.ICE_COOLING.get());
+                output.accept(ModItems.PACKED_ICE_COOLING.get());
+                output.accept(ModItems.BLUE_ICE_COOLING.get());
+                output.accept(ModItems.PRISMARINE_COOLING.get());
+
                 output.accept(ModItems.INTERMEDIATE_UPGRADE.get());
                 output.accept(ModItems.ADVANCED_UPGRADE.get());
                 output.accept(ModItems.ULTRA_UPGRADE.get());

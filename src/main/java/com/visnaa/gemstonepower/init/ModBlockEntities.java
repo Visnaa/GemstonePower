@@ -1,10 +1,7 @@
 package com.visnaa.gemstonepower.init;
 
 import com.visnaa.gemstonepower.GemstonePower;
-import com.visnaa.gemstonepower.block.entity.SolarPanelBE;
-import com.visnaa.gemstonepower.block.entity.TankBE;
-import com.visnaa.gemstonepower.block.entity.WaterMillBE;
-import com.visnaa.gemstonepower.block.entity.WindTurbineBE;
+import com.visnaa.gemstonepower.block.entity.*;
 import com.visnaa.gemstonepower.block.entity.machine.*;
 import com.visnaa.gemstonepower.block.entity.pipe.cable.AluminumCableBE;
 import com.visnaa.gemstonepower.block.entity.pipe.cable.CopperCableBE;
@@ -39,6 +36,10 @@ public final class ModBlockEntities
     public static final RegistryObject<BlockEntityType<CobblestoneGeneratorBE>> COBBLESTONE_GENERATOR = BLOCK_ENTITIES.register("cobblestone_generator", () -> BlockEntityType.Builder.of(CobblestoneGeneratorBE::new, ModBlocks.COBBLESTONE_GENERATOR.get()).build(null));
     public static final RegistryObject<BlockEntityType<SawmillBE>> SAWMILL = BLOCK_ENTITIES.register("sawmill", () -> BlockEntityType.Builder.of(SawmillBE::new, ModBlocks.SAWMILL.get()).build(null));
     public static final RegistryObject<BlockEntityType<PolarizerBE>> POLARIZER = BLOCK_ENTITIES.register("polarizer", () -> BlockEntityType.Builder.of(PolarizerBE::new, ModBlocks.POLARIZER.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<FissionReactorBE>> FISSION_REACTOR = BLOCK_ENTITIES.register("fission_reactor", () -> BlockEntityType.Builder.of(FissionReactorBE::new, ModBlocks.FISSION_REACTOR.get()).build(null));
+    public static final RegistryObject<BlockEntityType<ReactorFrameBE>> REACTOR_FRAME = BLOCK_ENTITIES.register("reactor_frame", () -> BlockEntityType.Builder.of(ReactorFrameBE::new, ModBlocks.REACTOR_FRAME.get()).build(null));
+    public static final RegistryObject<BlockEntityType<ReactorWallBE>> REACTOR_WALL = BLOCK_ENTITIES.register("reactor_wall", () -> BlockEntityType.Builder.of(ReactorWallBE::new, ModBlocks.REACTOR_WALL.get()).build(null));
 
     public static final RegistryObject<BlockEntityType<SolarPanelBE>> SOLAR_PANEL = BLOCK_ENTITIES.register("solar_panel", () -> BlockEntityType.Builder.of(SolarPanelBE::new, ModBlocks.SOLAR_PANEL.get()).build(null));
     public static final RegistryObject<BlockEntityType<WaterMillBE>> WATER_MILL = BLOCK_ENTITIES.register("water_mill", () -> BlockEntityType.Builder.of(WaterMillBE::new, ModBlocks.WATER_MILL.get()).build(null));

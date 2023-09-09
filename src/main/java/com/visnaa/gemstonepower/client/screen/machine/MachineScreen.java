@@ -50,7 +50,7 @@ public abstract class MachineScreen<T extends MachineMenu> extends AbstractConta
         this.renderTooltip(graphics, mouseX, mouseY);
 
         if (isMouseInArea(mouseX, mouseY, this.leftPos + 148, this.topPos + 38, 11, 16))
-            graphics.renderTooltip(Minecraft.getInstance().font, MachineUtil.getDefaultTooltips(menu.getEnergy(), menu.getCapacity()), ItemStack.EMPTY.getTooltipImage(), mouseX, mouseY);
+            graphics.renderTooltip(Minecraft.getInstance().font, MachineUtil.getEnergyScaled(menu.getEnergy(), menu.getCapacity()), ItemStack.EMPTY.getTooltipImage(), mouseX, mouseY);
     }
 
     @Override

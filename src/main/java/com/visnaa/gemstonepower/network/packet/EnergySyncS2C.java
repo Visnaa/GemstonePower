@@ -35,7 +35,7 @@ public class EnergySyncS2C
         buffer.writeBlockPos(pos);
     }
 
-    public boolean handle(Supplier<NetworkEvent.Context> supplier)
+    public void handle(Supplier<NetworkEvent.Context> supplier)
     {
         NetworkEvent.Context context = supplier.get();
         context.enqueueWork(() -> {
@@ -45,6 +45,6 @@ public class EnergySyncS2C
                 blockEntity.setCapacity(capacity);
             }
         });
-        return true;
+        context.setPacketHandled(true);
     }
 }

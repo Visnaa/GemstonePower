@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "gemstonepower:block/fission_reactor",
+    "side": "gemstonepower:block/reactor_wall",
+    "top": "gemstonepower:block/reactor_wall"
+  }
+}

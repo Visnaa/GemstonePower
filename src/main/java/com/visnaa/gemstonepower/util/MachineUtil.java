@@ -3,6 +3,7 @@ package com.visnaa.gemstonepower.util;
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.config.ClientConfig;
 import com.visnaa.gemstonepower.config.ServerConfig;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.ByIdMap;
@@ -20,41 +21,40 @@ import java.util.function.IntFunction;
 
 public final class MachineUtil
 {
-    public static String getEnergyScaled(int energy)
+    public static String getScaled(int value, final String unit)
     {
-        final String unit = ClientConfig.ENERGY_UNIT.get();
         int wholeDigits;
         int fractionDigits;
         float scaledEnergy;
-        if (energy > 1000000)
+        if (value > 1000000)
         {
-            scaledEnergy = energy / 1000000f;
+            scaledEnergy = value / 1000000f;
             wholeDigits = (int) scaledEnergy;
-            fractionDigits = (int) (energy % 1000000) / 100;
+            fractionDigits = (int) (value % 1000000) / 100;
             if (fractionDigits == 0)
                 return wholeDigits + " M" + unit;
             return wholeDigits + "." + fractionDigits + " M" + unit;
         }
-        else if (energy > 1000)
+        else if (value > 1000)
         {
-            scaledEnergy = energy / 1000f;
+            scaledEnergy = value / 1000f;
             wholeDigits = (int) scaledEnergy;
-            fractionDigits = (int) (energy % 1000) / 100;
+            fractionDigits = (int) (value % 1000) / 100;
             if (fractionDigits == 0)
                 return wholeDigits + " k" + unit;
             return wholeDigits + "." + fractionDigits + " k" + unit;
         }
-        return energy + " §c" + unit;
+        return value + " " + unit;
     }
 
-    public static List<Component> getDefaultTooltips(int energy, int maxEnergy)
+    public static List<Component> getEnergyScaled(int energy, int maxEnergy)
     {
         final String unit = ClientConfig.ENERGY_UNIT.get();
         List<Component> components = new ArrayList<>();
         Component energyText = Component.literal("Energy:");
-        Component energyAmount = Component.literal("§c" + energy + " " + unit + "§f / §c" + maxEnergy + " " + unit);
-        Component energyScaled = Component.literal("§c" + MachineUtil.getEnergyScaled(energy) + "§f / §c" + MachineUtil.getEnergyScaled(maxEnergy));
-        Component shift = Component.translatable("menu." + GemstonePower.MOD_ID + ".energy_shift_tip");
+        Component energyAmount = Component.literal(energy + " " + unit + " / " + maxEnergy + " " + unit).withStyle(ChatFormatting.RED);
+        Component energyScaled = Component.literal(getScaled(energy, ClientConfig.ENERGY_UNIT.get()) + " / " + MachineUtil.getScaled(maxEnergy, ClientConfig.ENERGY_UNIT.get())).withStyle(ChatFormatting.RED);
+        Component shift = Component.translatable("menu." + GemstonePower.MOD_ID + ".show_details");
         if (Screen.hasShiftDown())
         {
             components.add(energyText);
@@ -62,6 +62,25 @@ public final class MachineUtil
         } else {
             components.add(energyText);
             components.add(energyScaled);
+            components.add(shift);
+        }
+        return components;
+    }
+
+    public static List<Component> getHeatScaled(int heat, int maxHeat)
+    {
+        List<Component> components = new ArrayList<>();
+        Component heatText = Component.literal("Heat:");
+        Component heatAmount = Component.literal(heat + " " + "HU" + " / " + maxHeat + " " + "HU").withStyle(ChatFormatting.YELLOW);
+        Component heatScaled = Component.literal(getScaled(heat, "HU") + " / " + MachineUtil.getScaled(maxHeat, "HU")).withStyle(ChatFormatting.YELLOW);
+        Component shift = Component.translatable("menu." + GemstonePower.MOD_ID + ".show_details");
+        if (Screen.hasShiftDown())
+        {
+            components.add(heatText);
+            components.add(heatAmount);
+        } else {
+            components.add(heatText);
+            components.add(heatScaled);
             components.add(shift);
         }
         return components;

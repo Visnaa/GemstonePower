@@ -40,7 +40,7 @@ public class FluidSyncS2C
         buffer.writeBlockPos(pos);
     }
 
-    public boolean handle(Supplier<NetworkEvent.Context> supplier)
+    public void handle(Supplier<NetworkEvent.Context> supplier)
     {
         NetworkEvent.Context context = supplier.get();
         context.enqueueWork(() -> {
@@ -50,6 +50,6 @@ public class FluidSyncS2C
                 blockEntity.setCapacity(tankId, capacity);
             }
         });
-        return true;
+        context.setPacketHandled(true);
     }
 }

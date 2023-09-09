@@ -428,6 +428,16 @@ public class EN_US_LanguageGenerator extends LanguageProvider
         this.add(ModBlocks.WATER_MILL.get(), "Water Mill");
         this.add(ModBlocks.WIND_TURBINE.get(), "Wind Turbine");
 
+        this.add(ModBlocks.FISSION_REACTOR.get(), "Fission Reactor");
+        this.add(ModBlocks.REACTOR_WALL.get(), "Reactor Wall");
+        this.add(ModBlocks.REACTOR_FRAME.get(), "Reactor Frame");
+        this.add(ModBlocks.WATER_COOLING.get(), "Water Cooling");
+        this.add(ModBlocks.SNOW_COOLING.get(), "Snow Cooling");
+        this.add(ModBlocks.ICE_COOLING.get(), "Ice Cooling");
+        this.add(ModBlocks.PACKED_ICE_COOLING.get(), "Packed Ice Cooling");
+        this.add(ModBlocks.BLUE_ICE_COOLING.get(), "Blue Ice Cooling");
+        this.add(ModBlocks.PRISMARINE_COOLING.get(), "Prismarine Cooling");
+
     // MENUS
         this.add("menu." + GemstonePower.MOD_ID + ".gemstone_generator", "Gemstone Generator");
         this.add("menu." + GemstonePower.MOD_ID + ".gemstone_cell", "Gemstone Cell");
@@ -441,8 +451,9 @@ public class EN_US_LanguageGenerator extends LanguageProvider
         this.add("menu." + GemstonePower.MOD_ID + ".ore_washer", "Ore Washer");
         this.add("menu." + GemstonePower.MOD_ID + ".sawmill", "Sawmill");
         this.add("menu." + GemstonePower.MOD_ID + ".polarizer", "Polarizer");
+        this.add("menu." + GemstonePower.MOD_ID + ".fission_reactor", "Fission Reactor");
 
-        this.add("menu." + GemstonePower.MOD_ID + ".energy_shift_tip", "§8Press §bSHIFT §8to get more details");
+        this.add("menu." + GemstonePower.MOD_ID + ".show_details", "§8Press §bSHIFT §8to get more details");
 
         this.add("menu." + GemstonePower.MOD_ID + ".tier.standard", "Standard");
         this.add("menu." + GemstonePower.MOD_ID + ".tier.intermediate", "Intermediate");

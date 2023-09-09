@@ -1,0 +1,12 @@
+{
+  "type": "gemstonepower:fission_reactor",
+  "energyGeneration": 120,
+  "heatGeneration": 60,
+  "input": {
+    "item": "gemstonepower:uranium_ingot"
+  },
+  "output": {
+    "item": "gemstonepower:lead_ingot"
+  },
+  "processingTime": 1200
+}

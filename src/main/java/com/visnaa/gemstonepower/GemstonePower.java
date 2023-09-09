@@ -13,13 +13,15 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
+import java.net.SocketException;
+
 @Mod(GemstonePower.MOD_ID)
 public class GemstonePower
 {
     public static final String MOD_ID = "gemstonepower";
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    public GemstonePower()
+    public GemstonePower() throws SocketException
     {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 

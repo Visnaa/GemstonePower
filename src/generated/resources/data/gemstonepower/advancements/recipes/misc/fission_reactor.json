@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_gemstone_generator": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:gemstone_generator"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:fission_reactor"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_gemstone_generator",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:fission_reactor"
+    ]
+  },
+  "sends_telemetry_event": false
+}
