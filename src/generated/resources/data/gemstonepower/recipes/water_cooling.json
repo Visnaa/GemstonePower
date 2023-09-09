@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:water_bucket"
+    },
+    "F": {
+      "item": "gemstonepower:reactor_frame"
+    }
+  },
+  "pattern": [
+    " # ",
+    "#F#",
+    " # "
+  ],
+  "result": {
+    "item": "gemstonepower:water_cooling"
+  },
+  "show_notification": true
+}

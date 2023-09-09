@@ -1118,6 +1118,60 @@ public class RecipeGenerator extends RecipeProvider
                 .unlockedBy(hasName(ModItems.LEAD_PLATE.get()), has(CommonTags.Items.PLATES_LEAD))
                 .save(consumer, getFileName(ModItems.REACTOR_WALL.get()));
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.WATER_COOLING.get(), 1)
+                .pattern(" # ")
+                .pattern("#F#")
+                .pattern(" # ")
+                .define('#', Items.WATER_BUCKET)
+                .define('F', ModItems.REACTOR_FRAME.get())
+                .unlockedBy(hasName(ModItems.REACTOR_FRAME.get()), has(ModItems.REACTOR_FRAME.get()))
+                .save(consumer, getFileName(ModItems.WATER_COOLING.get()));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SNOW_COOLING.get(), 1)
+                .pattern(" # ")
+                .pattern("#F#")
+                .pattern(" # ")
+                .define('#', Items.SNOWBALL)
+                .define('F', ModItems.REACTOR_FRAME.get())
+                .unlockedBy(hasName(ModItems.REACTOR_FRAME.get()), has(ModItems.REACTOR_FRAME.get()))
+                .save(consumer, getFileName(ModItems.SNOW_COOLING.get()));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ICE_COOLING.get(), 1)
+                .pattern(" # ")
+                .pattern("#F#")
+                .pattern(" # ")
+                .define('#', Items.ICE)
+                .define('F', ModItems.REACTOR_FRAME.get())
+                .unlockedBy(hasName(ModItems.REACTOR_FRAME.get()), has(ModItems.REACTOR_FRAME.get()))
+                .save(consumer, getFileName(ModItems.ICE_COOLING.get()));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.PACKED_ICE_COOLING.get(), 1)
+                .pattern(" # ")
+                .pattern("#F#")
+                .pattern(" # ")
+                .define('#', Items.PACKED_ICE)
+                .define('F', ModItems.REACTOR_FRAME.get())
+                .unlockedBy(hasName(ModItems.REACTOR_FRAME.get()), has(ModItems.REACTOR_FRAME.get()))
+                .save(consumer, getFileName(ModItems.PACKED_ICE_COOLING.get()));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.BLUE_ICE_COOLING.get(), 1)
+                .pattern(" # ")
+                .pattern("#F#")
+                .pattern(" # ")
+                .define('#', Items.BLUE_ICE)
+                .define('F', ModItems.REACTOR_FRAME.get())
+                .unlockedBy(hasName(ModItems.REACTOR_FRAME.get()), has(ModItems.REACTOR_FRAME.get()))
+                .save(consumer, getFileName(ModItems.BLUE_ICE_COOLING.get()));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.PRISMARINE_COOLING.get(), 1)
+                .pattern(" # ")
+                .pattern("#F#")
+                .pattern(" # ")
+                .define('#', Items.PRISMARINE)
+                .define('F', ModItems.REACTOR_FRAME.get())
+                .unlockedBy(hasName(ModItems.REACTOR_FRAME.get()), has(ModItems.REACTOR_FRAME.get()))
+                .save(consumer, getFileName(ModItems.PRISMARINE_COOLING.get()));
+
         FissionReactorRecipeBuilder.create(Ingredient.of(ModItems.URANIUM_INGOT.get()), ModItems.LEAD_INGOT.get(), 1200, 120, 60)
                 .unlockedBy(hasName(ModItems.URANIUM_INGOT.get()), has(ModItems.URANIUM_INGOT.get()))
                 .save(consumer, getFileName(ModItems.LEAD_INGOT.get()));
