@@ -497,6 +497,7 @@ public class EN_US_LanguageGenerator extends LanguageProvider
         this.add(ModItems.EXTREME_UPGRADE.get(), "Extreme Upgrade");
 
         this.add(ModItems.TANK.get(), "Fluid Tank");
+        this.add(ModItems.PORTABLE_TANK.get(), "Portable Tank");
 
         this.add(ModItems.METAL_WRENCH.get(), "Metal Wrench");
         this.add(ModItems.CRYSTAL_WRENCH.get(), "Crystal Wrench");
@@ -512,45 +513,48 @@ public class EN_US_LanguageGenerator extends LanguageProvider
         this.add(ModItems.RESIN_OAK_LEAVES.get(), "Resin Oak Leaves");
         this.add(ModItems.COAL_DUST.get(), "Coal Dust");
 
+    // BIOMES
+        this.add("biome." + GemstonePower.MOD_ID + ".resin_plains", "Resin Plains");
+
     // DAMAGE TYPE
-        this.add("death.attack.gemstonepower:electrocuted", "%s was electrocuted");
-        this.add("death.attack.gemstonepower:radiation", "%s irradiated too much");
+        this.add("death.attack." + GemstonePower.MOD_ID + ":electrocuted", "%s was electrocuted");
+        this.add("death.attack." + GemstonePower.MOD_ID + ":radiation", "%s irradiated too much");
 
     // TRIM MATERIAL
-        this.add("trim_material.gemstonepower.ruby", "Ruby Material");
-        this.add("trim_material.gemstonepower.sapphire", "Sapphire Material");
-        this.add("trim_material.gemstonepower.aquamarine", "Aquamarine Material");
-        this.add("trim_material.gemstonepower.jade", "Jade Material");
-        this.add("trim_material.gemstonepower.opal", "Opal Material");
-        this.add("trim_material.gemstonepower.yellow_diamond", "Yellow Diamond Material");
-        this.add("trim_material.gemstonepower.amber", "Amber Material");
-        this.add("trim_material.gemstonepower.topaz", "Topaz Material");
-        this.add("trim_material.gemstonepower.beryllium", "Beryllium Material");
-        this.add("trim_material.gemstonepower.bixbit", "Bixbit Material");
-        this.add("trim_material.gemstonepower.malachite", "Malachite Material");
-        this.add("trim_material.gemstonepower.onyx", "Onyx Material");
-        this.add("trim_material.gemstonepower.peridot", "Peridot Material");
-        this.add("trim_material.gemstonepower.moon_stone", "Moon Stone Material");
-        this.add("trim_material.gemstonepower.sun_stone", "Sun Stone Material");
-        this.add("trim_material.gemstonepower.citrine", "Citrine Material");
-        this.add("trim_material.gemstonepower.dolomite", "Dolomite Material");
-        this.add("trim_material.gemstonepower.tanzanite", "Tanzanite Material");
+        this.add("trim_material." + GemstonePower.MOD_ID + ".ruby", "Ruby Material");
+        this.add("trim_material." + GemstonePower.MOD_ID + ".sapphire", "Sapphire Material");
+        this.add("trim_material." + GemstonePower.MOD_ID + ".aquamarine", "Aquamarine Material");
+        this.add("trim_material." + GemstonePower.MOD_ID + ".jade", "Jade Material");
+        this.add("trim_material." + GemstonePower.MOD_ID + ".opal", "Opal Material");
+        this.add("trim_material." + GemstonePower.MOD_ID + ".yellow_diamond", "Yellow Diamond Material");
+        this.add("trim_material." + GemstonePower.MOD_ID + ".amber", "Amber Material");
+        this.add("trim_material." + GemstonePower.MOD_ID + ".topaz", "Topaz Material");
+        this.add("trim_material." + GemstonePower.MOD_ID + ".beryllium", "Beryllium Material");
+        this.add("trim_material." + GemstonePower.MOD_ID + ".bixbit", "Bixbit Material");
+        this.add("trim_material." + GemstonePower.MOD_ID + ".malachite", "Malachite Material");
+        this.add("trim_material." + GemstonePower.MOD_ID + ".onyx", "Onyx Material");
+        this.add("trim_material." + GemstonePower.MOD_ID + ".peridot", "Peridot Material");
+        this.add("trim_material." + GemstonePower.MOD_ID + ".moon_stone", "Moon Stone Material");
+        this.add("trim_material." + GemstonePower.MOD_ID + ".sun_stone", "Sun Stone Material");
+        this.add("trim_material." + GemstonePower.MOD_ID + ".citrine", "Citrine Material");
+        this.add("trim_material." + GemstonePower.MOD_ID + ".dolomite", "Dolomite Material");
+        this.add("trim_material." + GemstonePower.MOD_ID + ".tanzanite", "Tanzanite Material");
 
-        this.add("trim_material.gemstonepower.aluminum", "Aluminum Material");
-        this.add("trim_material.gemstonepower.tin", "Tin Material");
-        this.add("trim_material.gemstonepower.bronze", "Bronze Material");
-        this.add("trim_material.gemstonepower.silver", "Silver Material");
-        this.add("trim_material.gemstonepower.electrum", "Electrum Material");
-        this.add("trim_material.gemstonepower.nickel", "Nickel Material");
-        this.add("trim_material.gemstonepower.invar", "Invar Material");
-        this.add("trim_material.gemstonepower.constantan", "Constantan Material");
-        this.add("trim_material.gemstonepower.platinum", "Platinum Material");
-        this.add("trim_material.gemstonepower.steel", "Steel Material");
-        this.add("trim_material.gemstonepower.lithium", "Lithium Material");
-        this.add("trim_material.gemstonepower.magnesium", "Magnesium Material");
-        this.add("trim_material.gemstonepower.uranium", "Uranium Material");
-        this.add("trim_material.gemstonepower.lead", "Lead Material");
-        this.add("trim_material.gemstonepower.zinc", "Zinc Material");
+        this.add("trim_material." + GemstonePower.MOD_ID + ".aluminum", "Aluminum Material");
+        this.add("trim_material." + GemstonePower.MOD_ID + ".tin", "Tin Material");
+        this.add("trim_material." + GemstonePower.MOD_ID + ".bronze", "Bronze Material");
+        this.add("trim_material." + GemstonePower.MOD_ID + ".silver", "Silver Material");
+        this.add("trim_material." + GemstonePower.MOD_ID + ".electrum", "Electrum Material");
+        this.add("trim_material." + GemstonePower.MOD_ID + ".nickel", "Nickel Material");
+        this.add("trim_material." + GemstonePower.MOD_ID + ".invar", "Invar Material");
+        this.add("trim_material." + GemstonePower.MOD_ID + ".constantan", "Constantan Material");
+        this.add("trim_material." + GemstonePower.MOD_ID + ".platinum", "Platinum Material");
+        this.add("trim_material." + GemstonePower.MOD_ID + ".steel", "Steel Material");
+        this.add("trim_material." + GemstonePower.MOD_ID + ".lithium", "Lithium Material");
+        this.add("trim_material." + GemstonePower.MOD_ID + ".magnesium", "Magnesium Material");
+        this.add("trim_material." + GemstonePower.MOD_ID + ".uranium", "Uranium Material");
+        this.add("trim_material." + GemstonePower.MOD_ID + ".lead", "Lead Material");
+        this.add("trim_material." + GemstonePower.MOD_ID + ".zinc", "Zinc Material");
 
     // ARROWS
         this.add(ModItems.RUBY_ARROW.get(), "Ruby Arrow");

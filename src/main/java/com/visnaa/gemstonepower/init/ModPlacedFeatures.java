@@ -18,6 +18,7 @@ import java.util.List;
 public final class ModPlacedFeatures
 {
     public static final ResourceKey<PlacedFeature> RESIN_TREE = register("resin_tree");
+    public static final ResourceKey<PlacedFeature> RESIN_PLAINS_TREE = register("resin_plains_tree");
 
     public static final ResourceKey<PlacedFeature> ALUMINUM = register("aluminum");
     public static final ResourceKey<PlacedFeature> ALUMINUM_EXTRA = register("aluminum_extra");
@@ -61,6 +62,8 @@ public final class ModPlacedFeatures
 
         register(context, RESIN_TREE, configuredFeatures.getOrThrow(ModConfiguredFeatures.RESIN_TREE),
                 VegetationPlacements.treePlacement(PlacementUtils.countExtra(0, 0.02F, 1), ModBlocks.RESIN_OAK_SAPLING.get()));
+        register(context, RESIN_PLAINS_TREE, configuredFeatures.getOrThrow(ModConfiguredFeatures.RESIN_TREE),
+                VegetationPlacements.treePlacement(PlacementUtils.countExtra(1, 0.01F, 2), ModBlocks.RESIN_OAK_SAPLING.get()));
         
         register(context, ALUMINUM, configuredFeatures.getOrThrow(ModConfiguredFeatures.ALUMINUM),
                 CountPlacement.of(4),

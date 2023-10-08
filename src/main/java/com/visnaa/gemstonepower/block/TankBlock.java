@@ -2,10 +2,12 @@ package com.visnaa.gemstonepower.block;
 
 import com.visnaa.gemstonepower.block.entity.TankBE;
 import com.visnaa.gemstonepower.block.machine.MachineBlock;
+import com.visnaa.gemstonepower.capability.fluid.ItemFluidTank;
 import com.visnaa.gemstonepower.init.ModBlockEntities;
 import com.visnaa.gemstonepower.init.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Containers;
@@ -24,7 +26,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.capability.IFluidHandler;
+import net.minecraftforge.fluids.capability.IFluidHandlerItem;
 import org.jetbrains.annotations.Nullable;
 
 public class TankBlock extends BaseEntityBlock
@@ -57,7 +60,10 @@ public class TankBlock extends BaseEntityBlock
                 if (level instanceof ServerLevel && !player.isCreative() && willHarvest)
                 {
                     ItemStack stack = new ItemStack(ModItems.TANK.get(), 1);
-                    tank.getCapability(ForgeCapabilities.FLUID_HANDLER).map(h -> h.getFluidInTank(0)).orElse(FluidStack.EMPTY).writeToNBT(stack.getOrCreateTag());
+                    IFluidHandler handlerTank = tank.getCapability(ForgeCapabilities.FLUID_HANDLER).orElse(ItemFluidTank.EMPTY);
+                    IFluidHandlerItem handlerItem = stack.getCapability(ForgeCapabilities.FLUID_HANDLER_ITEM).orElse(ItemFluidTank.EMPTY);
+                    handlerItem.fill(handlerTank.getFluidInTank(0), IFluidHandler.FluidAction.EXECUTE);
+                    stack.getOrCreateTag().put("FluidTank", tank.getTank(0).writeToNBT(new CompoundTag()));
                     Containers.dropContents(level, pos, NonNullList.withSize(1, stack));
                 }
                 level.updateNeighbourForOutputSignal(pos, this);
@@ -78,7 +84,7 @@ public class TankBlock extends BaseEntityBlock
                 {
                     if (stack.getItem().getDamage(stack) >= 0 && stack.getItem().getDamage(stack) <= 20000)
                     {
-                        tank.setFluid(0, FluidStack.loadFluidStackFromNBT(stack.getTag()));
+                        tank.setFluid(0, stack.getCapability(ForgeCapabilities.FLUID_HANDLER_ITEM).orElse(ItemFluidTank.EMPTY).getFluidInTank(0));
                     }
                 }
                 level.updateNeighbourForOutputSignal(pos, this);

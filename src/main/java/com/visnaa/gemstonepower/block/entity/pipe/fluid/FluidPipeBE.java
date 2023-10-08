@@ -2,8 +2,8 @@ package com.visnaa.gemstonepower.block.entity.pipe.fluid;
 
 import com.visnaa.gemstonepower.block.entity.pipe.PipeBE;
 import com.visnaa.gemstonepower.block.pipe.PipeBlock;
+import com.visnaa.gemstonepower.capability.fluid.FluidPipeNetwork;
 import com.visnaa.gemstonepower.config.ServerConfig;
-import com.visnaa.gemstonepower.pipe.fluid.FluidPipeNetwork;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.Level;

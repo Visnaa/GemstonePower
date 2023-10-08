@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "gemstonepower:resin_plains",
+  "features": "gemstonepower:resin_plains_tree",
+  "step": "vegetal_decoration"
+}

@@ -66,6 +66,7 @@ public class ClientEvents
         Tints.TINTED_ITEMS.forEach(item -> event.register((stack, layer) -> layer == 0 ? item.getColor() : 0xFFFFFF, (ItemLike) item));
         event.register((stack, layer) -> event.getBlockColors().getColor(((BlockItem) stack.getItem()).getBlock().defaultBlockState(), null, null, layer), ModBlocks.RESIN_OAK_LEAVES.get());
         event.register((stack, layer) -> event.getBlockColors().getColor(((BlockItem) stack.getItem()).getBlock().defaultBlockState(), null, null, layer), ModBlocks.WATER_COOLING.get());
+        event.register((stack, layer) -> layer != 0 && stack.hasTag() && stack.getTag().contains("FluidColor") ? stack.getTag().getInt("FluidColor") : 0xFFFFFF, ModItems.PORTABLE_TANK.get());
     }
 
     @SubscribeEvent

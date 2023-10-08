@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:bucket"
+    },
+    "G": {
+      "tag": "forge:glass"
+    },
+    "I": {
+      "tag": "forge:ingots/iron"
+    }
+  },
+  "pattern": [
+    "IBI",
+    "IGI",
+    "IBI"
+  ],
+  "result": {
+    "item": "gemstonepower:portable_tank"
+  },
+  "show_notification": true
+}

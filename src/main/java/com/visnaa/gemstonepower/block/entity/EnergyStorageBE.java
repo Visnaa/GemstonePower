@@ -1,6 +1,6 @@
 package com.visnaa.gemstonepower.block.entity;
 
-import com.visnaa.gemstonepower.pipe.energy.EnergyStorage;
+import com.visnaa.gemstonepower.capability.energy.EnergyStorage;
 
 public interface EnergyStorageBE
 {

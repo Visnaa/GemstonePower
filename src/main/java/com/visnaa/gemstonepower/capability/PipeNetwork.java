@@ -1,4 +1,4 @@
-package com.visnaa.gemstonepower.pipe;
+package com.visnaa.gemstonepower.capability;
 
 import com.visnaa.gemstonepower.block.entity.pipe.PipeBE;
 import net.minecraft.core.BlockPos;

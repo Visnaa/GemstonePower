@@ -5,7 +5,7 @@ import com.visnaa.gemstonepower.block.entity.pipe.item.ItemPipeBE;
 import com.visnaa.gemstonepower.block.pipe.cable.CableBlock;
 import com.visnaa.gemstonepower.block.pipe.fluid.FluidPipeBlock;
 import com.visnaa.gemstonepower.block.pipe.item.ItemPipeBlock;
-import com.visnaa.gemstonepower.pipe.energy.EnergyStorage;
+import com.visnaa.gemstonepower.capability.energy.EnergyStorage;
 import com.visnaa.gemstonepower.util.StringProperty;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

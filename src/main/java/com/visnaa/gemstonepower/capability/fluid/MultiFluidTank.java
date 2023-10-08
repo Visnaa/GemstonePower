@@ -1,4 +1,4 @@
-package com.visnaa.gemstonepower.pipe.fluid;
+package com.visnaa.gemstonepower.capability.fluid;
 
 import com.visnaa.gemstonepower.network.ModPackets;
 import com.visnaa.gemstonepower.network.packet.FluidSyncS2C;

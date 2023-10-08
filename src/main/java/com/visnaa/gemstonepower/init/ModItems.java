@@ -254,6 +254,7 @@ public final class ModItems
     public static final RegistryObject<Item> WIND_TURBINE = ITEMS.register("wind_turbine", () -> new TintedBlockItem(ModBlocks.WIND_TURBINE.get(), new Item.Properties(), Tints.STANDARD));
 
     public static final RegistryObject<Item> TANK = ITEMS.register("tank", () -> new TankItem(new Item.Properties()));
+    public static final RegistryObject<Item> PORTABLE_TANK = ITEMS.register("portable_tank", () -> new PortableTank(new Item.Properties()));
 
     public static final RegistryObject<Item> FISSION_REACTOR = ITEMS.register("fission_reactor", () -> new BlockItem(ModBlocks.FISSION_REACTOR.get(), new Item.Properties()));
     public static final RegistryObject<Item> REACTOR_WALL = ITEMS.register("reactor_wall", () -> new BlockItem(ModBlocks.REACTOR_WALL.get(), new Item.Properties()));

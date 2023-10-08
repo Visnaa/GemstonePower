@@ -2,7 +2,7 @@ package com.visnaa.gemstonepower.block.entity.pipe;
 
 import com.visnaa.gemstonepower.block.entity.TickingBlockEntity;
 import com.visnaa.gemstonepower.block.pipe.PipeBlock;
-import com.visnaa.gemstonepower.pipe.PipeNetwork;
+import com.visnaa.gemstonepower.capability.PipeNetwork;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;

@@ -39,6 +39,7 @@ public class ModTabs
                 output.accept(ModItems.WIND_TURBINE.get());
 
                 output.accept(ModItems.TANK.get());
+                output.accept(ModItems.PORTABLE_TANK.get());
 
                 output.accept(ModItems.FISSION_REACTOR.get());
                 output.accept(ModItems.REACTOR_WALL.get());

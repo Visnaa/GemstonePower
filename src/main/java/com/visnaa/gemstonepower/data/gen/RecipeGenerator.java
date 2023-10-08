@@ -131,6 +131,16 @@ public class RecipeGenerator extends RecipeProvider
                 .unlockedBy("has_gems", inventoryTrigger(ItemPredicate.Builder.item().of(ModTags.GEMS).build()))
                 .save(consumer, getFileName(ModItems.CRYSTAL_WRENCH.get()));
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.PORTABLE_TANK.get(), 1)
+                .pattern("IBI")
+                .pattern("IGI")
+                .pattern("IBI")
+                .define('G', Tags.Items.GLASS)
+                .define('B', Items.BUCKET)
+                .define('I', Tags.Items.INGOTS_IRON)
+                .unlockedBy("has_bucket", inventoryTrigger(ItemPredicate.Builder.item().of(Items.BUCKET).build()))
+                .save(consumer, getFileName(ModItems.PORTABLE_TANK.get()));
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.PLATE_PRESET.get(), 1)
                 .pattern("SPS")
                 .pattern("P#P")

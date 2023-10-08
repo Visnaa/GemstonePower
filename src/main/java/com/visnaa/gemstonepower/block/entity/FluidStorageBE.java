@@ -1,6 +1,6 @@
 package com.visnaa.gemstonepower.block.entity;
 
-import com.visnaa.gemstonepower.pipe.fluid.MultiFluidTank;
+import com.visnaa.gemstonepower.capability.fluid.MultiFluidTank;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;

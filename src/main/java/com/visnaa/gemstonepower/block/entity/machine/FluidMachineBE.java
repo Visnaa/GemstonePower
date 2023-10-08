@@ -1,10 +1,10 @@
 package com.visnaa.gemstonepower.block.entity.machine;
 
 import com.visnaa.gemstonepower.block.entity.FluidStorageBE;
+import com.visnaa.gemstonepower.capability.fluid.MultiFluidTank;
 import com.visnaa.gemstonepower.menu.machine.MachineMenu;
 import com.visnaa.gemstonepower.network.ModPackets;
 import com.visnaa.gemstonepower.network.packet.FluidSyncS2C;
-import com.visnaa.gemstonepower.pipe.fluid.MultiFluidTank;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;

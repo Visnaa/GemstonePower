@@ -1,6 +1,7 @@
 package com.visnaa.gemstonepower.block.entity.machine;
 
 import com.visnaa.gemstonepower.block.machine.GemstoneGeneratorBlock;
+import com.visnaa.gemstonepower.capability.energy.EnergyStorage;
 import com.visnaa.gemstonepower.config.ServerConfig;
 import com.visnaa.gemstonepower.data.recipe.GemstoneGeneratorRecipe;
 import com.visnaa.gemstonepower.init.ModBlockEntities;
@@ -9,7 +10,6 @@ import com.visnaa.gemstonepower.init.ModRecipes;
 import com.visnaa.gemstonepower.network.ModPackets;
 import com.visnaa.gemstonepower.network.packet.EnergySyncS2C;
 import com.visnaa.gemstonepower.network.packet.RecipeProgressSyncS2C;
-import com.visnaa.gemstonepower.pipe.energy.EnergyStorage;
 import com.visnaa.gemstonepower.util.MachineUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;

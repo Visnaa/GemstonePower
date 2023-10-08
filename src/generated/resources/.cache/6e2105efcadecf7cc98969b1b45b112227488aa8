@@ -1,4 +1,4 @@
-// 1.20.1	2023-08-23T00:22:09.6461042	Item Models: gemstonepower
+// 1.20.1	2023-10-08T01:00:29.474469	Item Models: gemstonepower
 be34f5217cc5560117eb30a30fbad66db313c194 assets/gemstonepower/models/item/advanced_upgrade.json
 e3593875d30c80acaaf80db0b0abb02f8b3afe92 assets/gemstonepower/models/item/aluminum_axe.json
 82316ffbb3b22484a942751c9af83d6c170297f5 assets/gemstonepower/models/item/aluminum_boots.json
@@ -227,6 +227,7 @@ ba2da46670b17cc76b7c335bf3823e42f1d79951 assets/gemstonepower/models/item/platin
 80c3eb8f519fb32e40ff75a8fea0f9e78fed52c6 assets/gemstonepower/models/item/platinum_plate.json
 77967f2ab7a3db8f8d6a45451dab7f91606a567a assets/gemstonepower/models/item/platinum_rod.json
 8caef1a21e2e717fd8bfd8a04c6c79976960d908 assets/gemstonepower/models/item/platinum_tiny_pile.json
+628a9273554c0cdd06a5980cf8f50f3c281c4705 assets/gemstonepower/models/item/portable_tank.json
 ecaa9904ce5f09e11e2deaece290eb2793337d08 assets/gemstonepower/models/item/raw_aluminum.json
 ecaa9904ce5f09e11e2deaece290eb2793337d08 assets/gemstonepower/models/item/raw_lead.json
 ecaa9904ce5f09e11e2deaece290eb2793337d08 assets/gemstonepower/models/item/raw_lithium.json

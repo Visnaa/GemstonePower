@@ -1,12 +1,12 @@
 package com.visnaa.gemstonepower.block.entity.machine;
 
 import com.visnaa.gemstonepower.GemstonePower;
+import com.visnaa.gemstonepower.capability.energy.EnergyStorage;
 import com.visnaa.gemstonepower.config.ServerConfig;
 import com.visnaa.gemstonepower.init.ModBlockEntities;
 import com.visnaa.gemstonepower.init.ModMenus;
 import com.visnaa.gemstonepower.network.ModPackets;
 import com.visnaa.gemstonepower.network.packet.EnergySyncS2C;
-import com.visnaa.gemstonepower.pipe.energy.EnergyStorage;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.Container;

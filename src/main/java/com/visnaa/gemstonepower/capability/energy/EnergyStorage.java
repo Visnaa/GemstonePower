@@ -1,4 +1,4 @@
-package com.visnaa.gemstonepower.pipe.energy;
+package com.visnaa.gemstonepower.capability.energy;
 
 public class EnergyStorage extends net.minecraftforge.energy.EnergyStorage
 {

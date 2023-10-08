@@ -2,10 +2,10 @@ package com.visnaa.gemstonepower.block.entity.pipe.cable;
 
 import com.visnaa.gemstonepower.block.entity.pipe.PipeBE;
 import com.visnaa.gemstonepower.block.pipe.PipeBlock;
+import com.visnaa.gemstonepower.capability.PipeNetwork;
+import com.visnaa.gemstonepower.capability.energy.EnergyNetwork;
+import com.visnaa.gemstonepower.capability.energy.EnergyStorage;
 import com.visnaa.gemstonepower.config.ServerConfig;
-import com.visnaa.gemstonepower.pipe.PipeNetwork;
-import com.visnaa.gemstonepower.pipe.energy.EnergyNetwork;
-import com.visnaa.gemstonepower.pipe.energy.EnergyStorage;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.Level;

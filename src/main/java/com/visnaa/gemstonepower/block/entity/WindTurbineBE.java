@@ -1,11 +1,11 @@
 package com.visnaa.gemstonepower.block.entity;
 
 import com.visnaa.gemstonepower.block.WindTurbineBlock;
+import com.visnaa.gemstonepower.capability.energy.EnergyStorage;
 import com.visnaa.gemstonepower.config.ServerConfig;
 import com.visnaa.gemstonepower.init.ModBlockEntities;
 import com.visnaa.gemstonepower.network.ModPackets;
 import com.visnaa.gemstonepower.network.packet.EnergySyncS2C;
-import com.visnaa.gemstonepower.pipe.energy.EnergyStorage;
 import com.visnaa.gemstonepower.util.MachineUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

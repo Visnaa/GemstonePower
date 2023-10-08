@@ -1,4 +1,4 @@
-// 1.20.1	2023-07-01T23:44:15.6009994	Registries
+// 1.20.1	2023-10-08T21:15:13.1395657	Registries
 ede868634f8fddd3aa2fa850eefa5907920ccbd6 data/gemstonepower/worldgen/configured_feature/aluminum.json
 e5f7474ce7834862fc7d612c21d99193cee7b103 data/gemstonepower/worldgen/configured_feature/aluminum_extra.json
 ec5604405adaa6efb34178eabfed11470f603cd8 data/gemstonepower/worldgen/configured_feature/amber.json
@@ -55,6 +55,7 @@ b5aec1288b5a45be8762ad929b711a337cf94889 data/gemstonepower/worldgen/placed_feat
 77d169b6bb3d29b28f4123cbe282b70dd8329b5e data/gemstonepower/worldgen/placed_feature/opal.json
 0fc16e202a3be5557fd51b3ab4fb7a061505ec04 data/gemstonepower/worldgen/placed_feature/peridot.json
 dd084918b826c08d444c8465f84202a706235b73 data/gemstonepower/worldgen/placed_feature/platinum.json
+fff6e7ed5b57447a8c994cb9747d9e706e8d9827 data/gemstonepower/worldgen/placed_feature/resin_plains_tree.json
 698e555b03e0ccd7da0c5f658410ab6b10317793 data/gemstonepower/worldgen/placed_feature/resin_tree.json
 d9ebe09486458ab182e4e9d82e5b1590aabfd372 data/gemstonepower/worldgen/placed_feature/ruby.json
 6be1979d92b1893ee4aba8aba7f1fc65ab00f797 data/gemstonepower/worldgen/placed_feature/sapphire.json
