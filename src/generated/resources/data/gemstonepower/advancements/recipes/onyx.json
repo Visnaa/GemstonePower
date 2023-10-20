@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_onyx_charged": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:onyx_charged"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:onyx"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_onyx_charged",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:onyx"
+    ]
+  },
+  "sends_telemetry_event": true
+}

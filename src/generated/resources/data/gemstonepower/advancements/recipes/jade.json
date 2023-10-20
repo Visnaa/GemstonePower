@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_jade_charged": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:jade_charged"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:jade"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_jade_charged",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:jade"
+    ]
+  },
+  "sends_telemetry_event": true
+}

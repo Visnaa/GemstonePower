@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ruby_charged": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:ruby_charged"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:ruby"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_ruby_charged",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:ruby"
+    ]
+  },
+  "sends_telemetry_event": true
+}

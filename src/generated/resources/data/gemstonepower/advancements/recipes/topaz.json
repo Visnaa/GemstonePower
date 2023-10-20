@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:topaz"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_topaz_charged": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:topaz_charged"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_topaz_charged",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:topaz"
+    ]
+  },
+  "sends_telemetry_event": true
+}

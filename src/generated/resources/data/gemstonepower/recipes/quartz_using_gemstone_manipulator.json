@@ -1,0 +1,17 @@
+{
+  "type": "gemstonepower:gemstone_manipulator",
+  "count": 4,
+  "energyUsage": 160,
+  "inputs": [
+    {
+      "tag": "forge:gems/lapis"
+    },
+    {
+      "tag": "forge:gems/lapis"
+    }
+  ],
+  "output": {
+    "item": "minecraft:quartz"
+  },
+  "processingTime": 300
+}

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_bixbit": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:bixbit"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:bixbit_seed"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_bixbit",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:bixbit_seed"
+    ]
+  },
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,17 @@
+{
+  "type": "gemstonepower:gemstone_manipulator",
+  "count": 2,
+  "energyUsage": 160,
+  "inputs": [
+    {
+      "tag": "forge:gems/amethyst"
+    },
+    {
+      "tag": "forge:gems/amethyst"
+    }
+  ],
+  "output": {
+    "item": "minecraft:prismarine"
+  },
+  "processingTime": 800
+}
