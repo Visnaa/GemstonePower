@@ -174,9 +174,9 @@ public final class MachineUtil
             return unit;
         }
 
-        public static EnergyUnits byId(int id)
+        public static EnergyUnits next(EnergyUnits unit)
         {
-            return BY_ID.apply(id);
+            return BY_ID.apply(unit.getId() + 1);
         }
 
         public static EnergyUnits byString(String text)
@@ -184,7 +184,7 @@ public final class MachineUtil
             for (EnergyUnits unit : EnergyUnits.values())
                 if (Objects.equals(unit.getUnit(), text))
                     return unit;
-            return EnergyUnits.GE;
+            return EnergyUnits.CUSTOM;
         }
     }
 }

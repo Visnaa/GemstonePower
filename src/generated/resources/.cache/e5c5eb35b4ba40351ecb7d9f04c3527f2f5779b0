@@ -1,4 +1,4 @@
-// 1.20.1	2023-07-04T17:50:57.7767876	Advancements
+// 1.20.1	2023-10-20T14:28:56.9809237	Advancements
 bb3f13e32218042ed082b70a7bcf9bbd708967a8 data/minecraft/advancements/gemstonepower/advanced_upgrade.json
 60443ca72c6b0f2d0c11e761d7504011239dccd1 data/minecraft/advancements/gemstonepower/alloy_smelter.json
 22ba2dcd3ab60d94b7131e5285362a47151cbe53 data/minecraft/advancements/gemstonepower/cable.json
@@ -12,6 +12,7 @@ d8bf49d4d3dc1a90fa87853700ede4f3d661d31c data/minecraft/advancements/gemstonepow
 c77a60a9b55915b34a8f1304b5865b6ec8cb8d33 data/minecraft/advancements/gemstonepower/gem.json
 7b4803a1b0192d6fbc5aa7ccc23998a4b4c5705e data/minecraft/advancements/gemstonepower/gemstone_cell.json
 28d846998ef5f134d61fd5d6a943b504b693d916 data/minecraft/advancements/gemstonepower/gemstone_generator.json
+75bdfc2ae9a821b7fec0949ed0fbe2b5900c529c data/minecraft/advancements/gemstonepower/gemstone_manipulator.json
 b4d1cfb0075a004b158fd2a6d5c33a5ff6ed97d7 data/minecraft/advancements/gemstonepower/intermediate_upgrade.json
 cde2de6de192fe84808b160e623f5a8be4187c12 data/minecraft/advancements/gemstonepower/metal_former.json
 6856c0afa07230bda6c549e4c96800f7f95dcac1 data/minecraft/advancements/gemstonepower/ore_washer.json

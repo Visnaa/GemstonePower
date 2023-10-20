@@ -21,9 +21,6 @@ public class EN_US_LanguageGenerator extends LanguageProvider
         this.add("itemGroup.gemstonepower.combat_tab", "Gemstone Power (Combat)");
         
     // GEMSTONE
-        this.add(ModItems.LIGHT_GEMSTONE.get(), "Light Gemstone");
-        this.add(ModItems.DARK_GEMSTONE.get(), "Dark Gemstone");
-
         this.add(ModArmors.GEMSTONE_HELMET.get(), "Gemstone Helmet");
         this.add(ModArmors.GEMSTONE_CHESTPLATE.get(), "Gemstone Chestplate");
         this.add(ModArmors.GEMSTONE_LEGGINGS.get(), "Gemstone Leggings");
@@ -423,6 +420,7 @@ public class EN_US_LanguageGenerator extends LanguageProvider
         this.add(ModBlocks.COBBLESTONE_GENERATOR.get(), "Cobblestone Generator");
         this.add(ModBlocks.SAWMILL.get(), "Sawmill");
         this.add(ModBlocks.POLARIZER.get(), "Polarizer");
+        this.add(ModBlocks.GEMSTONE_MANIPULATOR.get(), "Gemstone Manipulator");
 
         this.add(ModBlocks.SOLAR_PANEL.get(), "Solar Panel");
         this.add(ModBlocks.WATER_MILL.get(), "Water Mill");
@@ -451,6 +449,7 @@ public class EN_US_LanguageGenerator extends LanguageProvider
         this.add("menu." + GemstonePower.MOD_ID + ".ore_washer", "Ore Washer");
         this.add("menu." + GemstonePower.MOD_ID + ".sawmill", "Sawmill");
         this.add("menu." + GemstonePower.MOD_ID + ".polarizer", "Polarizer");
+        this.add("menu." + GemstonePower.MOD_ID + ".gemstone_manipulator", "Gemstone Manipulator");
         this.add("menu." + GemstonePower.MOD_ID + ".fission_reactor", "Fission Reactor");
 
         this.add("menu." + GemstonePower.MOD_ID + ".show_details", "§8Press §bSHIFT §8to get more details");
@@ -491,6 +490,12 @@ public class EN_US_LanguageGenerator extends LanguageProvider
         this.add(ModBlocks.STEEL_FLUID_PIPE.get(), "Steel Fluid Pipe");
 
     // MICS
+        this.add(ModItems.LIGHT_GEMSTONE.get(), "Light Gemstone");
+        this.add(ModItems.DARK_GEMSTONE.get(), "Dark Gemstone");
+        this.add(ModItems.FORTUNE_CRYSTAL.get(), "Fortune Crystal");
+        this.add(ModItems.STONE_OF_KNOWLEDGE.get(), "Stone of Knowledge");
+        this.add(ModItems.STONE_OF_OBLIVION.get(), "Stone of Oblivion");
+
         this.add(ModItems.INTERMEDIATE_UPGRADE.get(), "Intermediate Upgrade");
         this.add(ModItems.ADVANCED_UPGRADE.get(), "Advanced Upgrade");
         this.add(ModItems.ULTRA_UPGRADE.get(), "Ultra Upgrade");
@@ -631,7 +636,7 @@ public class EN_US_LanguageGenerator extends LanguageProvider
         this.add("advancement." + GemstonePower.MOD_ID + ".crystal_grower.title", "It grows!");
         this.add("advancement." + GemstonePower.MOD_ID + ".crystal_grower.description", "Craft a Crystal Grower");
         this.add("advancement." + GemstonePower.MOD_ID + ".electric_furnace.title", "Alternatives");
-        this.add("advancement." + GemstonePower.MOD_ID + ".electric_furnace.description", "Craft a Electric Furnace");
+        this.add("advancement." + GemstonePower.MOD_ID + ".electric_furnace.description", "Craft an Electric Furnace");
         this.add("advancement." + GemstonePower.MOD_ID + ".extractor.title", "You know suqma?");
         this.add("advancement." + GemstonePower.MOD_ID + ".extractor.description", "Craft an Extractor");
         this.add("advancement." + GemstonePower.MOD_ID + ".metal_former.title", "Desired shape");
@@ -644,6 +649,8 @@ public class EN_US_LanguageGenerator extends LanguageProvider
         this.add("advancement." + GemstonePower.MOD_ID + ".pulverizer.description", "Craft a Pulverizer");
         this.add("advancement." + GemstonePower.MOD_ID + ".sawmill.title", "I'm not a lumberjack!");
         this.add("advancement." + GemstonePower.MOD_ID + ".sawmill.description", "Craft a Sawmill");
+        this.add("advancement." + GemstonePower.MOD_ID + ".gemstone_manipulator.title", "Turn into a diamond, please");
+        this.add("advancement." + GemstonePower.MOD_ID + ".gemstone_manipulator.description", "Craft a Gemstone Manipulator");
         this.add("advancement." + GemstonePower.MOD_ID + ".solar_panel.title", "I have a bright idea");
         this.add("advancement." + GemstonePower.MOD_ID + ".solar_panel.description", "Craft a Solar Panel");
         this.add("advancement." + GemstonePower.MOD_ID + ".water_mill.title", "Splashy splash");

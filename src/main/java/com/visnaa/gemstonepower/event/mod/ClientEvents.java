@@ -48,6 +48,7 @@ public class ClientEvents
             MenuScreens.register(ModMenus.ORE_WASHER.get(), OreWasherScreen::new);
             MenuScreens.register(ModMenus.SAWMILL.get(), SawmillScreen::new);
             MenuScreens.register(ModMenus.POLARIZER.get(), PolarizerScreen::new);
+            MenuScreens.register(ModMenus.GEMSTONE_MANIPULATOR.get(), GemstoneManipulatorScreen::new);
             MenuScreens.register(ModMenus.FISSION_REACTOR.get(), FissionReactorScreen::new);
         });
     }
@@ -80,7 +81,7 @@ public class ClientEvents
         {
             if (layer != 0)
             {
-                return Tints.EMPTY.getColor();
+                return Tints.NONE.getColor();
             }
             return Tier.getTierTint(block.getTier(state)).getColor();
         }, (Block) block));

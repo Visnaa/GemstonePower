@@ -216,6 +216,15 @@ public class BlockModelGenerator extends BlockStateProvider
                         .rotationY((int) state.getValue(HORIZONTAL_FACING).getOpposite().toYRot())
                         .build());
 
+        this.blockWithItem(ModBlocks.GEMSTONE_MANIPULATOR.get(),"gemstone_manipulator");
+        this.getVariantBuilder(ModBlocks.GEMSTONE_MANIPULATOR.get())
+                .forAllStates(state -> ConfiguredModel.builder()
+                        .modelFile(models().withExistingParent("gemstone_manipulator", modLoc("block/machine"))
+                                .texture("machine", modLoc("block/gemstone_manipulator"))
+                                .texture("particle", modLoc("block/gemstone_manipulator")))
+                        .rotationY((int) state.getValue(HORIZONTAL_FACING).getOpposite().toYRot())
+                        .build());
+
         this.getVariantBuilder(ModBlocks.SOLAR_PANEL.get())
                 .forAllStates(state -> ConfiguredModel.builder()
                         .modelFile(models().getExistingFile(modLoc("solar_panel")))

@@ -33,6 +33,7 @@ public class ModTabs
                 output.accept(ModItems.COBBLESTONE_GENERATOR.get());
                 output.accept(ModItems.SAWMILL.get());
                 output.accept(ModItems.POLARIZER.get());
+                output.accept(ModItems.GEMSTONE_MANIPULATOR.get());
 
                 output.accept(ModItems.SOLAR_PANEL.get());
                 output.accept(ModItems.WATER_MILL.get());
@@ -58,6 +59,12 @@ public class ModTabs
 
                 output.accept(ModItems.METAL_WRENCH.get());
                 output.accept(ModItems.CRYSTAL_WRENCH.get());
+
+                output.accept(ModItems.LIGHT_GEMSTONE.get());
+                output.accept(ModItems.DARK_GEMSTONE.get());
+                output.accept(ModItems.FORTUNE_CRYSTAL.get());
+                output.accept(ModItems.STONE_OF_KNOWLEDGE.get());
+                output.accept(ModItems.STONE_OF_OBLIVION.get());
 
                 output.accept(ModItems.PLATE_PRESET.get());
                 output.accept(ModItems.ROD_PRESET.get());
@@ -99,9 +106,6 @@ public class ModTabs
             {
                 output.accept(Items.COAL);
                 output.accept(ModItems.COAL_DUST.get());
-
-                output.accept(ModItems.LIGHT_GEMSTONE.get());
-                output.accept(ModItems.DARK_GEMSTONE.get());
 
                 output.accept(Items.IRON_INGOT);
                 output.accept(Blocks.IRON_BLOCK);

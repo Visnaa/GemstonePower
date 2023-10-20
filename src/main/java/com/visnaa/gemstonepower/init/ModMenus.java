@@ -24,5 +24,6 @@ public final class ModMenus
     public static final RegistryObject<MenuType<OreWasherMenu>> ORE_WASHER = CONTAINERS.register("ore_washer", () -> IForgeMenuType.create(OreWasherMenu::new));
     public static final RegistryObject<MenuType<SawmillMenu>> SAWMILL = CONTAINERS.register("sawmill", () -> IForgeMenuType.create(SawmillMenu::new));
     public static final RegistryObject<MenuType<PolarizerMenu>> POLARIZER = CONTAINERS.register("polarizer", () -> IForgeMenuType.create(PolarizerMenu::new));
+    public static final RegistryObject<MenuType<GemstoneManipulatorMenu>> GEMSTONE_MANIPULATOR = CONTAINERS.register("gemstone_manipulator", () -> IForgeMenuType.create(GemstoneManipulatorMenu::new));
     public static final RegistryObject<MenuType<FissionReactorMenu>> FISSION_REACTOR = CONTAINERS.register("fission_reactor", () -> IForgeMenuType.create(FissionReactorMenu::new));
 }

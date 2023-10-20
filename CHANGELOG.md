@@ -1,5 +1,15 @@
 <h1 style="font-size: 40px">Gemstone Power version changelog</h1>
 
+<h3>Version: Beta 0.3.2</h3>
+<ul>
+<li>Basic gems now can give good and bad effects for awakened players
+<li>Added knowledge and oblivion stone
+<li>Added fortune crystal
+<li>Added Gemstone Manipulator
+<li>Added client config button in machine screens
+<li>Fixed client config options
+</ul>
+
 <h3>Version: Beta 0.3.1</h3>
 <ul>
 <li>Added portable tank

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "gemstonepower:dark_gemstone"
+    },
+    "L": {
+      "item": "gemstonepower:light_gemstone"
+    },
+    "S": {
+      "tag": "forge:nether_stars"
+    }
+  },
+  "pattern": [
+    "LDL",
+    "DSD",
+    "LDL"
+  ],
+  "result": {
+    "item": "gemstonepower:fortune_crystal"
+  },
+  "show_notification": true
+}

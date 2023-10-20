@@ -5,6 +5,7 @@ import com.visnaa.gemstonepower.block.entity.ReactorFrameBE;
 import com.visnaa.gemstonepower.client.render.Tints;
 import com.visnaa.gemstonepower.item.*;
 import com.visnaa.gemstonepower.util.Tier;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.phys.Vec3;
@@ -17,11 +18,11 @@ public final class ModItems
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, GemstonePower.MOD_ID);
 
     public static final RegistryObject<Item> AZURITE_CRYSTAL = ITEMS.register("azurite_crystal", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> AZURITE_CRYSTAL_CHARGED = ITEMS.register("azurite_crystal_charged", () -> new FoilItem(new Item.Properties(), Tints.EMPTY));
+    public static final RegistryObject<Item> AZURITE_CRYSTAL_CHARGED = ITEMS.register("azurite_crystal_charged", () -> new ChargedCrystalItem(new Item.Properties(), Tints.NONE));
     public static final RegistryObject<Item> AZURITE_CRYSTAL_SEED = ITEMS.register("azurite_crystal_seed", () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> CUPRITE_CRYSTAL = ITEMS.register("cuprite_crystal", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CUPRITE_CRYSTAL_CHARGED = ITEMS.register("cuprite_crystal_charged", () -> new FoilItem(new Item.Properties(), Tints.EMPTY));
+    public static final RegistryObject<Item> CUPRITE_CRYSTAL_CHARGED = ITEMS.register("cuprite_crystal_charged", () -> new ChargedCrystalItem(new Item.Properties(), Tints.NONE));
     public static final RegistryObject<Item> CUPRITE_CRYSTAL_SEED = ITEMS.register("cuprite_crystal_seed", () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> TREE_TAP = ITEMS.register("tree_tap", () -> new TreeTapItem(new Item.Properties().durability(64)));
@@ -36,7 +37,7 @@ public final class ModItems
     public static final RegistryObject<Item> IRON_ORE_DUST = ITEMS.register("iron_ore_dust", () -> new TintedItem(new Item.Properties(), Tints.IRON));
     public static final RegistryObject<Item> IRON_PLATE = ITEMS.register("iron_plate", () -> new TintedItem(new Item.Properties(), Tints.IRON));
     public static final RegistryObject<Item> IRON_ROD = ITEMS.register("iron_rod", () -> new TintedItem(new Item.Properties(), Tints.IRON));
-    public static final RegistryObject<Item> IRON_ROD_POLARIZED = ITEMS.register("iron_rod_polarized", () -> new FoilItem(new Item.Properties(), Tints.IRON));
+    public static final RegistryObject<Item> IRON_ROD_POLARIZED = ITEMS.register("iron_rod_polarized", () -> new ChargedCrystalItem(new Item.Properties(), Tints.IRON));
     public static final RegistryObject<Item> IRON_GEAR = ITEMS.register("iron_gear", () -> new TintedItem(new Item.Properties(), Tints.IRON));
 
     public static final RegistryObject<Item> GOLD_DUST = ITEMS.register("gold_dust", () -> new TintedItem(new Item.Properties(), Tints.GOLD));
@@ -122,7 +123,7 @@ public final class ModItems
     public static final RegistryObject<Item> NICKEL_ORE_DUST = ITEMS.register("nickel_ore_dust", () -> new TintedItem(new Item.Properties(), Tints.NICKEL));
     public static final RegistryObject<Item> NICKEL_PLATE = ITEMS.register("nickel_plate", () -> new TintedItem(new Item.Properties(), Tints.NICKEL));
     public static final RegistryObject<Item> NICKEL_ROD = ITEMS.register("nickel_rod", () -> new TintedItem(new Item.Properties(), Tints.NICKEL));
-    public static final RegistryObject<Item> NICKEL_ROD_POLARIZED = ITEMS.register("nickel_rod_polarized", () -> new FoilItem(new Item.Properties(), Tints.NICKEL));
+    public static final RegistryObject<Item> NICKEL_ROD_POLARIZED = ITEMS.register("nickel_rod_polarized", () -> new ChargedCrystalItem(new Item.Properties(), Tints.NICKEL));
     public static final RegistryObject<Item> NICKEL_GEAR = ITEMS.register("nickel_gear", () -> new TintedItem(new Item.Properties(), Tints.NICKEL));
 
     public static final RegistryObject<Item> INVAR_INGOT = ITEMS.register("invar_ingot", () -> new TintedItem(new Item.Properties(), Tints.INVAR));
@@ -132,7 +133,7 @@ public final class ModItems
     public static final RegistryObject<Item> INVAR_TINY_PILE = ITEMS.register("invar_tiny_pile", () -> new TintedItem(new Item.Properties(), Tints.INVAR));
     public static final RegistryObject<Item> INVAR_PLATE = ITEMS.register("invar_plate", () -> new TintedItem(new Item.Properties(), Tints.INVAR));
     public static final RegistryObject<Item> INVAR_ROD = ITEMS.register("invar_rod", () -> new TintedItem(new Item.Properties(), Tints.INVAR));
-    public static final RegistryObject<Item> INVAR_ROD_POLARIZED = ITEMS.register("invar_rod_polarized", () -> new FoilItem(new Item.Properties(), Tints.INVAR));
+    public static final RegistryObject<Item> INVAR_ROD_POLARIZED = ITEMS.register("invar_rod_polarized", () -> new ChargedCrystalItem(new Item.Properties(), Tints.INVAR));
     public static final RegistryObject<Item> INVAR_GEAR = ITEMS.register("invar_gear", () -> new TintedItem(new Item.Properties(), Tints.INVAR));
 
     public static final RegistryObject<Item> CONSTANTAN_INGOT = ITEMS.register("constantan_ingot", () -> new TintedItem(new Item.Properties(), Tints.CONSTANTAN));
@@ -142,7 +143,7 @@ public final class ModItems
     public static final RegistryObject<Item> CONSTANTAN_TINY_PILE = ITEMS.register("constantan_tiny_pile", () -> new TintedItem(new Item.Properties(), Tints.CONSTANTAN));
     public static final RegistryObject<Item> CONSTANTAN_PLATE = ITEMS.register("constantan_plate", () -> new TintedItem(new Item.Properties(), Tints.CONSTANTAN));
     public static final RegistryObject<Item> CONSTANTAN_ROD = ITEMS.register("constantan_rod", () -> new TintedItem(new Item.Properties(), Tints.CONSTANTAN));
-    public static final RegistryObject<Item> CONSTANTAN_ROD_POLARIZED = ITEMS.register("constantan_rod_polarized", () -> new FoilItem(new Item.Properties(), Tints.CONSTANTAN));
+    public static final RegistryObject<Item> CONSTANTAN_ROD_POLARIZED = ITEMS.register("constantan_rod_polarized", () -> new ChargedCrystalItem(new Item.Properties(), Tints.CONSTANTAN));
     public static final RegistryObject<Item> CONSTANTAN_GEAR = ITEMS.register("constantan_gear", () -> new TintedItem(new Item.Properties(), Tints.CONSTANTAN));
 
     public static final RegistryObject<Item> PLATINUM_INGOT = ITEMS.register("platinum_ingot", () -> new TintedItem(new Item.Properties(), Tints.PLATINUM));
@@ -165,7 +166,7 @@ public final class ModItems
     public static final RegistryObject<Item> STEEL_TINY_PILE = ITEMS.register("steel_tiny_pile", () -> new TintedItem(new Item.Properties(), Tints.STEEL));
     public static final RegistryObject<Item> STEEL_PLATE = ITEMS.register("steel_plate", () -> new TintedItem(new Item.Properties(), Tints.STEEL));
     public static final RegistryObject<Item> STEEL_ROD = ITEMS.register("steel_rod", () -> new TintedItem(new Item.Properties(), Tints.STEEL));
-    public static final RegistryObject<Item> STEEL_ROD_POLARIZED = ITEMS.register("steel_rod_polarized", () -> new FoilItem(new Item.Properties(), Tints.STEEL));
+    public static final RegistryObject<Item> STEEL_ROD_POLARIZED = ITEMS.register("steel_rod_polarized", () -> new ChargedCrystalItem(new Item.Properties(), Tints.STEEL));
     public static final RegistryObject<Item> STEEL_GEAR = ITEMS.register("steel_gear", () -> new TintedItem(new Item.Properties(), Tints.STEEL));
 
     public static final RegistryObject<Item> LITHIUM_INGOT = ITEMS.register("lithium_ingot", () -> new TintedItem(new Item.Properties(), Tints.LITHIUM));
@@ -248,6 +249,7 @@ public final class ModItems
     public static final RegistryObject<Item> COBBLESTONE_GENERATOR = ITEMS.register("cobblestone_generator", () -> new TintedBlockItem(ModBlocks.COBBLESTONE_GENERATOR.get(), new Item.Properties(), Tints.STANDARD));
     public static final RegistryObject<Item> SAWMILL = ITEMS.register("sawmill", () -> new TintedBlockItem(ModBlocks.SAWMILL.get(), new Item.Properties(), Tints.STANDARD));
     public static final RegistryObject<Item> POLARIZER = ITEMS.register("polarizer", () -> new TintedBlockItem(ModBlocks.POLARIZER.get(), new Item.Properties(), Tints.STANDARD));
+    public static final RegistryObject<Item> GEMSTONE_MANIPULATOR = ITEMS.register("gemstone_manipulator", () -> new TintedBlockItem(ModBlocks.GEMSTONE_MANIPULATOR.get(), new Item.Properties(), Tints.STANDARD));
 
     public static final RegistryObject<Item> SOLAR_PANEL = ITEMS.register("solar_panel", () -> new TintedBlockItem(ModBlocks.SOLAR_PANEL.get(), new Item.Properties(), Tints.STANDARD));
     public static final RegistryObject<Item> WATER_MILL = ITEMS.register("water_mill", () -> new TintedBlockItem(ModBlocks.WATER_MILL.get(), new Item.Properties(), Tints.STANDARD));
@@ -300,65 +302,68 @@ public final class ModItems
     public static final RegistryObject<Item> INVAR_FLUID_PIPE = ITEMS.register("invar_fluid_pipe", () -> new TintedBlockItem(ModBlocks.INVAR_FLUID_PIPE.get(), new Item.Properties(), Tints.INVAR));
     public static final RegistryObject<Item> STEEL_FLUID_PIPE = ITEMS.register("steel_fluid_pipe", () -> new TintedBlockItem(ModBlocks.STEEL_FLUID_PIPE.get(), new Item.Properties(), Tints.STEEL));
 
-    public static final RegistryObject<Item> LIGHT_GEMSTONE = ITEMS.register("light_gemstone", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> DARK_GEMSTONE = ITEMS.register("dark_gemstone", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> LIGHT_GEMSTONE = ITEMS.register("light_gemstone", () -> new CrystalItem(new Item.Properties(), MobEffects.HEALTH_BOOST));
+    public static final RegistryObject<Item> DARK_GEMSTONE = ITEMS.register("dark_gemstone", () -> new CrystalItem(new Item.Properties(), MobEffects.SATURATION));
+    public static final RegistryObject<Item> FORTUNE_CRYSTAL = ITEMS.register("fortune_crystal", () -> new FortuneCrystal(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> STONE_OF_KNOWLEDGE = ITEMS.register("stone_of_knowledge", () -> new AwakeningStoneItem(new Item.Properties(), true));
+    public static final RegistryObject<Item> STONE_OF_OBLIVION = ITEMS.register("stone_of_oblivion", () -> new AwakeningStoneItem(new Item.Properties(), false));
 
-    public static final RegistryObject<Item> RUBY = ITEMS.register("ruby", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SAPPHIRE = ITEMS.register("sapphire", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> AQUAMARINE = ITEMS.register("aquamarine", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> JADE = ITEMS.register("jade", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> OPAL = ITEMS.register("opal", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> YELLOW_DIAMOND = ITEMS.register("yellow_diamond", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> AMBER = ITEMS.register("amber", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> TOPAZ = ITEMS.register("topaz", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BERYLLIUM = ITEMS.register("beryllium", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BIXBIT = ITEMS.register("bixbit", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> MALACHITE = ITEMS.register("malachite", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> ONYX = ITEMS.register("onyx", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> PERIDOT = ITEMS.register("peridot", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> MOON_STONE = ITEMS.register("moon_stone", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SUN_STONE = ITEMS.register("sun_stone", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CITRINE = ITEMS.register("citrine", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> DOLOMITE = ITEMS.register("dolomite", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> TANZANITE = ITEMS.register("tanzanite", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> RUBY = ITEMS.register("ruby", () -> new CrystalItem(new Item.Properties(), MobEffects.REGENERATION));
+    public static final RegistryObject<Item> SAPPHIRE = ITEMS.register("sapphire", () -> new CrystalItem(new Item.Properties(), MobEffects.DOLPHINS_GRACE));
+    public static final RegistryObject<Item> AQUAMARINE = ITEMS.register("aquamarine", () -> new CrystalItem(new Item.Properties(), MobEffects.WATER_BREATHING));
+    public static final RegistryObject<Item> JADE = ITEMS.register("jade", () -> new CrystalItem(new Item.Properties(), MobEffects.MOVEMENT_SPEED));
+    public static final RegistryObject<Item> OPAL = ITEMS.register("opal", () -> new CrystalItem(new Item.Properties(), MobEffects.MOVEMENT_SLOWDOWN));
+    public static final RegistryObject<Item> YELLOW_DIAMOND = ITEMS.register("yellow_diamond", () -> new CrystalItem(new Item.Properties(), MobEffects.DIG_SPEED));
+    public static final RegistryObject<Item> AMBER = ITEMS.register("amber", () -> new CrystalItem(new Item.Properties(), MobEffects.FIRE_RESISTANCE));
+    public static final RegistryObject<Item> TOPAZ = ITEMS.register("topaz", () -> new CrystalItem(new Item.Properties(), MobEffects.INVISIBILITY));
+    public static final RegistryObject<Item> BERYLLIUM = ITEMS.register("beryllium", () -> new CrystalItem(new Item.Properties(), MobEffects.GLOWING));
+    public static final RegistryObject<Item> BIXBIT = ITEMS.register("bixbit", () -> new CrystalItem(new Item.Properties(), MobEffects.JUMP));
+    public static final RegistryObject<Item> MALACHITE = ITEMS.register("malachite", () -> new CrystalItem(new Item.Properties(), MobEffects.LUCK));
+    public static final RegistryObject<Item> ONYX = ITEMS.register("onyx", () -> new CrystalItem(new Item.Properties(), MobEffects.NIGHT_VISION));
+    public static final RegistryObject<Item> PERIDOT = ITEMS.register("peridot", () -> new CrystalItem(new Item.Properties(), MobEffects.WEAKNESS));
+    public static final RegistryObject<Item> MOON_STONE = ITEMS.register("moon_stone", () -> new CrystalItem(new Item.Properties(), MobEffects.UNLUCK));
+    public static final RegistryObject<Item> SUN_STONE = ITEMS.register("sun_stone", () -> new CrystalItem(new Item.Properties(), MobEffects.HUNGER));
+    public static final RegistryObject<Item> CITRINE = ITEMS.register("citrine", () -> new CrystalItem(new Item.Properties(), MobEffects.POISON));
+    public static final RegistryObject<Item> DOLOMITE = ITEMS.register("dolomite", () -> new CrystalItem(new Item.Properties(), MobEffects.BLINDNESS));
+    public static final RegistryObject<Item> TANZANITE = ITEMS.register("tanzanite", () -> new CrystalItem(new Item.Properties(), MobEffects.DAMAGE_BOOST));
 
-    public static final RegistryObject<Item> RUBY_SEED = ITEMS.register("ruby_seed", () -> new TintedItem(new Item.Properties(), Tints.RUBY));
-    public static final RegistryObject<Item> SAPPHIRE_SEED = ITEMS.register("sapphire_seed", () -> new TintedItem(new Item.Properties(), Tints.SAPPHIRE));
-    public static final RegistryObject<Item> AQUAMARINE_SEED = ITEMS.register("aquamarine_seed", () -> new TintedItem(new Item.Properties(), Tints.AQUAMARINE));
-    public static final RegistryObject<Item> JADE_SEED = ITEMS.register("jade_seed", () -> new TintedItem(new Item.Properties(), Tints.JADE));
-    public static final RegistryObject<Item> OPAL_SEED = ITEMS.register("opal_seed", () -> new TintedItem(new Item.Properties(), Tints.OPAL));
-    public static final RegistryObject<Item> YELLOW_DIAMOND_SEED = ITEMS.register("yellow_diamond_seed", () -> new TintedItem(new Item.Properties(), Tints.YELLOW_DIAMOND));
-    public static final RegistryObject<Item> AMBER_SEED = ITEMS.register("amber_seed", () -> new TintedItem(new Item.Properties(), Tints.AMBER));
-    public static final RegistryObject<Item> TOPAZ_SEED = ITEMS.register("topaz_seed", () -> new TintedItem(new Item.Properties(), Tints.TOPAZ));
-    public static final RegistryObject<Item> BERYLLIUM_SEED = ITEMS.register("beryllium_seed", () -> new TintedItem(new Item.Properties(), Tints.BERYLLIUM));
-    public static final RegistryObject<Item> BIXBIT_SEED = ITEMS.register("bixbit_seed", () -> new TintedItem(new Item.Properties(), Tints.BIXBIT));
-    public static final RegistryObject<Item> MALACHITE_SEED = ITEMS.register("malachite_seed", () -> new TintedItem(new Item.Properties(), Tints.MALACHITE));
-    public static final RegistryObject<Item> ONYX_SEED = ITEMS.register("onyx_seed", () -> new TintedItem(new Item.Properties(), Tints.ONYX));
-    public static final RegistryObject<Item> PERIDOT_SEED = ITEMS.register("peridot_seed", () -> new TintedItem(new Item.Properties(), Tints.PERIDOT));
-    public static final RegistryObject<Item> MOON_STONE_SEED = ITEMS.register("moon_stone_seed", () -> new TintedItem(new Item.Properties(), Tints.MOON_STONE));
-    public static final RegistryObject<Item> SUN_STONE_SEED = ITEMS.register("sun_stone_seed", () -> new TintedItem(new Item.Properties(), Tints.SUN_STONE));
-    public static final RegistryObject<Item> CITRINE_SEED = ITEMS.register("citrine_seed", () -> new TintedItem(new Item.Properties(), Tints.CITRINE));
-    public static final RegistryObject<Item> DOLOMITE_SEED = ITEMS.register("dolomite_seed", () -> new TintedItem(new Item.Properties(), Tints.DOLOMITE));
-    public static final RegistryObject<Item> TANZANITE_SEED = ITEMS.register("tanzanite_seed", () -> new TintedItem(new Item.Properties(), Tints.TANZANITE));
+    public static final RegistryObject<Item> RUBY_SEED = ITEMS.register("ruby_seed", () -> new CrystalItem(new Item.Properties(), Tints.RUBY));
+    public static final RegistryObject<Item> SAPPHIRE_SEED = ITEMS.register("sapphire_seed", () -> new CrystalItem(new Item.Properties(), Tints.SAPPHIRE));
+    public static final RegistryObject<Item> AQUAMARINE_SEED = ITEMS.register("aquamarine_seed", () -> new CrystalItem(new Item.Properties(), Tints.AQUAMARINE));
+    public static final RegistryObject<Item> JADE_SEED = ITEMS.register("jade_seed", () -> new CrystalItem(new Item.Properties(), Tints.JADE));
+    public static final RegistryObject<Item> OPAL_SEED = ITEMS.register("opal_seed", () -> new CrystalItem(new Item.Properties(), Tints.OPAL));
+    public static final RegistryObject<Item> YELLOW_DIAMOND_SEED = ITEMS.register("yellow_diamond_seed", () -> new CrystalItem(new Item.Properties(), Tints.YELLOW_DIAMOND));
+    public static final RegistryObject<Item> AMBER_SEED = ITEMS.register("amber_seed", () -> new CrystalItem(new Item.Properties(), Tints.AMBER));
+    public static final RegistryObject<Item> TOPAZ_SEED = ITEMS.register("topaz_seed", () -> new CrystalItem(new Item.Properties(), Tints.TOPAZ));
+    public static final RegistryObject<Item> BERYLLIUM_SEED = ITEMS.register("beryllium_seed", () -> new CrystalItem(new Item.Properties(), Tints.BERYLLIUM));
+    public static final RegistryObject<Item> BIXBIT_SEED = ITEMS.register("bixbit_seed", () -> new CrystalItem(new Item.Properties(), Tints.BIXBIT));
+    public static final RegistryObject<Item> MALACHITE_SEED = ITEMS.register("malachite_seed", () -> new CrystalItem(new Item.Properties(), Tints.MALACHITE));
+    public static final RegistryObject<Item> ONYX_SEED = ITEMS.register("onyx_seed", () -> new CrystalItem(new Item.Properties(), Tints.ONYX));
+    public static final RegistryObject<Item> PERIDOT_SEED = ITEMS.register("peridot_seed", () -> new CrystalItem(new Item.Properties(), Tints.PERIDOT));
+    public static final RegistryObject<Item> MOON_STONE_SEED = ITEMS.register("moon_stone_seed", () -> new CrystalItem(new Item.Properties(), Tints.MOON_STONE));
+    public static final RegistryObject<Item> SUN_STONE_SEED = ITEMS.register("sun_stone_seed", () -> new CrystalItem(new Item.Properties(), Tints.SUN_STONE));
+    public static final RegistryObject<Item> CITRINE_SEED = ITEMS.register("citrine_seed", () -> new CrystalItem(new Item.Properties(), Tints.CITRINE));
+    public static final RegistryObject<Item> DOLOMITE_SEED = ITEMS.register("dolomite_seed", () -> new CrystalItem(new Item.Properties(), Tints.DOLOMITE));
+    public static final RegistryObject<Item> TANZANITE_SEED = ITEMS.register("tanzanite_seed", () -> new CrystalItem(new Item.Properties(), Tints.TANZANITE));
 
-    public static final RegistryObject<Item> RUBY_CHARGED = ITEMS.register("ruby_charged", () -> new FoilItem(new Item.Properties(), Tints.EMPTY));
-    public static final RegistryObject<Item> SAPPHIRE_CHARGED = ITEMS.register("sapphire_charged", () -> new FoilItem(new Item.Properties(), Tints.EMPTY));
-    public static final RegistryObject<Item> AQUAMARINE_CHARGED = ITEMS.register("aquamarine_charged", () -> new FoilItem(new Item.Properties(), Tints.EMPTY));
-    public static final RegistryObject<Item> JADE_CHARGED = ITEMS.register("jade_charged", () -> new FoilItem(new Item.Properties(), Tints.EMPTY));
-    public static final RegistryObject<Item> OPAL_CHARGED = ITEMS.register("opal_charged", () -> new FoilItem(new Item.Properties(), Tints.EMPTY));
-    public static final RegistryObject<Item> YELLOW_DIAMOND_CHARGED = ITEMS.register("yellow_diamond_charged", () -> new FoilItem(new Item.Properties(), Tints.EMPTY));
-    public static final RegistryObject<Item> AMBER_CHARGED = ITEMS.register("amber_charged", () -> new FoilItem(new Item.Properties(), Tints.EMPTY));
-    public static final RegistryObject<Item> TOPAZ_CHARGED = ITEMS.register("topaz_charged", () -> new FoilItem(new Item.Properties(), Tints.EMPTY));
-    public static final RegistryObject<Item> BERYLLIUM_CHARGED = ITEMS.register("beryllium_charged", () -> new FoilItem(new Item.Properties(), Tints.EMPTY));
-    public static final RegistryObject<Item> BIXBIT_CHARGED = ITEMS.register("bixbit_charged", () -> new FoilItem(new Item.Properties(), Tints.EMPTY));
-    public static final RegistryObject<Item> MALACHITE_CHARGED = ITEMS.register("malachite_charged", () -> new FoilItem(new Item.Properties(), Tints.EMPTY));
-    public static final RegistryObject<Item> ONYX_CHARGED = ITEMS.register("onyx_charged", () -> new FoilItem(new Item.Properties(), Tints.EMPTY));
-    public static final RegistryObject<Item> PERIDOT_CHARGED = ITEMS.register("peridot_charged", () -> new FoilItem(new Item.Properties(), Tints.EMPTY));
-    public static final RegistryObject<Item> MOON_STONE_CHARGED = ITEMS.register("moon_stone_charged", () -> new FoilItem(new Item.Properties(), Tints.EMPTY));
-    public static final RegistryObject<Item> SUN_STONE_CHARGED = ITEMS.register("sun_stone_charged", () -> new FoilItem(new Item.Properties(), Tints.EMPTY));
-    public static final RegistryObject<Item> CITRINE_CHARGED = ITEMS.register("citrine_charged", () -> new FoilItem(new Item.Properties(), Tints.EMPTY));
-    public static final RegistryObject<Item> DOLOMITE_CHARGED = ITEMS.register("dolomite_charged", () -> new FoilItem(new Item.Properties(), Tints.EMPTY));
-    public static final RegistryObject<Item> TANZANITE_CHARGED = ITEMS.register("tanzanite_charged", () -> new FoilItem(new Item.Properties(), Tints.EMPTY));
+    public static final RegistryObject<Item> RUBY_CHARGED = ITEMS.register("ruby_charged", () -> new ChargedCrystalItem(new Item.Properties(), Tints.NONE));
+    public static final RegistryObject<Item> SAPPHIRE_CHARGED = ITEMS.register("sapphire_charged", () -> new ChargedCrystalItem(new Item.Properties(), Tints.NONE));
+    public static final RegistryObject<Item> AQUAMARINE_CHARGED = ITEMS.register("aquamarine_charged", () -> new ChargedCrystalItem(new Item.Properties(), Tints.NONE));
+    public static final RegistryObject<Item> JADE_CHARGED = ITEMS.register("jade_charged", () -> new ChargedCrystalItem(new Item.Properties(), Tints.NONE));
+    public static final RegistryObject<Item> OPAL_CHARGED = ITEMS.register("opal_charged", () -> new ChargedCrystalItem(new Item.Properties(), Tints.NONE));
+    public static final RegistryObject<Item> YELLOW_DIAMOND_CHARGED = ITEMS.register("yellow_diamond_charged", () -> new ChargedCrystalItem(new Item.Properties(), Tints.NONE));
+    public static final RegistryObject<Item> AMBER_CHARGED = ITEMS.register("amber_charged", () -> new ChargedCrystalItem(new Item.Properties(), Tints.NONE));
+    public static final RegistryObject<Item> TOPAZ_CHARGED = ITEMS.register("topaz_charged", () -> new ChargedCrystalItem(new Item.Properties(), Tints.NONE));
+    public static final RegistryObject<Item> BERYLLIUM_CHARGED = ITEMS.register("beryllium_charged", () -> new ChargedCrystalItem(new Item.Properties(), Tints.NONE));
+    public static final RegistryObject<Item> BIXBIT_CHARGED = ITEMS.register("bixbit_charged", () -> new ChargedCrystalItem(new Item.Properties(), Tints.NONE));
+    public static final RegistryObject<Item> MALACHITE_CHARGED = ITEMS.register("malachite_charged", () -> new ChargedCrystalItem(new Item.Properties(), Tints.NONE));
+    public static final RegistryObject<Item> ONYX_CHARGED = ITEMS.register("onyx_charged", () -> new ChargedCrystalItem(new Item.Properties(), Tints.NONE));
+    public static final RegistryObject<Item> PERIDOT_CHARGED = ITEMS.register("peridot_charged", () -> new ChargedCrystalItem(new Item.Properties(), Tints.NONE));
+    public static final RegistryObject<Item> MOON_STONE_CHARGED = ITEMS.register("moon_stone_charged", () -> new ChargedCrystalItem(new Item.Properties(), Tints.NONE));
+    public static final RegistryObject<Item> SUN_STONE_CHARGED = ITEMS.register("sun_stone_charged", () -> new ChargedCrystalItem(new Item.Properties(), Tints.NONE));
+    public static final RegistryObject<Item> CITRINE_CHARGED = ITEMS.register("citrine_charged", () -> new ChargedCrystalItem(new Item.Properties(), Tints.NONE));
+    public static final RegistryObject<Item> DOLOMITE_CHARGED = ITEMS.register("dolomite_charged", () -> new ChargedCrystalItem(new Item.Properties(), Tints.NONE));
+    public static final RegistryObject<Item> TANZANITE_CHARGED = ITEMS.register("tanzanite_charged", () -> new ChargedCrystalItem(new Item.Properties(), Tints.NONE));
 
     public static final RegistryObject<Item> RUBY_CRYSTALS = ITEMS.register("ruby_crystals", () -> new TintedBlockItem(ModBlocks.RUBY_CRYSTALS.get(), new Item.Properties(), Tints.RUBY));
     public static final RegistryObject<Item> SAPPHIRE_CRYSTALS = ITEMS.register("sapphire_crystals", () -> new TintedBlockItem(ModBlocks.SAPPHIRE_CRYSTALS.get(), new Item.Properties(), Tints.SAPPHIRE));

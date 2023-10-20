@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "item": "gemstonepower:dark_gemstone"
+    },
+    "F": {
+      "item": "gemstonepower:fortune_crystal"
+    },
+    "L": {
+      "item": "gemstonepower:light_gemstone"
+    },
+    "R": {
+      "item": "gemstonepower:steel_rod_polarized"
+    }
+  },
+  "pattern": [
+    "LFL",
+    "FRF",
+    "DFD"
+  ],
+  "result": {
+    "item": "gemstonepower:gemstone_manipulator"
+  },
+  "show_notification": true
+}

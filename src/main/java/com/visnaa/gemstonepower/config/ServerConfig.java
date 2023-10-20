@@ -2,6 +2,9 @@ package com.visnaa.gemstonepower.config;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ServerConfig
 {
     public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
@@ -28,6 +31,9 @@ public class ServerConfig
     public static final ForgeConfigSpec.DoubleValue FLUID_PIPE_TRANSFER_MUL;
 
     public static final ForgeConfigSpec.IntValue MAX_FISSION_REACTOR_SIZE;
+
+    public static final ForgeConfigSpec.IntValue FORTUNE_CRYSTAL_COOLDOWN;
+    public static final ForgeConfigSpec.ConfigValue<List<?>> AWAKENED_PLAYERS;
 
     static
     {
@@ -84,6 +90,15 @@ public class ServerConfig
 
         MAX_FISSION_REACTOR_SIZE = BUILDER.comment("Max edge length of fission reactor")
                 .defineInRange("max_fission_reactor_size", 10, 0, Integer.MAX_VALUE);
+
+        BUILDER.comment("#".repeat(29));
+        BUILDER.comment(" Crystal settings" + " ".repeat(11) + "#");
+        BUILDER.comment("#".repeat(29));
+
+        FORTUNE_CRYSTAL_COOLDOWN = BUILDER.comment("Cooldown of Fortune Crystal in ticks")
+                .defineInRange("fortune_crystal_cooldown", 12000, 0, Integer.MAX_VALUE);
+        AWAKENED_PLAYERS = BUILDER.comment("UUIDs of players that can use all of features that gems provide")
+                .defineListAllowEmpty("awakened_players", new ArrayList<>(), s -> true);
 
         BUILDER.pop();
         CONFIG = BUILDER.build();

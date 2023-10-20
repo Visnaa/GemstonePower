@@ -16,7 +16,7 @@ import java.util.function.Supplier;
 
 public enum ArmorMaterial implements StringRepresentable, net.minecraft.world.item.ArmorMaterial
 {
-    GEMSTONE(Tints.EMPTY, "gemstone", 35, Util.make(new EnumMap<>(ArmorItem.Type.class), (map) -> {
+    GEMSTONE(Tints.NONE, "gemstone", 35, Util.make(new EnumMap<>(ArmorItem.Type.class), (map) -> {
         map.put(ArmorItem.Type.BOOTS, 3);
         map.put(ArmorItem.Type.LEGGINGS, 6);
         map.put(ArmorItem.Type.CHESTPLATE, 8);

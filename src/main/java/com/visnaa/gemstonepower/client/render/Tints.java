@@ -5,7 +5,7 @@ import java.util.List;
 
 public enum Tints
 {
-    EMPTY(0xFFFFFF),
+    NONE(0xFFFFFF),
 
     COAL(0x333333),
 

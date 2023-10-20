@@ -1,4 +1,4 @@
-// 1.20.1	2023-09-05T19:05:37.4495885	Block States: gemstonepower
+// 1.20.1	2023-10-20T14:28:56.9549334	Block States: gemstonepower
 d64b6a987545931049089336705e3824c4d7a706 assets/gemstonepower/blockstates/alloy_smelter.json
 82e779ca55602bc3c1a921eeba5199a80496b336 assets/gemstonepower/blockstates/aluminum_block.json
 c8bfa41b107b508305585782c062b564d797e499 assets/gemstonepower/blockstates/aluminum_cable.json
@@ -38,6 +38,7 @@ cb21ad375567e62d4498012a132988567fe2d4dd assets/gemstonepower/blockstates/electr
 11b526d8d733e010f3110e5d2d3a0bad88bf4a3a assets/gemstonepower/blockstates/fission_reactor.json
 d1c73bb46eaf5a98bfb354155d7bfef7983035ff assets/gemstonepower/blockstates/gemstone_cell.json
 792908ecd548c3fa44f1eca72f592b57a0f26671 assets/gemstonepower/blockstates/gemstone_generator.json
+de56bbb4203d4c91b2e203cf3812ae1a388efedb assets/gemstonepower/blockstates/gemstone_manipulator.json
 80ee90d97b1b2410e887d89e06d309bac7ee66a8 assets/gemstonepower/blockstates/gold_fluid_pipe.json
 9d6df5800b6a337b84ff93958b3108b302c75f96 assets/gemstonepower/blockstates/gold_item_pipe.json
 3182fdd24b53023c2ce95363aad1248df340715d assets/gemstonepower/blockstates/ice_cooling.json
@@ -130,6 +131,7 @@ fd4a82646fb76c8f788f4d47c1766132194f438b assets/gemstonepower/models/block/fissi
 7a1f86fbd125bac32b0fb0a607a0edf451331cde assets/gemstonepower/models/block/gemstone_cell.json
 650cda3fcb018a36731b02ec97b5330f00566693 assets/gemstonepower/models/block/gemstone_generator.json
 325bdbd8d7e00192c3098a2295e6c90df22bf34a assets/gemstonepower/models/block/gemstone_generator_powered.json
+71643357104537cb8928c5d85b97e41984f44b5c assets/gemstonepower/models/block/gemstone_manipulator.json
 89844b5da318da5cf10a8a9cc4eb3d9a6e1879d6 assets/gemstonepower/models/block/ice_cooling.json
 08cdad216dc5c8d3724cf1900bceee4dcd7a5f4c assets/gemstonepower/models/block/invar_block.json
 175cdfa92fa5ff1bed381f5ed67623becc35add2 assets/gemstonepower/models/block/jade_crystals.json
@@ -216,6 +218,7 @@ c88c745853b1d454c170afff2a2582bde79b6826 assets/gemstonepower/models/item/electr
 936ce2149cb546efad7bf1fa54656f67331353da assets/gemstonepower/models/item/fission_reactor.json
 d06dcdc983ac2269cece5573927f59649367bd5a assets/gemstonepower/models/item/gemstone_cell.json
 8a90eb03adf87e7f2c56e77e48687b45c451d77c assets/gemstonepower/models/item/gemstone_generator.json
+b82a3d106633f08aa889d5fc65c70747e0e6c76b assets/gemstonepower/models/item/gemstone_manipulator.json
 a3ddd5448aa279cafcdda739fb315ea5ff395ac6 assets/gemstonepower/models/item/gold_fluid_pipe.json
 1517f7518728f4838d646efc85d894e51eb53a7f assets/gemstonepower/models/item/gold_item_pipe.json
 7092f7907fa78f73b6af72c2c07bd45cba3f9886 assets/gemstonepower/models/item/ice_cooling.json

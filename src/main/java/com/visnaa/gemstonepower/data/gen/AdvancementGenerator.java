@@ -139,6 +139,14 @@ public class AdvancementGenerator implements AdvancementSubProvider
                         .hasItems(ItemPredicate.Builder.item().of(ModItems.SAWMILL.get()).build()))
                 .save(consumer, getName("sawmill"));
 
+        Advancement gemstone_manipulator = Advancement.Builder.advancement().parent(gemstoneCell)
+                .display(ModItems.GEMSTONE_MANIPULATOR.get(),
+                        getTitleLocation("gemstone_manipulator"), getDescLocation("gemstone_manipulator"), null,
+                        FrameType.TASK, true, true, false)
+                .addCriterion("has_gemstone_manipulator", InventoryChangeTrigger.TriggerInstance
+                        .hasItems(ItemPredicate.Builder.item().of(ModItems.GEMSTONE_MANIPULATOR.get()).build()))
+                .save(consumer, getName("gemstone_manipulator"));
+
         Advancement intermediateUpgrade = Advancement.Builder.advancement().parent(gemstoneCell)
                 .display(ModItems.INTERMEDIATE_UPGRADE.get(),
                         getTitleLocation("intermediate_upgrade"), getDescLocation("intermediate_upgrade"), null,

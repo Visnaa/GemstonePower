@@ -4,6 +4,6 @@ public interface Tintable
 {
     default int getColor()
     {
-        return Tints.EMPTY.getColor();
+        return Tints.NONE.getColor();
     }
 }

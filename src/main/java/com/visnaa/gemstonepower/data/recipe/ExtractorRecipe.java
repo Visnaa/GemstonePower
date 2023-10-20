@@ -42,7 +42,8 @@ public class ExtractorRecipe implements EnergyRecipe
     @Override
     public boolean matches(Container container, Level level)
     {
-        if (level.isClientSide) return false;
+        if (level.isClientSide)
+            return false;
         return input.test(container.getItem(0));
     }
 

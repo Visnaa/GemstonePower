@@ -87,6 +87,8 @@ public class MetalFormerRecipeCategory implements IRecipeCategory<MetalFormerRec
     {
         this.progressAnimated.draw(graphics, 61, 0);
         this.energyAnimated.draw(graphics, 134, 1);
+        if (MachineScreen.isMouseInArea((int) mouseX, (int) mouseY, 61, 0, 27, 18))
+            graphics.renderTooltip(Minecraft.getInstance().font, List.of(Component.literal("§fProcessing Time: §b" + recipe.getProcessingTime() + " t")), ItemStack.EMPTY.getTooltipImage(), (int) mouseX, (int) mouseY);
         if (MachineScreen.isMouseInArea((int) mouseX, (int) mouseY, 134, 1, 10, 16))
             graphics.renderTooltip(Minecraft.getInstance().font, List.of(Component.literal("§fEnergy: §c" + recipe.getEnergyUsage() * recipe.getProcessingTime() + " " + ClientConfig.ENERGY_UNIT.get())), ItemStack.EMPTY.getTooltipImage(), (int) mouseX, (int) mouseY);
     }

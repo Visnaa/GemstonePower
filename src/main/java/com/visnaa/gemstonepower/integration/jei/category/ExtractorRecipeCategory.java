@@ -85,6 +85,8 @@ public class ExtractorRecipeCategory implements IRecipeCategory<ExtractorRecipe>
     {
         this.progressAnimated.draw(graphics, 28, 4);
         this.energyAnimated.draw(graphics, 97, 1);
+        if (MachineScreen.isMouseInArea((int) mouseX, (int) mouseY, 28, 4, 18, 10))
+            graphics.renderTooltip(Minecraft.getInstance().font, List.of(Component.literal("§fProcessing Time: §b" + recipe.getProcessingTime() + " t")), ItemStack.EMPTY.getTooltipImage(), (int) mouseX, (int) mouseY);
         if (MachineScreen.isMouseInArea((int) mouseX, (int) mouseY, 97, 1, 10, 16))
             graphics.renderTooltip(Minecraft.getInstance().font, List.of(Component.literal("§fEnergy: §c" + recipe.getEnergyUsage() * recipe.getProcessingTime() + " " + ClientConfig.ENERGY_UNIT.get())), ItemStack.EMPTY.getTooltipImage(), (int) mouseX, (int) mouseY);
     }

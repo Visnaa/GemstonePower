@@ -92,6 +92,8 @@ public class OreWasherRecipeCategory implements IRecipeCategory<OreWasherRecipe>
     public void draw(OreWasherRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics graphics, double mouseX, double mouseY)
     {
         this.progressAnimated.draw(graphics, 41, 13);
+        if (MachineScreen.isMouseInArea((int) mouseX, (int) mouseY, 41, 13, 19, 15))
+            graphics.renderTooltip(Minecraft.getInstance().font, List.of(Component.literal("§fProcessing Time: §b" + recipe.getProcessingTime() + " t")), ItemStack.EMPTY.getTooltipImage(), (int) mouseX, (int) mouseY);
 
         this.energyAnimated.draw(graphics, 115, 13);
         if (MachineScreen.isMouseInArea((int) mouseX, (int) mouseY, 115, 13, 10, 16))
@@ -104,6 +106,6 @@ public class OreWasherRecipeCategory implements IRecipeCategory<OreWasherRecipe>
         if (MachineScreen.isMouseInArea((int) mouseX, (int) mouseY, 0, 0, 16, 46))
             graphics.renderTooltip(Minecraft.getInstance().font, List.of(
                     Component.literal("§fFluid: §6" + recipe.getFluid().getDisplayName().getString()),
-                    Component.literal("§fAmount: §b" + recipe.getFluid().getAmount())), ItemStack.EMPTY.getTooltipImage(), (int) mouseX, (int) mouseY);
+                    Component.literal("§fAmount: §d" + recipe.getFluid().getAmount() + " mB")), ItemStack.EMPTY.getTooltipImage(), (int) mouseX, (int) mouseY);
     }
 }

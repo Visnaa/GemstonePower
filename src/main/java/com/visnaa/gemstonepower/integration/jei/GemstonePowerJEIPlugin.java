@@ -34,6 +34,7 @@ public class GemstonePowerJEIPlugin implements IModPlugin
     public static RecipeType<OreWasherRecipe> ORE_WASHER_CATEGORY = new RecipeType<>(OreWasherRecipeCategory.UID, OreWasherRecipe.class);
     public static RecipeType<SawmillRecipe> SAWMILL_CATEGORY = new RecipeType<>(SawmillRecipeCategory.UID, SawmillRecipe.class);
     public static RecipeType<PolarizerRecipe> POLARIZER_CATEGORY = new RecipeType<>(PolarizerRecipeCategory.UID, PolarizerRecipe.class);
+    public static RecipeType<GemstoneManipulatorRecipe> GEMSTONE_MANIPULATOR_CATEGORY = new RecipeType<>(GemstoneManipulatorRecipeCategory.UID, GemstoneManipulatorRecipe.class);
     public static RecipeType<FissionReactorRecipe> FISSION_REACTOR_CATEGORY = new RecipeType<>(FissionReactorRecipeCategory.UID, FissionReactorRecipe.class);
 
     @Override
@@ -55,6 +56,7 @@ public class GemstonePowerJEIPlugin implements IModPlugin
         registration.addRecipeCategories(new OreWasherRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
         registration.addRecipeCategories(new SawmillRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
         registration.addRecipeCategories(new PolarizerRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
+        registration.addRecipeCategories(new GemstoneManipulatorRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
         registration.addRecipeCategories(new FissionReactorRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
     }
 
@@ -71,6 +73,7 @@ public class GemstonePowerJEIPlugin implements IModPlugin
         List<OreWasherRecipe> oreWasherRecipes = manager.getAllRecipesFor(ModRecipes.ORE_WASHER_RECIPE);
         List<SawmillRecipe> sawmillRecipes = manager.getAllRecipesFor(ModRecipes.SAWMILL_RECIPE);
         List<PolarizerRecipe> polarizerRecipes = manager.getAllRecipesFor(ModRecipes.POLARIZER_RECIPE);
+        List<GemstoneManipulatorRecipe> gemstoneManipulatorRecipes = manager.getAllRecipesFor(ModRecipes.GEMSTONE_MANIPULATOR_RECIPE);
         List<FissionReactorRecipe> fissionReactorRecipes = manager.getAllRecipesFor(ModRecipes.FISSION_REACTOR_RECIPE);
 
         registration.addRecipes(CRYSTAL_GROWER_CATEGORY, crystalGrowerRecipes);
@@ -82,6 +85,7 @@ public class GemstonePowerJEIPlugin implements IModPlugin
         registration.addRecipes(ORE_WASHER_CATEGORY, oreWasherRecipes);
         registration.addRecipes(SAWMILL_CATEGORY, sawmillRecipes);
         registration.addRecipes(POLARIZER_CATEGORY, polarizerRecipes);
+        registration.addRecipes(GEMSTONE_MANIPULATOR_CATEGORY, gemstoneManipulatorRecipes);
         registration.addRecipes(FISSION_REACTOR_CATEGORY, fissionReactorRecipes);
     }
 
@@ -99,6 +103,7 @@ public class GemstonePowerJEIPlugin implements IModPlugin
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.ORE_WASHER.get()), ORE_WASHER_CATEGORY);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.SAWMILL.get()), SAWMILL_CATEGORY);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.POLARIZER.get()), POLARIZER_CATEGORY);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.GEMSTONE_MANIPULATOR.get()), GEMSTONE_MANIPULATOR_CATEGORY);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.FISSION_REACTOR.get()), FISSION_REACTOR_CATEGORY);
     }
 
@@ -115,6 +120,7 @@ public class GemstonePowerJEIPlugin implements IModPlugin
         registration.addRecipeClickArea(OreWasherScreen.class, 75, 38, 19, 15, ORE_WASHER_CATEGORY);
         registration.addRecipeClickArea(SawmillScreen.class, 74, 39, 24, 13, SAWMILL_CATEGORY);
         registration.addRecipeClickArea(PolarizerScreen.class, 77, 39, 24, 12, POLARIZER_CATEGORY);
+        registration.addRecipeClickArea(GemstoneManipulatorScreen.class, 76, 37, 24, 18, GEMSTONE_MANIPULATOR_CATEGORY);
         registration.addRecipeClickArea(FissionReactorScreen.class, 79, 36, 21, 20, FISSION_REACTOR_CATEGORY);
     }
 
@@ -131,6 +137,7 @@ public class GemstonePowerJEIPlugin implements IModPlugin
         registration.addRecipeTransferHandler(OreWasherMenu.class, ModMenus.ORE_WASHER.get(), ORE_WASHER_CATEGORY, 0, 1, 2, 35);
         registration.addRecipeTransferHandler(SawmillMenu.class, ModMenus.SAWMILL.get(), SAWMILL_CATEGORY, 0, 1, 2, 35);
         registration.addRecipeTransferHandler(PolarizerMenu.class, ModMenus.POLARIZER.get(), POLARIZER_CATEGORY, 0, 1, 2, 35);
+        registration.addRecipeTransferHandler(GemstoneManipulatorMenu.class, ModMenus.GEMSTONE_MANIPULATOR.get(), GEMSTONE_MANIPULATOR_CATEGORY, 0, 3, 3, 36);
         registration.addRecipeTransferHandler(FissionReactorMenu.class, ModMenus.FISSION_REACTOR.get(), FISSION_REACTOR_CATEGORY, 0, 1, 2, 35);
     }
 }

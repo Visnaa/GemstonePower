@@ -36,6 +36,7 @@ public final class ModBlockEntities
     public static final RegistryObject<BlockEntityType<CobblestoneGeneratorBE>> COBBLESTONE_GENERATOR = BLOCK_ENTITIES.register("cobblestone_generator", () -> BlockEntityType.Builder.of(CobblestoneGeneratorBE::new, ModBlocks.COBBLESTONE_GENERATOR.get()).build(null));
     public static final RegistryObject<BlockEntityType<SawmillBE>> SAWMILL = BLOCK_ENTITIES.register("sawmill", () -> BlockEntityType.Builder.of(SawmillBE::new, ModBlocks.SAWMILL.get()).build(null));
     public static final RegistryObject<BlockEntityType<PolarizerBE>> POLARIZER = BLOCK_ENTITIES.register("polarizer", () -> BlockEntityType.Builder.of(PolarizerBE::new, ModBlocks.POLARIZER.get()).build(null));
+    public static final RegistryObject<BlockEntityType<GemstoneManipulatorBE>> GEMSTONE_MANIPULATOR = BLOCK_ENTITIES.register("gemstone_manipulator", () -> BlockEntityType.Builder.of(GemstoneManipulatorBE::new, ModBlocks.GEMSTONE_MANIPULATOR.get()).build(null));
 
     public static final RegistryObject<BlockEntityType<FissionReactorBE>> FISSION_REACTOR = BLOCK_ENTITIES.register("fission_reactor", () -> BlockEntityType.Builder.of(FissionReactorBE::new, ModBlocks.FISSION_REACTOR.get()).build(null));
     public static final RegistryObject<BlockEntityType<ReactorFrameBE>> REACTOR_FRAME = BLOCK_ENTITIES.register("reactor_frame", () -> BlockEntityType.Builder.of(ReactorFrameBE::new, ModBlocks.REACTOR_FRAME.get()).build(null));

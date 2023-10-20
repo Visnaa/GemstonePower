@@ -16,7 +16,7 @@ import java.util.function.Supplier;
 
 public enum ToolMaterial implements Tier
 {
-    GEMSTONE(Tints.EMPTY, 4, 1851, 13.0F, 3.5F, 18, () ->
+    GEMSTONE(Tints.NONE, 4, 1851, 13.0F, 3.5F, 18, () ->
             Ingredient.of(ModItems.LIGHT_GEMSTONE.get(), ModItems.DARK_GEMSTONE.get()),
             Tags.Blocks.NEEDS_NETHERITE_TOOL),
     COPPER(Tints.COPPER, 2, 220, 5.5F, 1.8F, 18, () ->

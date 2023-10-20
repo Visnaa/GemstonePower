@@ -1,4 +1,4 @@
-// 1.20.1	2023-10-08T01:00:29.474469	Item Models: gemstonepower
+// 1.20.1	2023-10-20T12:39:02.9645444	Item Models: gemstonepower
 be34f5217cc5560117eb30a30fbad66db313c194 assets/gemstonepower/models/item/advanced_upgrade.json
 e3593875d30c80acaaf80db0b0abb02f8b3afe92 assets/gemstonepower/models/item/aluminum_axe.json
 82316ffbb3b22484a942751c9af83d6c170297f5 assets/gemstonepower/models/item/aluminum_boots.json
@@ -119,6 +119,7 @@ a5f5aafebf36f6c7b7f1453fdf26afab9bb5fcd1 assets/gemstonepower/models/item/dolomi
 8caef1a21e2e717fd8bfd8a04c6c79976960d908 assets/gemstonepower/models/item/electrum_tiny_pile.json
 b3c4770ca2adc945a8629694f743412b5c73d9e2 assets/gemstonepower/models/item/electrum_wire.json
 be34f5217cc5560117eb30a30fbad66db313c194 assets/gemstonepower/models/item/extreme_upgrade.json
+466b01fbdb9a33f3c0e9ab8417c8a6687fe04681 assets/gemstonepower/models/item/fortune_crystal.json
 35103ad4cf0a9664bddfe0bc279e252c3a50b555 assets/gemstonepower/models/item/gemstone_axe.json
 d0a8a55dd89a283dd65267bc09914d59ca544803 assets/gemstonepower/models/item/gemstone_boots.json
 68ce85ff2cef1f05aa1da013b30746b01d1ae5f1 assets/gemstonepower/models/item/gemstone_chestplate.json
@@ -285,6 +286,8 @@ adcf640c07e2b2a5b89f02a8bc6633ad2a5661d9 assets/gemstonepower/models/item/steel_
 90fc4bfd7964799b2e4892f572636b43885e4e2b assets/gemstonepower/models/item/steel_shovel.json
 391353e5d592121760c32187073f2c0e30f15707 assets/gemstonepower/models/item/steel_sword.json
 8caef1a21e2e717fd8bfd8a04c6c79976960d908 assets/gemstonepower/models/item/steel_tiny_pile.json
+a7092c56918a4b21102c65e4e13600b63b6d9b59 assets/gemstonepower/models/item/stone_of_knowledge.json
+6862f68fb346ab8804b5f904a5070efca05c9a0f assets/gemstonepower/models/item/stone_of_oblivion.json
 2067783e4496e57f11e24a651bfae9df8a2193dc assets/gemstonepower/models/item/sun_stone.json
 0e5fb7c3647b50f1daf6c46bd9af82c04d3df3c7 assets/gemstonepower/models/item/sun_stone_arrow.json
 2067783e4496e57f11e24a651bfae9df8a2193dc assets/gemstonepower/models/item/sun_stone_charged.json

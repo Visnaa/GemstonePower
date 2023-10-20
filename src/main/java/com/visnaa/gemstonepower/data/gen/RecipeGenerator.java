@@ -42,6 +42,7 @@ public class RecipeGenerator extends RecipeProvider
         this.gemstoneCharger(consumer);
         this.sawmill(consumer);
         this.polarizer(consumer);
+        this.gemstoneManipulator(consumer);
         this.fissionReactor(consumer);
 
         this.upgrades(consumer);
@@ -112,6 +113,60 @@ public class RecipeGenerator extends RecipeProvider
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModItems.COAL_DUST.get()), RecipeCategory.MISC, Items.COAL, 0.1F, 200)
                 .unlockedBy(hasName(ModItems.COAL_DUST.get()), has(ModItems.COAL_DUST.get()))
                 .save(consumer, getFileName(Items.COAL, ModItems.COAL_DUST.get()));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.LIGHT_GEMSTONE.get(), 1)
+                .requires(ModItems.AQUAMARINE.get())
+                .requires(ModItems.JADE.get())
+                .requires(ModItems.AMBER.get())
+                .requires(ModItems.TOPAZ.get())
+                .requires(ModItems.PERIDOT.get())
+                .requires(ModItems.MOON_STONE.get())
+                .requires(ModItems.SUN_STONE.get())
+                .requires(ModItems.CITRINE.get())
+                .requires(ModItems.DOLOMITE.get())
+                .unlockedBy("unlocked", insideOf(Blocks.AIR))
+                .save(consumer);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.DARK_GEMSTONE.get(), 1)
+                .requires(ModItems.RUBY.get())
+                .requires(ModItems.SAPPHIRE.get())
+                .requires(ModItems.OPAL.get())
+                .requires(ModItems.YELLOW_DIAMOND.get())
+                .requires(ModItems.BERYLLIUM.get())
+                .requires(ModItems.BIXBIT.get())
+                .requires(ModItems.MALACHITE.get())
+                .requires(ModItems.ONYX.get())
+                .requires(ModItems.TANZANITE.get())
+                .unlockedBy("unlocked", insideOf(Blocks.AIR))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.FORTUNE_CRYSTAL.get(), 1)
+                .pattern("LDL")
+                .pattern("DSD")
+                .pattern("LDL")
+                .define('L', ModItems.LIGHT_GEMSTONE.get())
+                .define('D', ModItems.DARK_GEMSTONE.get())
+                .define('S', Tags.Items.NETHER_STARS)
+                .unlockedBy("has_nether_star", inventoryTrigger(ItemPredicate.Builder.item().of(Tags.Items.NETHER_STARS).build()))
+                .save(consumer, getFileName(ModItems.FORTUNE_CRYSTAL.get()));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.STONE_OF_KNOWLEDGE.get(), 1)
+                .pattern(" C ")
+                .pattern("CGC")
+                .pattern(" C ")
+                .define('C', Tags.Items.COBBLESTONE)
+                .define('G', ModItems.LIGHT_GEMSTONE.get())
+                .unlockedBy("unlocked", insideOf(Blocks.AIR))
+                .save(consumer, getFileName(ModItems.STONE_OF_KNOWLEDGE.get()));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.STONE_OF_OBLIVION.get(), 1)
+                .pattern(" C ")
+                .pattern("CGC")
+                .pattern(" C ")
+                .define('C', Tags.Items.COBBLESTONE)
+                .define('G', ModItems.DARK_GEMSTONE.get())
+                .unlockedBy("unlocked", insideOf(Blocks.AIR))
+                .save(consumer, getFileName(ModItems.STONE_OF_OBLIVION.get()));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.METAL_WRENCH.get(), 1)
                 .pattern("I I")
@@ -575,32 +630,6 @@ public class RecipeGenerator extends RecipeProvider
 
     private void gemstoneItems(Consumer<FinishedRecipe> consumer)
     {
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.LIGHT_GEMSTONE.get(), 1)
-                .requires(ModItems.AQUAMARINE.get())
-                .requires(ModItems.JADE.get())
-                .requires(ModItems.AMBER.get())
-                .requires(ModItems.TOPAZ.get())
-                .requires(ModItems.PERIDOT.get())
-                .requires(ModItems.MOON_STONE.get())
-                .requires(ModItems.SUN_STONE.get())
-                .requires(ModItems.CITRINE.get())
-                .requires(ModItems.DOLOMITE.get())
-                .unlockedBy("unlocked", insideOf(Blocks.AIR))
-                .save(consumer);
-
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.DARK_GEMSTONE.get(), 1)
-                .requires(ModItems.RUBY.get())
-                .requires(ModItems.SAPPHIRE.get())
-                .requires(ModItems.OPAL.get())
-                .requires(ModItems.YELLOW_DIAMOND.get())
-                .requires(ModItems.BERYLLIUM.get())
-                .requires(ModItems.BIXBIT.get())
-                .requires(ModItems.MALACHITE.get())
-                .requires(ModItems.ONYX.get())
-                .requires(ModItems.TANZANITE.get())
-                .unlockedBy("unlocked", insideOf(Blocks.AIR))
-                .save(consumer);
-
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModArmors.GEMSTONE_HELMET.get(), 1)
                 .pattern("LDL")
                 .pattern("D D")
@@ -825,6 +854,16 @@ public class RecipeGenerator extends RecipeProvider
                 .define('W', ModBlocks.COPPER_WIRE.get())
                 .unlockedBy("has_copper_wire", inventoryTrigger(ItemPredicate.Builder.item().of(ModBlocks.COPPER_WIRE.get()).build()))
                 .save(consumer, getFileName(ModItems.POLARIZER.get()));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.GEMSTONE_MANIPULATOR.get(), 1)
+                .pattern("LFL")
+                .pattern("FRF")
+                .pattern("DFD")
+                .define('F', ModItems.FORTUNE_CRYSTAL.get())
+                .define('R', ModItems.STEEL_ROD_POLARIZED.get())
+                .define('L', ModItems.LIGHT_GEMSTONE.get())
+                .define('D', ModItems.DARK_GEMSTONE.get())
+                .unlockedBy("has_fortune_crystal", inventoryTrigger(ItemPredicate.Builder.item().of(ModItems.FORTUNE_CRYSTAL.get()).build()))
+                .save(consumer, getFileName(ModItems.GEMSTONE_MANIPULATOR.get()));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.SOLAR_PANEL.get(), 1)
                 .pattern("GGG")
@@ -1094,6 +1133,138 @@ public class RecipeGenerator extends RecipeProvider
         PolarizerRecipeBuilder.create(Ingredient.of(ModItems.STEEL_ROD.get()), ModItems.STEEL_ROD_POLARIZED.get(), 1, 200, 80)
                 .unlockedBy(hasName(ModItems.STEEL_ROD.get()), has(ModItems.STEEL_ROD.get()))
                 .save(consumer, getFileName(ModItems.STEEL_ROD_POLARIZED.get(), ModItems.STEEL_ROD.get()));
+    }
+
+    private void gemstoneManipulator(Consumer<FinishedRecipe> consumer)
+    {
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.RUBY.get()), Ingredient.of(Tags.Items.COBBLESTONE)), ModItems.RUBY_SEED.get(), 2, 160, 80)
+                .unlockedBy(hasName(ModItems.RUBY.get()), has(ModItems.RUBY.get()))
+                .save(consumer, getFileName(ModItems.RUBY_SEED.get()));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.SAPPHIRE.get()), Ingredient.of(Tags.Items.COBBLESTONE)), ModItems.SAPPHIRE_SEED.get(), 2, 160, 80)
+                .unlockedBy(hasName(ModItems.SAPPHIRE.get()), has(ModItems.SAPPHIRE.get()))
+                .save(consumer, getFileName(ModItems.SAPPHIRE_SEED.get()));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.AQUAMARINE.get()), Ingredient.of(Tags.Items.COBBLESTONE)), ModItems.AQUAMARINE_SEED.get(), 2, 160, 80)
+            .unlockedBy(hasName(ModItems.AQUAMARINE.get()), has(ModItems.AQUAMARINE.get()))
+            .save(consumer, getFileName(ModItems.AQUAMARINE_SEED.get()));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.JADE.get()), Ingredient.of(Tags.Items.COBBLESTONE)), ModItems.JADE_SEED.get(), 2, 160, 80)
+                .unlockedBy(hasName(ModItems.JADE.get()), has(ModItems.JADE.get()))
+                .save(consumer, getFileName(ModItems.JADE_SEED.get()));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.OPAL.get()), Ingredient.of(Tags.Items.COBBLESTONE)), ModItems.OPAL_SEED.get(), 2, 160, 80)
+                .unlockedBy(hasName(ModItems.OPAL.get()), has(ModItems.OPAL.get()))
+                .save(consumer, getFileName(ModItems.OPAL_SEED.get()));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.YELLOW_DIAMOND.get()), Ingredient.of(Tags.Items.COBBLESTONE)), ModItems.YELLOW_DIAMOND_SEED.get(), 2, 160, 80)
+                .unlockedBy(hasName(ModItems.YELLOW_DIAMOND.get()), has(ModItems.YELLOW_DIAMOND.get()))
+                .save(consumer, getFileName(ModItems.YELLOW_DIAMOND_SEED.get()));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.AMBER.get()), Ingredient.of(Tags.Items.COBBLESTONE)), ModItems.AMBER_SEED.get(), 2, 160, 80)
+                .unlockedBy(hasName(ModItems.AMBER.get()), has(ModItems.AMBER.get()))
+                .save(consumer, getFileName(ModItems.AMBER_SEED.get()));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.TOPAZ.get()), Ingredient.of(Tags.Items.COBBLESTONE)), ModItems.TOPAZ_SEED.get(), 2, 160, 80)
+                .unlockedBy(hasName(ModItems.TOPAZ.get()), has(ModItems.TOPAZ.get()))
+                .save(consumer, getFileName(ModItems.TOPAZ_SEED.get()));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.BERYLLIUM.get()), Ingredient.of(Tags.Items.COBBLESTONE)), ModItems.BERYLLIUM_SEED.get(), 2, 160, 80)
+                .unlockedBy(hasName(ModItems.BERYLLIUM.get()), has(ModItems.BERYLLIUM.get()))
+                .save(consumer, getFileName(ModItems.BERYLLIUM_SEED.get()));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.BIXBIT.get()), Ingredient.of(Tags.Items.COBBLESTONE)), ModItems.BIXBIT_SEED.get(), 2, 160, 80)
+                .unlockedBy(hasName(ModItems.BIXBIT.get()), has(ModItems.BIXBIT.get()))
+                .save(consumer, getFileName(ModItems.BIXBIT_SEED.get()));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.MALACHITE.get()), Ingredient.of(Tags.Items.COBBLESTONE)), ModItems.MALACHITE_SEED.get(), 2, 160, 80)
+                .unlockedBy(hasName(ModItems.MALACHITE.get()), has(ModItems.MALACHITE.get()))
+                .save(consumer, getFileName(ModItems.MALACHITE_SEED.get()));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.ONYX.get()), Ingredient.of(Tags.Items.COBBLESTONE)), ModItems.ONYX_SEED.get(), 2, 160, 80)
+                .unlockedBy(hasName(ModItems.ONYX.get()), has(ModItems.ONYX.get()))
+                .save(consumer, getFileName(ModItems.ONYX_SEED.get()));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.PERIDOT.get()), Ingredient.of(Tags.Items.COBBLESTONE)), ModItems.PERIDOT_SEED.get(), 2, 160, 80)
+                .unlockedBy(hasName(ModItems.PERIDOT.get()), has(ModItems.PERIDOT.get()))
+                .save(consumer, getFileName(ModItems.PERIDOT_SEED.get()));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.MOON_STONE.get()), Ingredient.of(Tags.Items.COBBLESTONE)), ModItems.MOON_STONE_SEED.get(), 2, 160, 80)
+            .unlockedBy(hasName(ModItems.MOON_STONE.get()), has(ModItems.MOON_STONE.get()))
+            .save(consumer, getFileName(ModItems.MOON_STONE_SEED.get()));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.SUN_STONE.get()), Ingredient.of(Tags.Items.COBBLESTONE)), ModItems.SUN_STONE_SEED.get(), 2, 160, 80)
+                .unlockedBy(hasName(ModItems.SUN_STONE.get()), has(ModItems.SUN_STONE.get()))
+                .save(consumer, getFileName(ModItems.SUN_STONE_SEED.get()));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.CITRINE.get()), Ingredient.of(Tags.Items.COBBLESTONE)), ModItems.CITRINE_SEED.get(), 2, 160, 80)
+                .unlockedBy(hasName(ModItems.CITRINE.get()), has(ModItems.CITRINE.get()))
+                .save(consumer, getFileName(ModItems.CITRINE_SEED.get()));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.DOLOMITE.get()), Ingredient.of(Tags.Items.COBBLESTONE)), ModItems.DOLOMITE_SEED.get(), 2, 160, 80)
+                .unlockedBy(hasName(ModItems.DOLOMITE.get()), has(ModItems.DOLOMITE.get()))
+                .save(consumer, getFileName(ModItems.DOLOMITE_SEED.get()));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.TANZANITE.get()), Ingredient.of(Tags.Items.COBBLESTONE)), ModItems.TANZANITE_SEED.get(), 2, 160, 80)
+                .unlockedBy(hasName(ModItems.TANZANITE.get()), has(ModItems.TANZANITE.get()))
+                .save(consumer, getFileName(ModItems.TANZANITE_SEED.get()));
+
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.RUBY_CHARGED.get()), Ingredient.of(Tags.Items.GLASS)), ModItems.RUBY.get(), 1, 160, 80)
+                .unlockedBy(hasName(ModItems.RUBY_CHARGED.get()), has(ModItems.RUBY_CHARGED.get()))
+                .save(consumer, getFileName(ModItems.RUBY.get()));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.SAPPHIRE_CHARGED.get()), Ingredient.of(Tags.Items.GLASS)), ModItems.SAPPHIRE.get(), 1, 160, 80)
+                .unlockedBy(hasName(ModItems.SAPPHIRE_CHARGED.get()), has(ModItems.SAPPHIRE_CHARGED.get()))
+                .save(consumer, getFileName(ModItems.SAPPHIRE.get()));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.AQUAMARINE_CHARGED.get()), Ingredient.of(Tags.Items.GLASS)), ModItems.AQUAMARINE.get(), 1, 160, 80)
+                .unlockedBy(hasName(ModItems.AQUAMARINE_CHARGED.get()), has(ModItems.AQUAMARINE_CHARGED.get()))
+                .save(consumer, getFileName(ModItems.AQUAMARINE.get()));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.JADE_CHARGED.get()), Ingredient.of(Tags.Items.GLASS)), ModItems.JADE.get(), 1, 160, 80)
+                .unlockedBy(hasName(ModItems.JADE_CHARGED.get()), has(ModItems.JADE_CHARGED.get()))
+                .save(consumer, getFileName(ModItems.JADE.get()));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.OPAL_CHARGED.get()), Ingredient.of(Tags.Items.GLASS)), ModItems.OPAL.get(), 1, 160, 80)
+                .unlockedBy(hasName(ModItems.OPAL_CHARGED.get()), has(ModItems.OPAL_CHARGED.get()))
+                .save(consumer, getFileName(ModItems.OPAL.get()));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.YELLOW_DIAMOND_CHARGED.get()), Ingredient.of(Tags.Items.GLASS)), ModItems.YELLOW_DIAMOND.get(), 1, 160, 80)
+                .unlockedBy(hasName(ModItems.YELLOW_DIAMOND_CHARGED.get()), has(ModItems.YELLOW_DIAMOND_CHARGED.get()))
+                .save(consumer, getFileName(ModItems.YELLOW_DIAMOND.get()));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.AMBER_CHARGED.get()), Ingredient.of(Tags.Items.GLASS)), ModItems.AMBER.get(), 1, 160, 80)
+                .unlockedBy(hasName(ModItems.AMBER_CHARGED.get()), has(ModItems.AMBER_CHARGED.get()))
+                .save(consumer, getFileName(ModItems.AMBER.get()));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.TOPAZ_CHARGED.get()), Ingredient.of(Tags.Items.GLASS)), ModItems.TOPAZ.get(), 1, 160, 80)
+                .unlockedBy(hasName(ModItems.TOPAZ_CHARGED.get()), has(ModItems.TOPAZ_CHARGED.get()))
+                .save(consumer, getFileName(ModItems.TOPAZ.get()));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.BERYLLIUM_CHARGED.get()), Ingredient.of(Tags.Items.GLASS)), ModItems.BERYLLIUM.get(), 1, 160, 80)
+                .unlockedBy(hasName(ModItems.BERYLLIUM_CHARGED.get()), has(ModItems.BERYLLIUM_CHARGED.get()))
+                .save(consumer, getFileName(ModItems.BERYLLIUM.get()));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.BIXBIT_CHARGED.get()), Ingredient.of(Tags.Items.GLASS)), ModItems.BIXBIT.get(), 1, 160, 80)
+                .unlockedBy(hasName(ModItems.BIXBIT_CHARGED.get()), has(ModItems.BIXBIT_CHARGED.get()))
+                .save(consumer, getFileName(ModItems.BIXBIT.get()));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.MALACHITE_CHARGED.get()), Ingredient.of(Tags.Items.GLASS)), ModItems.MALACHITE.get(), 1, 160, 80)
+                .unlockedBy(hasName(ModItems.MALACHITE_CHARGED.get()), has(ModItems.MALACHITE_CHARGED.get()))
+                .save(consumer, getFileName(ModItems.MALACHITE.get()));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.ONYX_CHARGED.get()), Ingredient.of(Tags.Items.GLASS)), ModItems.ONYX.get(), 1, 160, 80)
+                .unlockedBy(hasName(ModItems.ONYX_CHARGED.get()), has(ModItems.ONYX_CHARGED.get()))
+                .save(consumer, getFileName(ModItems.ONYX.get()));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.PERIDOT_CHARGED.get()), Ingredient.of(Tags.Items.GLASS)), ModItems.PERIDOT.get(), 1, 160, 80)
+                .unlockedBy(hasName(ModItems.PERIDOT_CHARGED.get()), has(ModItems.PERIDOT_CHARGED.get()))
+                .save(consumer, getFileName(ModItems.PERIDOT.get()));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.MOON_STONE_CHARGED.get()), Ingredient.of(Tags.Items.GLASS)), ModItems.MOON_STONE.get(), 1, 160, 80)
+                .unlockedBy(hasName(ModItems.MOON_STONE_CHARGED.get()), has(ModItems.MOON_STONE_CHARGED.get()))
+                .save(consumer, getFileName(ModItems.MOON_STONE.get()));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.SUN_STONE_CHARGED.get()), Ingredient.of(Tags.Items.GLASS)), ModItems.SUN_STONE.get(), 1, 160, 80)
+                .unlockedBy(hasName(ModItems.SUN_STONE_CHARGED.get()), has(ModItems.SUN_STONE_CHARGED.get()))
+                .save(consumer, getFileName(ModItems.SUN_STONE.get()));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.CITRINE_CHARGED.get()), Ingredient.of(Tags.Items.GLASS)), ModItems.CITRINE.get(), 1, 160, 80)
+                .unlockedBy(hasName(ModItems.CITRINE_CHARGED.get()), has(ModItems.CITRINE_CHARGED.get()))
+                .save(consumer, getFileName(ModItems.CITRINE.get()));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.DOLOMITE_CHARGED.get()), Ingredient.of(Tags.Items.GLASS)), ModItems.DOLOMITE.get(), 1, 160, 80)
+                .unlockedBy(hasName(ModItems.DOLOMITE_CHARGED.get()), has(ModItems.DOLOMITE_CHARGED.get()))
+                .save(consumer, getFileName(ModItems.DOLOMITE.get()));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(ModItems.TANZANITE_CHARGED.get()), Ingredient.of(Tags.Items.GLASS)), ModItems.TANZANITE.get(), 1, 160, 80)
+                .unlockedBy(hasName(ModItems.TANZANITE_CHARGED.get()), has(ModItems.TANZANITE_CHARGED.get()))
+                .save(consumer, getFileName(ModItems.TANZANITE.get()));
+
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(Tags.Items.GEMS_EMERALD), Ingredient.of(Tags.Items.GEMS_EMERALD)), Items.DIAMOND, 1, 800, 160)
+                .unlockedBy("has_emerald", has(Tags.Items.GEMS_EMERALD))
+                .save(consumer, getFileName(Items.DIAMOND));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(Tags.Items.GEMS_DIAMOND), Ingredient.of(Tags.Items.GEMS_DIAMOND)), Items.EMERALD, 4, 800, 160)
+                .unlockedBy("has_diamond", has(Tags.Items.GEMS_DIAMOND))
+                .save(consumer, getFileName(Items.EMERALD));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(Tags.Items.GEMS_QUARTZ), Ingredient.of(Tags.Items.GEMS_QUARTZ)), Items.LAPIS_LAZULI, 2, 300, 160)
+                .unlockedBy("has_quartz", has(Tags.Items.GEMS_QUARTZ))
+                .save(consumer, getFileName(Items.LAPIS_LAZULI));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(Tags.Items.GEMS_LAPIS), Ingredient.of(Tags.Items.GEMS_LAPIS)), Items.QUARTZ, 4, 300, 160)
+                .unlockedBy("has_lapis", has(Tags.Items.GEMS_LAPIS))
+                .save(consumer, getFileName(Items.QUARTZ));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(Tags.Items.GEMS_AMETHYST), Ingredient.of(Tags.Items.GEMS_AMETHYST)), Items.PRISMARINE, 2, 800, 160)
+                .unlockedBy("has_amethyst", has(Tags.Items.GEMS_AMETHYST))
+                .save(consumer, getFileName(Items.PRISMARINE));
+        GemstoneManipulatorRecipeBuilder.create(List.of(Ingredient.of(Tags.Items.GEMS_PRISMARINE), Ingredient.of(Tags.Items.GEMS_PRISMARINE)), Items.AMETHYST_SHARD, 4, 800, 160)
+                .unlockedBy("has_prismarine", has(Tags.Items.GEMS_PRISMARINE))
+                .save(consumer, getFileName(Items.AMETHYST_SHARD));
     }
 
     private void fissionReactor(Consumer<FinishedRecipe> consumer)

@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:gemstonepower/gemstone_cell",
+  "criteria": {
+    "has_gemstone_manipulator": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:gemstone_manipulator"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.gemstonepower.gemstone_manipulator.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "gemstonepower:gemstone_manipulator"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.gemstonepower.gemstone_manipulator.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_gemstone_manipulator"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

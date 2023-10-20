@@ -1,11 +1,14 @@
 package com.visnaa.gemstonepower.client.screen.machine;
 
 import com.mojang.blaze3d.systems.RenderSystem;
+import com.visnaa.gemstonepower.client.screen.ClientConfigScreen;
 import com.visnaa.gemstonepower.client.screen.ScreenData;
 import com.visnaa.gemstonepower.menu.machine.MachineMenu;
 import com.visnaa.gemstonepower.util.MachineUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
@@ -22,6 +25,7 @@ import java.util.List;
 public abstract class MachineScreen<T extends MachineMenu> extends AbstractContainerScreen<T>
 {
     protected final ScreenData data;
+    private Button clientConfigButton;
 
     public MachineScreen(T menu, ScreenData data)
     {
@@ -34,6 +38,16 @@ public abstract class MachineScreen<T extends MachineMenu> extends AbstractConta
     {
         super.init();
         this.titleLabelX = (this.imageWidth - this.font.width(this.title)) / 2;
+        clientConfigButton = new ImageButton(this.leftPos + 147, this.topPos + 58, 14, 14, 186, 0, 14, data.texture(), button -> Minecraft.getInstance().setScreen(new ClientConfigScreen(Minecraft.getInstance(), this)))
+        {
+            @Override
+            public void renderTexture(GuiGraphics graphics, ResourceLocation texture, int posX, int posY, int overlayX, int overlayY, int offset, int width, int height, int texWidth, int texHeight)
+            {
+                RenderSystem.enableDepthTest();
+                graphics.blit(texture, posX, posY, isHoveredOrFocused() ? overlayX + offset : overlayX, (float) overlayY, width, height, texWidth, texHeight);
+            }
+        };
+        addRenderableWidget(clientConfigButton);
     }
 
     @Override
@@ -49,7 +63,7 @@ public abstract class MachineScreen<T extends MachineMenu> extends AbstractConta
         super.render(graphics, mouseX, mouseY, partialTicks);
         this.renderTooltip(graphics, mouseX, mouseY);
 
-        if (isMouseInArea(mouseX, mouseY, this.leftPos + 148, this.topPos + 38, 11, 16))
+        if (isMouseInArea(mouseX, mouseY, this.leftPos + 149, this.topPos + 38, 11, 16))
             graphics.renderTooltip(Minecraft.getInstance().font, MachineUtil.getEnergyScaled(menu.getEnergy(), menu.getCapacity()), ItemStack.EMPTY.getTooltipImage(), mouseX, mouseY);
     }
 
@@ -141,7 +155,7 @@ public abstract class MachineScreen<T extends MachineMenu> extends AbstractConta
         RenderSystem.disableDepthTest();
     }
 
-    public static boolean isMouseInArea(int mouseX, int mouseY, int x, int y, int width, int height)
+    public static boolean isMouseInArea(double mouseX, double mouseY, int x, int y, int width, int height)
     {
         return mouseX >= x && mouseX < x + width && mouseY >= y && mouseY < y + height;
     }

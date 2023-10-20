@@ -88,7 +88,7 @@ public class MachineBE<T extends Recipe<Container>> extends BaseContainerBlockEn
     {
         String name = Component.translatable("menu." + GemstonePower.MOD_ID + "." + ForgeRegistries.BLOCKS.getKey(getBlockState().getBlock()).getPath()).getString();
         String tier = getBlockState().hasProperty(Tier.TIER) ? "(" + Component.translatable("menu." + GemstonePower.MOD_ID + ".tier." + this.getBlockState().getValue(Tier.TIER).getSerializedName()).getString() + ")" : "";
-        return Component.literal(name + tier);
+        return Component.literal(name + " " + tier);
     }
 
     @Override

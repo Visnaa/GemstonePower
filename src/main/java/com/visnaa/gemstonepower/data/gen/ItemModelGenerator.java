@@ -82,9 +82,6 @@ public class ItemModelGenerator extends ItemModelProvider
         this.singleTexture("tanzanite_charged", mcLoc("item/generated"), "layer0", modLoc("item/tanzanite"));
 
     // GEMSTONE
-        this.singleTexture("light_gemstone", mcLoc("item/generated"), "layer0", modLoc("item/light_gemstone"));
-        this.singleTexture("dark_gemstone", mcLoc("item/generated"), "layer0", modLoc("item/dark_gemstone"));
-
         this.singleTexture("gemstone_helmet", mcLoc("item/generated"), "layer0", modLoc("item/gemstone_helmet"));
         this.singleTexture("gemstone_chestplate", mcLoc("item/generated"), "layer0", modLoc("item/gemstone_chestplate"));
         this.singleTexture("gemstone_leggings", mcLoc("item/generated"), "layer0", modLoc("item/gemstone_leggings"));
@@ -391,6 +388,12 @@ public class ItemModelGenerator extends ItemModelProvider
         this.withExistingParent("advanced_upgrade", modLoc("item/upgrade"));
         this.withExistingParent("ultra_upgrade", modLoc("item/upgrade"));
         this.withExistingParent("extreme_upgrade", modLoc("item/upgrade"));
+
+        this.singleTexture("light_gemstone", mcLoc("item/generated"), "layer0", modLoc("item/light_gemstone"));
+        this.singleTexture("dark_gemstone", mcLoc("item/generated"), "layer0", modLoc("item/dark_gemstone"));
+        this.singleTexture("fortune_crystal", mcLoc("item/generated"), "layer0", modLoc("item/fortune_crystal"));
+        this.singleTexture("stone_of_knowledge", mcLoc("item/generated"), "layer0", modLoc("item/stone_of_knowledge"));
+        this.singleTexture("stone_of_oblivion", mcLoc("item/generated"), "layer0", modLoc("item/stone_of_oblivion"));
 
         this.singleTexture("metal_wrench", mcLoc("item/generated"), "layer0", modLoc("item/metal_wrench"));
         this.singleTexture("crystal_wrench", mcLoc("item/generated"), "layer0", modLoc("item/crystal_wrench"));

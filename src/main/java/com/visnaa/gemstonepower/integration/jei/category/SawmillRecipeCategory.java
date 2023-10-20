@@ -85,6 +85,8 @@ public class SawmillRecipeCategory implements IRecipeCategory<SawmillRecipe>
     {
         this.progressAnimated.draw(graphics, 23, 2);
         this.energyAnimated.draw(graphics, 97, 1);
+        if (MachineScreen.isMouseInArea((int) mouseX, (int) mouseY, 23, 2, 27, 13))
+            graphics.renderTooltip(Minecraft.getInstance().font, List.of(Component.literal("§fProcessing Time: §b" + recipe.getProcessingTime() + " t")), ItemStack.EMPTY.getTooltipImage(), (int) mouseX, (int) mouseY);
         if (MachineScreen.isMouseInArea((int) mouseX, (int) mouseY, 97, 1, 10, 16))
             graphics.renderTooltip(Minecraft.getInstance().font, List.of(Component.literal("§fEnergy: §c" + recipe.getEnergyUsage() * recipe.getProcessingTime() + " " + ClientConfig.ENERGY_UNIT.get())), ItemStack.EMPTY.getTooltipImage(), (int) mouseX, (int) mouseY);
     }

@@ -95,6 +95,7 @@ public final class ModBlocks
     public static final RegistryObject<Block> COBBLESTONE_GENERATOR = BLOCKS.register("cobblestone_generator", () -> new CobblestoneGeneratorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> SAWMILL = BLOCKS.register("sawmill", () -> new SawmillBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> POLARIZER = BLOCKS.register("polarizer", () -> new PolarizerBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> GEMSTONE_MANIPULATOR = BLOCKS.register("gemstone_manipulator", () -> new GemstoneManipulatorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> FISSION_REACTOR = BLOCKS.register("fission_reactor", () -> new FissionReactorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> REACTOR_WALL = BLOCKS.register("reactor_wall", () -> new ReactorWallBlock(BlockBehaviour.Properties.of().strength(20.0F, 120.0F).mapColor(MapColor.TERRACOTTA_CYAN).requiresCorrectToolForDrops()));

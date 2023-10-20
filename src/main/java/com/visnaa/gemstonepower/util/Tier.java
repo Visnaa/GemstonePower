@@ -93,7 +93,7 @@ public enum Tier implements StringRepresentable
                 return Tints.EXTREME;
             }
         }
-        return Tints.EMPTY;
+        return Tints.NONE;
     }
 
     @Override
