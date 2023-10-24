@@ -89,7 +89,7 @@ public class AlloySmelterRecipeCategory implements IRecipeCategory<AlloySmelterR
         this.progressAnimated.draw(graphics, 20, 7);
         this.energyAnimated.draw(graphics, 97, 11);
         if (MachineScreen.isMouseInArea((int) mouseX, (int) mouseY, 20, 7, 35, 24))
-            graphics.renderTooltip(Minecraft.getInstance().font, List.of(Component.literal("§fProcessing Time: §b" + recipe.getProcessingTime() + " t")), ItemStack.EMPTY.getTooltipImage(), (int) mouseX, (int) mouseY);
+            graphics.renderTooltip(Minecraft.getInstance().font, List.of(Component.literal("§fProcessing time: §b" + recipe.getProcessingTime() + " t")), ItemStack.EMPTY.getTooltipImage(), (int) mouseX, (int) mouseY);
         if (MachineScreen.isMouseInArea((int) mouseX, (int) mouseY, 97, 11, 10, 16))
             graphics.renderTooltip(Minecraft.getInstance().font, List.of(Component.literal("§fEnergy: §c" + recipe.getEnergyUsage() * recipe.getProcessingTime() + " " + ClientConfig.ENERGY_UNIT.get())), ItemStack.EMPTY.getTooltipImage(), (int) mouseX, (int) mouseY);
     }

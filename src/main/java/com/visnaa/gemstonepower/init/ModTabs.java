@@ -66,9 +66,6 @@ public class ModTabs
                 output.accept(ModItems.STONE_OF_KNOWLEDGE.get());
                 output.accept(ModItems.STONE_OF_OBLIVION.get());
 
-                output.accept(ModItems.PLATE_PRESET.get());
-                output.accept(ModItems.ROD_PRESET.get());
-                output.accept(ModItems.WIRE_PRESET.get());
                 output.accept(ModItems.RESIN.get());
                 output.accept(ModItems.RUBBER.get());
                 output.accept(ModItems.TREE_TAP.get());
@@ -84,6 +81,7 @@ public class ModTabs
                 output.accept(ModItems.TIN_CABLE.get());
                 output.accept(ModItems.ELECTRUM_WIRE.get());
                 output.accept(ModItems.ELECTRUM_CABLE.get());
+                output.accept(ModItems.GEMSTONE_CABLE.get());
 
                 output.accept(ModItems.IRON_ITEM_PIPE.get());
                 output.accept(ModItems.GOLD_ITEM_PIPE.get());

@@ -5,9 +5,9 @@
   "input": {
     "item": "gemstonepower:nickel_ingot"
   },
+  "mode": "rolling",
   "output": {
     "item": "gemstonepower:nickel_rod"
   },
-  "preset": "rod",
   "processingTime": 200
 }

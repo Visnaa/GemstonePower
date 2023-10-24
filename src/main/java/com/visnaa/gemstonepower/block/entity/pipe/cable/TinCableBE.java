@@ -8,6 +8,6 @@ public class TinCableBE extends CableBE
 {
     public TinCableBE(BlockPos pos, BlockState state)
     {
-        super(ModBlockEntities.TIN_CABLE.get(), pos, state, 1);
+        super(ModBlockEntities.TIN_CABLE.get(), pos, state, 360);
     }
 }

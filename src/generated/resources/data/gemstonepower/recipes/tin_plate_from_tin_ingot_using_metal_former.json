@@ -5,9 +5,9 @@
   "input": {
     "item": "gemstonepower:tin_ingot"
   },
+  "mode": "pressing",
   "output": {
     "item": "gemstonepower:tin_plate"
   },
-  "preset": "plate",
   "processingTime": 200
 }

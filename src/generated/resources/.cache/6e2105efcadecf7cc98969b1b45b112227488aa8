@@ -1,4 +1,4 @@
-// 1.20.1	2023-10-20T12:39:02.9645444	Item Models: gemstonepower
+// 1.20.1	2023-10-22T18:10:04.6582656	Item Models: gemstonepower
 be34f5217cc5560117eb30a30fbad66db313c194 assets/gemstonepower/models/item/advanced_upgrade.json
 e3593875d30c80acaaf80db0b0abb02f8b3afe92 assets/gemstonepower/models/item/aluminum_axe.json
 82316ffbb3b22484a942751c9af83d6c170297f5 assets/gemstonepower/models/item/aluminum_boots.json
@@ -219,7 +219,6 @@ d69e5e4d9d5e5cc82c0018a9710f0bb662ea9fd0 assets/gemstonepower/models/item/perido
 0e5fb7c3647b50f1daf6c46bd9af82c04d3df3c7 assets/gemstonepower/models/item/peridot_arrow.json
 d69e5e4d9d5e5cc82c0018a9710f0bb662ea9fd0 assets/gemstonepower/models/item/peridot_charged.json
 1ce271cd88c05d2a75c047bf9faed11a13dc8fce assets/gemstonepower/models/item/peridot_seed.json
-39fdcc64e791e0156a5db7c4364680854f60388e assets/gemstonepower/models/item/plate_preset.json
 5418fccba2a873b87666cf169860ab14e2ec74f2 assets/gemstonepower/models/item/platinum_dust.json
 0b8692cf1073acb1de45e13e94036c203151659e assets/gemstonepower/models/item/platinum_gear.json
 94aedde9610dae40a50612ffc612e08976059d82 assets/gemstonepower/models/item/platinum_ingot.json
@@ -241,7 +240,6 @@ ecaa9904ce5f09e11e2deaece290eb2793337d08 assets/gemstonepower/models/item/raw_ur
 ecaa9904ce5f09e11e2deaece290eb2793337d08 assets/gemstonepower/models/item/raw_zinc.json
 96fd1533030a804ee999ee64b19fc1f66cb32225 assets/gemstonepower/models/item/resin.json
 201f35a8f5843f78f839478c01bb29ea146708a1 assets/gemstonepower/models/item/resin_oak_sapling.json
-f357341a3408d65b6dc4dca0d9b5b65b6cda21aa assets/gemstonepower/models/item/rod_preset.json
 31ca28a03a9e28f4aaf81257085b25ad9816ed30 assets/gemstonepower/models/item/rubber.json
 2906a9e61efce7767ba137368dcc777f205b161d assets/gemstonepower/models/item/ruby.json
 0e5fb7c3647b50f1daf6c46bd9af82c04d3df3c7 assets/gemstonepower/models/item/ruby_arrow.json
@@ -321,7 +319,6 @@ ba2da46670b17cc76b7c335bf3823e42f1d79951 assets/gemstonepower/models/item/uraniu
 8caef1a21e2e717fd8bfd8a04c6c79976960d908 assets/gemstonepower/models/item/uranium_tiny_pile.json
 e9b87344e5510b4476cc2fca99e1f1e1220592df assets/gemstonepower/models/item/water_mill.json
 f795c917be984d0c9b9648d56f55440962b548da assets/gemstonepower/models/item/wind_turbine.json
-2cf1b29f1d40e79996d78c8c4a5a20c0a3983648 assets/gemstonepower/models/item/wire_preset.json
 7a05b4cfede0df85932c27e4a64e6a7f6e2f8826 assets/gemstonepower/models/item/yellow_diamond.json
 0e5fb7c3647b50f1daf6c46bd9af82c04d3df3c7 assets/gemstonepower/models/item/yellow_diamond_arrow.json
 7a05b4cfede0df85932c27e4a64e6a7f6e2f8826 assets/gemstonepower/models/item/yellow_diamond_charged.json

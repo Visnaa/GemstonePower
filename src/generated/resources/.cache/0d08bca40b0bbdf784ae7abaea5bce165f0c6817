@@ -1,4 +1,4 @@
-// 1.20.1	2023-10-20T14:28:56.960335	Tags for minecraft:block mod id gemstonepower
+// 1.20.1	2023-10-22T19:29:01.2823085	Tags for minecraft:block mod id gemstonepower
 3099f57a48372a3fe5c55b66b2985c296ab13454 data/c/tags/blocks/ores/aluminum.json
 ad373c38f107fbeffefd9f61808b786dbbfbde93 data/c/tags/blocks/ores/lead.json
 5d83465e7876833058db4303bb2814efec565f91 data/c/tags/blocks/ores/lithium.json
@@ -24,7 +24,7 @@ bb21b322877e59c729ada48511177501c303fd6e data/c/tags/blocks/storage_blocks/plati
 c4a540ee784669d47173fb2006e81f4d8e3febdb data/c/tags/blocks/storage_blocks/tin.json
 3fdac182397c6e413170c0c7ecd23b18a6d5edf9 data/c/tags/blocks/storage_blocks/uranium.json
 30273d8c272e99b8bfca2862215f3ae4485a6108 data/c/tags/blocks/storage_blocks/zinc.json
-f834887073c0dd75a3519da27ee79a8b88318585 data/c/tags/blocks/wires.json
+083283064c9082681b19624345381543f3beb55a data/c/tags/blocks/wires.json
 8c297fe8912db84baa02284aaea5f90d0917ec0c data/c/tags/blocks/wires/aluminum.json
 816e5613ce2b48b0d0904fa78adab9aafefb18be data/c/tags/blocks/wires/copper.json
 07b790433c095519b0751df548c7b4f2f7e3a7ba data/c/tags/blocks/wires/electrum.json

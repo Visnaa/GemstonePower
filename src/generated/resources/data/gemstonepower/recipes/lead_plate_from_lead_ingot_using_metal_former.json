@@ -5,9 +5,9 @@
   "input": {
     "item": "gemstonepower:lead_ingot"
   },
+  "mode": "pressing",
   "output": {
     "item": "gemstonepower:lead_plate"
   },
-  "preset": "plate",
   "processingTime": 200
 }

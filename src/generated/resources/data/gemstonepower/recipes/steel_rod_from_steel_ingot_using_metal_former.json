@@ -5,9 +5,9 @@
   "input": {
     "item": "gemstonepower:steel_ingot"
   },
+  "mode": "rolling",
   "output": {
     "item": "gemstonepower:steel_rod"
   },
-  "preset": "rod",
   "processingTime": 200
 }

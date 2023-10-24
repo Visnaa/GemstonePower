@@ -5,9 +5,9 @@
   "input": {
     "item": "gemstonepower:silver_ingot"
   },
+  "mode": "pressing",
   "output": {
     "item": "gemstonepower:silver_plate"
   },
-  "preset": "plate",
   "processingTime": 200
 }

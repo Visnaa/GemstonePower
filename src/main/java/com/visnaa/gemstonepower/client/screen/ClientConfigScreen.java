@@ -19,9 +19,9 @@ public class ClientConfigScreen extends Screen
     private Minecraft minecraft;
     private Screen parent;
 
-    private Button energyUnit;
     private Button doneButton;
-    private EditBox unitBox;
+    private Button energyUnit;
+    private EditBox energyUnitBox;
 
     public ClientConfigScreen(Minecraft minecraft, Screen parent)
     {
@@ -43,31 +43,30 @@ public class ClientConfigScreen extends Screen
             {
                 energyUnit.setMessage(Component.translatable("menu." + GemstonePower.MOD_ID + ".config_screen.energy_unit"));
                 ClientConfig.ENERGY_UNIT.set(unit.getUnit());
-                unitBox.setEditable(false);
-                unitBox.setValue(unit.getUnit());
+                energyUnitBox.setEditable(false);
+                energyUnitBox.setValue(unit.getUnit());
             }
             else
             {
                 energyUnit.setMessage(Component.translatable("menu." + GemstonePower.MOD_ID + ".config_screen.energy_unit"));
-                unitBox.setEditable(true);
-                unitBox.setValue(Component.translatable(unit.getKey()).getString());
+                energyUnitBox.setEditable(true);
+                energyUnitBox.setValue(Component.translatable(unit.getKey()).getString());
             }
         }).pos(width / 2 - 155, 25).size(152, 18).build();
-
-        unitBox = new EditBox(Minecraft.getInstance().font, width / 2 + 3, 26, 152, 16, Component.literal(ClientConfig.ENERGY_UNIT.get()));
-        unitBox.setEditable(MachineUtil.EnergyUnits.byString(ClientConfig.ENERGY_UNIT.get()) == MachineUtil.EnergyUnits.CUSTOM);
-        unitBox.setMaxLength(24);
-        unitBox.setEditable(MachineUtil.EnergyUnits.byString(ClientConfig.ENERGY_UNIT.get()) == MachineUtil.EnergyUnits.CUSTOM);
-        unitBox.setBordered(true);
-        unitBox.setCanLoseFocus(true);
-        unitBox.setValue(ClientConfig.ENERGY_UNIT.get());
-        unitBox.setResponder((s) -> {
+        energyUnitBox = new EditBox(Minecraft.getInstance().font, width / 2 + 3, 26, 152, 16, Component.literal(ClientConfig.ENERGY_UNIT.get()));
+        energyUnitBox.setEditable(MachineUtil.EnergyUnits.byString(ClientConfig.ENERGY_UNIT.get()) == MachineUtil.EnergyUnits.CUSTOM);
+        energyUnitBox.setMaxLength(24);
+        energyUnitBox.setEditable(MachineUtil.EnergyUnits.byString(ClientConfig.ENERGY_UNIT.get()) == MachineUtil.EnergyUnits.CUSTOM);
+        energyUnitBox.setBordered(true);
+        energyUnitBox.setCanLoseFocus(true);
+        energyUnitBox.setValue(ClientConfig.ENERGY_UNIT.get());
+        energyUnitBox.setResponder((s) -> {
             ClientConfig.ENERGY_UNIT.set(s);
             ClientConfig.ENERGY_UNIT.save();
         });
 
         this.addRenderableWidget(this.energyUnit);
-        this.addRenderableWidget(this.unitBox);
+        this.addRenderableWidget(this.energyUnitBox);
         this.addRenderableWidget(this.doneButton);
         this.addRenderableWidget(new TextWidget(9, this.width, 8, this.title));
     }

@@ -130,7 +130,7 @@ public class GemstonePowerJEIPlugin implements IModPlugin
         registration.addRecipeTransferHandler(CrystalGrowerMenu.class, ModMenus.CRYSTAL_GROWER.get(), CRYSTAL_GROWER_CATEGORY, 0, 2, 2, 35);
         registration.addRecipeTransferHandler(CrystalChargerMenu.class, ModMenus.CRYSTAL_CHARGER.get(), CRYSTAL_CHARGER_CATEGORY, 0, 2, 2, 35);
 
-        registration.addRecipeTransferHandler(MetalFormerMenu.class, ModMenus.METAL_FORMER.get(), METAL_FORMER_CATEGORY, 0, 3, 3, 36);
+        registration.addRecipeTransferHandler(MetalFormerMenu.class, ModMenus.METAL_FORMER.get(), METAL_FORMER_CATEGORY, 0, 2, 2, 35);
         registration.addRecipeTransferHandler(PulverizerMenu.class, ModMenus.PULVERIZER.get(), PULVERIZER_CATEGORY, 0, 1, 2, 35);
         registration.addRecipeTransferHandler(AlloySmelterMenu.class, ModMenus.ALLOY_SMELTER.get(), ALLOY_SMELTER_CATEGORY, 0, 3, 3, 36);
         registration.addRecipeTransferHandler(ExtractorMenu.class, ModMenus.EXTRACTOR.get(), EXTRACTOR_CATEGORY, 0, 1, 2, 35);

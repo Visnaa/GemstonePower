@@ -477,6 +477,7 @@ public class EN_US_LanguageGenerator extends LanguageProvider
         this.add(ModBlocks.TIN_CABLE.get(), "Tin Cable");
         this.add(ModBlocks.ELECTRUM_WIRE.get(), "Electrum Wire");
         this.add(ModBlocks.ELECTRUM_CABLE.get(), "Electrum Cable");
+        this.add(ModBlocks.GEMSTONE_CABLE.get(), "Gemstone Cable");
 
         this.add(ModBlocks.IRON_ITEM_PIPE.get(), "Iron Item Pipe");
         this.add(ModBlocks.GOLD_ITEM_PIPE.get(), "Gold Item Pipe");
@@ -507,9 +508,6 @@ public class EN_US_LanguageGenerator extends LanguageProvider
         this.add(ModItems.METAL_WRENCH.get(), "Metal Wrench");
         this.add(ModItems.CRYSTAL_WRENCH.get(), "Crystal Wrench");
 
-        this.add(ModItems.PLATE_PRESET.get(), "Plate Preset");
-        this.add(ModItems.ROD_PRESET.get(), "Rod Preset");
-        this.add(ModItems.WIRE_PRESET.get(), "Wire Preset");
         this.add(ModItems.RESIN.get(), "Resin");
         this.add(ModItems.RUBBER.get(), "Rubber");
         this.add(ModItems.TREE_TAP.get(), "Tree Tap");

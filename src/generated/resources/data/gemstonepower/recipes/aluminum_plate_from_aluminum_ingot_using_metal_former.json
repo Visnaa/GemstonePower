@@ -5,9 +5,9 @@
   "input": {
     "item": "gemstonepower:aluminum_ingot"
   },
+  "mode": "pressing",
   "output": {
     "item": "gemstonepower:aluminum_plate"
   },
-  "preset": "plate",
   "processingTime": 200
 }

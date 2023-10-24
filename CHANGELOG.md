@@ -1,5 +1,14 @@
 <h1 style="font-size: 40px">Gemstone Power version changelog</h1>
 
+<h3>Version: Beta 0.3.3</h3>
+<ul>
+<li>Added gemstone cable
+<li>Increased amount of energy transferred by cables
+<li>Metal former no longer require presets
+<li>Rewritten energy distribution in cables
+<li>Fixed bug causing gemstone generator to crash the game
+</ul>
+
 <h3>Version: Beta 0.3.2</h3>
 <ul>
 <li>Basic gems now can give good and bad effects for awakened players

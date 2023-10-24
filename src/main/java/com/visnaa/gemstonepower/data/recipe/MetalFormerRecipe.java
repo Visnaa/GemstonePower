@@ -3,9 +3,10 @@ package com.visnaa.gemstonepower.data.recipe;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.visnaa.gemstonepower.GemstonePower;
+import com.visnaa.gemstonepower.block.entity.machine.MetalFormerBE;
 import com.visnaa.gemstonepower.init.ModBlocks;
 import com.visnaa.gemstonepower.init.ModRecipes;
-import com.visnaa.gemstonepower.util.MachinePresets;
+import com.visnaa.gemstonepower.util.MachineUtil;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
@@ -27,17 +28,17 @@ public class MetalFormerRecipe implements EnergyRecipe
     private final Ingredient input;
     private final ItemStack output;
     private final int count;
-    private final String preset;
+    private final String mode;
     private final int processingTime;
     private final int energyUsage;
 
-    public MetalFormerRecipe(ResourceLocation id, Ingredient input, ItemStack output, int count, String preset, int processingTime, int energyUsage)
+    public MetalFormerRecipe(ResourceLocation id, Ingredient input, ItemStack output, int count, String mode, int processingTime, int energyUsage)
     {
         this.id = id;
         this.input = input;
         this.output = output;
         this.count = count;
-        this.preset = preset;
+        this.mode = mode;
         this.processingTime = processingTime;
         this.energyUsage = energyUsage;
     }
@@ -46,7 +47,7 @@ public class MetalFormerRecipe implements EnergyRecipe
     public boolean matches(Container container, Level level)
     {
         if (level.isClientSide) return false;
-        if (input.test(container.getItem(0)) && MachinePresets.compare(container.getItem(1), preset))
+        if (input.test(container.getItem(0)) && container instanceof MetalFormerBE metalFormer && MachineUtil.MachineModes.isValid(metalFormer.getMode(), mode))
             return true;
         return false;
     }
@@ -98,9 +99,9 @@ public class MetalFormerRecipe implements EnergyRecipe
     {
         return count;
     }
-    public String getPreset()
+    public String getMachineMode()
     {
-        return preset;
+        return mode;
     }
 
     public int getProcessingTime()
@@ -142,7 +143,7 @@ public class MetalFormerRecipe implements EnergyRecipe
             Ingredient input = Ingredient.fromJson(seedElement);
             ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "output"));
             int count = GsonHelper.getAsInt(json, "count");
-            String preset = GsonHelper.getAsString(json, "preset");
+            String preset = GsonHelper.getAsString(json, "mode");
             int processingTime = GsonHelper.getAsInt(json, "processingTime");
             int energyUsage = GsonHelper.getAsInt(json, "energyUsage");
 
@@ -178,7 +179,7 @@ public class MetalFormerRecipe implements EnergyRecipe
             }
             buffer.writeItemStack(recipe.getResultItem(null), false);
             buffer.writeInt(recipe.getCount());
-            buffer.writeUtf(recipe.getPreset());
+            buffer.writeUtf(recipe.getMachineMode());
             buffer.writeInt(recipe.getProcessingTime());
             buffer.writeInt(recipe.getEnergyUsage());
         }

@@ -1,0 +1,8 @@
+{
+  "parent": "gemstonepower:block/cable_arm",
+  "textures": {
+    "particle": "gemstonepower:block/gemstone_cable_rubber",
+    "rubber": "gemstonepower:block/gemstone_cable_rubber",
+    "wire": "gemstonepower:block/gemstone_cable_wire"
+  }
+}

@@ -5,9 +5,9 @@
   "input": {
     "item": "gemstonepower:lead_ingot"
   },
+  "mode": "rolling",
   "output": {
     "item": "gemstonepower:lead_rod"
   },
-  "preset": "rod",
   "processingTime": 200
 }

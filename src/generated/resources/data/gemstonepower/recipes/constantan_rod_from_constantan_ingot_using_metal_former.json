@@ -5,9 +5,9 @@
   "input": {
     "item": "gemstonepower:constantan_ingot"
   },
+  "mode": "rolling",
   "output": {
     "item": "gemstonepower:constantan_rod"
   },
-  "preset": "rod",
   "processingTime": 200
 }

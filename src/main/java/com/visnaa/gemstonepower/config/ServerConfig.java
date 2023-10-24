@@ -44,7 +44,7 @@ public class ServerConfig
         BUILDER.comment("#".repeat(29));
 
         ENERGY_TRANSFER_RATE = BUILDER.comment("Rate at which blocks will transfer energy")
-                .defineInRange("energy_transfer_rate", 40, 0, Integer.MAX_VALUE);
+                .defineInRange("energy_transfer_rate", 65536, 0, Integer.MAX_VALUE);
         DEFAULT_MACHINE_USAGE = BUILDER.comment("Machines default energy usage per tick")
                 .defineInRange("default_machine_usage", 40, 1, Integer.MAX_VALUE);
         DEFAULT_MACHINE_TIME = BUILDER.comment("Machines default processing duration")

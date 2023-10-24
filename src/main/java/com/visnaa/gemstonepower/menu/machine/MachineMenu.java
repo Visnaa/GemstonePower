@@ -1,6 +1,7 @@
 package com.visnaa.gemstonepower.menu.machine;
 
 import com.visnaa.gemstonepower.GemstonePower;
+import com.visnaa.gemstonepower.block.entity.FissionReactorBE;
 import com.visnaa.gemstonepower.block.entity.machine.FluidMachineBE;
 import com.visnaa.gemstonepower.block.entity.machine.MachineBE;
 import com.visnaa.gemstonepower.menu.MenuData;
@@ -74,7 +75,8 @@ public class MachineMenu extends AbstractContainerMenu
         final int blockEntitySlotCount = this.data.slots().size();
 
         Slot sourceSlot = this.slots.get(slot);
-        if (sourceSlot == null || !sourceSlot.hasItem()) return ItemStack.EMPTY;
+        if (sourceSlot == null || !sourceSlot.hasItem())
+            return ItemStack.EMPTY;
         ItemStack sourceStack = sourceSlot.getItem();
         ItemStack copyStack = sourceStack.copy();
 
@@ -125,11 +127,6 @@ public class MachineMenu extends AbstractContainerMenu
             progress = machine.getProcessingProgress();
             total = machine.getProcessingTotalTime();
         }
-        else if (blockEntity instanceof FluidMachineBE<?> machine)
-        {
-            progress = machine.getProcessingProgress();
-            total = machine.getProcessingTotalTime();
-        }
         return total != 0 && progress != 0 ? progress * (progressBarWidth + 1) / total : 0;
     }
 
@@ -147,8 +144,6 @@ public class MachineMenu extends AbstractContainerMenu
     {
         if (blockEntity instanceof MachineBE<?> machine)
             return machine.getEnergy();
-        else if (blockEntity instanceof FluidMachineBE<?> machine)
-            return machine.getEnergy();
         return 0;
     }
 
@@ -156,9 +151,27 @@ public class MachineMenu extends AbstractContainerMenu
     {
         if (blockEntity instanceof MachineBE<?> machine)
             return machine.getCapacity();
-        else if (blockEntity instanceof FluidMachineBE<?> machine)
-            return machine.getCapacity();
         return 0;
+    }
+
+    public BlockPos getBlockPos()
+    {
+        if (blockEntity instanceof MachineBE<?> machine)
+            return machine.getBlockPos();
+        return null;
+    }
+
+    public int getMachineMode()
+    {
+        if (blockEntity instanceof MachineBE<?> machine)
+            return machine.getMode();
+        return 0;
+    }
+
+    public void setMachineMode(int mode)
+    {
+        if (blockEntity instanceof MachineBE<?> machine)
+            machine.setMode(mode);
     }
 
     public FluidTank getFluidTank(int tank)

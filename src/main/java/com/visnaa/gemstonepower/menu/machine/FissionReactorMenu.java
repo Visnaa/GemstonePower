@@ -41,13 +41,6 @@ public class FissionReactorMenu extends MachineMenu
         return false;
     }
 
-    public BlockPos getBlockPos()
-    {
-        if (blockEntity instanceof FissionReactorBE reactor)
-            return reactor.getBlockPos();
-        return null;
-    }
-
     public int getHeatLevel()
     {
         float heat = getHeat();

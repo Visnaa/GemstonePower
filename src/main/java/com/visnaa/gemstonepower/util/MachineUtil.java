@@ -140,7 +140,7 @@ public final class MachineUtil
         return tanks;
     }
 
-    public enum EnergyUnits implements OptionEnum
+    public enum EnergyUnits
     {
         CUSTOM(0, "custom"),
         GE(1, "GE"),
@@ -157,12 +157,10 @@ public final class MachineUtil
             this.unit = unit;
         }
 
-        @Override
         public int getId() {
             return this.id;
         }
 
-        @Override
         @NotNull
         public String getKey()
         {
@@ -185,6 +183,48 @@ public final class MachineUtil
                 if (Objects.equals(unit.getUnit(), text))
                     return unit;
             return EnergyUnits.CUSTOM;
+        }
+    }
+
+    public enum MachineModes
+    {
+        PRESSING(0, "pressing"),
+        ROLLING(1, "rolling"),
+        EXTRUDING(2, "extruding");
+
+        private int mode;
+        private String name;
+
+        MachineModes(int mode, String name)
+        {
+            this.mode = mode;
+            this.name = name;
+        }
+
+        public static MachineModes getByName(String name)
+        {
+            for (MachineModes mode : MachineModes.values())
+                if (name.equals(mode.name))
+                    return mode;
+            return PRESSING;
+        }
+
+        public static boolean isValid(int mode, String modeStr)
+        {
+            for (MachineModes machineMode : MachineModes.values())
+                if (mode == machineMode.mode && modeStr.equals(machineMode.name))
+                    return true;
+            return false;
+        }
+
+        public int getMode()
+        {
+            return mode;
+        }
+
+        public String getName()
+        {
+            return name;
         }
     }
 }

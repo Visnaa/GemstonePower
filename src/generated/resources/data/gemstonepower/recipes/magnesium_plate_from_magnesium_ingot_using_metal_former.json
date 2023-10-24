@@ -5,9 +5,9 @@
   "input": {
     "item": "gemstonepower:magnesium_ingot"
   },
+  "mode": "pressing",
   "output": {
     "item": "gemstonepower:magnesium_plate"
   },
-  "preset": "plate",
   "processingTime": 200
 }

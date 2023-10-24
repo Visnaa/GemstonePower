@@ -5,9 +5,9 @@
   "input": {
     "item": "gemstonepower:zinc_ingot"
   },
+  "mode": "rolling",
   "output": {
     "item": "gemstonepower:zinc_rod"
   },
-  "preset": "rod",
   "processingTime": 200
 }

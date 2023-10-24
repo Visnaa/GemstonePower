@@ -8,6 +8,6 @@ public class AluminumCableBE extends CableBE
 {
     public AluminumCableBE(BlockPos pos, BlockState state)
     {
-        super(ModBlockEntities.ALUMINUM_CABLE.get(), pos, state, 1);
+        super(ModBlockEntities.ALUMINUM_CABLE.get(), pos, state, 40);
     }
 }

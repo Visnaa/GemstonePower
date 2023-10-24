@@ -87,7 +87,7 @@ public class GemstoneManipulatorRecipeCategory implements IRecipeCategory<Gemsto
         this.progressAnimated.draw(graphics, 51, 2);
         this.energyAnimated.draw(graphics, 122, 1);
         if (MachineScreen.isMouseInArea((int) mouseX, (int) mouseY, 51, 2, 20, 14))
-            graphics.renderTooltip(Minecraft.getInstance().font, List.of(Component.literal("§fProcessing Time: §b" + recipe.getProcessingTime() + " t")), ItemStack.EMPTY.getTooltipImage(), (int) mouseX, (int) mouseY);
+            graphics.renderTooltip(Minecraft.getInstance().font, List.of(Component.literal("§fProcessing time: §b" + recipe.getProcessingTime() + " t")), ItemStack.EMPTY.getTooltipImage(), (int) mouseX, (int) mouseY);
         if (MachineScreen.isMouseInArea((int) mouseX, (int) mouseY, 122, 1, 10, 16))
             graphics.renderTooltip(Minecraft.getInstance().font, List.of(Component.literal("§fEnergy: §c" + recipe.getEnergyUsage() * recipe.getProcessingTime() + " " + ClientConfig.ENERGY_UNIT.get())), ItemStack.EMPTY.getTooltipImage(), (int) mouseX, (int) mouseY);
     }

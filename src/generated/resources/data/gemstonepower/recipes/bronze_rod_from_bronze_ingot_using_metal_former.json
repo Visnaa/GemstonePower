@@ -5,9 +5,9 @@
   "input": {
     "item": "gemstonepower:bronze_ingot"
   },
+  "mode": "rolling",
   "output": {
     "item": "gemstonepower:bronze_rod"
   },
-  "preset": "rod",
   "processingTime": 200
 }

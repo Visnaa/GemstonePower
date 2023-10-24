@@ -8,6 +8,6 @@ public class ElectrumCableBE extends CableBE
 {
     public ElectrumCableBE(BlockPos pos, BlockState state)
     {
-        super(ModBlockEntities.ELECTRUM_CABLE.get(), pos, state, 4);
+        super(ModBlockEntities.ELECTRUM_CABLE.get(), pos, state, 1024);
     }
 }

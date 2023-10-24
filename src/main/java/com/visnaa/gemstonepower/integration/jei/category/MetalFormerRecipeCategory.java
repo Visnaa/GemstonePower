@@ -6,7 +6,7 @@ import com.visnaa.gemstonepower.config.ClientConfig;
 import com.visnaa.gemstonepower.data.recipe.MetalFormerRecipe;
 import com.visnaa.gemstonepower.init.ModBlocks;
 import com.visnaa.gemstonepower.integration.jei.GemstonePowerJEIPlugin;
-import com.visnaa.gemstonepower.util.MachinePresets;
+import com.visnaa.gemstonepower.util.MachineUtil.MachineModes;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -36,6 +36,13 @@ public class MetalFormerRecipeCategory implements IRecipeCategory<MetalFormerRec
     private final IDrawableStatic progress;
     private final IDrawableStatic energy;
 
+    private final IDrawableStatic platingMode;
+    private final IDrawableStatic rollingMode;
+    private final IDrawableStatic extrudingMode;
+    private final IDrawableStatic platingModeHover;
+    private final IDrawableStatic rollingModeHover;
+    private final IDrawableStatic extrudingModeHover;
+
     private final IDrawableAnimated progressAnimated;
     private final IDrawableAnimated energyAnimated;
 
@@ -45,6 +52,13 @@ public class MetalFormerRecipeCategory implements IRecipeCategory<MetalFormerRec
         this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.METAL_FORMER.get()));
         this.progress = helper.createDrawable(TEXTURE, 176, 16, 27, 18);
         this.energy = helper.createDrawable(TEXTURE, 176, 0, 10, 16);
+
+        this.platingMode = helper.createDrawable(TEXTURE, 176, 34, 20, 20);
+        this.rollingMode = helper.createDrawable(TEXTURE, 196, 34, 20, 20);
+        this.extrudingMode = helper.createDrawable(TEXTURE, 216, 34, 20, 20);
+        this.platingModeHover = helper.createDrawable(TEXTURE, 176, 54, 20, 20);
+        this.rollingModeHover = helper.createDrawable(TEXTURE, 196, 54, 20, 20);
+        this.extrudingModeHover = helper.createDrawable(TEXTURE, 216, 54, 20, 20);
 
         this.progressAnimated = helper.createAnimatedDrawable(this.progress, 270, IDrawableAnimated.StartDirection.LEFT, false);
         this.energyAnimated = helper.createAnimatedDrawable(this.energy, 80, IDrawableAnimated.StartDirection.BOTTOM, false);
@@ -78,7 +92,6 @@ public class MetalFormerRecipeCategory implements IRecipeCategory<MetalFormerRec
     public void setRecipe(IRecipeLayoutBuilder builder, MetalFormerRecipe recipe, IFocusGroup focuses)
     {
         builder.addSlot(RecipeIngredientRole.INPUT, 38, 1).addIngredients(recipe.getIngredients().get(0));
-        builder.addSlot(RecipeIngredientRole.INPUT, 1, 1).addItemStack(new ItemStack(MachinePresets.getByName(recipe.getPreset()).getItem()));
         builder.addSlot(RecipeIngredientRole.OUTPUT, 94, 1).addItemStack(new ItemStack(recipe.getResultItem(null).getItem(), recipe.getCount()));
     }
 
@@ -87,9 +100,27 @@ public class MetalFormerRecipeCategory implements IRecipeCategory<MetalFormerRec
     {
         this.progressAnimated.draw(graphics, 61, 0);
         this.energyAnimated.draw(graphics, 134, 1);
-        if (MachineScreen.isMouseInArea((int) mouseX, (int) mouseY, 61, 0, 27, 18))
+        if (MachineScreen.isMouseInArea(mouseX, mouseY, 61, 0, 27, 18))
             graphics.renderTooltip(Minecraft.getInstance().font, List.of(Component.literal("§fProcessing Time: §b" + recipe.getProcessingTime() + " t")), ItemStack.EMPTY.getTooltipImage(), (int) mouseX, (int) mouseY);
-        if (MachineScreen.isMouseInArea((int) mouseX, (int) mouseY, 134, 1, 10, 16))
+        if (MachineScreen.isMouseInArea(mouseX, mouseY, 134, 1, 10, 16))
             graphics.renderTooltip(Minecraft.getInstance().font, List.of(Component.literal("§fEnergy: §c" + recipe.getEnergyUsage() * recipe.getProcessingTime() + " " + ClientConfig.ENERGY_UNIT.get())), ItemStack.EMPTY.getTooltipImage(), (int) mouseX, (int) mouseY);
+
+        if (MachineModes.getByName(recipe.getMachineMode()) == MachineModes.PRESSING)
+            renderCorrectMode(platingMode, platingModeHover, graphics, (int) mouseX, (int) mouseY, recipe.getMachineMode());
+        else if (MachineModes.getByName(recipe.getMachineMode()) == MachineModes.ROLLING)
+            renderCorrectMode(rollingMode, rollingModeHover, graphics, (int) mouseX, (int) mouseY, recipe.getMachineMode());
+        else if (MachineModes.getByName(recipe.getMachineMode()) == MachineModes.EXTRUDING)
+            renderCorrectMode(extrudingMode, extrudingModeHover, graphics, (int) mouseX, (int) mouseY, recipe.getMachineMode());
+    }
+
+    private void renderCorrectMode(IDrawableStatic normal, IDrawableStatic hovered, GuiGraphics graphics, int mouseX, int mouseY, String mode)
+    {
+        if (MachineScreen.isMouseInArea(mouseX, mouseY, 0, -1, 20, 20))
+        {
+            hovered.draw(graphics, 0, -1);
+            graphics.renderTooltip(Minecraft.getInstance().font, List.of(Component.literal("§fMachine mode: §a" + mode.substring(0, 1).toUpperCase() + mode.substring(1))), ItemStack.EMPTY.getTooltipImage(), mouseX, mouseY);
+        }
+        else
+            normal.draw(graphics, 0, -1);
     }
 }

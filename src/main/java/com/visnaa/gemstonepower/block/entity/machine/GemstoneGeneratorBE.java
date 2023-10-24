@@ -74,7 +74,6 @@ public class GemstoneGeneratorBE extends MachineBE<GemstoneGeneratorRecipe>
         return new EnergyStorage(MachineUtil.getCapacity(this.getBlockState(), ServerConfig.DEFAULT_GENERATOR_CAPACITY.get()), 0, Integer.MAX_VALUE) {
             @Override
             public void onEnergyChanged() {
-                setChanged();
                 if (!level.isClientSide())
                     ModPackets.sendToClient(new EnergySyncS2C(getEnergy(), getCapacity(), getBlockPos()));
             }

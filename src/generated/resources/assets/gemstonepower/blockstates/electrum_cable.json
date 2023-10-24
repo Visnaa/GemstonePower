@@ -2,12 +2,12 @@
   "multipart": [
     {
       "apply": {
-        "model": "gemstonepower:block/cable_dot"
+        "model": "gemstonepower:block/electrum_cable_dot"
       }
     },
     {
       "apply": {
-        "model": "gemstonepower:block/cable_arm",
+        "model": "gemstonepower:block/electrum_cable_arm",
         "x": 270
       },
       "when": {
@@ -16,7 +16,7 @@
     },
     {
       "apply": {
-        "model": "gemstonepower:block/cable_arm",
+        "model": "gemstonepower:block/electrum_cable_arm",
         "x": 90
       },
       "when": {
@@ -25,7 +25,7 @@
     },
     {
       "apply": {
-        "model": "gemstonepower:block/cable_arm"
+        "model": "gemstonepower:block/electrum_cable_arm"
       },
       "when": {
         "north": "true"
@@ -33,7 +33,7 @@
     },
     {
       "apply": {
-        "model": "gemstonepower:block/cable_arm",
+        "model": "gemstonepower:block/electrum_cable_arm",
         "y": 180
       },
       "when": {
@@ -42,7 +42,7 @@
     },
     {
       "apply": {
-        "model": "gemstonepower:block/cable_arm",
+        "model": "gemstonepower:block/electrum_cable_arm",
         "y": 270
       },
       "when": {
@@ -51,7 +51,7 @@
     },
     {
       "apply": {
-        "model": "gemstonepower:block/cable_arm",
+        "model": "gemstonepower:block/electrum_cable_arm",
         "y": 90
       },
       "when": {

@@ -5,10 +5,7 @@ import com.visnaa.gemstonepower.block.*;
 import com.visnaa.gemstonepower.block.entity.ReactorFrameBE;
 import com.visnaa.gemstonepower.block.grower.ResinOakGrower;
 import com.visnaa.gemstonepower.block.machine.*;
-import com.visnaa.gemstonepower.block.pipe.cable.AluminumCableBlock;
-import com.visnaa.gemstonepower.block.pipe.cable.CopperCableBlock;
-import com.visnaa.gemstonepower.block.pipe.cable.ElectrumCableBlock;
-import com.visnaa.gemstonepower.block.pipe.cable.TinCableBlock;
+import com.visnaa.gemstonepower.block.pipe.cable.*;
 import com.visnaa.gemstonepower.block.pipe.fluid.CopperFluidPipeBlock;
 import com.visnaa.gemstonepower.block.pipe.fluid.GoldFluidPipeBlock;
 import com.visnaa.gemstonepower.block.pipe.fluid.InvarFluidPipeBlock;
@@ -121,6 +118,7 @@ public final class ModBlocks
     public static final RegistryObject<Block> TIN_CABLE = BLOCKS.register("tin_cable", () -> new TinCableBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).noOcclusion(), true));
     public static final RegistryObject<Block> ELECTRUM_WIRE = BLOCKS.register("electrum_wire", () -> new ElectrumCableBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).noOcclusion(), false));
     public static final RegistryObject<Block> ELECTRUM_CABLE = BLOCKS.register("electrum_cable", () -> new ElectrumCableBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).noOcclusion(), true));
+    public static final RegistryObject<Block> GEMSTONE_CABLE = BLOCKS.register("gemstone_cable", () -> new GemstoneCableBlock(BlockBehaviour.Properties.copy(Blocks.WHITE_WOOL).noOcclusion(), true));
 
     public static final RegistryObject<Block> IRON_ITEM_PIPE = BLOCKS.register("iron_item_pipe", () -> new IronItemPipeBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
     public static final RegistryObject<Block> GOLD_ITEM_PIPE = BLOCKS.register("gold_item_pipe", () -> new GoldItemPipeBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));

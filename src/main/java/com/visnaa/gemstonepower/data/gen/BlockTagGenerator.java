@@ -310,6 +310,7 @@ public class BlockTagGenerator extends TagsProvider<Block>
                 .add(ModBlocks.ZINC_BLOCK.getKey());
 
         this.tag(WIRES)
+                .add(ModBlocks.GEMSTONE_CABLE.getKey())
                 .addTag(WIRES_COPPER)
                 .addTag(WIRES_ALUMINUM)
                 .addTag(WIRES_TIN)

@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_planks": {
+    "has_gemstones": {
       "conditions": {
         "items": [
           {
-            "tag": "minecraft:planks"
+            "tag": "gemstonepower:gemstone"
           }
         ]
       },
@@ -13,20 +13,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "gemstonepower:wire_preset"
+        "recipe": "gemstonepower:gemstone_cable"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_planks",
+      "has_gemstones",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "gemstonepower:wire_preset"
+      "gemstonepower:gemstone_cable"
     ]
   },
   "sends_telemetry_event": false

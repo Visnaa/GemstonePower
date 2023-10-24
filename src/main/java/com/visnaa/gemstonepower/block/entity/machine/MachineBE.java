@@ -444,9 +444,19 @@ public class MachineBE<T extends Recipe<Container>> extends BaseContainerBlockEn
         return energyStorage.getMaxEnergyStored();
     }
 
+    public int getMode()
+    {
+        return mode;
+    }
+
     public void setMode(int mode)
     {
         this.mode = mode;
+        if (!level.isClientSide())
+        {
+            processingProgress = 0;
+            ModPackets.sendToClient(new RecipeProgressSyncS2C(getProcessingProgress(), getProcessingTotalTime(), getBlockPos()));
+        }
     }
 
     @Override

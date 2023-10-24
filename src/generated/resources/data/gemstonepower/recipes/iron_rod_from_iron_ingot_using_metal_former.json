@@ -5,9 +5,9 @@
   "input": {
     "item": "minecraft:iron_ingot"
   },
+  "mode": "rolling",
   "output": {
     "item": "gemstonepower:iron_rod"
   },
-  "preset": "rod",
   "processingTime": 200
 }

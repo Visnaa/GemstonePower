@@ -7,6 +7,7 @@ import com.visnaa.gemstonepower.init.*;
 import com.visnaa.gemstonepower.item.CrystalArrowItem;
 import com.visnaa.gemstonepower.item.metal.MetalGroup;
 import com.visnaa.gemstonepower.item.metal.MetalGroups;
+import com.visnaa.gemstonepower.util.MachineUtil.MachineModes;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
@@ -196,33 +197,6 @@ public class RecipeGenerator extends RecipeProvider
                 .unlockedBy("has_bucket", inventoryTrigger(ItemPredicate.Builder.item().of(Items.BUCKET).build()))
                 .save(consumer, getFileName(ModItems.PORTABLE_TANK.get()));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.PLATE_PRESET.get(), 1)
-                .pattern("SPS")
-                .pattern("P#P")
-                .pattern("SPS")
-                .define('#', CommonTags.Items.PLATES)
-                .define('P', ItemTags.PLANKS)
-                .define('S', Tags.Items.RODS_WOODEN)
-                .unlockedBy("has_planks", inventoryTrigger(ItemPredicate.Builder.item().of(ItemTags.PLANKS).build()))
-                .save(consumer, getFileName(ModItems.PLATE_PRESET.get()));
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ROD_PRESET.get(), 1)
-                .pattern("SPS")
-                .pattern("P#P")
-                .pattern("SPS")
-                .define('#', Tags.Items.RODS)
-                .define('P', ItemTags.PLANKS)
-                .define('S', Tags.Items.RODS_WOODEN)
-                .unlockedBy("has_planks", inventoryTrigger(ItemPredicate.Builder.item().of(ItemTags.PLANKS).build()))
-                .save(consumer, getFileName(ModItems.ROD_PRESET.get()));
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.WIRE_PRESET.get(), 1)
-                .pattern("SPS")
-                .pattern("P#P")
-                .pattern("SPS")
-                .define('#', CommonTags.Items.WIRES)
-                .define('P', ItemTags.PLANKS)
-                .define('S', Items.STICK)
-                .unlockedBy("has_planks", inventoryTrigger(ItemPredicate.Builder.item().of(ItemTags.PLANKS).build()))
-                .save(consumer, getFileName(ModItems.WIRE_PRESET.get()));
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.TREE_TAP.get(), 1)
                 .pattern(" I ")
                 .pattern("PPP")
@@ -276,6 +250,15 @@ public class RecipeGenerator extends RecipeProvider
                 .define('S', CommonTags.Items.INGOTS_STEEL)
                 .unlockedBy(hasName(Blocks.GLASS), has(Blocks.GLASS))
                 .save(consumer, getFileName(ModItems.TANK.get()));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.GEMSTONE_CABLE.get(), 2)
+                .pattern("GGG")
+                .pattern("###")
+                .pattern("GGG")
+                .define('#', ModTags.GEMSTONE)
+                .define('G', Tags.Items.GLASS)
+                .unlockedBy("has_gemstones", inventoryTrigger(ItemPredicate.Builder.item().of(ModTags.GEMSTONE).build()))
+                .save(consumer, getFileName(ModItems.GEMSTONE_CABLE.get()));
     }
 
     private void metalDefault(MetalGroup group, Consumer<FinishedRecipe> consumer)
@@ -346,10 +329,10 @@ public class RecipeGenerator extends RecipeProvider
                 .unlockedBy(hasName(group.getNugget()), has(group.getNugget()))
                 .save(consumer, getFileName(group.getTinyPile(), group.getNugget()));
 
-        MetalFormerRecipeBuilder.create(Ingredient.of(group.getIngot()), group.getPlate(), 1, "plate", 200, 40)
+        MetalFormerRecipeBuilder.create(Ingredient.of(group.getIngot()), group.getPlate(), 1, MachineModes.PRESSING, 200, 40)
                 .unlockedBy(hasName(group.getIngot()), has(group.getIngot()))
                 .save(consumer, getFileName(group.getPlate(), group.getIngot()));
-        MetalFormerRecipeBuilder.create(Ingredient.of(group.getIngot()), group.getRod(), 1, "rod", 200, 40)
+        MetalFormerRecipeBuilder.create(Ingredient.of(group.getIngot()), group.getRod(), 1, MachineModes.ROLLING, 200, 40)
                 .unlockedBy(hasName(group.getIngot()), has(group.getIngot()))
                 .save(consumer, getFileName(group.getRod(), group.getIngot()));
 
@@ -367,7 +350,7 @@ public class RecipeGenerator extends RecipeProvider
                     .unlockedBy(hasName(group.getWire()), has(group.getWire()))
                     .save(consumer, getFileName(group.getCable(), group.getWire(), ModItems.RUBBER.get()));
 
-            MetalFormerRecipeBuilder.create(Ingredient.of(group.getIngot()), group.getWire().asItem(), 3, "wire", 200, 40)
+            MetalFormerRecipeBuilder.create(Ingredient.of(group.getIngot()), group.getWire().asItem(), 3, MachineModes.EXTRUDING, 200, 40)
                     .unlockedBy(hasName(group.getIngot()), has(group.getIngot()))
                     .save(consumer, getFileName(group.getWire(), group.getIngot()));
         }

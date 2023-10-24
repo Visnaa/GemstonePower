@@ -91,7 +91,7 @@ public class FissionReactorRecipeCategory implements IRecipeCategory<FissionReac
         this.energyAnimated.draw(graphics, 132, 5);
         this.heatAnimated.draw(graphics, 4, 5);
         if (MachineScreen.isMouseInArea((int) mouseX, (int) mouseY, 62, 3, 21, 20))
-            graphics.renderTooltip(Minecraft.getInstance().font, List.of(Component.literal("§fProcessing Time: §b" + recipe.getProcessingTime() + " t")), ItemStack.EMPTY.getTooltipImage(), (int) mouseX, (int) mouseY);
+            graphics.renderTooltip(Minecraft.getInstance().font, List.of(Component.literal("§fProcessing time: §b" + recipe.getProcessingTime() + " t")), ItemStack.EMPTY.getTooltipImage(), (int) mouseX, (int) mouseY);
         if (MachineScreen.isMouseInArea((int) mouseX, (int) mouseY, 132, 5, 10, 16))
             graphics.renderTooltip(Minecraft.getInstance().font, List.of(Component.literal("§fEnergy: §c" + recipe.getEnergyGeneration() + " " + ClientConfig.ENERGY_UNIT.get() + "/t")), ItemStack.EMPTY.getTooltipImage(), (int) mouseX, (int) mouseY);
         if (MachineScreen.isMouseInArea((int) mouseX, (int) mouseY, 4, 5, 3, 16))

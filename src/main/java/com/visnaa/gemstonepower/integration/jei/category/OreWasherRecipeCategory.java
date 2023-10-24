@@ -93,7 +93,7 @@ public class OreWasherRecipeCategory implements IRecipeCategory<OreWasherRecipe>
     {
         this.progressAnimated.draw(graphics, 41, 13);
         if (MachineScreen.isMouseInArea((int) mouseX, (int) mouseY, 41, 13, 19, 15))
-            graphics.renderTooltip(Minecraft.getInstance().font, List.of(Component.literal("§fProcessing Time: §b" + recipe.getProcessingTime() + " t")), ItemStack.EMPTY.getTooltipImage(), (int) mouseX, (int) mouseY);
+            graphics.renderTooltip(Minecraft.getInstance().font, List.of(Component.literal("§fProcessing time: §b" + recipe.getProcessingTime() + " t")), ItemStack.EMPTY.getTooltipImage(), (int) mouseX, (int) mouseY);
 
         this.energyAnimated.draw(graphics, 115, 13);
         if (MachineScreen.isMouseInArea((int) mouseX, (int) mouseY, 115, 13, 10, 16))

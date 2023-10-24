@@ -5,9 +5,9 @@
   "input": {
     "item": "gemstonepower:platinum_ingot"
   },
+  "mode": "rolling",
   "output": {
     "item": "gemstonepower:platinum_rod"
   },
-  "preset": "rod",
   "processingTime": 200
 }

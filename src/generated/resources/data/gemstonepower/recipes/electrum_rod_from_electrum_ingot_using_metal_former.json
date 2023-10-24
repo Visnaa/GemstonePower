@@ -5,9 +5,9 @@
   "input": {
     "item": "gemstonepower:electrum_ingot"
   },
+  "mode": "rolling",
   "output": {
     "item": "gemstonepower:electrum_rod"
   },
-  "preset": "rod",
   "processingTime": 200
 }

@@ -268,7 +268,8 @@ public class BlockModelGenerator extends BlockStateProvider
         this.cable(ModBlocks.TIN_CABLE.get());
         this.wire(ModBlocks.ELECTRUM_WIRE.get());
         this.cable(ModBlocks.ELECTRUM_CABLE.get());
-        
+        this.cable(ModBlocks.GEMSTONE_CABLE.get(), "block/gemstone_cable_rubber","block/gemstone_cable_wire");
+
         this.pipe(ModBlocks.IRON_ITEM_PIPE.get(), "item");
         this.pipe(ModBlocks.GOLD_ITEM_PIPE.get(), "item");
         this.pipe(ModBlocks.COPPER_ITEM_PIPE.get(), "item");
@@ -313,7 +314,12 @@ public class BlockModelGenerator extends BlockStateProvider
 
     public BlockModelBuilder parent(Block block, String parentName)
     {
-        return models().withExistingParent(ForgeRegistries.BLOCKS.getKey(block).getPath(), modLoc(parentName));
+        return parent(ForgeRegistries.BLOCKS.getKey(block).getPath(), parentName);
+    }
+
+    public BlockModelBuilder parent(String block, String parentName)
+    {
+        return models().withExistingParent(block, modLoc(parentName));
     }
 
     public ModelFile.ExistingModelFile model(String parentName)
@@ -444,43 +450,70 @@ public class BlockModelGenerator extends BlockStateProvider
 
     public void cable(Block block)
     {
+        cable(block, "block/cable_rubber", "block/cable_wire");
+    }
+
+    public void cable(Block block, String rubberTexture, String wireTexture)
+    {
         this.blockItem(block, "cable_dot");
+        String blockName = ForgeRegistries.BLOCKS.getKey(block).getPath();
         this.getMultipartBuilder(block)
             .part()
-                .modelFile(models().getExistingFile(modLoc("cable_dot")))
+                .modelFile(parent(blockName + "_dot", "cable_dot")
+                        .texture("particle", modLoc(rubberTexture))
+                        .texture("rubber", modLoc(rubberTexture))
+                        .texture("wire", modLoc(wireTexture)))
                 .addModel()
                 .end()
             .part()
-                .modelFile(models().getExistingFile(modLoc("cable_arm")))
+                .modelFile(parent(blockName + "_arm", "cable_arm")
+                        .texture("particle", modLoc(rubberTexture))
+                        .texture("rubber", modLoc(rubberTexture))
+                        .texture("wire", modLoc(wireTexture)))
                 .rotationX(270)
                 .addModel()
                 .condition(UP, true)
                 .end()
             .part()
-                .modelFile(models().getExistingFile(modLoc("cable_arm")))
+                .modelFile(parent(blockName + "_arm", "cable_arm")
+                        .texture("particle", modLoc(rubberTexture))
+                        .texture("rubber", modLoc(rubberTexture))
+                        .texture("wire", modLoc(wireTexture)))
                 .rotationX(90)
                 .addModel()
                 .condition(DOWN, true)
                 .end()
             .part()
-                .modelFile(models().getExistingFile(modLoc("cable_arm")))
+                .modelFile(parent(blockName + "_arm", "cable_arm")
+                        .texture("particle", modLoc(rubberTexture))
+                        .texture("rubber", modLoc(rubberTexture))
+                        .texture("wire", modLoc(wireTexture)))
                 .addModel()
                 .condition(NORTH, true)
                 .end()
             .part()
-                .modelFile(models().getExistingFile(modLoc("cable_arm")))
+                .modelFile(parent(blockName + "_arm", "cable_arm")
+                        .texture("particle", modLoc(rubberTexture))
+                        .texture("rubber", modLoc(rubberTexture))
+                        .texture("wire", modLoc(wireTexture)))
                 .rotationY(180)
                 .addModel()
                 .condition(SOUTH, true)
                 .end()
             .part()
-                .modelFile(models().getExistingFile(modLoc("cable_arm")))
+                .modelFile(parent(blockName + "_arm", "cable_arm")
+                        .texture("particle", modLoc(rubberTexture))
+                        .texture("rubber", modLoc(rubberTexture))
+                        .texture("wire", modLoc(wireTexture)))
                 .rotationY(270)
                 .addModel()
                 .condition(WEST, true)
                 .end()
             .part()
-                .modelFile(models().getExistingFile(modLoc("cable_arm")))
+                .modelFile(parent(blockName + "_arm", "cable_arm")
+                        .texture("particle", modLoc(rubberTexture))
+                        .texture("rubber", modLoc(rubberTexture))
+                        .texture("wire", modLoc(wireTexture)))
                 .rotationY(90)
                 .addModel()
                 .condition(EAST, true)

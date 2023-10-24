@@ -4,6 +4,8 @@ import com.visnaa.gemstonepower.block.entity.pipe.PipeBE;
 import com.visnaa.gemstonepower.block.entity.pipe.cable.CableBE;
 import com.visnaa.gemstonepower.capability.PipeNetwork;
 import com.visnaa.gemstonepower.config.ServerConfig;
+import it.unimi.dsi.fastutil.Hash;
+import net.minecraft.client.renderer.block.model.BlockElementRotation;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.Level;
@@ -15,6 +17,7 @@ import net.minecraftforge.energy.IEnergyStorage;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class EnergyNetwork implements PipeNetwork<CableBE>
@@ -129,66 +132,86 @@ public class EnergyNetwork implements PipeNetwork<CableBE>
         lastDistribution = level.getGameTime() + ServerConfig.ENERGY_CABLE_FREQUENCY.get() - 1;
         isWorking = false;
 
-        for (int i = 0; i < transfer; i++)
+        if (getEnergy() > 0)
         {
-            if (getEnergy() > 1)
+            int energyLeft = (int) Math.min(getEnergy(), transfer);
+            HashMap<IEnergyStorage, Integer> outputMap = new HashMap<>();
+            for (BlockEntity output : outputs.keySet())
             {
-                BlockEntity donor = null;
-                IEnergyStorage donorHandler = null;
+                if (energyLeft <= 0)
+                    break;
 
-                for (BlockEntity input : this.inputs.keySet())
+                IEnergyStorage handler = output.getCapability(ForgeCapabilities.ENERGY, outputs.get(output)).orElse(EnergyStorage.EMPTY);
+                if (handler == EnergyStorage.EMPTY || !handler.canReceive() || handler.getMaxEnergyStored() <= 0)
+                    continue;
+
+                int energyAccepted = handler.receiveEnergy(energyLeft, true);
+                if (energyAccepted <= 0)
+                    continue;
+
+                energyLeft -= energyAccepted;
+                outputMap.put(handler, energyAccepted);
+            }
+            long energyToOutput = 0;
+            for (int energy : outputMap.values())
+                energyToOutput += energy;
+            long inputEnergy = getInputEnergy();
+            long energyToStore = inputEnergy - energyToOutput;
+            HashMap<IEnergyStorage, Integer> batteryMap = new HashMap<>();
+            for (BlockEntity battery : batteries.keySet())
+            {
+                if (energyToOutput >= inputEnergy || energyToStore <= 0)
+                    break;
+
+                IEnergyStorage handler = battery.getCapability(ForgeCapabilities.ENERGY, batteries.get(battery)).orElse(EnergyStorage.EMPTY);
+                if (handler == EnergyStorage.EMPTY || !handler.canReceive() || handler.getMaxEnergyStored() <= 0)
+                    continue;
+                int energyAccepted = handler.receiveEnergy((int) energyToStore, true);
+                energyToStore -= energyAccepted;
+                batteryMap.put(handler, energyAccepted);
+            }
+
+            if (!outputMap.isEmpty() || !batteryMap.isEmpty())
+            {
+                isWorking = true;
+                int energyTransferred = 0;
+                boolean useBatteries = batteryMap.isEmpty();
+                for (IEnergyStorage handler : outputMap.keySet())
+                    energyTransferred += handler.receiveEnergy(outputMap.get(handler), false);
+                for (IEnergyStorage handler : batteryMap.keySet())
+                    energyTransferred += handler.receiveEnergy(batteryMap.get(handler), false);
+
+                for (BlockEntity input : inputs.keySet())
                 {
-                    IEnergyStorage iHandler = input.getCapability(ForgeCapabilities.ENERGY, inputs.get(input)).orElse(EnergyStorage.EMPTY);
-                    if (iHandler == EnergyStorage.EMPTY || !iHandler.canExtract() || iHandler.getMaxEnergyStored() <= 0)
+                    if (energyTransferred <= 0)
+                        break;
+
+                    IEnergyStorage handler = input.getCapability(ForgeCapabilities.ENERGY, inputs.get(input)).orElse(EnergyStorage.EMPTY);
+                    if (handler == EnergyStorage.EMPTY || !handler.canExtract() || handler.getMaxEnergyStored() <= 0)
                         continue;
 
-                    if (iHandler.extractEnergy(1, true) != 1)
+                    int energyExtracted = handler.extractEnergy(energyTransferred, false);
+                    if (energyExtracted <= 0)
                         continue;
-                    donor = input;
-                    donorHandler = iHandler;
+
+                    energyTransferred -= energyExtracted;
                 }
-                if (donor == null)
+                if (useBatteries && energyTransferred > 0)
                 {
-                    for (BlockEntity battery : this.batteries.keySet())
+                    for (BlockEntity battery : batteries.keySet())
                     {
-                        IEnergyStorage bHandler = battery.getCapability(ForgeCapabilities.ENERGY, batteries.get(battery)).orElse(EnergyStorage.EMPTY);
-                        if (bHandler == EnergyStorage.EMPTY || !bHandler.canExtract() || bHandler.getMaxEnergyStored() <= 0)
+                        if (energyTransferred <= 0)
+                            break;
+
+                        IEnergyStorage handler = battery.getCapability(ForgeCapabilities.ENERGY, batteries.get(battery)).orElse(EnergyStorage.EMPTY);
+                        if (handler == EnergyStorage.EMPTY || !handler.canExtract() || handler.getMaxEnergyStored() <= 0)
                             continue;
 
-                        if (bHandler.extractEnergy(1, true) != 1)
-                            continue;
-                        donor = battery;
-                        donorHandler = bHandler;
-                    }
-                }
-
-                boolean useBattery = true;
-                if (donor != null)
-                {
-                    for (BlockEntity output : outputs.keySet())
-                    {
-                        IEnergyStorage oHandler = output.getCapability(ForgeCapabilities.ENERGY, outputs.get(output)).orElse(EnergyStorage.EMPTY);
-                        if (oHandler == EnergyStorage.EMPTY || !oHandler.canReceive() || oHandler.getMaxEnergyStored() <= 0)
+                        int energyExtracted = handler.extractEnergy(energyTransferred, true);
+                        if (energyExtracted <= 0)
                             continue;
 
-                        donorHandler.extractEnergy(1, false);
-                        oHandler.receiveEnergy(1, false);
-                        useBattery = false;
-                        isWorking = true;
-                    }
-
-                    if (useBattery && !batteries.containsKey(donor))
-                    {
-                        for (BlockEntity battery : batteries.keySet())
-                        {
-                            IEnergyStorage bHandler = battery.getCapability(ForgeCapabilities.ENERGY, batteries.get(battery)).orElse(EnergyStorage.EMPTY);
-                            if (bHandler == EnergyStorage.EMPTY || !bHandler.canReceive() || bHandler.getMaxEnergyStored() <= 0)
-                                continue;
-
-                            donorHandler.extractEnergy(1, false);
-                            bHandler.receiveEnergy(1, false);
-                            isWorking = true;
-                        }
+                        energyTransferred -= energyExtracted;
                     }
                 }
             }
@@ -209,12 +232,17 @@ public class EnergyNetwork implements PipeNetwork<CableBE>
 
     public long getEnergy()
     {
-        long energy = 0;
-        for (BlockEntity be : this.inputs.keySet())
+        long energy = getInputEnergy();
+        for (BlockEntity be : this.batteries.keySet())
             if (be != null && be.getCapability(ForgeCapabilities.ENERGY).isPresent())
                 energy += be.getCapability(ForgeCapabilities.ENERGY).map(IEnergyStorage::getEnergyStored).orElse(0);
+        return energy;
+    }
 
-        for (BlockEntity be : this.batteries.keySet())
+    public long getInputEnergy()
+    {
+        long energy = 0;
+        for (BlockEntity be : this.inputs.keySet())
             if (be != null && be.getCapability(ForgeCapabilities.ENERGY).isPresent())
                 energy += be.getCapability(ForgeCapabilities.ENERGY).map(IEnergyStorage::getEnergyStored).orElse(0);
         return energy;

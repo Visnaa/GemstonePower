@@ -5,9 +5,9 @@
   "input": {
     "item": "minecraft:gold_ingot"
   },
+  "mode": "pressing",
   "output": {
     "item": "gemstonepower:gold_plate"
   },
-  "preset": "plate",
   "processingTime": 200
 }

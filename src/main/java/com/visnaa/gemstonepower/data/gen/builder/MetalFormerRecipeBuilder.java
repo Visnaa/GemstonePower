@@ -3,6 +3,7 @@ package com.visnaa.gemstonepower.data.gen.builder;
 import com.google.gson.JsonObject;
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.init.ModRecipes;
+import com.visnaa.gemstonepower.util.MachineUtil.MachineModes;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.CriterionTriggerInstance;
@@ -24,24 +25,24 @@ public class MetalFormerRecipeBuilder implements RecipeBuilder
     private final Ingredient input;
     private final Item output;
     private final int count;
-    private final String preset;
+    private final MachineModes mode;
     private final int processingTime;
     private final int energyUsage;
     private final Advancement.Builder advancement = Advancement.Builder.advancement();
 
-    public MetalFormerRecipeBuilder(Ingredient input, Item output, int count, String preset, int processingTime, int energyUsage)
+    public MetalFormerRecipeBuilder(Ingredient input, Item output, int count, MachineModes mode, int processingTime, int energyUsage)
     {
         this.input = input;
         this.output = output;
         this.count = count;
-        this.preset = preset;
+        this.mode = mode;
         this.processingTime = processingTime;
         this.energyUsage = energyUsage;
     }
 
-    public static MetalFormerRecipeBuilder create(Ingredient input, Item output, int count, String preset, int processingTime, int energyUsage)
+    public static MetalFormerRecipeBuilder create(Ingredient input, Item output, int count, MachineModes mode, int processingTime, int energyUsage)
     {
-        return new MetalFormerRecipeBuilder(input, output, count, preset, processingTime, energyUsage);
+        return new MetalFormerRecipeBuilder(input, output, count, mode, processingTime, energyUsage);
     }
 
     @Override
@@ -72,7 +73,7 @@ public class MetalFormerRecipeBuilder implements RecipeBuilder
                 .rewards(AdvancementRewards.Builder.recipe(recipeId))
                 .requirements(RequirementsStrategy.OR);
 
-        consumer.accept(new MetalFormerRecipeBuilder.Result(recipeId, this.input, this.output, this.count, this.preset, this.processingTime, this.energyUsage, this.advancement, new ResourceLocation(recipeId.getNamespace(), "recipes/" + recipeId.getPath())));
+        consumer.accept(new MetalFormerRecipeBuilder.Result(recipeId, this.input, this.output, this.count, this.mode, this.processingTime, this.energyUsage, this.advancement, new ResourceLocation(recipeId.getNamespace(), "recipes/" + recipeId.getPath())));
     }
 
     public static class Result implements FinishedRecipe
@@ -81,19 +82,19 @@ public class MetalFormerRecipeBuilder implements RecipeBuilder
         private final Ingredient input;
         private final Item output;
         private final int count;
-        private final String preset;
+        private final MachineModes mode;
         private final int processingTime;
         private final int energyUsage;
         private final Advancement.Builder advancement;
         private final ResourceLocation advancementId;
 
-        public Result(ResourceLocation id, Ingredient input, Item output, int count, String preset, int processingTime, int energyUsage, Advancement.Builder advancement, ResourceLocation advancementId)
+        public Result(ResourceLocation id, Ingredient input, Item output, int count, MachineModes mode, int processingTime, int energyUsage, Advancement.Builder advancement, ResourceLocation advancementId)
         {
             this.id = id;
             this.input = input;
             this.output = output;
             this.count = count;
-            this.preset = preset;
+            this.mode = mode;
             this.processingTime = processingTime;
             this.energyUsage = energyUsage;
             this.advancement = advancement;
@@ -110,7 +111,7 @@ public class MetalFormerRecipeBuilder implements RecipeBuilder
             json.add("output", output);
 
             json.addProperty("count", this.count);
-            json.addProperty("preset", this.preset);
+            json.addProperty("mode", this.mode.getName());
             json.addProperty("processingTime", this.processingTime);
             json.addProperty("energyUsage", this.energyUsage);
         }

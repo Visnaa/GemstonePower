@@ -271,9 +271,6 @@ public final class ModItems
     public static final RegistryObject<Item> METAL_WRENCH = ITEMS.register("metal_wrench", () -> new WrenchItem(new Item.Properties(), 128));
     public static final RegistryObject<Item> CRYSTAL_WRENCH = ITEMS.register("crystal_wrench", () -> new WrenchItem(new Item.Properties(), 1024));
 
-    public static final RegistryObject<Item> PLATE_PRESET = ITEMS.register("plate_preset", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> ROD_PRESET = ITEMS.register("rod_preset", () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> WIRE_PRESET = ITEMS.register("wire_preset", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> RESIN = ITEMS.register("resin", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> RUBBER = ITEMS.register("rubber", () -> new Item(new Item.Properties()));
 
@@ -290,6 +287,7 @@ public final class ModItems
     public static final RegistryObject<Item> TIN_CABLE = ITEMS.register("tin_cable", () -> new TintedBlockItem(ModBlocks.TIN_CABLE.get(), new Item.Properties(), Tints.TIN));
     public static final RegistryObject<Item> ELECTRUM_WIRE = ITEMS.register("electrum_wire", () -> new TintedBlockItem(ModBlocks.ELECTRUM_WIRE.get(), new Item.Properties(), Tints.ELECTRUM));
     public static final RegistryObject<Item> ELECTRUM_CABLE = ITEMS.register("electrum_cable", () -> new TintedBlockItem(ModBlocks.ELECTRUM_CABLE.get(), new Item.Properties(), Tints.ELECTRUM));
+    public static final RegistryObject<Item> GEMSTONE_CABLE = ITEMS.register("gemstone_cable", () -> new BlockItem(ModBlocks.GEMSTONE_CABLE.get(), new Item.Properties()));
 
     public static final RegistryObject<Item> IRON_ITEM_PIPE = ITEMS.register("iron_item_pipe", () -> new TintedBlockItem(ModBlocks.IRON_ITEM_PIPE.get(), new Item.Properties(), Tints.IRON));
     public static final RegistryObject<Item> GOLD_ITEM_PIPE = ITEMS.register("gold_item_pipe", () -> new TintedBlockItem(ModBlocks.GOLD_ITEM_PIPE.get(), new Item.Properties(), Tints.GOLD));

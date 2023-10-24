@@ -111,6 +111,7 @@ public class BlockLootGenerator extends BlockLootSubProvider
         this.dropSelf(ModBlocks.TIN_CABLE.get());
         this.dropSelf(ModBlocks.ELECTRUM_WIRE.get());
         this.dropSelf(ModBlocks.ELECTRUM_CABLE.get());
+        this.dropSelf(ModBlocks.GEMSTONE_CABLE.get());
     }
 
     @Override

@@ -8,6 +8,6 @@ public class CopperCableBE extends CableBE
 {
     public CopperCableBE(BlockPos pos, BlockState state)
     {
-        super(ModBlockEntities.COPPER_CABLE.get(), pos, state, 1);
+        super(ModBlockEntities.COPPER_CABLE.get(), pos, state, 80);
     }
 }
