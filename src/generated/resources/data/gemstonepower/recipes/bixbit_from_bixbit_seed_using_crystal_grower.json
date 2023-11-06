@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:bixbit_seed"
   },
-  "output": {
-    "item": "gemstonepower:bixbit"
-  },
+  "output": "gemstonepower:bixbit",
   "processingTime": 200
 }

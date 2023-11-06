@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:ruby_seed"
   },
-  "output": {
-    "item": "gemstonepower:ruby"
-  },
+  "output": "gemstonepower:ruby",
   "processingTime": 200
 }

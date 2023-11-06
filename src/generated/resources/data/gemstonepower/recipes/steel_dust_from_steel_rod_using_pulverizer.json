@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:steel_rod"
   },
-  "output": {
-    "item": "gemstonepower:steel_dust"
-  },
+  "output": "gemstonepower:steel_dust",
   "processingTime": 200
 }

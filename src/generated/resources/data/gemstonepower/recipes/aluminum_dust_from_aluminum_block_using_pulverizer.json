@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:aluminum_block"
   },
-  "output": {
-    "item": "gemstonepower:aluminum_dust"
-  },
+  "output": "gemstonepower:aluminum_dust",
   "processingTime": 1600
 }

@@ -5,8 +5,6 @@
   "input": {
     "tag": "minecraft:logs"
   },
-  "output": {
-    "item": "gemstonepower:resin"
-  },
+  "output": "gemstonepower:resin",
   "processingTime": 200
 }

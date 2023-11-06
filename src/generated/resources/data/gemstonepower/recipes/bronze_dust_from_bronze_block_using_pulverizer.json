@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:bronze_block"
   },
-  "output": {
-    "item": "gemstonepower:bronze_dust"
-  },
+  "output": "gemstonepower:bronze_dust",
   "processingTime": 1600
 }

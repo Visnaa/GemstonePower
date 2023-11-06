@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:peridot"
   },
-  "output": {
-    "item": "gemstonepower:peridot_charged"
-  },
+  "output": "gemstonepower:peridot_charged",
   "processingTime": 200
 }

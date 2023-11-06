@@ -9,7 +9,6 @@ import com.visnaa.gemstonepower.block.entity.pipe.fluid.GoldFluidPipeBE;
 import com.visnaa.gemstonepower.block.entity.pipe.fluid.InvarFluidPipeBE;
 import com.visnaa.gemstonepower.block.entity.pipe.fluid.SteelFluidPipeBE;
 import com.visnaa.gemstonepower.block.entity.pipe.item.*;
-import com.visnaa.gemstonepower.block.pipe.cable.GemstoneCableBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;

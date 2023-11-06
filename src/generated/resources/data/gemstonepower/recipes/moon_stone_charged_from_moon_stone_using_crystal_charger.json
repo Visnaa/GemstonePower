@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:moon_stone"
   },
-  "output": {
-    "item": "gemstonepower:moon_stone_charged"
-  },
+  "output": "gemstonepower:moon_stone_charged",
   "processingTime": 200
 }

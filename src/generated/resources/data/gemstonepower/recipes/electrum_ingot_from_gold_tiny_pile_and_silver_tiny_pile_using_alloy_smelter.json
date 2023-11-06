@@ -4,16 +4,12 @@
   "amount2": 1,
   "count": 2,
   "energyUsage": 80,
-  "inputs": [
-    {
-      "item": "gemstonepower:gold_tiny_pile"
-    },
-    {
-      "item": "gemstonepower:silver_tiny_pile"
-    }
-  ],
-  "output": {
-    "item": "gemstonepower:electrum_tiny_pile"
+  "input1": {
+    "item": "gemstonepower:gold_tiny_pile"
   },
+  "input2": {
+    "item": "gemstonepower:silver_tiny_pile"
+  },
+  "output": "gemstonepower:electrum_tiny_pile",
   "processingTime": 400
 }

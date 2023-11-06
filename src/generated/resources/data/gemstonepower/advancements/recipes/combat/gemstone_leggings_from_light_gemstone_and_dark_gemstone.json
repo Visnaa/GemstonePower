@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_light_gemstone",
-      "has_dark_gemstone",
-      "has_the_recipe"
+      "has_dark_gemstone"
     ]
   ],
   "rewards": {

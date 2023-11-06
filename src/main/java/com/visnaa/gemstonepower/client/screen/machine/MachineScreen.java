@@ -1,6 +1,7 @@
 package com.visnaa.gemstonepower.client.screen.machine;
 
 import com.mojang.blaze3d.systems.RenderSystem;
+import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.client.screen.ClientConfigScreen;
 import com.visnaa.gemstonepower.client.screen.ScreenData;
 import com.visnaa.gemstonepower.menu.machine.MachineMenu;
@@ -9,6 +10,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.ImageButton;
+import net.minecraft.client.gui.components.WidgetSprites;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
@@ -24,6 +26,7 @@ import java.util.List;
 
 public abstract class MachineScreen<T extends MachineMenu> extends AbstractContainerScreen<T>
 {
+    protected static WidgetSprites CLIENT_CONFIG_SPRITES = new WidgetSprites(GemstonePower.getId("client_config_button/default"), GemstonePower.getId("client_config_button/default_highlighted"));
     protected final ScreenData data;
     private Button clientConfigButton;
 
@@ -38,16 +41,13 @@ public abstract class MachineScreen<T extends MachineMenu> extends AbstractConta
     {
         super.init();
         this.titleLabelX = (this.imageWidth - this.font.width(this.title)) / 2;
-        clientConfigButton = new ImageButton(this.leftPos + 147, this.topPos + 58, 14, 14, 186, 0, 14, data.texture(), button -> Minecraft.getInstance().setScreen(new ClientConfigScreen(Minecraft.getInstance(), this)))
-        {
-            @Override
-            public void renderTexture(GuiGraphics graphics, ResourceLocation texture, int posX, int posY, int overlayX, int overlayY, int offset, int width, int height, int texWidth, int texHeight)
-            {
-                RenderSystem.enableDepthTest();
-                graphics.blit(texture, posX, posY, isHoveredOrFocused() ? overlayX + offset : overlayX, (float) overlayY, width, height, texWidth, texHeight);
-            }
-        };
+        clientConfigButton = new ImageButton(this.leftPos + 147, this.topPos + 58, 14, 14, getClientConfigSprites(), button -> Minecraft.getInstance().setScreen(new ClientConfigScreen(Minecraft.getInstance(), this)));
         addRenderableWidget(clientConfigButton);
+    }
+
+    protected WidgetSprites getClientConfigSprites()
+    {
+        return CLIENT_CONFIG_SPRITES;
     }
 
     @Override
@@ -59,7 +59,7 @@ public abstract class MachineScreen<T extends MachineMenu> extends AbstractConta
     @Override
     public void render(GuiGraphics graphics, int mouseX, int mouseY, float partialTicks)
     {
-        this.renderBackground(graphics);
+        this.renderBackground(graphics, mouseX, mouseY, partialTicks);
         super.render(graphics, mouseX, mouseY, partialTicks);
         this.renderTooltip(graphics, mouseX, mouseY);
 

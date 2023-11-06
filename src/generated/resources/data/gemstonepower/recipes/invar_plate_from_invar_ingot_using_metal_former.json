@@ -6,8 +6,6 @@
     "item": "gemstonepower:invar_ingot"
   },
   "mode": "pressing",
-  "output": {
-    "item": "gemstonepower:invar_plate"
-  },
+  "output": "gemstonepower:invar_plate",
   "processingTime": 200
 }

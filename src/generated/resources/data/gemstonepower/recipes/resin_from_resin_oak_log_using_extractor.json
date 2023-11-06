@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:resin_oak_log"
   },
-  "output": {
-    "item": "gemstonepower:resin"
-  },
+  "output": "gemstonepower:resin",
   "processingTime": 200
 }

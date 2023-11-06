@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_nickel_nugget",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_nickel_nugget"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:nickel_tiny_pile_from_nickel_nugget"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

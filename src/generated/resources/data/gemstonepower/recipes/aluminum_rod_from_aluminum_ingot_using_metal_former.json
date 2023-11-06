@@ -6,8 +6,6 @@
     "item": "gemstonepower:aluminum_ingot"
   },
   "mode": "rolling",
-  "output": {
-    "item": "gemstonepower:aluminum_rod"
-  },
+  "output": "gemstonepower:aluminum_rod",
   "processingTime": 200
 }

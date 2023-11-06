@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_topaz",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_topaz"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:topaz_seed"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

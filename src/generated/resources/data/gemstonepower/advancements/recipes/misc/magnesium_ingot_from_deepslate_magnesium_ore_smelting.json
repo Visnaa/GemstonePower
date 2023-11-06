@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_deepslate_magnesium_ore",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_deepslate_magnesium_ore"
     ]
   ],
   "rewards": {

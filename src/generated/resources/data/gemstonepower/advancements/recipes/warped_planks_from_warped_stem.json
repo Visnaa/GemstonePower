@@ -20,8 +20,8 @@
   },
   "requirements": [
     [
-      "has_warped_log",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_warped_log"
     ]
   ],
   "rewards": {
@@ -29,5 +29,5 @@
       "gemstonepower:warped_planks_from_warped_stem"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

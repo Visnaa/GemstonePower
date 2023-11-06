@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_amber",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_amber"
     ]
   ],
   "rewards": {

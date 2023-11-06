@@ -5,8 +5,6 @@
   "input": {
     "item": "minecraft:crafting_table"
   },
-  "output": {
-    "item": "minecraft:stick"
-  },
+  "output": "minecraft:stick",
   "processingTime": 150
 }

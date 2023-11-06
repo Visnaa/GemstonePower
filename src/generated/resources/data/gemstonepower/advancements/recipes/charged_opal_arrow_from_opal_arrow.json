@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_opal_arrow",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_opal_arrow"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:charged_opal_arrow_from_opal_arrow"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

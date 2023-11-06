@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_moon_stone",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_moon_stone"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:moon_stone_charged_from_moon_stone"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_constantan_nugget",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_constantan_nugget"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:constantan_tiny_pile_from_constantan_nugget"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

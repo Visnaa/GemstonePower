@@ -6,8 +6,6 @@
     "item": "gemstonepower:constantan_ingot"
   },
   "mode": "pressing",
-  "output": {
-    "item": "gemstonepower:constantan_plate"
-  },
+  "output": "gemstonepower:constantan_plate",
   "processingTime": 200
 }

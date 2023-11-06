@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:peridot_seed"
   },
-  "output": {
-    "item": "gemstonepower:peridot"
-  },
+  "output": "gemstonepower:peridot",
   "processingTime": 200
 }

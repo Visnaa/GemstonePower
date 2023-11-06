@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:dolomite_seed"
   },
-  "output": {
-    "item": "gemstonepower:dolomite"
-  },
+  "output": "gemstonepower:dolomite",
   "processingTime": 200
 }

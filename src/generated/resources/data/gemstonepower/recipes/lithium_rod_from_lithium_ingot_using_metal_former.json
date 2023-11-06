@@ -6,8 +6,6 @@
     "item": "gemstonepower:lithium_ingot"
   },
   "mode": "rolling",
-  "output": {
-    "item": "gemstonepower:lithium_rod"
-  },
+  "output": "gemstonepower:lithium_rod",
   "processingTime": 200
 }

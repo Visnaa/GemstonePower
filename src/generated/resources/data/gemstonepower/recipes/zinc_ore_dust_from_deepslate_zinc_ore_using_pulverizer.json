@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:deepslate_zinc_ore"
   },
-  "output": {
-    "item": "gemstonepower:zinc_ore_dust"
-  },
+  "output": "gemstonepower:zinc_ore_dust",
   "processingTime": 200
 }

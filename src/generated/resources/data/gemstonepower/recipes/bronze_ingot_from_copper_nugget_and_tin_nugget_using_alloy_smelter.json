@@ -4,16 +4,12 @@
   "amount2": 1,
   "count": 4,
   "energyUsage": 80,
-  "inputs": [
-    {
-      "item": "gemstonepower:copper_nugget"
-    },
-    {
-      "item": "gemstonepower:tin_nugget"
-    }
-  ],
-  "output": {
-    "item": "gemstonepower:bronze_nugget"
+  "input1": {
+    "item": "gemstonepower:copper_nugget"
   },
+  "input2": {
+    "item": "gemstonepower:tin_nugget"
+  },
+  "output": "gemstonepower:bronze_nugget",
   "processingTime": 400
 }

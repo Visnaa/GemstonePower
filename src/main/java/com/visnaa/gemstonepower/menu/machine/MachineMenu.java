@@ -1,7 +1,6 @@
 package com.visnaa.gemstonepower.menu.machine;
 
 import com.visnaa.gemstonepower.GemstonePower;
-import com.visnaa.gemstonepower.block.entity.FissionReactorBE;
 import com.visnaa.gemstonepower.block.entity.machine.FluidMachineBE;
 import com.visnaa.gemstonepower.block.entity.machine.MachineBE;
 import com.visnaa.gemstonepower.menu.MenuData;

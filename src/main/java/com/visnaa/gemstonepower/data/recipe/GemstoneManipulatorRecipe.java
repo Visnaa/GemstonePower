@@ -1,7 +1,7 @@
 package com.visnaa.gemstonepower.data.recipe;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.init.ModBlocks;
 import com.visnaa.gemstonepower.init.ModRecipes;
@@ -9,30 +9,29 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.GsonHelper;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.Nullable;
 
 public class GemstoneManipulatorRecipe implements EnergyRecipe
 {
     public static final ResourceLocation TYPE_ID = new ResourceLocation(GemstonePower.MOD_ID, "alloy_smelter");
-    private final ResourceLocation id;
-    private final NonNullList<Ingredient> inputs;
+    private final Ingredient input1;
+    private final Ingredient input2;
     private final ItemStack output;
     private final int count;
     private final int processingTime;
     private final int energyUsage;
 
-    public GemstoneManipulatorRecipe(ResourceLocation id, NonNullList<Ingredient> inputs, ItemStack output, int count, int processingTime, int energyUsage)
+    public GemstoneManipulatorRecipe(Ingredient input1, Ingredient input2, ItemStack output, int count, int processingTime, int energyUsage)
     {
-        this.id = id;
-        this.inputs = inputs;
+        this.input1 = input1;
+        this.input2 = input2;
         this.output = output;
         this.count = count;
         this.processingTime = processingTime;
@@ -44,14 +43,14 @@ public class GemstoneManipulatorRecipe implements EnergyRecipe
     {
         if (level.isClientSide)
             return false;
-        return (inputs.get(0).test(container.getItem(0)) && inputs.get(1).test(container.getItem(1))) ||
-                (inputs.get(0).test(container.getItem(1)) && inputs.get(1).test(container.getItem(0)));
+        return (input1.test(container.getItem(0)) && input2.test(container.getItem(1))) ||
+                (input1.test(container.getItem(1)) && input2.test(container.getItem(0)));
     }
 
     @Override
     public NonNullList<Ingredient> getIngredients()
     {
-        return inputs;
+        return NonNullList.of(Ingredient.EMPTY, input1, input2);
     }
 
     @Override
@@ -64,12 +63,6 @@ public class GemstoneManipulatorRecipe implements EnergyRecipe
     public ItemStack getResultItem(@Nullable RegistryAccess access)
     {
         return output.copy();
-    }
-
-    @Override
-    public ResourceLocation getId()
-    {
-        return id;
     }
 
     @Override
@@ -127,30 +120,24 @@ public class GemstoneManipulatorRecipe implements EnergyRecipe
 
     public static class Serializer implements RecipeSerializer<GemstoneManipulatorRecipe>
     {
+        private final Codec<GemstoneManipulatorRecipe> CODEC = RecordCodecBuilder.create(builder -> builder.group(
+                Ingredient.CODEC_NONEMPTY.fieldOf("input1").forGetter(recipe -> recipe.getIngredients().get(0)),
+                Ingredient.CODEC_NONEMPTY.fieldOf("input2").forGetter(recipe -> recipe.getIngredients().get(1)),
+                ForgeRegistries.ITEMS.getCodec().xmap(ItemStack::new, ItemStack::getItem).fieldOf("output").forGetter(recipe -> recipe.getResultItem(null)),
+                Codec.INT.fieldOf("count").forGetter(GemstoneManipulatorRecipe::getCount),
+                Codec.INT.fieldOf("processingTime").forGetter(GemstoneManipulatorRecipe::getProcessingTime),
+                Codec.INT.fieldOf("energyUsage").forGetter(GemstoneManipulatorRecipe::getEnergyUsage)
+        ).apply(builder, GemstoneManipulatorRecipe::new));
+
         @Override
-        public GemstoneManipulatorRecipe fromJson(ResourceLocation recipeID, JsonObject json)
+        public Codec<GemstoneManipulatorRecipe> codec()
         {
-            NonNullList<Ingredient> input = itemsFromJson(GsonHelper.getAsJsonArray(json, "inputs"));
-            ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "output"));
-            int count = GsonHelper.getAsInt(json, "count");
-            int processingTime = GsonHelper.getAsInt(json, "processingTime");
-            int energyUsage = GsonHelper.getAsInt(json, "energyUsage");
-
-            return new GemstoneManipulatorRecipe(recipeID, input, output, count, processingTime, energyUsage);
-        }
-
-        private static NonNullList<Ingredient> itemsFromJson(JsonArray array) {
-            NonNullList<Ingredient> nonnulllist = NonNullList.create();
-
-            for(int i = 0; i < array.size(); ++i)
-                nonnulllist.add(Ingredient.fromJson(array.get(i)));
-
-            return nonnulllist;
+            return CODEC;
         }
 
         @Nullable
         @Override
-        public GemstoneManipulatorRecipe fromNetwork(ResourceLocation recipeID, FriendlyByteBuf buffer)
+        public GemstoneManipulatorRecipe fromNetwork(FriendlyByteBuf buffer)
         {
             NonNullList<Ingredient> inputs = NonNullList.withSize(buffer.readInt(), Ingredient.EMPTY);
 
@@ -161,7 +148,7 @@ public class GemstoneManipulatorRecipe implements EnergyRecipe
             int count = buffer.readInt();
             int processingTime = buffer.readInt();
             int energyUsage = buffer.readInt();
-            return new GemstoneManipulatorRecipe(recipeID, inputs, output, count, processingTime, energyUsage);
+            return new GemstoneManipulatorRecipe(inputs.get(0), inputs.get(1), output, count, processingTime, energyUsage);
         }
 
         @Override

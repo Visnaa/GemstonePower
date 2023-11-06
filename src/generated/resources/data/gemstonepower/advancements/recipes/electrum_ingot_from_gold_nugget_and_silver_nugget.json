@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_gold_nugget",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_gold_nugget"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:electrum_ingot_from_gold_nugget_and_silver_nugget"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

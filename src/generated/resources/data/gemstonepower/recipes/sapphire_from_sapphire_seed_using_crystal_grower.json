@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:sapphire_seed"
   },
-  "output": {
-    "item": "gemstonepower:sapphire"
-  },
+  "output": "gemstonepower:sapphire",
   "processingTime": 200
 }

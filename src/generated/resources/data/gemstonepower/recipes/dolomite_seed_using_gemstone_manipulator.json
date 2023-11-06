@@ -2,16 +2,12 @@
   "type": "gemstonepower:gemstone_manipulator",
   "count": 2,
   "energyUsage": 80,
-  "inputs": [
-    {
-      "item": "gemstonepower:dolomite"
-    },
-    {
-      "tag": "forge:cobblestone"
-    }
-  ],
-  "output": {
-    "item": "gemstonepower:dolomite_seed"
+  "input1": {
+    "item": "gemstonepower:dolomite"
   },
+  "input2": {
+    "tag": "forge:cobblestone"
+  },
+  "output": "gemstonepower:dolomite_seed",
   "processingTime": 160
 }

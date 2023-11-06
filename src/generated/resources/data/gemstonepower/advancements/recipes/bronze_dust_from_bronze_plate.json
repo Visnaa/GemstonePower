@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_bronze_plate",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_bronze_plate"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:bronze_dust_from_bronze_plate"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

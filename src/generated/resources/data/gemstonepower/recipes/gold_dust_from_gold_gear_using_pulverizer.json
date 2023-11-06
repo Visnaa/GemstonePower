@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:gold_gear"
   },
-  "output": {
-    "item": "gemstonepower:gold_dust"
-  },
+  "output": "gemstonepower:gold_dust",
   "processingTime": 200
 }

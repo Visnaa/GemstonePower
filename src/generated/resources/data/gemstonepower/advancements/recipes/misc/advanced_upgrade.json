@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_intermediate_upgrade",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_intermediate_upgrade"
     ]
   ],
   "rewards": {

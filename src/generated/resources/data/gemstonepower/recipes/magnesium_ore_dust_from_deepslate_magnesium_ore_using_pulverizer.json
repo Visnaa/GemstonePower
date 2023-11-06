@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:deepslate_magnesium_ore"
   },
-  "output": {
-    "item": "gemstonepower:magnesium_ore_dust"
-  },
+  "output": "gemstonepower:magnesium_ore_dust",
   "processingTime": 200
 }

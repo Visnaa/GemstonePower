@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_citrine_seed",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_citrine_seed"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:citrine_from_citrine_seed"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

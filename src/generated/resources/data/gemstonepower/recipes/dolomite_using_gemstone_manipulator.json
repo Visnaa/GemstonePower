@@ -2,16 +2,12 @@
   "type": "gemstonepower:gemstone_manipulator",
   "count": 1,
   "energyUsage": 80,
-  "inputs": [
-    {
-      "item": "gemstonepower:dolomite_charged"
-    },
-    {
-      "tag": "forge:glass"
-    }
-  ],
-  "output": {
-    "item": "gemstonepower:dolomite"
+  "input1": {
+    "item": "gemstonepower:dolomite_charged"
   },
+  "input2": {
+    "tag": "forge:glass"
+  },
+  "output": "gemstonepower:dolomite",
   "processingTime": 160
 }

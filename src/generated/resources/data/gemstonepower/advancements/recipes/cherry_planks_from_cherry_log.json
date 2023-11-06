@@ -20,8 +20,8 @@
   },
   "requirements": [
     [
-      "has_cherry_log",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_cherry_log"
     ]
   ],
   "rewards": {
@@ -29,5 +29,5 @@
       "gemstonepower:cherry_planks_from_cherry_log"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

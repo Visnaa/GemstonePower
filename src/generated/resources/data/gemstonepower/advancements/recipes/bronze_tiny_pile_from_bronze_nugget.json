@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_bronze_nugget",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_bronze_nugget"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:bronze_tiny_pile_from_bronze_nugget"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_zinc_ingot",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_zinc_ingot"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:zinc_plate_from_zinc_ingot"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

@@ -1,8 +1,8 @@
 {
   "type": "gemstonepower:gemstone_generator",
-  "burnTime": 40,
   "energy": 1600,
   "fuel": {
     "tag": "minecraft:logs_that_burn"
-  }
+  },
+  "processingTime": 40
 }

@@ -4,16 +4,12 @@
   "amount2": 1,
   "count": 2,
   "energyUsage": 80,
-  "inputs": [
-    {
-      "item": "minecraft:gold_ingot"
-    },
-    {
-      "item": "gemstonepower:silver_ingot"
-    }
-  ],
-  "output": {
-    "item": "gemstonepower:electrum_ingot"
+  "input1": {
+    "item": "minecraft:gold_ingot"
   },
+  "input2": {
+    "item": "gemstonepower:silver_ingot"
+  },
+  "output": "gemstonepower:electrum_ingot",
   "processingTime": 400
 }

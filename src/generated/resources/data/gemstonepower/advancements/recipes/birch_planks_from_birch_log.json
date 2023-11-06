@@ -20,8 +20,8 @@
   },
   "requirements": [
     [
-      "has_birch_log",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_birch_log"
     ]
   ],
   "rewards": {
@@ -29,5 +29,5 @@
       "gemstonepower:birch_planks_from_birch_log"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

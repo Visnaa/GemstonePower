@@ -20,8 +20,8 @@
   },
   "requirements": [
     [
-      "has_acacia_log",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_acacia_log"
     ]
   ],
   "rewards": {
@@ -29,5 +29,5 @@
       "gemstonepower:acacia_planks_from_acacia_log"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

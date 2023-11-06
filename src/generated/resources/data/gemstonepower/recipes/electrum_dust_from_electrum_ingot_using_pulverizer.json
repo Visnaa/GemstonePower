@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:electrum_ingot"
   },
-  "output": {
-    "item": "gemstonepower:electrum_dust"
-  },
+  "output": "gemstonepower:electrum_dust",
   "processingTime": 200
 }

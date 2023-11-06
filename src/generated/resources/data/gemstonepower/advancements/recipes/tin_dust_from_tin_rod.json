@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_tin_rod",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_tin_rod"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:tin_dust_from_tin_rod"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

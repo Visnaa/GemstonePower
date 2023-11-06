@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_raw_platinum",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_raw_platinum"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:platinum_ore_dust_from_raw_platinum"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_malachite_seed",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_malachite_seed"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:malachite_from_malachite_seed"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

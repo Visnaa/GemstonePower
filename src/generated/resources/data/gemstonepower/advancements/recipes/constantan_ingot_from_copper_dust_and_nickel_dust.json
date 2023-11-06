@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_copper_dust",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_copper_dust"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:constantan_ingot_from_copper_dust_and_nickel_dust"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

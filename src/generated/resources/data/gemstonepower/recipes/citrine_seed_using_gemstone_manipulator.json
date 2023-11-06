@@ -2,16 +2,12 @@
   "type": "gemstonepower:gemstone_manipulator",
   "count": 2,
   "energyUsage": 80,
-  "inputs": [
-    {
-      "item": "gemstonepower:citrine"
-    },
-    {
-      "tag": "forge:cobblestone"
-    }
-  ],
-  "output": {
-    "item": "gemstonepower:citrine_seed"
+  "input1": {
+    "item": "gemstonepower:citrine"
   },
+  "input2": {
+    "tag": "forge:cobblestone"
+  },
+  "output": "gemstonepower:citrine_seed",
   "processingTime": 160
 }

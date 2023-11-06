@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_aluminum_plate",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_aluminum_plate"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:aluminum_dust_from_aluminum_plate"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

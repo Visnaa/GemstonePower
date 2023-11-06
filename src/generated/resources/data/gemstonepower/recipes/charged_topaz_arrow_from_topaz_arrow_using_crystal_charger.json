@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:topaz_arrow"
   },
-  "output": {
-    "item": "gemstonepower:charged_topaz_arrow"
-  },
+  "output": "gemstonepower:charged_topaz_arrow",
   "processingTime": 250
 }

@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:dolomite_arrow"
   },
-  "output": {
-    "item": "gemstonepower:charged_dolomite_arrow"
-  },
+  "output": "gemstonepower:charged_dolomite_arrow",
   "processingTime": 250
 }

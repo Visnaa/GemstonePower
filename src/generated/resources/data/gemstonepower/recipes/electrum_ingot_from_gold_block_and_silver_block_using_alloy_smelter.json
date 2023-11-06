@@ -4,16 +4,12 @@
   "amount2": 1,
   "count": 2,
   "energyUsage": 80,
-  "inputs": [
-    {
-      "item": "minecraft:gold_block"
-    },
-    {
-      "item": "gemstonepower:silver_block"
-    }
-  ],
-  "output": {
-    "item": "gemstonepower:electrum_block"
+  "input1": {
+    "item": "minecraft:gold_block"
   },
+  "input2": {
+    "item": "gemstonepower:silver_block"
+  },
+  "output": "gemstonepower:electrum_block",
   "processingTime": 3400
 }

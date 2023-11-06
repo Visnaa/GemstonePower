@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_tanzanite_seed",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_tanzanite_seed"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:tanzanite_from_tanzanite_seed"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

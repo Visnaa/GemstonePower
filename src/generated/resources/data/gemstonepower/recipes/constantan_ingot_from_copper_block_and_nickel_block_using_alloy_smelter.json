@@ -4,16 +4,12 @@
   "amount2": 1,
   "count": 2,
   "energyUsage": 80,
-  "inputs": [
-    {
-      "item": "minecraft:copper_block"
-    },
-    {
-      "item": "gemstonepower:nickel_block"
-    }
-  ],
-  "output": {
-    "item": "gemstonepower:constantan_block"
+  "input1": {
+    "item": "minecraft:copper_block"
   },
+  "input2": {
+    "item": "gemstonepower:nickel_block"
+  },
+  "output": "gemstonepower:constantan_block",
   "processingTime": 3400
 }

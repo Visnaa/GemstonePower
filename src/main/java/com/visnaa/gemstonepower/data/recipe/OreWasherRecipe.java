@@ -1,6 +1,7 @@
 package com.visnaa.gemstonepower.data.recipe;
 
-import com.google.gson.JsonObject;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.init.ModBlocks;
 import com.visnaa.gemstonepower.init.ModRecipes;
@@ -8,31 +9,31 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.GsonHelper;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class OreWasherRecipe implements EnergyRecipe, FluidRecipe
 {
     public static final ResourceLocation TYPE_ID = new ResourceLocation(GemstonePower.MOD_ID, "ore_washer");
-    private final ResourceLocation id;
     private final Ingredient input;
     private final FluidStack fluid;
-    private final NonNullList<ItemStack> outputs;
-    private final int[] counts;
+    private final List<ItemStack> outputs;
+    private final List<Integer> counts;
     private final int processingTime;
     private final int energyUsage;
 
-    public OreWasherRecipe(ResourceLocation id, Ingredient input, FluidStack fluid, NonNullList<ItemStack> outputs, int[] counts, int processingTime, int energyUsage)
+    public OreWasherRecipe(Ingredient input, FluidStack fluid, List<ItemStack> outputs, List<Integer> counts, int processingTime, int energyUsage)
     {
-        this.id = id;
         this.input = input;
         this.fluid = fluid;
         this.outputs = outputs;
@@ -58,7 +59,7 @@ public class OreWasherRecipe implements EnergyRecipe, FluidRecipe
     @Override
     public ItemStack assemble(Container container, RegistryAccess access)
     {
-        return new ItemStack(outputs.get(0).getItem(), getCounts()[0]);
+        return new ItemStack(outputs.get(0).getItem(), getCounts().get(0));
     }
 
     @Override
@@ -69,13 +70,10 @@ public class OreWasherRecipe implements EnergyRecipe, FluidRecipe
 
     public NonNullList<ItemStack> getResultItems()
     {
-        return outputs;
-    }
-
-    @Override
-    public ResourceLocation getId()
-    {
-        return id;
+        NonNullList<ItemStack> list = NonNullList.createWithCapacity(outputs.size());
+        for (int i = 0; i < list.size(); i++)
+            list.set(i, outputs.get(i));
+        return list;
     }
 
     @Override
@@ -96,9 +94,15 @@ public class OreWasherRecipe implements EnergyRecipe, FluidRecipe
         return true;
     }
 
-    public int[] getCounts()
+    public List<Integer> getCounts()
     {
         return counts;
+    }
+
+    @Override
+    public int getCount()
+    {
+        return 0;
     }
 
     public int getProcessingTime()
@@ -139,31 +143,24 @@ public class OreWasherRecipe implements EnergyRecipe, FluidRecipe
 
     public static class Serializer implements RecipeSerializer<OreWasherRecipe>
     {
+        private static final Codec<OreWasherRecipe> CODEC = RecordCodecBuilder.create(builder -> builder.group(
+                Ingredient.CODEC_NONEMPTY.fieldOf("input").forGetter(recipe -> recipe.getIngredients().get(0)),
+                FluidRecipe.FLUID_CODEC.fieldOf("fluid").forGetter(OreWasherRecipe::getFluid),
+                Codec.list(ForgeRegistries.ITEMS.getCodec().xmap(ItemStack::new, ItemStack::getItem)).fieldOf("outputs").forGetter(OreWasherRecipe::getResultItems),
+                Codec.list(Codec.INT).fieldOf("counts").forGetter(OreWasherRecipe::getCounts),
+                Codec.INT.fieldOf("processingTime").forGetter(OreWasherRecipe::getProcessingTime),
+                Codec.INT.fieldOf("energyUsage").forGetter(OreWasherRecipe::getEnergyUsage)
+        ).apply(builder, OreWasherRecipe::new));
+
         @Override
-        public OreWasherRecipe fromJson(ResourceLocation recipeId, JsonObject json)
+        public Codec<OreWasherRecipe> codec()
         {
-            Ingredient input = Ingredient.fromJson(GsonHelper.getAsJsonObject(json, "input"));
-            FluidStack fluid = FluidRecipe.fromJson(GsonHelper.getAsJsonObject(json, "fluid"));
-
-            JsonObject outputsJson = GsonHelper.getAsJsonObject(json, "outputs");
-            NonNullList<ItemStack> outputs = NonNullList.withSize(outputsJson.size(), ItemStack.EMPTY);
-            int[] counts = new int[4];
-            for (int i = 0; i < outputsJson.size(); i++)
-            {
-                JsonObject output = GsonHelper.getAsJsonObject(outputsJson, "output" + i);
-                outputs.set(i, ShapedRecipe.itemStackFromJson(output));
-                counts[i] = GsonHelper.getAsInt(output, "count");
-            }
-
-            int processingTime = GsonHelper.getAsInt(json, "processingTime");
-            int energyUsage = GsonHelper.getAsInt(json, "energyUsage");
-
-            return new OreWasherRecipe(recipeId, input, fluid, outputs, counts, processingTime, energyUsage);
+            return CODEC;
         }
 
         @Nullable
         @Override
-        public OreWasherRecipe fromNetwork(ResourceLocation recipeId, FriendlyByteBuf buffer)
+        public OreWasherRecipe fromNetwork(FriendlyByteBuf buffer)
         {
             NonNullList<Ingredient> inputs = NonNullList.withSize(buffer.readInt(), Ingredient.EMPTY);
             for (int i = 0; i < inputs.size(); i++)
@@ -174,16 +171,16 @@ public class OreWasherRecipe implements EnergyRecipe, FluidRecipe
             FluidStack fluid = buffer.readFluidStack();
 
             NonNullList<ItemStack> outputs = NonNullList.withSize(buffer.readInt(), ItemStack.EMPTY);
-            int[] counts = new int[4];
+            List<Integer> counts = new ArrayList<>();
             for (int i = 0; i < outputs.size(); i++)
             {
                 outputs.set(i, buffer.readItem());
-                counts[i] = buffer.readInt();
+                counts.set(i, buffer.readInt());
             }
 
             int processingTime = buffer.readInt();
             int energyUsage = buffer.readInt();
-            return new OreWasherRecipe(recipeId, inputs.get(0), fluid, outputs, counts, processingTime, energyUsage);
+            return new OreWasherRecipe(inputs.get(0), fluid, outputs, counts, processingTime, energyUsage);
         }
 
         @Override
@@ -201,7 +198,7 @@ public class OreWasherRecipe implements EnergyRecipe, FluidRecipe
             for (int i = 0; i < recipe.getResultItems().size(); i++)
             {
                 buffer.writeItemStack(recipe.getResultItems().get(i), false);
-                buffer.writeInt(recipe.getCounts()[i]);
+                buffer.writeInt(recipe.getCounts().get(i));
             }
             buffer.writeInt(recipe.getProcessingTime());
             buffer.writeInt(recipe.getEnergyUsage());

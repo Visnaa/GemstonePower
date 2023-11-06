@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:resin_oak_log"
   },
-  "output": {
-    "item": "minecraft:oak_planks"
-  },
+  "output": "minecraft:oak_planks",
   "processingTime": 150
 }

@@ -1,7 +1,7 @@
 package com.visnaa.gemstonepower.data.recipe;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.init.ModBlocks;
 import com.visnaa.gemstonepower.init.ModRecipes;
@@ -9,73 +9,51 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.GsonHelper;
 import net.minecraft.world.Container;
-import net.minecraft.world.entity.player.StackedContents;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.common.util.RecipeMatcher;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class AlloySmelterRecipe implements EnergyRecipe
 {
     public static final ResourceLocation TYPE_ID = new ResourceLocation(GemstonePower.MOD_ID, "alloy_smelter");
-    private final ResourceLocation id;
-    private final NonNullList<Ingredient> inputs;
+    private final Ingredient input1;
+    private final Ingredient input2;
     private final int amount1;
     private final int amount2;
     private final ItemStack output;
     private final int count;
     private final int processingTime;
     private final int energyUsage;
-    private final boolean isSimple;
 
-    public AlloySmelterRecipe(ResourceLocation id, NonNullList<Ingredient> inputs, int amount1, int amount2, ItemStack output, int count, int processingTime, int energyUsage)
+    public AlloySmelterRecipe(Ingredient input1, Ingredient input2, int amount1, int amount2, ItemStack output, int count, int processingTime, int energyUsage)
     {
-        this.id = id;
-        this.inputs = inputs;
+        this.input1 = input1;
+        this.input2 = input2;
         this.amount1 = amount1;
         this.amount2 = amount2;
         this.output = output;
         this.count = count;
         this.processingTime = processingTime;
         this.energyUsage = energyUsage;
-        this.isSimple = inputs.stream().allMatch(Ingredient::isSimple);
     }
 
     @Override
     public boolean matches(Container container, Level level)
     {
-        StackedContents stackedContents = new StackedContents();
-        List<ItemStack> inputs = new ArrayList<>();
-        int i = 0;
-
-        for(int j = 0; j < container.getContainerSize() - 1; j++) // Must be lowered by 1 to skip the output slot
-        {
-            ItemStack itemStack = container.getItem(j);
-            if (!itemStack.isEmpty())
-            {
-                i++;
-                if (isSimple)
-                    stackedContents.accountStack(itemStack, 1);
-                else inputs.add(itemStack);
-            }
-        }
-
-        return i == this.inputs.size() && (isSimple ? stackedContents.canCraft(this, null) : RecipeMatcher.findMatches(inputs,  this.inputs) != null);
+        if (level.isClientSide())
+            return false;
+        return (input1.test(container.getItem(0)) && input1.test(container.getItem(1))) || (input1.test(container.getItem(1)) && input1.test(container.getItem(0)));
     }
 
     @Override
     public NonNullList<Ingredient> getIngredients()
     {
-        return inputs;
+        return NonNullList.of(Ingredient.EMPTY, input1, input2);
     }
 
     @Override
@@ -88,12 +66,6 @@ public class AlloySmelterRecipe implements EnergyRecipe
     public ItemStack getResultItem(@Nullable RegistryAccess access)
     {
         return output.copy();
-    }
-
-    @Override
-    public ResourceLocation getId()
-    {
-        return id;
     }
 
     @Override
@@ -116,7 +88,7 @@ public class AlloySmelterRecipe implements EnergyRecipe
 
     public int getAmount(ItemStack itemStack)
     {
-        return this.inputs.get(0).test(itemStack) ? amount1 : amount2;
+        return this.input1.test(itemStack) ? amount1 : amount2;
     }
 
     private int getAmount1()
@@ -166,36 +138,26 @@ public class AlloySmelterRecipe implements EnergyRecipe
 
     public static class Serializer implements RecipeSerializer<AlloySmelterRecipe>
     {
+        private final Codec<AlloySmelterRecipe> CODEC = RecordCodecBuilder.create(builder -> builder.group(
+                Ingredient.CODEC_NONEMPTY.fieldOf("input1").forGetter(recipe -> recipe.getIngredients().get(0)),
+                Ingredient.CODEC_NONEMPTY.fieldOf("input2").forGetter(recipe -> recipe.getIngredients().get(1)),
+                Codec.INT.fieldOf("amount1").forGetter(AlloySmelterRecipe::getAmount1),
+                Codec.INT.fieldOf("amount2").forGetter(AlloySmelterRecipe::getAmount2),
+                ForgeRegistries.ITEMS.getCodec().xmap(ItemStack::new, ItemStack::getItem).fieldOf("output").forGetter(recipe -> recipe.getResultItem(null)),
+                Codec.INT.fieldOf("count").forGetter(AlloySmelterRecipe::getCount),
+                Codec.INT.fieldOf("processingTime").forGetter(AlloySmelterRecipe::getProcessingTime),
+                Codec.INT.fieldOf("energyUsage").forGetter(AlloySmelterRecipe::getEnergyUsage)
+        ).apply(builder, AlloySmelterRecipe::new));
+
         @Override
-        public AlloySmelterRecipe fromJson(ResourceLocation recipeID, JsonObject json)
+        public Codec<AlloySmelterRecipe> codec()
         {
-            NonNullList<Ingredient> input = itemsFromJson(GsonHelper.getAsJsonArray(json, "inputs"));
-            int amount1 = GsonHelper.getAsInt(json, "amount1");
-            int amount2 = GsonHelper.getAsInt(json, "amount2");
-            ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "output"));
-            int count = GsonHelper.getAsInt(json, "count");
-            int processingTime = GsonHelper.getAsInt(json, "processingTime");
-            int energyUsage = GsonHelper.getAsInt(json, "energyUsage");
-
-            return new AlloySmelterRecipe(recipeID, input, amount1, amount2, output, count, processingTime, energyUsage);
-        }
-
-        private static NonNullList<Ingredient> itemsFromJson(JsonArray p_44276_) {
-            NonNullList<Ingredient> nonnulllist = NonNullList.create();
-
-            for(int i = 0; i < p_44276_.size(); ++i) {
-                Ingredient ingredient = Ingredient.fromJson(p_44276_.get(i));
-                if (true || !ingredient.isEmpty()) { // FORGE: Skip checking if an ingredient is empty during shapeless recipe deserialization to prevent complex ingredients from caching tags too early. Can not be done using a config value due to sync issues.
-                    nonnulllist.add(ingredient);
-                }
-            }
-
-            return nonnulllist;
+            return CODEC;
         }
 
         @Nullable
         @Override
-        public AlloySmelterRecipe fromNetwork(ResourceLocation recipeID, FriendlyByteBuf buffer)
+        public AlloySmelterRecipe fromNetwork(FriendlyByteBuf buffer)
         {
             NonNullList<Ingredient> inputs = NonNullList.withSize(buffer.readInt(), Ingredient.EMPTY);
 
@@ -210,7 +172,7 @@ public class AlloySmelterRecipe implements EnergyRecipe
             int count = buffer.readInt();
             int processingTime = buffer.readInt();
             int energyUsage = buffer.readInt();
-            return new AlloySmelterRecipe(recipeID, inputs, amount1, amount2, output, count, processingTime, energyUsage);
+            return new AlloySmelterRecipe(inputs.get(0), inputs.get(1), amount1, amount2, output, count, processingTime, energyUsage);
         }
 
         @Override

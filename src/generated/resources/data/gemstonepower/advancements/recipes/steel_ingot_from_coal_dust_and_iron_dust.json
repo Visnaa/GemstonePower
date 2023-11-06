@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_coal_dust",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_coal_dust"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:steel_ingot_from_coal_dust_and_iron_dust"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

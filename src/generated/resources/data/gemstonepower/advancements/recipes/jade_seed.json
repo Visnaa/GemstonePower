@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_jade",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_jade"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:jade_seed"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

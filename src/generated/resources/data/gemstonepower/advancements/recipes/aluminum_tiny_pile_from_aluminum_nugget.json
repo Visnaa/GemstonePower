@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_aluminum_nugget",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_aluminum_nugget"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:aluminum_tiny_pile_from_aluminum_nugget"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

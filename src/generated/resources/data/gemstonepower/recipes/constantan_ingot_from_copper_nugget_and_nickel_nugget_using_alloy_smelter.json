@@ -4,16 +4,12 @@
   "amount2": 1,
   "count": 2,
   "energyUsage": 80,
-  "inputs": [
-    {
-      "item": "gemstonepower:copper_nugget"
-    },
-    {
-      "item": "gemstonepower:nickel_nugget"
-    }
-  ],
-  "output": {
-    "item": "gemstonepower:constantan_nugget"
+  "input1": {
+    "item": "gemstonepower:copper_nugget"
   },
+  "input2": {
+    "item": "gemstonepower:nickel_nugget"
+  },
+  "output": "gemstonepower:constantan_nugget",
   "processingTime": 400
 }

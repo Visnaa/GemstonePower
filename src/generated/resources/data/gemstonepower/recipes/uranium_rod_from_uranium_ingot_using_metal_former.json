@@ -6,8 +6,6 @@
     "item": "gemstonepower:uranium_ingot"
   },
   "mode": "rolling",
-  "output": {
-    "item": "gemstonepower:uranium_rod"
-  },
+  "output": "gemstonepower:uranium_rod",
   "processingTime": 200
 }

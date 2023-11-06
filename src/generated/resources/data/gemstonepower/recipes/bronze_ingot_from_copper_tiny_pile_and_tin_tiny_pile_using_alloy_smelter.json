@@ -4,16 +4,12 @@
   "amount2": 1,
   "count": 4,
   "energyUsage": 80,
-  "inputs": [
-    {
-      "item": "gemstonepower:copper_tiny_pile"
-    },
-    {
-      "item": "gemstonepower:tin_tiny_pile"
-    }
-  ],
-  "output": {
-    "item": "gemstonepower:bronze_tiny_pile"
+  "input1": {
+    "item": "gemstonepower:copper_tiny_pile"
   },
+  "input2": {
+    "item": "gemstonepower:tin_tiny_pile"
+  },
+  "output": "gemstonepower:bronze_tiny_pile",
   "processingTime": 400
 }

@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:invar_block"
   },
-  "output": {
-    "item": "gemstonepower:invar_dust"
-  },
+  "output": "gemstonepower:invar_dust",
   "processingTime": 1600
 }

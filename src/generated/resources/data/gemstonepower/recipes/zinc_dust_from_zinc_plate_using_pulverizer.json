@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:zinc_plate"
   },
-  "output": {
-    "item": "gemstonepower:zinc_dust"
-  },
+  "output": "gemstonepower:zinc_dust",
   "processingTime": 200
 }

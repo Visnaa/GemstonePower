@@ -6,8 +6,6 @@
     "item": "gemstonepower:nickel_ingot"
   },
   "mode": "pressing",
-  "output": {
-    "item": "gemstonepower:nickel_plate"
-  },
+  "output": "gemstonepower:nickel_plate",
   "processingTime": 200
 }

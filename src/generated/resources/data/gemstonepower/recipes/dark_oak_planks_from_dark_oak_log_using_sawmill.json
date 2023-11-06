@@ -5,8 +5,6 @@
   "input": {
     "tag": "minecraft:dark_oak_logs"
   },
-  "output": {
-    "item": "minecraft:dark_oak_planks"
-  },
+  "output": "minecraft:dark_oak_planks",
   "processingTime": 150
 }

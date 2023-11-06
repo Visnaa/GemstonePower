@@ -6,8 +6,6 @@
     "item": "gemstonepower:lithium_ingot"
   },
   "mode": "pressing",
-  "output": {
-    "item": "gemstonepower:lithium_plate"
-  },
+  "output": "gemstonepower:lithium_plate",
   "processingTime": 200
 }

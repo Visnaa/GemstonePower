@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_opal_seed",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_opal_seed"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:opal_from_opal_seed"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

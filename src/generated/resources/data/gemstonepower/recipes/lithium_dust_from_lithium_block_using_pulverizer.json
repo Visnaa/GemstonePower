@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:lithium_block"
   },
-  "output": {
-    "item": "gemstonepower:lithium_dust"
-  },
+  "output": "gemstonepower:lithium_dust",
   "processingTime": 1600
 }

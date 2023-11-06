@@ -6,8 +6,6 @@
     "item": "gemstonepower:zinc_ingot"
   },
   "mode": "pressing",
-  "output": {
-    "item": "gemstonepower:zinc_plate"
-  },
+  "output": "gemstonepower:zinc_plate",
   "processingTime": 200
 }

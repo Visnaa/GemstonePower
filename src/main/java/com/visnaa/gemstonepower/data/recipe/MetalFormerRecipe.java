@@ -1,7 +1,7 @@
 package com.visnaa.gemstonepower.data.recipe;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.block.entity.machine.MetalFormerBE;
 import com.visnaa.gemstonepower.init.ModBlocks;
@@ -11,34 +11,31 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.GsonHelper;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.Nullable;
 
 public class MetalFormerRecipe implements EnergyRecipe
 {
     public static final ResourceLocation TYPE_ID = new ResourceLocation(GemstonePower.MOD_ID, "metal_former");
-    private final ResourceLocation id;
     private final Ingredient input;
     private final ItemStack output;
-    private final int count;
     private final String mode;
+    private final int count;
     private final int processingTime;
     private final int energyUsage;
 
-    public MetalFormerRecipe(ResourceLocation id, Ingredient input, ItemStack output, int count, String mode, int processingTime, int energyUsage)
+    public MetalFormerRecipe(Ingredient input, ItemStack output, String mode, int count, int processingTime, int energyUsage)
     {
-        this.id = id;
         this.input = input;
         this.output = output;
-        this.count = count;
         this.mode = mode;
+        this.count = count;
         this.processingTime = processingTime;
         this.energyUsage = energyUsage;
     }
@@ -72,12 +69,6 @@ public class MetalFormerRecipe implements EnergyRecipe
     }
 
     @Override
-    public ResourceLocation getId()
-    {
-        return id;
-    }
-
-    @Override
     public RecipeType<?> getType()
     {
         return ModRecipes.METAL_FORMER_RECIPE;
@@ -99,6 +90,7 @@ public class MetalFormerRecipe implements EnergyRecipe
     {
         return count;
     }
+
     public String getMachineMode()
     {
         return mode;
@@ -136,23 +128,24 @@ public class MetalFormerRecipe implements EnergyRecipe
 
     public static class Serializer implements RecipeSerializer<MetalFormerRecipe>
     {
-        @Override
-        public MetalFormerRecipe fromJson(ResourceLocation recipeID, JsonObject json)
-        {
-            JsonElement seedElement = GsonHelper.getAsJsonObject(json, "input");
-            Ingredient input = Ingredient.fromJson(seedElement);
-            ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "output"));
-            int count = GsonHelper.getAsInt(json, "count");
-            String preset = GsonHelper.getAsString(json, "mode");
-            int processingTime = GsonHelper.getAsInt(json, "processingTime");
-            int energyUsage = GsonHelper.getAsInt(json, "energyUsage");
+        private final Codec<MetalFormerRecipe> CODEC = RecordCodecBuilder.create(builder -> builder.group(
+                Ingredient.CODEC_NONEMPTY.fieldOf("input").forGetter(recipe -> recipe.getIngredients().get(0)),
+                ForgeRegistries.ITEMS.getCodec().xmap(ItemStack::new, ItemStack::getItem).fieldOf("output").forGetter(recipe -> recipe.getResultItem(null)),
+                Codec.STRING.fieldOf("mode").forGetter(MetalFormerRecipe::getMachineMode),
+                Codec.INT.fieldOf("count").forGetter(MetalFormerRecipe::getCount),
+                Codec.INT.fieldOf("processingTime").forGetter(MetalFormerRecipe::getProcessingTime),
+                Codec.INT.fieldOf("energyUsage").forGetter(MetalFormerRecipe::getEnergyUsage)
+        ).apply(builder, MetalFormerRecipe::new));
 
-            return new MetalFormerRecipe(recipeID, input, output, count, preset, processingTime, energyUsage);
+        @Override
+        public Codec<MetalFormerRecipe> codec()
+        {
+            return CODEC;
         }
 
         @Nullable
         @Override
-        public MetalFormerRecipe fromNetwork(ResourceLocation recipeID, FriendlyByteBuf buffer)
+        public MetalFormerRecipe fromNetwork(FriendlyByteBuf buffer)
         {
             NonNullList<Ingredient> inputs = NonNullList.withSize(buffer.readInt(), Ingredient.EMPTY);
 
@@ -162,11 +155,11 @@ public class MetalFormerRecipe implements EnergyRecipe
             }
 
             ItemStack output = buffer.readItem();
+            String mode = buffer.readUtf();
             int count = buffer.readInt();
-            String preset = buffer.readUtf();
             int processingTime = buffer.readInt();
             int energyUsage = buffer.readInt();
-            return new MetalFormerRecipe(recipeID, inputs.get(0), output, count, preset, processingTime, energyUsage);
+            return new MetalFormerRecipe(inputs.get(0), output, mode, count, processingTime, energyUsage);
         }
 
         @Override
@@ -178,8 +171,8 @@ public class MetalFormerRecipe implements EnergyRecipe
                 seed.toNetwork(buffer);
             }
             buffer.writeItemStack(recipe.getResultItem(null), false);
-            buffer.writeInt(recipe.getCount());
             buffer.writeUtf(recipe.getMachineMode());
+            buffer.writeInt(recipe.getCount());
             buffer.writeInt(recipe.getProcessingTime());
             buffer.writeInt(recipe.getEnergyUsage());
         }

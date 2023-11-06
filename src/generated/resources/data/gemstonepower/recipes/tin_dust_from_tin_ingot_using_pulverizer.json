@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:tin_ingot"
   },
-  "output": {
-    "item": "gemstonepower:tin_dust"
-  },
+  "output": "gemstonepower:tin_dust",
   "processingTime": 200
 }

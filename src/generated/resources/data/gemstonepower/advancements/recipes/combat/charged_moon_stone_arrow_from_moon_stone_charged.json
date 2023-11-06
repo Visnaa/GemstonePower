@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_moon_stone_charged",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_moon_stone_charged"
     ]
   ],
   "rewards": {

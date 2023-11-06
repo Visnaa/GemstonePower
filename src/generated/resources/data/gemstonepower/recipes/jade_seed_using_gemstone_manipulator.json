@@ -2,16 +2,12 @@
   "type": "gemstonepower:gemstone_manipulator",
   "count": 2,
   "energyUsage": 80,
-  "inputs": [
-    {
-      "item": "gemstonepower:jade"
-    },
-    {
-      "tag": "forge:cobblestone"
-    }
-  ],
-  "output": {
-    "item": "gemstonepower:jade_seed"
+  "input1": {
+    "item": "gemstonepower:jade"
   },
+  "input2": {
+    "tag": "forge:cobblestone"
+  },
+  "output": "gemstonepower:jade_seed",
   "processingTime": 160
 }

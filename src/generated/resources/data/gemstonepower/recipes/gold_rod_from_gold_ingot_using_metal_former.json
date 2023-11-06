@@ -6,8 +6,6 @@
     "item": "minecraft:gold_ingot"
   },
   "mode": "rolling",
-  "output": {
-    "item": "gemstonepower:gold_rod"
-  },
+  "output": "gemstonepower:gold_rod",
   "processingTime": 200
 }

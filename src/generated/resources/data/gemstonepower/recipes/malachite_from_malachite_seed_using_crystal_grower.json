@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:malachite_seed"
   },
-  "output": {
-    "item": "gemstonepower:malachite"
-  },
+  "output": "gemstonepower:malachite",
   "processingTime": 200
 }

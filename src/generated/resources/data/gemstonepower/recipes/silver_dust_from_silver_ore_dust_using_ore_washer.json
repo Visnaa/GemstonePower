@@ -1,5 +1,11 @@
 {
   "type": "gemstonepower:ore_washer",
+  "counts": [
+    1,
+    1,
+    1,
+    1
+  ],
   "energyUsage": 40,
   "fluid": {
     "amount": 250,
@@ -8,19 +14,10 @@
   "input": {
     "item": "gemstonepower:silver_ore_dust"
   },
-  "outputs": {
-    "output0": {
-      "count": 1,
-      "item": "gemstonepower:silver_dust"
-    },
-    "output1": {
-      "count": 1,
-      "item": "gemstonepower:aluminum_tiny_pile"
-    },
-    "output2": {
-      "count": 1,
-      "item": "gemstonepower:platinum_tiny_pile"
-    }
-  },
+  "outputs": [
+    "gemstonepower:silver_dust",
+    "gemstonepower:aluminum_tiny_pile",
+    "gemstonepower:platinum_tiny_pile"
+  ],
   "processingTime": 400
 }

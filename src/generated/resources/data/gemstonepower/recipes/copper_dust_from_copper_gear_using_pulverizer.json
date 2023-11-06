@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:copper_gear"
   },
-  "output": {
-    "item": "gemstonepower:copper_dust"
-  },
+  "output": "gemstonepower:copper_dust",
   "processingTime": 200
 }

@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:citrine_seed"
   },
-  "output": {
-    "item": "gemstonepower:citrine"
-  },
+  "output": "gemstonepower:citrine",
   "processingTime": 200
 }

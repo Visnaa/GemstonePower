@@ -5,8 +5,6 @@
   "input": {
     "item": "minecraft:iron_ingot"
   },
-  "output": {
-    "item": "gemstonepower:iron_dust"
-  },
+  "output": "gemstonepower:iron_dust",
   "processingTime": 200
 }

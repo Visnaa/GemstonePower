@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_ruby_arrow",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_ruby_arrow"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:charged_ruby_arrow_from_ruby_arrow"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

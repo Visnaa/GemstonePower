@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_lithium_ingot",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_lithium_ingot"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:lithium_dust_from_lithium_ingot"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

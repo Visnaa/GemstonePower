@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:amber_seed"
   },
-  "output": {
-    "item": "gemstonepower:amber"
-  },
+  "output": "gemstonepower:amber",
   "processingTime": 200
 }

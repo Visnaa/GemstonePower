@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_peridot_charged",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_peridot_charged"
     ]
   ],
   "rewards": {

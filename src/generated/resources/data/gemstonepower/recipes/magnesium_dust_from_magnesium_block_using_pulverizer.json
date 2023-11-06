@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:magnesium_block"
   },
-  "output": {
-    "item": "gemstonepower:magnesium_dust"
-  },
+  "output": "gemstonepower:magnesium_dust",
   "processingTime": 1600
 }

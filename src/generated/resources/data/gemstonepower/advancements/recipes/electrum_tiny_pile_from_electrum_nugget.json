@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_electrum_nugget",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_electrum_nugget"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:electrum_tiny_pile_from_electrum_nugget"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

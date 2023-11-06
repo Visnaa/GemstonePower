@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_dolomite_arrow",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_dolomite_arrow"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:charged_dolomite_arrow_from_dolomite_arrow"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

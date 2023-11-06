@@ -2,16 +2,12 @@
   "type": "gemstonepower:gemstone_manipulator",
   "count": 1,
   "energyUsage": 80,
-  "inputs": [
-    {
-      "item": "gemstonepower:yellow_diamond_charged"
-    },
-    {
-      "tag": "forge:glass"
-    }
-  ],
-  "output": {
-    "item": "gemstonepower:yellow_diamond"
+  "input1": {
+    "item": "gemstonepower:yellow_diamond_charged"
   },
+  "input2": {
+    "tag": "forge:glass"
+  },
+  "output": "gemstonepower:yellow_diamond",
   "processingTime": 160
 }

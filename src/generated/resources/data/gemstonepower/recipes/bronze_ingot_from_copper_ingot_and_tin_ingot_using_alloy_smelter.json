@@ -4,16 +4,12 @@
   "amount2": 1,
   "count": 4,
   "energyUsage": 80,
-  "inputs": [
-    {
-      "item": "minecraft:copper_ingot"
-    },
-    {
-      "item": "gemstonepower:tin_ingot"
-    }
-  ],
-  "output": {
-    "item": "gemstonepower:bronze_ingot"
+  "input1": {
+    "item": "minecraft:copper_ingot"
   },
+  "input2": {
+    "item": "gemstonepower:tin_ingot"
+  },
+  "output": "gemstonepower:bronze_ingot",
   "processingTime": 400
 }

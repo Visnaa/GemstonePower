@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_tin_ingot",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_tin_ingot"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:tin_plate_from_tin_ingot"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

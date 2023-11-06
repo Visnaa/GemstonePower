@@ -1,7 +1,7 @@
 package com.visnaa.gemstonepower.data.recipe;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.init.ModBlocks;
 import com.visnaa.gemstonepower.init.ModRecipes;
@@ -9,29 +9,26 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.GsonHelper;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.Nullable;
 
 public class FissionReactorRecipe implements EnergyRecipe
 {
     public static final ResourceLocation TYPE_ID = new ResourceLocation(GemstonePower.MOD_ID, "fission_reactor");
-    private final ResourceLocation id;
     private final Ingredient input;
     private final ItemStack output;
     private final int processingTime;
     private final int energyGeneration;
     private final int heatGeneration;
 
-    public FissionReactorRecipe(ResourceLocation id, Ingredient input, ItemStack output, int processingTime, int energyGeneration, int heatGeneration)
+    public FissionReactorRecipe(Ingredient input, ItemStack output, int processingTime, int energyGeneration, int heatGeneration)
     {
-        this.id = id;
         this.input = input;
         this.output = output;
         this.processingTime = processingTime;
@@ -67,12 +64,6 @@ public class FissionReactorRecipe implements EnergyRecipe
     }
 
     @Override
-    public ResourceLocation getId()
-    {
-        return id;
-    }
-
-    @Override
     public RecipeType<?> getType()
     {
         return ModRecipes.FISSION_REACTOR_RECIPE;
@@ -88,6 +79,12 @@ public class FissionReactorRecipe implements EnergyRecipe
     public boolean isIncomplete()
     {
         return true;
+    }
+
+    @Override
+    public int getCount()
+    {
+        return 0;
     }
 
     public int getProcessingTime()
@@ -133,22 +130,23 @@ public class FissionReactorRecipe implements EnergyRecipe
 
     public static class Serializer implements RecipeSerializer<FissionReactorRecipe>
     {
-        @Override
-        public FissionReactorRecipe fromJson(ResourceLocation recipeID, JsonObject json)
-        {
-            JsonElement seedElement = GsonHelper.getAsJsonObject(json, "input");
-            Ingredient input = Ingredient.fromJson(seedElement);
-            ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "output"));
-            int processingTime = GsonHelper.getAsInt(json, "processingTime");
-            int energyGeneration = GsonHelper.getAsInt(json, "energyGeneration");
-            int heatGeneration = GsonHelper.getAsInt(json, "heatGeneration");
+        private final Codec<FissionReactorRecipe> CODEC = RecordCodecBuilder.create(builder -> builder.group(
+                Ingredient.CODEC_NONEMPTY.fieldOf("input").forGetter(recipe -> recipe.getIngredients().get(0)),
+                ForgeRegistries.ITEMS.getCodec().xmap(ItemStack::new, ItemStack::getItem).fieldOf("output").forGetter(recipe -> recipe.getResultItem(null)),
+                Codec.INT.fieldOf("processingTime").forGetter(FissionReactorRecipe::getProcessingTime),
+                Codec.INT.fieldOf("energyGeneration").forGetter(FissionReactorRecipe::getEnergyGeneration),
+                Codec.INT.fieldOf("heatGeneration").forGetter(FissionReactorRecipe::getHeatGeneration)
+            ).apply(builder, FissionReactorRecipe::new));
 
-            return new FissionReactorRecipe(recipeID, input, output, processingTime, energyGeneration, heatGeneration);
+        @Override
+        public Codec<FissionReactorRecipe> codec()
+        {
+            return CODEC;
         }
 
         @Nullable
         @Override
-        public FissionReactorRecipe fromNetwork(ResourceLocation recipeID, FriendlyByteBuf buffer)
+        public FissionReactorRecipe fromNetwork(FriendlyByteBuf buffer)
         {
             NonNullList<Ingredient> inputs = NonNullList.withSize(buffer.readInt(), Ingredient.EMPTY);
 
@@ -161,7 +159,7 @@ public class FissionReactorRecipe implements EnergyRecipe
             int processingTime = buffer.readInt();
             int energyGeneration = buffer.readInt();
             int heatGeneration = buffer.readInt();
-            return new FissionReactorRecipe(recipeID, inputs.get(0), output, processingTime, energyGeneration, heatGeneration);
+            return new FissionReactorRecipe(inputs.get(0), output, processingTime, energyGeneration, heatGeneration);
         }
 
         @Override

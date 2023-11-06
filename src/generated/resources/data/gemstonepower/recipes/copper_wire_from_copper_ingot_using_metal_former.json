@@ -6,8 +6,6 @@
     "item": "minecraft:copper_ingot"
   },
   "mode": "extruding",
-  "output": {
-    "item": "gemstonepower:copper_wire"
-  },
+  "output": "gemstonepower:copper_wire",
   "processingTime": 200
 }

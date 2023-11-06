@@ -5,8 +5,6 @@
   "input": {
     "tag": "minecraft:birch_logs"
   },
-  "output": {
-    "item": "minecraft:birch_planks"
-  },
+  "output": "minecraft:birch_planks",
   "processingTime": 150
 }

@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_silver_block",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_silver_block"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:silver_dust_from_silver_block"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

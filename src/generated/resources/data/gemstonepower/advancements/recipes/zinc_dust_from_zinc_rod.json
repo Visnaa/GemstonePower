@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_zinc_rod",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_zinc_rod"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:zinc_dust_from_zinc_rod"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

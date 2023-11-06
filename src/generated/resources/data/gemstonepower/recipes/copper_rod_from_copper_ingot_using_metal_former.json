@@ -6,8 +6,6 @@
     "item": "minecraft:copper_ingot"
   },
   "mode": "rolling",
-  "output": {
-    "item": "gemstonepower:copper_rod"
-  },
+  "output": "gemstonepower:copper_rod",
   "processingTime": 200
 }

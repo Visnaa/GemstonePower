@@ -4,16 +4,12 @@
   "amount2": 1,
   "count": 4,
   "energyUsage": 80,
-  "inputs": [
-    {
-      "item": "minecraft:copper_block"
-    },
-    {
-      "item": "gemstonepower:tin_block"
-    }
-  ],
-  "output": {
-    "item": "gemstonepower:bronze_block"
+  "input1": {
+    "item": "minecraft:copper_block"
   },
+  "input2": {
+    "item": "gemstonepower:tin_block"
+  },
+  "output": "gemstonepower:bronze_block",
   "processingTime": 3400
 }

@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_fortune_crystal",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_fortune_crystal"
     ]
   ],
   "rewards": {

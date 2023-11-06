@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_lithium_tiny_pile",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_lithium_tiny_pile"
     ]
   ],
   "rewards": {

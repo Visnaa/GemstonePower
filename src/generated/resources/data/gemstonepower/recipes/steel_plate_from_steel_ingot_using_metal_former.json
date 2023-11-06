@@ -6,8 +6,6 @@
     "item": "gemstonepower:steel_ingot"
   },
   "mode": "pressing",
-  "output": {
-    "item": "gemstonepower:steel_plate"
-  },
+  "output": "gemstonepower:steel_plate",
   "processingTime": 200
 }

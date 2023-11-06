@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:invar_rod"
   },
-  "output": {
-    "item": "gemstonepower:invar_rod_polarized"
-  },
+  "output": "gemstonepower:invar_rod_polarized",
   "processingTime": 200
 }

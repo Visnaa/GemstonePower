@@ -20,8 +20,8 @@
   },
   "requirements": [
     [
-      "has_coals",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_coals"
     ]
   ],
   "rewards": {
@@ -29,5 +29,5 @@
       "minecraft:coals"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

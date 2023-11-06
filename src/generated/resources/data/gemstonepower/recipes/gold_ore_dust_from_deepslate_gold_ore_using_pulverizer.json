@@ -5,8 +5,6 @@
   "input": {
     "item": "minecraft:deepslate_gold_ore"
   },
-  "output": {
-    "item": "gemstonepower:gold_ore_dust"
-  },
+  "output": "gemstonepower:gold_ore_dust",
   "processingTime": 200
 }

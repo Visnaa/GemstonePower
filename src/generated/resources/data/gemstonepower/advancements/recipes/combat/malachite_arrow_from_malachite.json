@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_malachite",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_malachite"
     ]
   ],
   "rewards": {

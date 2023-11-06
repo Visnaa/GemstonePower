@@ -14,6 +14,7 @@ import com.visnaa.gemstonepower.network.packet.FissionReactorSyncS2C;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -63,9 +64,10 @@ public class FissionReactorBE extends MachineBE<FissionReactorRecipe>
 
             if (fuelFramesCount > 0)
             {
-                FissionReactorRecipe recipe = quickCheck.getRecipeFor(this, level).orElse(null);
-                if (recipe != null)
+                RecipeHolder<FissionReactorRecipe> holder = quickCheck.getRecipeFor(this, level).orElse(null);
+                if (holder != null)
                 {
+                    FissionReactorRecipe recipe = holder.value();
                     energyGeneration = recipe.getEnergyGeneration() * fuelFramesCount;
                     heatGeneration = recipe.getHeatGeneration() * fuelFramesCount;
                     heatChange += heatGeneration;

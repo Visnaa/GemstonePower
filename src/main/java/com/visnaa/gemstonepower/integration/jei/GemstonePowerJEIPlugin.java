@@ -18,6 +18,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeManager;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -63,18 +64,30 @@ public class GemstonePowerJEIPlugin implements IModPlugin
     @Override
     public void registerRecipes(IRecipeRegistration registration)
     {
+        List<CrystalGrowerRecipe> crystalGrowerRecipes = new ArrayList<>();
+        List<CrystalChargerRecipe> crystalChargerRecipes = new ArrayList<>();
+        List<MetalFormerRecipe> metalFormerRecipes = new ArrayList<>();
+        List<PulverizerRecipe> pulverizerRecipes = new ArrayList<>();
+        List<AlloySmelterRecipe> alloySmelterRecipes = new ArrayList<>();
+        List<ExtractorRecipe> extractorRecipes = new ArrayList<>();
+        List<OreWasherRecipe> oreWasherRecipes = new ArrayList<>();
+        List<SawmillRecipe> sawmillRecipes = new ArrayList<>();
+        List<PolarizerRecipe> polarizerRecipes = new ArrayList<>();
+        List<GemstoneManipulatorRecipe> gemstoneManipulatorRecipes = new ArrayList<>();
+        List<FissionReactorRecipe> fissionReactorRecipes = new ArrayList<>();
+
         RecipeManager manager = Objects.requireNonNull(Minecraft.getInstance().level).getRecipeManager();
-        List<CrystalGrowerRecipe> crystalGrowerRecipes = manager.getAllRecipesFor(ModRecipes.CRYSTAL_GROWER_RECIPE);
-        List<CrystalChargerRecipe> crystalChargerRecipes = manager.getAllRecipesFor(ModRecipes.CRYSTAL_CHARGER_RECIPE);
-        List<MetalFormerRecipe> metalFormerRecipes = manager.getAllRecipesFor(ModRecipes.METAL_FORMER_RECIPE);
-        List<PulverizerRecipe> pulverizerRecipes = manager.getAllRecipesFor(ModRecipes.PULVERIZER_RECIPE);
-        List<AlloySmelterRecipe> alloySmelterRecipes = manager.getAllRecipesFor(ModRecipes.ALLOY_SMELTER_RECIPE);
-        List<ExtractorRecipe> extractorRecipes = manager.getAllRecipesFor(ModRecipes.EXTRACTOR_RECIPE);
-        List<OreWasherRecipe> oreWasherRecipes = manager.getAllRecipesFor(ModRecipes.ORE_WASHER_RECIPE);
-        List<SawmillRecipe> sawmillRecipes = manager.getAllRecipesFor(ModRecipes.SAWMILL_RECIPE);
-        List<PolarizerRecipe> polarizerRecipes = manager.getAllRecipesFor(ModRecipes.POLARIZER_RECIPE);
-        List<GemstoneManipulatorRecipe> gemstoneManipulatorRecipes = manager.getAllRecipesFor(ModRecipes.GEMSTONE_MANIPULATOR_RECIPE);
-        List<FissionReactorRecipe> fissionReactorRecipes = manager.getAllRecipesFor(ModRecipes.FISSION_REACTOR_RECIPE);
+        manager.getAllRecipesFor(ModRecipes.CRYSTAL_GROWER_RECIPE).forEach(holder -> crystalGrowerRecipes.add(holder.value()));
+        manager.getAllRecipesFor(ModRecipes.CRYSTAL_CHARGER_RECIPE).forEach(holder -> crystalChargerRecipes.add(holder.value()));
+        manager.getAllRecipesFor(ModRecipes.METAL_FORMER_RECIPE).forEach(holder -> metalFormerRecipes.add(holder.value()));
+        manager.getAllRecipesFor(ModRecipes.PULVERIZER_RECIPE).forEach(holder -> pulverizerRecipes.add(holder.value()));
+        manager.getAllRecipesFor(ModRecipes.ALLOY_SMELTER_RECIPE).forEach(holder -> alloySmelterRecipes.add(holder.value()));
+        manager.getAllRecipesFor(ModRecipes.EXTRACTOR_RECIPE).forEach(holder -> extractorRecipes.add(holder.value()));
+        manager.getAllRecipesFor(ModRecipes.ORE_WASHER_RECIPE).forEach(holder -> oreWasherRecipes.add(holder.value()));
+        manager.getAllRecipesFor(ModRecipes.SAWMILL_RECIPE).forEach(holder -> sawmillRecipes.add(holder.value()));
+        manager.getAllRecipesFor(ModRecipes.POLARIZER_RECIPE).forEach(holder -> polarizerRecipes.add(holder.value()));
+        manager.getAllRecipesFor(ModRecipes.GEMSTONE_MANIPULATOR_RECIPE).forEach(holder -> gemstoneManipulatorRecipes.add(holder.value()));
+        manager.getAllRecipesFor(ModRecipes.FISSION_REACTOR_RECIPE).forEach(holder -> fissionReactorRecipes.add(holder.value()));
 
         registration.addRecipes(CRYSTAL_GROWER_CATEGORY, crystalGrowerRecipes);
         registration.addRecipes(CRYSTAL_CHARGER_CATEGORY, crystalChargerRecipes);

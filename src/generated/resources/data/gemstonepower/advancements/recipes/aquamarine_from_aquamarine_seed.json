@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_aquamarine_seed",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_aquamarine_seed"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:aquamarine_from_aquamarine_seed"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

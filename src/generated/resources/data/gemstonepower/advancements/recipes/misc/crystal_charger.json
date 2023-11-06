@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_gemstone_cell",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_gemstone_cell"
     ]
   ],
   "rewards": {

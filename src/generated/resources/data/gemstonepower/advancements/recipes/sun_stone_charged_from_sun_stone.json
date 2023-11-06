@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_sun_stone",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_sun_stone"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:sun_stone_charged_from_sun_stone"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

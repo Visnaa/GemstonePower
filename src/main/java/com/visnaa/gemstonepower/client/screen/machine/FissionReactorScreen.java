@@ -10,6 +10,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.components.WidgetSprites;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
@@ -39,6 +40,12 @@ public class FissionReactorScreen extends MachineScreen<FissionReactorMenu>
                 .pos((this.width - 200) / 2 + 50, this.topPos - 32)
                 .size(100, 20).build();
         this.addRenderableWidget(activateButton);
+    }
+
+    @Override
+    protected WidgetSprites getClientConfigSprites()
+    {
+        return new WidgetSprites(GemstonePower.getId("client_config_button/nuclear"), GemstonePower.getId("client_config_button/nuclear_highlighted"));
     }
 
     @Override

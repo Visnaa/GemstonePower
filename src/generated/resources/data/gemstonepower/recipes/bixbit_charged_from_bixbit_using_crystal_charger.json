@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:bixbit"
   },
-  "output": {
-    "item": "gemstonepower:bixbit_charged"
-  },
+  "output": "gemstonepower:bixbit_charged",
   "processingTime": 200
 }

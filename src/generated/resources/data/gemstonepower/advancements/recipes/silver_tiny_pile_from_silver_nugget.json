@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_silver_nugget",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_silver_nugget"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:silver_tiny_pile_from_silver_nugget"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

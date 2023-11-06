@@ -5,8 +5,6 @@
   "input": {
     "tag": "minecraft:planks"
   },
-  "output": {
-    "item": "minecraft:stick"
-  },
+  "output": "minecraft:stick",
   "processingTime": 150
 }

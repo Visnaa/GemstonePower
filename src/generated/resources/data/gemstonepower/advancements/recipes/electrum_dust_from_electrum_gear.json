@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_electrum_gear",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_electrum_gear"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:electrum_dust_from_electrum_gear"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

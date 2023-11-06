@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_bixbit_seed",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_bixbit_seed"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:bixbit_from_bixbit_seed"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

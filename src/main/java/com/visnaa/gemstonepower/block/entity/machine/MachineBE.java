@@ -29,10 +29,11 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.StackedContents;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
-import net.minecraft.world.inventory.RecipeHolder;
+import net.minecraft.world.inventory.RecipeCraftingHolder;
 import net.minecraft.world.inventory.StackedContentsCompatible;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
@@ -52,7 +53,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class MachineBE<T extends Recipe<Container>> extends BaseContainerBlockEntity implements EnergyStorageBE, TickingBlockEntity, WorldlyContainer, RecipeHolder, StackedContentsCompatible
+public class MachineBE<T extends Recipe<Container>> extends BaseContainerBlockEntity implements EnergyStorageBE, TickingBlockEntity, WorldlyContainer, RecipeCraftingHolder, StackedContentsCompatible
 {
     protected LazyOptional<? extends IItemHandler>[] itemHandlers = SidedInvWrapper.create(this, Direction.UP, Direction.DOWN, Direction.NORTH);
     protected NonNullList<ItemStack> items;
@@ -174,7 +175,10 @@ public class MachineBE<T extends Recipe<Container>> extends BaseContainerBlockEn
     {
         boolean changed = false;
         int size = getMaxStackSize();
-        T recipe = this.quickCheck.getRecipeFor(this, level).orElse(null);
+        RecipeHolder<T> recipeHolder = this.quickCheck.getRecipeFor(this, level).orElse(null);
+        if (recipeHolder == null)
+            return;
+        T recipe = recipeHolder.value();
 
         if (this.energyStorage.getEnergyStored() < getEnergyUsage(level, this, recipe)) return;
 
@@ -188,7 +192,7 @@ public class MachineBE<T extends Recipe<Container>> extends BaseContainerBlockEn
                 this.processingTotalTime = getTotalTime(level, this, recipe);
                 if (this.process(level.registryAccess(), recipe, this.items, size))
                 {
-                    this.setRecipeUsed(recipe);
+                    this.setRecipeUsed(recipeHolder);
                 }
             }
             changed = true;
@@ -304,7 +308,8 @@ public class MachineBE<T extends Recipe<Container>> extends BaseContainerBlockEn
 
         if (!isStackValid && !List.of(outputSlots).contains(id))
         {
-            this.processingTotalTime = getTotalTime(this.level, this, this.quickCheck.getRecipeFor(this, this.level).orElse(null));
+            RecipeHolder<T> holder = this.quickCheck.getRecipeFor(this, this.level).orElse(null);
+            this.processingTotalTime = holder == null ? Integer.MAX_VALUE : getTotalTime(this.level, this, holder.value());
             this.processingProgress = 0;
             this.setChanged();
             ModPackets.sendToClient(new RecipeProgressSyncS2C(getProcessingProgress(), getProcessingTotalTime(), getBlockPos()));
@@ -362,17 +367,17 @@ public class MachineBE<T extends Recipe<Container>> extends BaseContainerBlockEn
     }
 
     @Override
-    public void setRecipeUsed(@Nullable Recipe<?> recipe)
+    public void setRecipeUsed(@Nullable RecipeHolder<?> holder)
     {
-        if (recipe != null) {
-            ResourceLocation resourcelocation = recipe.getId();
+        if (holder != null) {
+            ResourceLocation resourcelocation = holder.id();
             this.recipesUsed.addTo(resourcelocation, 1);
         }
     }
 
     @Nullable
     @Override
-    public Recipe<?> getRecipeUsed()
+    public RecipeHolder<?> getRecipeUsed()
     {
         return null;
     }

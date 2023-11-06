@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_onyx_seed",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_onyx_seed"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:onyx_from_onyx_seed"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

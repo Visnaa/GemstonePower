@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_peridot_seed",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_peridot_seed"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:peridot_from_peridot_seed"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

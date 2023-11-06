@@ -5,6 +5,7 @@ import net.minecraft.world.item.crafting.Recipe;
 
 public interface EnergyRecipe extends Recipe<Container>
 {
+    int getCount();
     int getProcessingTime();
     int getEnergyUsage();
 }

@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:sapphire"
   },
-  "output": {
-    "item": "gemstonepower:sapphire_charged"
-  },
+  "output": "gemstonepower:sapphire_charged",
   "processingTime": 200
 }

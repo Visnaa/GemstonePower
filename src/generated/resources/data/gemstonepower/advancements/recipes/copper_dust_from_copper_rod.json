@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_copper_rod",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_copper_rod"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:copper_dust_from_copper_rod"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

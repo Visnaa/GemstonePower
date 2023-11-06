@@ -2,16 +2,12 @@
   "type": "gemstonepower:gemstone_manipulator",
   "count": 2,
   "energyUsage": 80,
-  "inputs": [
-    {
-      "item": "gemstonepower:amber"
-    },
-    {
-      "tag": "forge:cobblestone"
-    }
-  ],
-  "output": {
-    "item": "gemstonepower:amber_seed"
+  "input1": {
+    "item": "gemstonepower:amber"
   },
+  "input2": {
+    "tag": "forge:cobblestone"
+  },
+  "output": "gemstonepower:amber_seed",
   "processingTime": 160
 }

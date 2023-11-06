@@ -9,13 +9,15 @@ import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
+import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.InventoryMenu;
-import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import net.minecraftforge.fluids.FluidStack;
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
 
@@ -33,24 +35,31 @@ public class TankBER implements BlockEntityRenderer<TankBE>
     {
         if (blockEntity.getCapability(ForgeCapabilities.FLUID_HANDLER).isPresent() && blockEntity.getLevel() != null)
         {
-            Fluid fluid = blockEntity.getCapability(ForgeCapabilities.FLUID_HANDLER).map(h -> h.getFluidInTank(0).getFluid()).orElse(Fluids.EMPTY);
-            if (!fluid.isSame(Fluids.EMPTY))
+            FluidStack fluidStack = blockEntity.getCapability(ForgeCapabilities.FLUID_HANDLER).map(h -> h.getFluidInTank(0)).orElse(FluidStack.EMPTY);
+            if (!fluidStack.getFluid().isSame(Fluids.EMPTY))
             {
                 VertexConsumer vertexConsumer = buffer.getBuffer(Sheets.translucentCullBlockSheet());
-                TextureAtlasSprite texture = Minecraft.getInstance().getTextureAtlas(InventoryMenu.BLOCK_ATLAS).apply(IClientFluidTypeExtensions.of(fluid).getStillTexture());
+
+                IClientFluidTypeExtensions fluid = IClientFluidTypeExtensions.of(fluidStack.getFluid());
+                ResourceLocation texture = fluid.getStillTexture(fluidStack);
+                if (texture == null || !(Minecraft.getInstance().getTextureManager().getTexture(InventoryMenu.BLOCK_ATLAS) instanceof TextureAtlas atlas))
+                    return;
+                TextureAtlasSprite sprite = atlas.getSprite(texture);
+
                 float height = 15 * blockEntity.getCapability(ForgeCapabilities.FLUID_HANDLER).map(h -> (float) h.getFluidInTank(0).getAmount() / h.getTankCapacity(0)).orElse(0F) / 16F;
-                int color = IClientFluidTypeExtensions.of(fluid).getTintColor(fluid.defaultFluidState(), blockEntity.getLevel(), blockEntity.getBlockPos());
+                int color = fluid.getTintColor(fluidStack.getFluid().defaultFluidState(), blockEntity.getLevel(), blockEntity.getBlockPos());
 
-                renderFace(Direction.UP, stack.last().pose(), stack.last().normal(), vertexConsumer, texture,
+                renderFace(Direction.UP, stack.last().pose(), stack.last().normal(), vertexConsumer, sprite,
                         0.03125F, 0.03125F, 0.03125F + height, 0.9375F, 0.9375F, color, light);
-
-                renderFace(Direction.SOUTH, stack.last().pose(), stack.last().normal(), vertexConsumer, texture,
+                renderFace(Direction.DOWN, stack.last().pose(), stack.last().normal(), vertexConsumer, sprite,
+                        0.03125F, 0.03125F, 0.96875F, 0.9375F, 0.9375F, color, light);
+                renderFace(Direction.SOUTH, stack.last().pose(), stack.last().normal(), vertexConsumer, sprite,
                         0.03125F, 0.03125F, 0.03125F, 0.9375F, height, color, light);
-                renderFace(Direction.NORTH, stack.last().pose(), stack.last().normal(), vertexConsumer, texture,
+                renderFace(Direction.NORTH, stack.last().pose(), stack.last().normal(), vertexConsumer, sprite,
                         0.03125F, 0.03125F, 0.03125F, 0.9375F, height, color, light);
-                renderFace(Direction.EAST, stack.last().pose(), stack.last().normal(), vertexConsumer, texture,
+                renderFace(Direction.EAST, stack.last().pose(), stack.last().normal(), vertexConsumer, sprite,
                         0.03125F, 0.03125F, 0.03125F, 0.9375F, height, color, light);
-                renderFace(Direction.WEST, stack.last().pose(), stack.last().normal(), vertexConsumer, texture,
+                renderFace(Direction.WEST, stack.last().pose(), stack.last().normal(), vertexConsumer, sprite,
                         0.03125F, 0.03125F, 0.03125F, 0.9375F, height, color, light);
             }
         }
@@ -71,10 +80,10 @@ public class TankBER implements BlockEntityRenderer<TankBE>
 
     private static void renderFace(Matrix4f pose, Matrix3f normal, VertexConsumer consumer, TextureAtlasSprite texture, int color, int light, float x0, float x1, float y0, float y1, float z0, float z1, float z2, float z3, float u0, float u1, float v0, float v1, float normalX, float normalY, float normalZ)
     {
-        float minU = u0 * texture.contents().width();
-        float maxU = u1 * texture.contents().width();
-        float minV = v0 * texture.contents().height();
-        float maxV = v1 * texture.contents().height();
+        float minU = u0;
+        float maxU = u1;
+        float minV = v0;
+        float maxV = v1;
 
         consumer.vertex(pose, x0, y0, z0).color(color).uv(texture.getU(minU), texture.getV(minV)).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(light).normal(normal, normalX, normalY, normalZ).endVertex();
         consumer.vertex(pose, x1, y0, z1).color(color).uv(texture.getU(maxU), texture.getV(minV)).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(light).normal(normal, normalX, normalY, normalZ).endVertex();

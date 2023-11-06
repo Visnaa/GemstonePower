@@ -2,16 +2,12 @@
   "type": "gemstonepower:gemstone_manipulator",
   "count": 2,
   "energyUsage": 80,
-  "inputs": [
-    {
-      "item": "gemstonepower:sapphire"
-    },
-    {
-      "tag": "forge:cobblestone"
-    }
-  ],
-  "output": {
-    "item": "gemstonepower:sapphire_seed"
+  "input1": {
+    "item": "gemstonepower:sapphire"
   },
+  "input2": {
+    "tag": "forge:cobblestone"
+  },
+  "output": "gemstonepower:sapphire_seed",
   "processingTime": 160
 }

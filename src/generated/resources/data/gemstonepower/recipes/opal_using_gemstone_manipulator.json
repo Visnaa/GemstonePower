@@ -2,16 +2,12 @@
   "type": "gemstonepower:gemstone_manipulator",
   "count": 1,
   "energyUsage": 80,
-  "inputs": [
-    {
-      "item": "gemstonepower:opal_charged"
-    },
-    {
-      "tag": "forge:glass"
-    }
-  ],
-  "output": {
-    "item": "gemstonepower:opal"
+  "input1": {
+    "item": "gemstonepower:opal_charged"
   },
+  "input2": {
+    "tag": "forge:glass"
+  },
+  "output": "gemstonepower:opal",
   "processingTime": 160
 }

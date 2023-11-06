@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:cuprite_crystal_seed"
   },
-  "output": {
-    "item": "gemstonepower:cuprite_crystal"
-  },
+  "output": "gemstonepower:cuprite_crystal",
   "processingTime": 200
 }

@@ -2,10 +2,10 @@ package com.visnaa.gemstonepower.network;
 
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.network.packet.*;
+import net.minecraftforge.network.ChannelBuilder;
 import net.minecraftforge.network.NetworkDirection;
-import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.PacketDistributor;
-import net.minecraftforge.network.simple.SimpleChannel;
+import net.minecraftforge.network.SimpleChannel;
 
 public class ModPackets
 {
@@ -19,11 +19,11 @@ public class ModPackets
 
     public static void register()
     {
-        SimpleChannel channel = NetworkRegistry.ChannelBuilder
+        SimpleChannel channel = ChannelBuilder
                 .named(GemstonePower.getId("packets"))
-                .networkProtocolVersion(() -> "1.0")
-                .clientAcceptedVersions(s -> true)
-                .serverAcceptedVersions(s -> true)
+                .networkProtocolVersion(1)
+                .clientAcceptedVersions((status, version) -> true)
+                .serverAcceptedVersions((status, version) -> true)
                 .simpleChannel();
 
         CHANNEL = channel;
@@ -67,11 +67,11 @@ public class ModPackets
 
     public static <P> void sendToClient(P packet)
     {
-        CHANNEL.send(PacketDistributor.ALL.noArg(), packet);
+        CHANNEL.send(packet, PacketDistributor.ALL.noArg());
     }
 
     public static <P> void sendToServer(P packet)
     {
-        CHANNEL.sendToServer(packet);
+        CHANNEL.send(packet, PacketDistributor.SERVER.noArg());
     }
 }

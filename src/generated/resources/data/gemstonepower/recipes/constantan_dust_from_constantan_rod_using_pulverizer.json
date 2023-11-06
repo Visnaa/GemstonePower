@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:constantan_rod"
   },
-  "output": {
-    "item": "gemstonepower:constantan_dust"
-  },
+  "output": "gemstonepower:constantan_dust",
   "processingTime": 200
 }

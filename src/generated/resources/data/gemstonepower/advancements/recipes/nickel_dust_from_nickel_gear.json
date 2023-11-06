@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_nickel_gear",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_nickel_gear"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:nickel_dust_from_nickel_gear"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

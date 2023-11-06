@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_lead_rod",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_lead_rod"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:lead_dust_from_lead_rod"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

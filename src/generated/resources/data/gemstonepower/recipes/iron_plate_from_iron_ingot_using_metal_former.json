@@ -6,8 +6,6 @@
     "item": "minecraft:iron_ingot"
   },
   "mode": "pressing",
-  "output": {
-    "item": "gemstonepower:iron_plate"
-  },
+  "output": "gemstonepower:iron_plate",
   "processingTime": 200
 }

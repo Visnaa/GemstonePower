@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:lithium_nugget"
   },
-  "output": {
-    "item": "gemstonepower:lithium_tiny_pile"
-  },
+  "output": "gemstonepower:lithium_tiny_pile",
   "processingTime": 200
 }

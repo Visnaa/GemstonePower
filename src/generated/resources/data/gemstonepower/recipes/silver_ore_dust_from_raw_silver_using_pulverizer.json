@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:raw_silver"
   },
-  "output": {
-    "item": "gemstonepower:silver_ore_dust"
-  },
+  "output": "gemstonepower:silver_ore_dust",
   "processingTime": 200
 }

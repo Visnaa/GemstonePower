@@ -1,5 +1,11 @@
 {
   "type": "gemstonepower:ore_washer",
+  "counts": [
+    1,
+    1,
+    1,
+    1
+  ],
   "energyUsage": 40,
   "fluid": {
     "amount": 250,
@@ -8,23 +14,11 @@
   "input": {
     "item": "gemstonepower:uranium_ore_dust"
   },
-  "outputs": {
-    "output0": {
-      "count": 1,
-      "item": "gemstonepower:uranium_dust"
-    },
-    "output1": {
-      "count": 1,
-      "item": "gemstonepower:uranium_tiny_pile"
-    },
-    "output2": {
-      "count": 1,
-      "item": "gemstonepower:copper_dust"
-    },
-    "output3": {
-      "count": 1,
-      "item": "gemstonepower:yellow_diamond"
-    }
-  },
+  "outputs": [
+    "gemstonepower:uranium_dust",
+    "gemstonepower:uranium_tiny_pile",
+    "gemstonepower:copper_dust",
+    "gemstonepower:yellow_diamond"
+  ],
   "processingTime": 400
 }

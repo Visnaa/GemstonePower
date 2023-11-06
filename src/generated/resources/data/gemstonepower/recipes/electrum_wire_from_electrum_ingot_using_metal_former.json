@@ -6,8 +6,6 @@
     "item": "gemstonepower:electrum_ingot"
   },
   "mode": "extruding",
-  "output": {
-    "item": "gemstonepower:electrum_wire"
-  },
+  "output": "gemstonepower:electrum_wire",
   "processingTime": 200
 }

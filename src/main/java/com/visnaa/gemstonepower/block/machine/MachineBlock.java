@@ -30,7 +30,6 @@ import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.fluids.FluidUtil;
-import net.minecraftforge.network.NetworkHooks;
 
 import javax.annotation.Nullable;
 
@@ -60,13 +59,9 @@ public abstract class MachineBlock<T extends MachineBlock<T>> extends BaseEntity
 
     protected void openContainer(Level level, BlockPos pos, Player player)
     {
-        if (level.getBlockEntity(pos) instanceof MachineBE<?> machine && !level.isClientSide())
+        if (level.getBlockEntity(pos) instanceof MachineBE<?> machine && !level.isClientSide() && player instanceof ServerPlayer serverPlayer)
         {
-            NetworkHooks.openScreen((ServerPlayer) player, machine, machine.getBlockPos());
-        }
-        else if (level.getBlockEntity(pos) instanceof FluidMachineBE<?> machine && !level.isClientSide())
-        {
-            NetworkHooks.openScreen((ServerPlayer) player, machine, machine.getBlockPos());
+            serverPlayer.openMenu(machine, pos);
         }
     }
 

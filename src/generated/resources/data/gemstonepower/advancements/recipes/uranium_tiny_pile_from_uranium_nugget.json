@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_uranium_nugget",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_uranium_nugget"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:uranium_tiny_pile_from_uranium_nugget"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

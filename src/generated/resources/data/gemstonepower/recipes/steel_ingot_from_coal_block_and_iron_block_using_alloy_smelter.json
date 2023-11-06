@@ -4,16 +4,12 @@
   "amount2": 1,
   "count": 2,
   "energyUsage": 80,
-  "inputs": [
-    {
-      "item": "minecraft:coal_block"
-    },
-    {
-      "item": "minecraft:iron_block"
-    }
-  ],
-  "output": {
-    "item": "gemstonepower:steel_block"
+  "input1": {
+    "item": "minecraft:coal_block"
   },
+  "input2": {
+    "item": "minecraft:iron_block"
+  },
+  "output": "gemstonepower:steel_block",
   "processingTime": 3400
 }

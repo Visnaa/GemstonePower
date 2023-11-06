@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_beryllium_seed",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_beryllium_seed"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:beryllium_from_beryllium_seed"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

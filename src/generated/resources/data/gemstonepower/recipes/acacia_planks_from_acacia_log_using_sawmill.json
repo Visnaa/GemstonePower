@@ -5,8 +5,6 @@
   "input": {
     "tag": "minecraft:acacia_logs"
   },
-  "output": {
-    "item": "minecraft:acacia_planks"
-  },
+  "output": "minecraft:acacia_planks",
   "processingTime": 150
 }

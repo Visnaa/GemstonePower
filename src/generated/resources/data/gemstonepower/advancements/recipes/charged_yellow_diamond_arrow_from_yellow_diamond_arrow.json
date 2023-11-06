@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_yellow_diamond_arrow",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_yellow_diamond_arrow"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:charged_yellow_diamond_arrow_from_yellow_diamond_arrow"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

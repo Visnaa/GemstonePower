@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:beryllium"
   },
-  "output": {
-    "item": "gemstonepower:beryllium_charged"
-  },
+  "output": "gemstonepower:beryllium_charged",
   "processingTime": 200
 }

@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_iron_dust",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_iron_dust"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:invar_ingot_from_iron_dust_and_nickel_dust"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

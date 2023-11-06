@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:yellow_diamond_arrow"
   },
-  "output": {
-    "item": "gemstonepower:charged_yellow_diamond_arrow"
-  },
+  "output": "gemstonepower:charged_yellow_diamond_arrow",
   "processingTime": 250
 }

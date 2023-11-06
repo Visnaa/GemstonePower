@@ -5,8 +5,6 @@
   "input": {
     "tag": "minecraft:warped_stems"
   },
-  "output": {
-    "item": "minecraft:warped_planks"
-  },
+  "output": "minecraft:warped_planks",
   "processingTime": 150
 }

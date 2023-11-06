@@ -6,23 +6,10 @@
         "recipe": "gemstonepower:zinc_dust_from_zinc_ore_dust"
       },
       "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_zinc_ore_dust": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "gemstonepower:zinc_ore_dust"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
-      "has_zinc_ore_dust",
       "has_the_recipe"
     ]
   ],
@@ -31,5 +18,5 @@
       "gemstonepower:zinc_dust_from_zinc_ore_dust"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

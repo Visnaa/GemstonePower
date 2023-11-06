@@ -1,5 +1,11 @@
 {
   "type": "gemstonepower:ore_washer",
+  "counts": [
+    1,
+    1,
+    1,
+    1
+  ],
   "energyUsage": 40,
   "fluid": {
     "amount": 250,
@@ -8,15 +14,9 @@
   "input": {
     "item": "gemstonepower:iron_ore_dust"
   },
-  "outputs": {
-    "output0": {
-      "count": 1,
-      "item": "gemstonepower:iron_dust"
-    },
-    "output1": {
-      "count": 1,
-      "item": "gemstonepower:ruby"
-    }
-  },
+  "outputs": [
+    "gemstonepower:iron_dust",
+    "gemstonepower:ruby"
+  ],
   "processingTime": 400
 }

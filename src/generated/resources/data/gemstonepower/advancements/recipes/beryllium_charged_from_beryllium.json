@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_beryllium",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_beryllium"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:beryllium_charged_from_beryllium"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

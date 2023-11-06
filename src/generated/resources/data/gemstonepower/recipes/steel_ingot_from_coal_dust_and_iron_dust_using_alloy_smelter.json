@@ -4,16 +4,12 @@
   "amount2": 1,
   "count": 2,
   "energyUsage": 80,
-  "inputs": [
-    {
-      "item": "gemstonepower:coal_dust"
-    },
-    {
-      "item": "gemstonepower:iron_dust"
-    }
-  ],
-  "output": {
-    "item": "gemstonepower:steel_dust"
+  "input1": {
+    "item": "gemstonepower:coal_dust"
   },
+  "input2": {
+    "item": "gemstonepower:iron_dust"
+  },
+  "output": "gemstonepower:steel_dust",
   "processingTime": 400
 }

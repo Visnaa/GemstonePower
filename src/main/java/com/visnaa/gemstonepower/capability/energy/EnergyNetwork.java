@@ -4,8 +4,6 @@ import com.visnaa.gemstonepower.block.entity.pipe.PipeBE;
 import com.visnaa.gemstonepower.block.entity.pipe.cable.CableBE;
 import com.visnaa.gemstonepower.capability.PipeNetwork;
 import com.visnaa.gemstonepower.config.ServerConfig;
-import it.unimi.dsi.fastutil.Hash;
-import net.minecraft.client.renderer.block.model.BlockElementRotation;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.Level;
@@ -17,7 +15,6 @@ import net.minecraftforge.energy.IEnergyStorage;
 
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class EnergyNetwork implements PipeNetwork<CableBE>

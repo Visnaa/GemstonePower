@@ -20,8 +20,8 @@
   },
   "requirements": [
     [
-      "has_fence_gate",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_fence_gate"
     ]
   ],
   "rewards": {
@@ -29,5 +29,5 @@
       "minecraft:stick_from_fence_gate"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

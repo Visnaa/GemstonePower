@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_platinum_nugget",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_platinum_nugget"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:platinum_tiny_pile_from_platinum_nugget"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

@@ -6,8 +6,6 @@
     "item": "gemstonepower:lead_ingot"
   },
   "mode": "pressing",
-  "output": {
-    "item": "gemstonepower:lead_plate"
-  },
+  "output": "gemstonepower:lead_plate",
   "processingTime": 200
 }

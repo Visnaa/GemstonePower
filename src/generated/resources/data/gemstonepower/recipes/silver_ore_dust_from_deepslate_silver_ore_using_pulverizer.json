@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:deepslate_silver_ore"
   },
-  "output": {
-    "item": "gemstonepower:silver_ore_dust"
-  },
+  "output": "gemstonepower:silver_ore_dust",
   "processingTime": 200
 }

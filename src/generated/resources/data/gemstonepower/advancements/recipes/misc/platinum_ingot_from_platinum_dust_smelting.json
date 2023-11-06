@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_platinum_dust",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_platinum_dust"
     ]
   ],
   "rewards": {

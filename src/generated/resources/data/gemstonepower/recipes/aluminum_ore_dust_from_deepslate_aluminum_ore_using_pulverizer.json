@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:deepslate_aluminum_ore"
   },
-  "output": {
-    "item": "gemstonepower:aluminum_ore_dust"
-  },
+  "output": "gemstonepower:aluminum_ore_dust",
   "processingTime": 200
 }

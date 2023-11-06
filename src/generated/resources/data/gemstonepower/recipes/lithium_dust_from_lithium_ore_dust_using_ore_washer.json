@@ -1,5 +1,11 @@
 {
   "type": "gemstonepower:ore_washer",
+  "counts": [
+    1,
+    1,
+    1,
+    1
+  ],
   "energyUsage": 40,
   "fluid": {
     "amount": 250,
@@ -8,23 +14,11 @@
   "input": {
     "item": "gemstonepower:lithium_ore_dust"
   },
-  "outputs": {
-    "output0": {
-      "count": 1,
-      "item": "gemstonepower:lithium_dust"
-    },
-    "output1": {
-      "count": 1,
-      "item": "gemstonepower:gold_tiny_pile"
-    },
-    "output2": {
-      "count": 1,
-      "item": "gemstonepower:magnesium_tiny_pile"
-    },
-    "output3": {
-      "count": 1,
-      "item": "gemstonepower:peridot"
-    }
-  },
+  "outputs": [
+    "gemstonepower:lithium_dust",
+    "gemstonepower:gold_tiny_pile",
+    "gemstonepower:magnesium_tiny_pile",
+    "gemstonepower:peridot"
+  ],
   "processingTime": 400
 }

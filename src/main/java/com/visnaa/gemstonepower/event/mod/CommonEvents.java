@@ -72,6 +72,6 @@ public class CommonEvents
         generator.addProvider(true, new BiomeTagGenerator(generator.getPackOutput(), completablefuture, existingFileHelper));
         generator.addProvider(true, new TrimMaterialGenerator(generator.getPackOutput()));
         generator.addProvider(true, new WorldGenGenerator(generator.getPackOutput(), completablefuture));
-        generator.addProvider(true, AdvancementGenerator.create(generator.getPackOutput(), completablefuture));
+        generator.addProvider(true, AdvancementGenerator.create(generator.getPackOutput(), completablefuture, existingFileHelper));
     }
 }

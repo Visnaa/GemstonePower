@@ -20,8 +20,8 @@
   },
   "requirements": [
     [
-      "has_wooden_fence",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_wooden_fence"
     ]
   ],
   "rewards": {
@@ -29,5 +29,5 @@
       "minecraft:stick_from_wooden_fence"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

@@ -20,8 +20,8 @@
   },
   "requirements": [
     [
-      "has_lapis",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_lapis"
     ]
   ],
   "rewards": {
@@ -29,5 +29,5 @@
       "gemstonepower:quartz"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

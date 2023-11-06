@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_zinc_gear",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_zinc_gear"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:zinc_dust_from_zinc_gear"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

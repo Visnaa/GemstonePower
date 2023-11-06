@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:jade"
   },
-  "output": {
-    "item": "gemstonepower:jade_charged"
-  },
+  "output": "gemstonepower:jade_charged",
   "processingTime": 200
 }

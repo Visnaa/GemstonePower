@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_steel_rod",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_steel_rod"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:steel_rod_polarized_from_steel_rod"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

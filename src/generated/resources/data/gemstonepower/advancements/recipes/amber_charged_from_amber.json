@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_amber",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_amber"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:amber_charged_from_amber"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

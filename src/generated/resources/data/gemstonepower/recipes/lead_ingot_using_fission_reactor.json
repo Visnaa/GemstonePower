@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:uranium_ingot"
   },
-  "output": {
-    "item": "gemstonepower:lead_ingot"
-  },
+  "output": "gemstonepower:lead_ingot",
   "processingTime": 1200
 }

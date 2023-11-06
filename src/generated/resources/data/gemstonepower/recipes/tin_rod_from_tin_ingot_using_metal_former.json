@@ -6,8 +6,6 @@
     "item": "gemstonepower:tin_ingot"
   },
   "mode": "rolling",
-  "output": {
-    "item": "gemstonepower:tin_rod"
-  },
+  "output": "gemstonepower:tin_rod",
   "processingTime": 200
 }

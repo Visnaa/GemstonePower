@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:raw_lead"
   },
-  "output": {
-    "item": "gemstonepower:lead_ore_dust"
-  },
+  "output": "gemstonepower:lead_ore_dust",
   "processingTime": 200
 }

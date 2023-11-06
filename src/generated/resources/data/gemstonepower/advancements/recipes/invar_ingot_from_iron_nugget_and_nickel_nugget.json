@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_iron_nugget",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_iron_nugget"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:invar_ingot_from_iron_nugget_and_nickel_nugget"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

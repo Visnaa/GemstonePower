@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:platinum_ore"
   },
-  "output": {
-    "item": "gemstonepower:platinum_ore_dust"
-  },
+  "output": "gemstonepower:platinum_ore_dust",
   "processingTime": 200
 }

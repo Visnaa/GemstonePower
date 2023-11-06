@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_bixbit_arrow",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_bixbit_arrow"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:charged_bixbit_arrow_from_bixbit_arrow"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

@@ -2,16 +2,12 @@
   "type": "gemstonepower:gemstone_manipulator",
   "count": 1,
   "energyUsage": 80,
-  "inputs": [
-    {
-      "item": "gemstonepower:moon_stone_charged"
-    },
-    {
-      "tag": "forge:glass"
-    }
-  ],
-  "output": {
-    "item": "gemstonepower:moon_stone"
+  "input1": {
+    "item": "gemstonepower:moon_stone_charged"
   },
+  "input2": {
+    "tag": "forge:glass"
+  },
+  "output": "gemstonepower:moon_stone",
   "processingTime": 160
 }

@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:opal_seed"
   },
-  "output": {
-    "item": "gemstonepower:opal"
-  },
+  "output": "gemstonepower:opal",
   "processingTime": 200
 }

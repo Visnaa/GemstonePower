@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_onyx_arrow",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_onyx_arrow"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:charged_onyx_arrow_from_onyx_arrow"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

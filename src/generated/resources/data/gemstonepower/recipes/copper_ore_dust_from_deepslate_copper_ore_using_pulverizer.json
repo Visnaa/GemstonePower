@@ -5,8 +5,6 @@
   "input": {
     "item": "minecraft:deepslate_copper_ore"
   },
-  "output": {
-    "item": "gemstonepower:copper_ore_dust"
-  },
+  "output": "gemstonepower:copper_ore_dust",
   "processingTime": 200
 }

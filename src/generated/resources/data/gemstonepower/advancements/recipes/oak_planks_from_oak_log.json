@@ -20,8 +20,8 @@
   },
   "requirements": [
     [
-      "has_oak_log",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_oak_log"
     ]
   ],
   "rewards": {
@@ -29,5 +29,5 @@
       "gemstonepower:oak_planks_from_oak_log"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

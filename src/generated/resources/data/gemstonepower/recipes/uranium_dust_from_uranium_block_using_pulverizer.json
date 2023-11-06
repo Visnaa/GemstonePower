@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:uranium_block"
   },
-  "output": {
-    "item": "gemstonepower:uranium_dust"
-  },
+  "output": "gemstonepower:uranium_dust",
   "processingTime": 1600
 }

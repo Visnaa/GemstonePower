@@ -5,8 +5,6 @@
   "input": {
     "tag": "minecraft:mangrove_logs"
   },
-  "output": {
-    "item": "minecraft:mangrove_planks"
-  },
+  "output": "minecraft:mangrove_planks",
   "processingTime": 150
 }

@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_invar_tiny_pile",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_invar_tiny_pile"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:invar_ingot_from_invar_tiny_pile_and_nickel_tiny_pile"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

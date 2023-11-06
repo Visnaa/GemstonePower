@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:steel_rod"
   },
-  "output": {
-    "item": "gemstonepower:steel_rod_polarized"
-  },
+  "output": "gemstonepower:steel_rod_polarized",
   "processingTime": 200
 }

@@ -20,8 +20,8 @@
   },
   "requirements": [
     [
-      "has_lead_plate",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_lead_plate"
     ]
   ],
   "rewards": {

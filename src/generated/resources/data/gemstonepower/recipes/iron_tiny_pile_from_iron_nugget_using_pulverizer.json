@@ -5,8 +5,6 @@
   "input": {
     "item": "minecraft:iron_nugget"
   },
-  "output": {
-    "item": "gemstonepower:iron_tiny_pile"
-  },
+  "output": "gemstonepower:iron_tiny_pile",
   "processingTime": 200
 }

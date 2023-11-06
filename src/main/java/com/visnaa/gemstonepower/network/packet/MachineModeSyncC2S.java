@@ -3,9 +3,7 @@ package com.visnaa.gemstonepower.network.packet;
 import com.visnaa.gemstonepower.block.entity.machine.MachineBE;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraftforge.network.NetworkEvent;
-
-import java.util.function.Supplier;
+import net.minecraftforge.event.network.CustomPayloadEvent;
 
 public class MachineModeSyncC2S
 {
@@ -30,9 +28,8 @@ public class MachineModeSyncC2S
         buffer.writeBlockPos(pos);
     }
 
-    public void handle(Supplier<NetworkEvent.Context> supplier)
+    public void handle(CustomPayloadEvent.Context context)
     {
-        NetworkEvent.Context context = supplier.get();
         context.enqueueWork(() -> {
             if (context.getSender() != null && context.getSender().level().getBlockEntity(pos) instanceof MachineBE<?> blockEntity)
             {

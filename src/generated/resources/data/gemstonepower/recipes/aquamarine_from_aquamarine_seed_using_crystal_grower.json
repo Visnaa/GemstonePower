@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:aquamarine_seed"
   },
-  "output": {
-    "item": "gemstonepower:aquamarine"
-  },
+  "output": "gemstonepower:aquamarine",
   "processingTime": 200
 }

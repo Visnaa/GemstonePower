@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_gemstone_generator",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_gemstone_generator"
     ]
   ],
   "rewards": {

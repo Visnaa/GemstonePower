@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:opal"
   },
-  "output": {
-    "item": "gemstonepower:opal_charged"
-  },
+  "output": "gemstonepower:opal_charged",
   "processingTime": 200
 }

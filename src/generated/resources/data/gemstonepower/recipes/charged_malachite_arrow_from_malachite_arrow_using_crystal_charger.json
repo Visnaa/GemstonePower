@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:malachite_arrow"
   },
-  "output": {
-    "item": "gemstonepower:charged_malachite_arrow"
-  },
+  "output": "gemstonepower:charged_malachite_arrow",
   "processingTime": 250
 }

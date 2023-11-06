@@ -20,8 +20,8 @@
   },
   "requirements": [
     [
-      "has_quartz",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_quartz"
     ]
   ],
   "rewards": {
@@ -29,5 +29,5 @@
       "gemstonepower:lapis_lazuli"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

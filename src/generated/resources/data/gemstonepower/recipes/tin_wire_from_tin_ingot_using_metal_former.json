@@ -6,8 +6,6 @@
     "item": "gemstonepower:tin_ingot"
   },
   "mode": "extruding",
-  "output": {
-    "item": "gemstonepower:tin_wire"
-  },
+  "output": "gemstonepower:tin_wire",
   "processingTime": 200
 }

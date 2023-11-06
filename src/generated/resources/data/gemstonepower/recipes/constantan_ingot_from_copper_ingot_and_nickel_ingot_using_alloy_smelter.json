@@ -4,16 +4,12 @@
   "amount2": 1,
   "count": 2,
   "energyUsage": 80,
-  "inputs": [
-    {
-      "item": "minecraft:copper_ingot"
-    },
-    {
-      "item": "gemstonepower:nickel_ingot"
-    }
-  ],
-  "output": {
-    "item": "gemstonepower:constantan_ingot"
+  "input1": {
+    "item": "minecraft:copper_ingot"
   },
+  "input2": {
+    "item": "gemstonepower:nickel_ingot"
+  },
+  "output": "gemstonepower:constantan_ingot",
   "processingTime": 400
 }

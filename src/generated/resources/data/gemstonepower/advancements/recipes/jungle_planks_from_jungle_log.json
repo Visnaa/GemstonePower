@@ -20,8 +20,8 @@
   },
   "requirements": [
     [
-      "has_jungle_log",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_jungle_log"
     ]
   ],
   "rewards": {
@@ -29,5 +29,5 @@
       "gemstonepower:jungle_planks_from_jungle_log"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

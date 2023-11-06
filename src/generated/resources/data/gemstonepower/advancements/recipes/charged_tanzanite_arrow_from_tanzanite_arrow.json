@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_tanzanite_arrow",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_tanzanite_arrow"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:charged_tanzanite_arrow_from_tanzanite_arrow"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

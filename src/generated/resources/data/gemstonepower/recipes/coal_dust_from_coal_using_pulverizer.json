@@ -5,8 +5,6 @@
   "input": {
     "item": "minecraft:coal"
   },
-  "output": {
-    "item": "gemstonepower:coal_dust"
-  },
+  "output": "gemstonepower:coal_dust",
   "processingTime": 200
 }

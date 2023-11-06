@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_zinc_plate",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_zinc_plate"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:zinc_dust_from_zinc_plate"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

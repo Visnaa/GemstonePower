@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:beryllium_seed"
   },
-  "output": {
-    "item": "gemstonepower:beryllium"
-  },
+  "output": "gemstonepower:beryllium",
   "processingTime": 200
 }

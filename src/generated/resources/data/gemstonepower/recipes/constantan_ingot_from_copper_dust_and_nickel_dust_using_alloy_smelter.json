@@ -4,16 +4,12 @@
   "amount2": 1,
   "count": 2,
   "energyUsage": 80,
-  "inputs": [
-    {
-      "item": "gemstonepower:copper_dust"
-    },
-    {
-      "item": "gemstonepower:nickel_dust"
-    }
-  ],
-  "output": {
-    "item": "gemstonepower:constantan_dust"
+  "input1": {
+    "item": "gemstonepower:copper_dust"
   },
+  "input2": {
+    "item": "gemstonepower:nickel_dust"
+  },
+  "output": "gemstonepower:constantan_dust",
   "processingTime": 400
 }

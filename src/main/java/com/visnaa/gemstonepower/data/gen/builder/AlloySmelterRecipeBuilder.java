@@ -1,16 +1,14 @@
 package com.visnaa.gemstonepower.data.gen.builder;
 
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.init.ModRecipes;
-import net.minecraft.advancements.Advancement;
-import net.minecraft.advancements.AdvancementRewards;
-import net.minecraft.advancements.CriterionTriggerInstance;
-import net.minecraft.advancements.RequirementsStrategy;
+import net.minecraft.advancements.*;
 import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeBuilder;
+import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -18,8 +16,8 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.HashMap;
 import java.util.List;
-import java.util.function.Consumer;
 
 public class AlloySmelterRecipeBuilder implements RecipeBuilder
 {
@@ -30,7 +28,7 @@ public class AlloySmelterRecipeBuilder implements RecipeBuilder
     private final int count;
     private final int processingTime;
     private final int energyUsage;
-    private final Advancement.Builder advancement = Advancement.Builder.advancement();
+    private final HashMap<String, Criterion<?>> criteria = new HashMap<>();
 
     public AlloySmelterRecipeBuilder(List<Ingredient> inputs, int amount1, int amount2, Item output, int count, int processingTime, int energyUsage)
     {
@@ -49,9 +47,9 @@ public class AlloySmelterRecipeBuilder implements RecipeBuilder
     }
 
     @Override
-    public AlloySmelterRecipeBuilder unlockedBy(String name, CriterionTriggerInstance trigger)
+    public AlloySmelterRecipeBuilder unlockedBy(String name, Criterion critertion)
     {
-        this.advancement.addCriterion(name, trigger);
+        criteria.put(name, critertion);
         return this;
     }
 
@@ -68,15 +66,15 @@ public class AlloySmelterRecipeBuilder implements RecipeBuilder
     }
 
     @Override
-    public void save(Consumer<FinishedRecipe> consumer, ResourceLocation recipeId)
+    public void save(RecipeOutput output, ResourceLocation recipeId)
     {
-        this.advancement.parent(new ResourceLocation("recipes/root"))
+        Advancement.Builder builder = output.advancement()
                 .addCriterion("has_the_recipe",
                         RecipeUnlockedTrigger.unlocked(recipeId))
                 .rewards(AdvancementRewards.Builder.recipe(recipeId))
-                .requirements(RequirementsStrategy.OR);
-
-        consumer.accept(new AlloySmelterRecipeBuilder.Result(recipeId, this.inputs, this.amount1, this.amount2, this.output, this.count, this.processingTime, this.energyUsage, this.advancement, new ResourceLocation(recipeId.getNamespace(), "recipes/" + recipeId.getPath())));
+                .requirements(AdvancementRequirements.Strategy.OR);
+        criteria.forEach(builder::addCriterion);
+        output.accept(new AlloySmelterRecipeBuilder.Result(recipeId, this.inputs, this.amount1, this.amount2, this.output, this.count, this.processingTime, this.energyUsage, builder.build(new ResourceLocation(recipeId.getNamespace(), "recipes/" + recipeId.getPath()))));
     }
 
     public static class Result implements FinishedRecipe
@@ -89,10 +87,9 @@ public class AlloySmelterRecipeBuilder implements RecipeBuilder
         private final int count;
         private final int processingTime;
         private final int energyUsage;
-        private final Advancement.Builder advancement;
-        private final ResourceLocation advancementId;
+        private final AdvancementHolder advancement;
 
-        public Result(ResourceLocation id, List<Ingredient> inputs, int amount1, int amount2, Item output, int count, int processingTime, int energyUsage, Advancement.Builder advancement, ResourceLocation advancementId)
+        public Result(ResourceLocation id, List<Ingredient> inputs, int amount1, int amount2, Item output, int count, int processingTime, int energyUsage, AdvancementHolder advancement)
         {
             this.id = id;
             this.inputs = inputs;
@@ -103,24 +100,18 @@ public class AlloySmelterRecipeBuilder implements RecipeBuilder
             this.processingTime = processingTime;
             this.energyUsage = energyUsage;
             this.advancement = advancement;
-            this.advancementId = advancementId;
         }
 
         @Override
         public void serializeRecipeData(JsonObject json)
         {
-
-            JsonArray jsonArray = new JsonArray();
-            for(Ingredient input : this.inputs)
-                jsonArray.add(input.toJson());
-            json.add("inputs", jsonArray);
+            json.add("input1", inputs.get(0).toJson(false));
+            json.add("input2", inputs.get(1).toJson(false));
 
             json.addProperty("amount1", this.amount1);
             json.addProperty("amount2", this.amount2);
 
-            JsonObject output = new JsonObject();
-            output.addProperty("item", ForgeRegistries.ITEMS.getKey(this.output).toString());
-            json.add("output", output);
+            json.add("output", new JsonPrimitive(ForgeRegistries.ITEMS.getKey(output).toString()));
 
             json.addProperty("count", this.count);
             json.addProperty("processingTime", this.processingTime);
@@ -128,29 +119,22 @@ public class AlloySmelterRecipeBuilder implements RecipeBuilder
         }
 
         @Override
-        public ResourceLocation getId()
+        public ResourceLocation id()
         {
             return new ResourceLocation(GemstonePower.MOD_ID, this.id.getPath() + "_using_alloy_smelter");
         }
 
         @Override
-        public RecipeSerializer<?> getType()
+        public RecipeSerializer<?> type()
         {
             return ModRecipes.ALLOY_SMELTER_RECIPE_SERIALIZER.get();
         }
 
         @Nullable
         @Override
-        public JsonObject serializeAdvancement()
+        public AdvancementHolder advancement()
         {
-            return this.advancement.serializeToJson();
-        }
-
-        @Nullable
-        @Override
-        public ResourceLocation getAdvancementId()
-        {
-            return this.advancementId;
+            return advancement;
         }
     }
 }

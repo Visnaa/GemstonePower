@@ -2,16 +2,12 @@
   "type": "gemstonepower:gemstone_manipulator",
   "count": 1,
   "energyUsage": 160,
-  "inputs": [
-    {
-      "tag": "forge:gems/emerald"
-    },
-    {
-      "tag": "forge:gems/emerald"
-    }
-  ],
-  "output": {
-    "item": "minecraft:diamond"
+  "input1": {
+    "tag": "forge:gems/emerald"
   },
+  "input2": {
+    "tag": "forge:gems/emerald"
+  },
+  "output": "minecraft:diamond",
   "processingTime": 800
 }

@@ -6,8 +6,6 @@
     "item": "gemstonepower:aluminum_ingot"
   },
   "mode": "extruding",
-  "output": {
-    "item": "gemstonepower:aluminum_wire"
-  },
+  "output": "gemstonepower:aluminum_wire",
   "processingTime": 200
 }

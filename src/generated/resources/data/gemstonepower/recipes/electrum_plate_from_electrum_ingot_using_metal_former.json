@@ -6,8 +6,6 @@
     "item": "gemstonepower:electrum_ingot"
   },
   "mode": "pressing",
-  "output": {
-    "item": "gemstonepower:electrum_plate"
-  },
+  "output": "gemstonepower:electrum_plate",
   "processingTime": 200
 }

@@ -5,8 +5,6 @@
   "input": {
     "item": "minecraft:chest"
   },
-  "output": {
-    "item": "minecraft:stick"
-  },
+  "output": "minecraft:stick",
   "processingTime": 150
 }

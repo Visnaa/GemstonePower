@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_platinum_plate",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_platinum_plate"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:platinum_dust_from_platinum_plate"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

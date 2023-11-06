@@ -6,8 +6,6 @@
     "item": "gemstonepower:silver_ingot"
   },
   "mode": "rolling",
-  "output": {
-    "item": "gemstonepower:silver_rod"
-  },
+  "output": "gemstonepower:silver_rod",
   "processingTime": 200
 }

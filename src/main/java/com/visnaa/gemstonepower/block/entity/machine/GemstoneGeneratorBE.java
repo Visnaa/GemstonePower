@@ -12,6 +12,7 @@ import com.visnaa.gemstonepower.network.packet.EnergySyncS2C;
 import com.visnaa.gemstonepower.network.packet.RecipeProgressSyncS2C;
 import com.visnaa.gemstonepower.util.MachineUtil;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -31,7 +32,7 @@ public class GemstoneGeneratorBE extends MachineBE<GemstoneGeneratorRecipe>
 
         if (!this.items.get(0).isEmpty())
         {
-            GemstoneGeneratorRecipe recipe;
+            RecipeHolder<GemstoneGeneratorRecipe> recipe;
             recipe = this.quickCheck.getRecipeFor(this, level).orElse(null);
 
             if (recipe != null)
@@ -40,8 +41,8 @@ public class GemstoneGeneratorBE extends MachineBE<GemstoneGeneratorRecipe>
                 if (this.processingProgress == this.processingTotalTime)
                 {
                     this.processingProgress = 0;
-                    this.processingTotalTime = getTotalTime(level, this, recipe);
-                    this.energyStorage.addEnergy(MachineUtil.getGeneration(state, recipe.getEnergy()));
+                    this.processingTotalTime = getTotalTime(level, this, recipe.value());
+                    this.energyStorage.addEnergy(MachineUtil.getGeneration(state, recipe.value().getEnergy()));
                     this.items.get(0).shrink(1);
                 }
                 changed = true;
@@ -74,7 +75,7 @@ public class GemstoneGeneratorBE extends MachineBE<GemstoneGeneratorRecipe>
         return new EnergyStorage(MachineUtil.getCapacity(this.getBlockState(), ServerConfig.DEFAULT_GENERATOR_CAPACITY.get()), 0, Integer.MAX_VALUE) {
             @Override
             public void onEnergyChanged() {
-                if (!level.isClientSide())
+                if (level != null && !level.isClientSide())
                     ModPackets.sendToClient(new EnergySyncS2C(getEnergy(), getCapacity(), getBlockPos()));
             }
 

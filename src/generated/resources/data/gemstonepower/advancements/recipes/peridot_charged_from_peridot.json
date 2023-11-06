@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_peridot",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_peridot"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:peridot_charged_from_peridot"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

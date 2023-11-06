@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_azurite_crystal_seed",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_azurite_crystal_seed"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:azurite_crystal_from_azurite_crystal_seed"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

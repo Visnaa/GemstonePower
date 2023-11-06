@@ -4,16 +4,12 @@
   "amount2": 1,
   "count": 3,
   "energyUsage": 80,
-  "inputs": [
-    {
-      "item": "minecraft:iron_ingot"
-    },
-    {
-      "item": "gemstonepower:nickel_ingot"
-    }
-  ],
-  "output": {
-    "item": "gemstonepower:invar_ingot"
+  "input1": {
+    "item": "minecraft:iron_ingot"
   },
+  "input2": {
+    "item": "gemstonepower:nickel_ingot"
+  },
+  "output": "gemstonepower:invar_ingot",
   "processingTime": 400
 }

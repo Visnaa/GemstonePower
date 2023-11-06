@@ -48,6 +48,7 @@ public class PortableTank extends Item
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand)
     {
         ItemStack stack = player.getItemInHand(hand);
+        saveData(stack);
         if (!stack.is(ModItems.PORTABLE_TANK.get()))
             return InteractionResultHolder.pass(stack);
 
@@ -73,7 +74,7 @@ public class PortableTank extends Item
 
                     if (state.getBlock() instanceof SimpleWaterloggedBlock waterloggedBlock)
                     {
-                        if (!waterloggedBlock.canPlaceLiquid(level, pos, state, fluid))
+                        if (!waterloggedBlock.canPlaceLiquid(player, level, pos, state, fluid))
                             return InteractionResultHolder.pass(stack);
                         waterloggedBlock.placeLiquid(level, pos, state, fluid.defaultFluidState());
                     }
@@ -93,7 +94,7 @@ public class PortableTank extends Item
 
                     if (state.getBlock() instanceof SimpleWaterloggedBlock waterloggedBlock)
                     {
-                        if (waterloggedBlock.pickupBlock(level, pos, state).isEmpty())
+                        if (waterloggedBlock.pickupBlock(player, level, pos, state).isEmpty())
                             return InteractionResultHolder.pass(stack);
                     }
                     else

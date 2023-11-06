@@ -20,8 +20,8 @@
   },
   "requirements": [
     [
-      "has_emerald",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_emerald"
     ]
   ],
   "rewards": {
@@ -29,5 +29,5 @@
       "gemstonepower:diamond"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

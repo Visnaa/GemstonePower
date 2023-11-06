@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:tanzanite_seed"
   },
-  "output": {
-    "item": "gemstonepower:tanzanite"
-  },
+  "output": "gemstonepower:tanzanite",
   "processingTime": 200
 }

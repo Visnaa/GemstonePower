@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_sapphire_arrow",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_sapphire_arrow"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:charged_sapphire_arrow_from_sapphire_arrow"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

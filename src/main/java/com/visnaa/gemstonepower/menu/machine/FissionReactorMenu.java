@@ -4,7 +4,6 @@ import com.visnaa.gemstonepower.block.entity.FissionReactorBE;
 import com.visnaa.gemstonepower.init.ModMenus;
 import com.visnaa.gemstonepower.init.ModRecipes;
 import com.visnaa.gemstonepower.menu.MenuData;
-import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;

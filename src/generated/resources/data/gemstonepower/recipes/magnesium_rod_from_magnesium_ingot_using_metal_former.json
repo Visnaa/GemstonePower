@@ -6,8 +6,6 @@
     "item": "gemstonepower:magnesium_ingot"
   },
   "mode": "rolling",
-  "output": {
-    "item": "gemstonepower:magnesium_rod"
-  },
+  "output": "gemstonepower:magnesium_rod",
   "processingTime": 200
 }

@@ -20,8 +20,8 @@
   },
   "requirements": [
     [
-      "has_crimson_stem",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_crimson_stem"
     ]
   ],
   "rewards": {
@@ -29,5 +29,5 @@
       "gemstonepower:crimson_planks_from_crimson_stem"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

@@ -4,16 +4,12 @@
   "amount2": 1,
   "count": 2,
   "energyUsage": 80,
-  "inputs": [
-    {
-      "item": "gemstonepower:constantan_tiny_pile"
-    },
-    {
-      "item": "gemstonepower:nickel_tiny_pile"
-    }
-  ],
-  "output": {
+  "input1": {
     "item": "gemstonepower:constantan_tiny_pile"
   },
+  "input2": {
+    "item": "gemstonepower:nickel_tiny_pile"
+  },
+  "output": "gemstonepower:constantan_tiny_pile",
   "processingTime": 400
 }

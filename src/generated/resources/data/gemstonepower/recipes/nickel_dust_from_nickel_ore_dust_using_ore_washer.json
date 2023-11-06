@@ -1,5 +1,11 @@
 {
   "type": "gemstonepower:ore_washer",
+  "counts": [
+    1,
+    1,
+    1,
+    1
+  ],
   "energyUsage": 40,
   "fluid": {
     "amount": 250,
@@ -8,23 +14,11 @@
   "input": {
     "item": "gemstonepower:nickel_ore_dust"
   },
-  "outputs": {
-    "output0": {
-      "count": 1,
-      "item": "gemstonepower:nickel_dust"
-    },
-    "output1": {
-      "count": 1,
-      "item": "gemstonepower:platinum_tiny_pile"
-    },
-    "output2": {
-      "count": 1,
-      "item": "gemstonepower:opal"
-    },
-    "output3": {
-      "count": 1,
-      "item": "gemstonepower:beryllium"
-    }
-  },
+  "outputs": [
+    "gemstonepower:nickel_dust",
+    "gemstonepower:platinum_tiny_pile",
+    "gemstonepower:opal",
+    "gemstonepower:beryllium"
+  ],
   "processingTime": 400
 }

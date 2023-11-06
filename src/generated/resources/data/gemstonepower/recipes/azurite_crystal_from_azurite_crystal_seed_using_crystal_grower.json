@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:azurite_crystal_seed"
   },
-  "output": {
-    "item": "gemstonepower:azurite_crystal"
-  },
+  "output": "gemstonepower:azurite_crystal",
   "processingTime": 200
 }

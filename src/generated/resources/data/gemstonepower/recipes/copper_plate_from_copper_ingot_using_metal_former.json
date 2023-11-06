@@ -6,8 +6,6 @@
     "item": "minecraft:copper_ingot"
   },
   "mode": "pressing",
-  "output": {
-    "item": "gemstonepower:copper_plate"
-  },
+  "output": "gemstonepower:copper_plate",
   "processingTime": 200
 }

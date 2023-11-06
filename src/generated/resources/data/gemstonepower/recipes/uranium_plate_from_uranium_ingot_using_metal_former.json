@@ -6,8 +6,6 @@
     "item": "gemstonepower:uranium_ingot"
   },
   "mode": "pressing",
-  "output": {
-    "item": "gemstonepower:uranium_plate"
-  },
+  "output": "gemstonepower:uranium_plate",
   "processingTime": 200
 }

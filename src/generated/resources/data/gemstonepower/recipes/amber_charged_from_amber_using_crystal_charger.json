@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:amber"
   },
-  "output": {
-    "item": "gemstonepower:amber_charged"
-  },
+  "output": "gemstonepower:amber_charged",
   "processingTime": 200
 }

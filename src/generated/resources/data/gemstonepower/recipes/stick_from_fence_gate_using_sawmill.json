@@ -5,8 +5,6 @@
   "input": {
     "tag": "minecraft:fence_gates"
   },
-  "output": {
-    "item": "minecraft:stick"
-  },
+  "output": "minecraft:stick",
   "processingTime": 150
 }

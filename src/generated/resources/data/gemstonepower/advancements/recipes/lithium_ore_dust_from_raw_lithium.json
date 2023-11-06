@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_raw_lithium",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_raw_lithium"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:lithium_ore_dust_from_raw_lithium"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

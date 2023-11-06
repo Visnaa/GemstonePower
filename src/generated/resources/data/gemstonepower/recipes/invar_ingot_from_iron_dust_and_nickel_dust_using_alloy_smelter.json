@@ -4,16 +4,12 @@
   "amount2": 1,
   "count": 3,
   "energyUsage": 80,
-  "inputs": [
-    {
-      "item": "gemstonepower:iron_dust"
-    },
-    {
-      "item": "gemstonepower:nickel_dust"
-    }
-  ],
-  "output": {
-    "item": "gemstonepower:invar_dust"
+  "input1": {
+    "item": "gemstonepower:iron_dust"
   },
+  "input2": {
+    "item": "gemstonepower:nickel_dust"
+  },
+  "output": "gemstonepower:invar_dust",
   "processingTime": 400
 }

@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:citrine_arrow"
   },
-  "output": {
-    "item": "gemstonepower:charged_citrine_arrow"
-  },
+  "output": "gemstonepower:charged_citrine_arrow",
   "processingTime": 250
 }

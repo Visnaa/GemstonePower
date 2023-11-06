@@ -1,4 +1,4 @@
-// 1.20.1	2023-10-08T17:53:47.0268595	Tags for minecraft:worldgen/biome mod id gemstonepower
+// 1.20.2	2023-11-05T15:41:26.3648458	Tags for minecraft:worldgen/biome mod id gemstonepower
 93cda91674706cb9ca4fe1bc76d24faccbc5c967 data/forge/tags/worldgen/biome/is_dry/overworld.json
 93cda91674706cb9ca4fe1bc76d24faccbc5c967 data/forge/tags/worldgen/biome/is_plains.json
 c9a03b294764f6ed8f300f678878808731219b63 data/gemstonepower/tags/worldgen/biome/resin_tree_spawn.json

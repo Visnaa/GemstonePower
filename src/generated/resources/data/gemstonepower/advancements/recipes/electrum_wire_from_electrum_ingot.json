@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_electrum_ingot",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_electrum_ingot"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:electrum_wire_from_electrum_ingot"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

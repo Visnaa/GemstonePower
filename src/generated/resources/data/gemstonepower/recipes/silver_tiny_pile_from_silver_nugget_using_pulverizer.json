@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:silver_nugget"
   },
-  "output": {
-    "item": "gemstonepower:silver_tiny_pile"
-  },
+  "output": "gemstonepower:silver_tiny_pile",
   "processingTime": 200
 }

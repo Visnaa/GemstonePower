@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_constantan_rod",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_constantan_rod"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:constantan_rod_polarized_from_constantan_rod"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

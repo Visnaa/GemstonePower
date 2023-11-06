@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_deepslate_zinc_ore",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_deepslate_zinc_ore"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:zinc_ore_dust_from_deepslate_zinc_ore"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

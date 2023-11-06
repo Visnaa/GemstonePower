@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_platinum_ingot",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_platinum_ingot"
     ]
   ],
   "rewards": {
@@ -31,5 +31,5 @@
       "gemstonepower:platinum_dust_from_platinum_ingot"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:topaz_seed"
   },
-  "output": {
-    "item": "gemstonepower:topaz"
-  },
+  "output": "gemstonepower:topaz",
   "processingTime": 200
 }

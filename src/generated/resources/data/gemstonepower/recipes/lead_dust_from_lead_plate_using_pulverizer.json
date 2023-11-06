@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:lead_plate"
   },
-  "output": {
-    "item": "gemstonepower:lead_dust"
-  },
+  "output": "gemstonepower:lead_dust",
   "processingTime": 200
 }

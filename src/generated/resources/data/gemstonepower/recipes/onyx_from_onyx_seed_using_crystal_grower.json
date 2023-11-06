@@ -5,8 +5,6 @@
   "input": {
     "item": "gemstonepower:onyx_seed"
   },
-  "output": {
-    "item": "gemstonepower:onyx"
-  },
+  "output": "gemstonepower:onyx",
   "processingTime": 200
 }

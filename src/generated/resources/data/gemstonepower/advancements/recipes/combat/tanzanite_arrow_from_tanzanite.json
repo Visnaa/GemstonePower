@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_tanzanite",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_tanzanite"
     ]
   ],
   "rewards": {
