@@ -14,8 +14,8 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.energy.IEnergyStorage;
+import net.neoforged.neoforge.common.capabilities.Capabilities;
+import net.neoforged.neoforge.energy.IEnergyStorage;
 
 public abstract class CableBE extends PipeBE
 {
@@ -58,7 +58,7 @@ public abstract class CableBE extends PipeBE
                 level.setBlockAndUpdate(pos, state = level.getBlockState(pos).setValue(PipeBlock.CONNECTIONS.get(direction), "false"));
                 setChanged(level, pos, state);
             }
-            else if (be != null && (getClass().isAssignableFrom(be.getClass()) || be.getCapability(ForgeCapabilities.ENERGY, direction).isPresent()) && state.getValue(PipeBlock.CONNECTIONS.get(direction)).equals("false"))
+            else if (be != null && (getClass().isAssignableFrom(be.getClass()) || be.getCapability(Capabilities.ENERGY, direction).isPresent()) && state.getValue(PipeBlock.CONNECTIONS.get(direction)).equals("false"))
             {
                 level.setBlockAndUpdate(pos, state = level.getBlockState(pos).setValue(PipeBlock.CONNECTIONS.get(direction), "true"));
                 setChanged(level, pos, state);
@@ -92,9 +92,9 @@ public abstract class CableBE extends PipeBE
         for (Direction direction : Direction.values())
         {
             BlockEntity be = level.getBlockEntity(pos.relative(direction));
-            if (be != null && be.getCapability(ForgeCapabilities.ENERGY, direction).isPresent())
+            if (be != null && be.getCapability(Capabilities.ENERGY, direction).isPresent())
             {
-                IEnergyStorage handler = be.getCapability(ForgeCapabilities.ENERGY, direction).orElse(EnergyStorage.EMPTY);
+                IEnergyStorage handler = be.getCapability(Capabilities.ENERGY, direction).orElse(EnergyStorage.EMPTY);
                 if (handler == EnergyStorage.EMPTY)
                     continue;
 

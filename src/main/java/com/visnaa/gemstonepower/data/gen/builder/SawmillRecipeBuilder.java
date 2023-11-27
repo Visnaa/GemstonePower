@@ -6,6 +6,7 @@ import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.init.ModRecipes;
 import net.minecraft.advancements.*;
 import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.data.recipes.RecipeOutput;
@@ -13,7 +14,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
@@ -98,7 +98,7 @@ public class SawmillRecipeBuilder implements RecipeBuilder
         {
             json.add("input", this.input.toJson(false));
 
-            json.add("output", new JsonPrimitive(ForgeRegistries.ITEMS.getKey(output).toString()));
+            json.add("output", new JsonPrimitive(BuiltInRegistries.ITEM.getKey(output).toString()));
 
             json.addProperty("count", this.count);
             json.addProperty("processingTime", this.processingTime);

@@ -2,23 +2,18 @@ package com.visnaa.gemstonepower.data.gen.builder;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
-import com.mojang.serialization.Codec;
-import com.mojang.serialization.JsonOps;
-import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.visnaa.gemstonepower.GemstonePower;
-import com.visnaa.gemstonepower.data.recipe.GemstoneManipulatorRecipe;
 import com.visnaa.gemstonepower.init.ModRecipes;
 import net.minecraft.advancements.*;
 import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
@@ -99,28 +94,17 @@ public class GemstoneManipulatorRecipeBuilder implements RecipeBuilder
             this.advancement = advancement;
         }
 
-        private final Codec<GemstoneManipulatorRecipe> CODEC = RecordCodecBuilder.create(builder -> builder.group(
-                Ingredient.CODEC_NONEMPTY.fieldOf("input1").forGetter(recipe -> recipe.getIngredients().get(0)),
-                Ingredient.CODEC_NONEMPTY.fieldOf("input2").forGetter(recipe -> recipe.getIngredients().get(1)),
-                ForgeRegistries.ITEMS.getCodec().xmap(ItemStack::new, ItemStack::getItem).fieldOf("output").forGetter(recipe -> recipe.getResultItem(null)),
-                Codec.INT.fieldOf("count").forGetter(GemstoneManipulatorRecipe::getCount),
-                Codec.INT.fieldOf("processingTime").forGetter(GemstoneManipulatorRecipe::getProcessingTime),
-                Codec.INT.fieldOf("energyUsage").forGetter(GemstoneManipulatorRecipe::getEnergyUsage)
-        ).apply(builder, GemstoneManipulatorRecipe::new));
-
         @Override
         public void serializeRecipeData(JsonObject json)
         {
             json.add("input1", inputs.get(0).toJson(false));
             json.add("input2", inputs.get(1).toJson(false));
 
-            json.add("output", new JsonPrimitive(ForgeRegistries.ITEMS.getKey(output).toString()));
+            json.add("output", new JsonPrimitive(BuiltInRegistries.ITEM.getKey(output).toString()));
 
             json.addProperty("count", this.count);
             json.addProperty("processingTime", this.processingTime);
             json.addProperty("energyUsage", this.energyUsage);
-
-            System.out.println(CODEC.decode(JsonOps.INSTANCE, json));
         }
 
         @Override

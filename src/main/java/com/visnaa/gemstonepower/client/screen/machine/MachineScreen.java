@@ -18,12 +18,15 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.capability.templates.FluidTank;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
+import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
+import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
 
 import java.util.List;
 
+@OnlyIn(Dist.CLIENT)
 public abstract class MachineScreen<T extends MachineMenu> extends AbstractContainerScreen<T>
 {
     protected static WidgetSprites CLIENT_CONFIG_SPRITES = new WidgetSprites(GemstonePower.getId("client_config_button/default"), GemstonePower.getId("client_config_button/default_highlighted"));

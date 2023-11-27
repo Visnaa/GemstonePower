@@ -7,6 +7,7 @@ import com.visnaa.gemstonepower.init.ModBlocks;
 import com.visnaa.gemstonepower.init.ModRecipes;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
@@ -15,7 +16,6 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.Nullable;
 
 public class AlloySmelterRecipe implements EnergyRecipe
@@ -143,7 +143,7 @@ public class AlloySmelterRecipe implements EnergyRecipe
                 Ingredient.CODEC_NONEMPTY.fieldOf("input2").forGetter(recipe -> recipe.getIngredients().get(1)),
                 Codec.INT.fieldOf("amount1").forGetter(AlloySmelterRecipe::getAmount1),
                 Codec.INT.fieldOf("amount2").forGetter(AlloySmelterRecipe::getAmount2),
-                ForgeRegistries.ITEMS.getCodec().xmap(ItemStack::new, ItemStack::getItem).fieldOf("output").forGetter(recipe -> recipe.getResultItem(null)),
+                BuiltInRegistries.ITEM.byNameCodec().xmap(ItemStack::new, ItemStack::getItem).fieldOf("output").forGetter(recipe -> recipe.getResultItem(null)),
                 Codec.INT.fieldOf("count").forGetter(AlloySmelterRecipe::getCount),
                 Codec.INT.fieldOf("processingTime").forGetter(AlloySmelterRecipe::getProcessingTime),
                 Codec.INT.fieldOf("energyUsage").forGetter(AlloySmelterRecipe::getEnergyUsage)

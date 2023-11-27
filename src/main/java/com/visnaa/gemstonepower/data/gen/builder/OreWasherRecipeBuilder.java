@@ -9,6 +9,7 @@ import com.visnaa.gemstonepower.init.ModRecipes;
 import net.minecraft.advancements.*;
 import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.data.recipes.RecipeOutput;
@@ -16,8 +17,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.fluids.FluidStack;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
@@ -108,7 +108,7 @@ public class OreWasherRecipeBuilder implements RecipeBuilder
             json.add("fluid", FluidRecipe.toJson(this.fluid));
 
             JsonArray outputs = new JsonArray();
-            this.outputs.forEach(item -> outputs.add(new JsonPrimitive(ForgeRegistries.ITEMS.getKey(item).toString())));
+            this.outputs.forEach(item -> outputs.add(new JsonPrimitive(BuiltInRegistries.ITEM.getKey(item).toString())));
             json.add("outputs", outputs);
 
             JsonArray counts = new JsonArray();

@@ -1,5 +1,9 @@
 <h1 style="font-size: 40px">Gemstone Power version changelog</h1>
 
+<h3>Version: Beta 0.3.5</h3>
+<li>Added support for NeoForge 1.20.2
+<li>Removed support for Forge 1.20.2
+
 <h3>Version: Beta 0.3.4</h3>
 <li>Updated to Forge 1.20.2
 <li>Fixed interactions between portable tank and fluid tank

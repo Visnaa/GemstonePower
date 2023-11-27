@@ -4,24 +4,24 @@ import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.block.pipe.PipeBlock;
 import com.visnaa.gemstonepower.init.ModBlocks;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RotatedPillarBlock;
-import net.minecraftforge.client.model.generators.BlockModelBuilder;
-import net.minecraftforge.client.model.generators.BlockStateProvider;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.minecraftforge.client.model.generators.ModelFile;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
+import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
+import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import static net.minecraft.world.level.block.state.properties.BlockStateProperties.*;
 
 public class BlockModelGenerator extends BlockStateProvider
 {
-    public BlockModelGenerator(PackOutput output, ExistingFileHelper exFileHelper)
+    public BlockModelGenerator(PackOutput output, ExistingFileHelper existingFileHelper)
     {
-        super(output, GemstonePower.MOD_ID, exFileHelper);
+        super(output, GemstonePower.MOD_ID, existingFileHelper);
     }
 
     @Override
@@ -314,7 +314,7 @@ public class BlockModelGenerator extends BlockStateProvider
 
     public BlockModelBuilder parent(Block block, String parentName)
     {
-        return parent(ForgeRegistries.BLOCKS.getKey(block).getPath(), parentName);
+        return parent(BuiltInRegistries.BLOCK.getKey(block).getPath(), parentName);
     }
 
     public BlockModelBuilder parent(String block, String parentName)
@@ -456,7 +456,7 @@ public class BlockModelGenerator extends BlockStateProvider
     public void cable(Block block, String rubberTexture, String wireTexture)
     {
         this.blockItem(block, "cable_dot");
-        String blockName = ForgeRegistries.BLOCKS.getKey(block).getPath();
+        String blockName = BuiltInRegistries.BLOCK.getKey(block).getPath();
         this.getMultipartBuilder(block)
             .part()
                 .modelFile(parent(blockName + "_dot", "cable_dot")

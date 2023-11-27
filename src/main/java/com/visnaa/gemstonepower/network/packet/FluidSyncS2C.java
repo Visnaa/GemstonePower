@@ -4,8 +4,8 @@ import com.visnaa.gemstonepower.block.entity.FluidStorageBE;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraftforge.event.network.CustomPayloadEvent;
-import net.minecraftforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.network.NetworkEvent;
 
 public class FluidSyncS2C
 {
@@ -38,7 +38,7 @@ public class FluidSyncS2C
         buffer.writeBlockPos(pos);
     }
 
-    public void handle(CustomPayloadEvent.Context context)
+    public void handle(NetworkEvent.Context context)
     {
         context.enqueueWork(() -> {
             if (Minecraft.getInstance().level != null && Minecraft.getInstance().level.getBlockEntity(pos) instanceof FluidStorageBE blockEntity)

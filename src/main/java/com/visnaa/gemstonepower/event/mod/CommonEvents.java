@@ -7,18 +7,18 @@ import com.visnaa.gemstonepower.init.ModRecipes;
 import com.visnaa.gemstonepower.network.ModPackets;
 import net.minecraft.Util;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.data.registries.VanillaRegistries;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.data.event.GatherDataEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegisterEvent;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.data.event.GatherDataEvent;
+import net.neoforged.neoforge.registries.RegisterEvent;
 
 import java.util.List;
 import java.util.Set;
@@ -36,7 +36,7 @@ public class CommonEvents
     @SubscribeEvent
     public static void registerRecipeTypes(RegisterEvent event)
     {
-        event.register(ForgeRegistries.Keys.RECIPE_TYPES, helper -> {
+        event.register(BuiltInRegistries.RECIPE_TYPE.key(), helper -> {
             helper.register(GemstoneGeneratorRecipe.TYPE_ID, ModRecipes.GEMSTONE_GENERATOR_RECIPE);
             helper.register(CrystalGrowerRecipe.TYPE_ID, ModRecipes.CRYSTAL_GROWER_RECIPE);
             helper.register(CrystalChargerRecipe.TYPE_ID, ModRecipes.CRYSTAL_CHARGER_RECIPE);
@@ -63,7 +63,7 @@ public class CommonEvents
         generator.addProvider(true, new EN_US_LanguageGenerator(generator.getPackOutput()));
 
         // Server
-        generator.addProvider(true, new RecipeGenerator(generator.getPackOutput()));
+        generator.addProvider(true, new RecipeGenerator(generator.getPackOutput(), completablefuture));
         generator.addProvider(true, new LootTableProvider(generator.getPackOutput(), Set.of(), List.of(new LootTableProvider.SubProviderEntry(BlockLootGenerator::new, LootContextParamSets.BLOCK))));
         generator.addProvider(true, new ItemTagGenerator(generator.getPackOutput(), Registries.ITEM, completablefuture, existingFileHelper));
         generator.addProvider(true, new BlockTagGenerator(generator.getPackOutput(), Registries.BLOCK, completablefuture, existingFileHelper));

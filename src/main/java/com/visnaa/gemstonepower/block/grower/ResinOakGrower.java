@@ -11,7 +11,7 @@ public class ResinOakGrower extends AbstractTreeGrower
 {
     @Nullable
     @Override
-    protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource source, boolean p_222911_)
+    protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource source, boolean hasFlowers)
     {
         return ModConfiguredFeatures.RESIN_TREE;
     }

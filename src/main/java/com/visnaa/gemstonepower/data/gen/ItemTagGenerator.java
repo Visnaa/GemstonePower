@@ -3,24 +3,24 @@ package com.visnaa.gemstonepower.data.gen;
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.init.ModArmors;
 import com.visnaa.gemstonepower.init.ModItems;
+import com.visnaa.gemstonepower.init.ModTags;
 import com.visnaa.gemstonepower.init.ModTools;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
 
 import static com.visnaa.gemstonepower.data.tag.CommonTags.Items.*;
-import static com.visnaa.gemstonepower.init.ModTags.GEMS;
 import static com.visnaa.gemstonepower.init.ModTags.*;
 import static net.minecraft.tags.ItemTags.*;
-import static net.minecraftforge.common.Tags.Items.*;
+import static net.neoforged.neoforge.common.Tags.Items.*;
 
 public class ItemTagGenerator extends TagsProvider<Item>
 {
@@ -36,7 +36,7 @@ public class ItemTagGenerator extends TagsProvider<Item>
                 .add(ModItems.LIGHT_GEMSTONE.getKey())
                 .add(ModItems.DARK_GEMSTONE.getKey());
 
-        this.tag(GEMS)
+        this.tag(ModTags.GEMS)
                 .add(ModItems.RUBY.getKey())
                 .add(ModItems.SAPPHIRE.getKey())
                 .add(ModItems.AQUAMARINE.getKey())
@@ -687,42 +687,42 @@ public class ItemTagGenerator extends TagsProvider<Item>
                 .add(ModArmors.STEEL_BOOTS.getKey());
 
         this.tag(ARROWS)
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.RUBY_ARROW.get()).get())
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.SAPPHIRE_ARROW.get()).get())
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.AQUAMARINE_ARROW.get()).get())
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.JADE_ARROW.get()).get())
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.OPAL_ARROW.get()).get())
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.YELLOW_DIAMOND_ARROW.get()).get())
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.AMBER_ARROW.get()).get())
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.TOPAZ_ARROW.get()).get())
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.BERYLLIUM_ARROW.get()).get())
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.BIXBIT_ARROW.get()).get())
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.MALACHITE_ARROW.get()).get())
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.ONYX_ARROW.get()).get())
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.PERIDOT_ARROW.get()).get())
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.MOON_STONE_ARROW.get()).get())
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.SUN_STONE_ARROW.get()).get())
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.CITRINE_ARROW.get()).get())
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.DOLOMITE_ARROW.get()).get())
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.TANZANITE_ARROW.get()).get())
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.RUBY_ARROW.get()).get())
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.SAPPHIRE_ARROW.get()).get())
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.AQUAMARINE_ARROW.get()).get())
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.JADE_ARROW.get()).get())
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.OPAL_ARROW.get()).get())
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.YELLOW_DIAMOND_ARROW.get()).get())
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.AMBER_ARROW.get()).get())
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.TOPAZ_ARROW.get()).get())
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.BERYLLIUM_ARROW.get()).get())
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.BIXBIT_ARROW.get()).get())
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.MALACHITE_ARROW.get()).get())
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.ONYX_ARROW.get()).get())
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.PERIDOT_ARROW.get()).get())
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.MOON_STONE_ARROW.get()).get())
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.SUN_STONE_ARROW.get()).get())
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.CITRINE_ARROW.get()).get())
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.DOLOMITE_ARROW.get()).get())
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.TANZANITE_ARROW.get()).get())
 
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.CHARGED_RUBY_ARROW.get()).get())
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.CHARGED_SAPPHIRE_ARROW.get()).get())
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.CHARGED_AQUAMARINE_ARROW.get()).get())
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.CHARGED_JADE_ARROW.get()).get())
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.CHARGED_OPAL_ARROW.get()).get())
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.CHARGED_YELLOW_DIAMOND_ARROW.get()).get())
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.CHARGED_AMBER_ARROW.get()).get())
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.CHARGED_TOPAZ_ARROW.get()).get())
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.CHARGED_BERYLLIUM_ARROW.get()).get())
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.CHARGED_BIXBIT_ARROW.get()).get())
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.CHARGED_MALACHITE_ARROW.get()).get())
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.CHARGED_ONYX_ARROW.get()).get())
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.CHARGED_PERIDOT_ARROW.get()).get())
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.CHARGED_MOON_STONE_ARROW.get()).get())
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.CHARGED_SUN_STONE_ARROW.get()).get())
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.CHARGED_CITRINE_ARROW.get()).get())
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.CHARGED_DOLOMITE_ARROW.get()).get())
-                .add(ForgeRegistries.ITEMS.getResourceKey(ModItems.CHARGED_TANZANITE_ARROW.get()).get());
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.CHARGED_RUBY_ARROW.get()).get())
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.CHARGED_SAPPHIRE_ARROW.get()).get())
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.CHARGED_AQUAMARINE_ARROW.get()).get())
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.CHARGED_JADE_ARROW.get()).get())
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.CHARGED_OPAL_ARROW.get()).get())
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.CHARGED_YELLOW_DIAMOND_ARROW.get()).get())
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.CHARGED_AMBER_ARROW.get()).get())
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.CHARGED_TOPAZ_ARROW.get()).get())
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.CHARGED_BERYLLIUM_ARROW.get()).get())
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.CHARGED_BIXBIT_ARROW.get()).get())
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.CHARGED_MALACHITE_ARROW.get()).get())
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.CHARGED_ONYX_ARROW.get()).get())
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.CHARGED_PERIDOT_ARROW.get()).get())
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.CHARGED_MOON_STONE_ARROW.get()).get())
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.CHARGED_SUN_STONE_ARROW.get()).get())
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.CHARGED_CITRINE_ARROW.get()).get())
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.CHARGED_DOLOMITE_ARROW.get()).get())
+                .add(BuiltInRegistries.ITEM.getResourceKey(ModItems.CHARGED_TANZANITE_ARROW.get()).get());
     }
 }

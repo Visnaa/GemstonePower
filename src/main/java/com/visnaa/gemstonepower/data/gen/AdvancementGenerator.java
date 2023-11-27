@@ -11,18 +11,18 @@ import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.network.chat.Component;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.common.data.ForgeAdvancementProvider;
+import net.neoforged.neoforge.common.data.AdvancementProvider;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
-public class AdvancementGenerator implements ForgeAdvancementProvider.AdvancementGenerator
+public class AdvancementGenerator implements AdvancementProvider.AdvancementGenerator
 {
-    public static ForgeAdvancementProvider create(PackOutput output, CompletableFuture<HolderLookup.Provider> completableFuture, ExistingFileHelper existingFileHelper)
+    public static AdvancementProvider create(PackOutput output, CompletableFuture<HolderLookup.Provider> completableFuture, ExistingFileHelper existingFileHelper)
     {
-        return new ForgeAdvancementProvider(output, completableFuture, existingFileHelper, List.of(new AdvancementGenerator()));
+        return new AdvancementProvider(output, completableFuture, existingFileHelper, List.of(new AdvancementGenerator()));
     }
 
     @Override

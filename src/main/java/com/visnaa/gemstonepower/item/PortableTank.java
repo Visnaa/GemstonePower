@@ -25,14 +25,14 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
-import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
-import net.minecraftforge.common.SoundActions;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.common.capabilities.ICapabilityProvider;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.FluidType;
-import net.minecraftforge.fluids.capability.IFluidHandler;
-import net.minecraftforge.fluids.capability.IFluidHandlerItem;
+import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
+import net.neoforged.neoforge.common.SoundActions;
+import net.neoforged.neoforge.common.capabilities.Capabilities;
+import net.neoforged.neoforge.common.capabilities.ICapabilityProvider;
+import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.FluidType;
+import net.neoforged.neoforge.fluids.capability.IFluidHandler;
+import net.neoforged.neoforge.fluids.capability.IFluidHandlerItem;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -61,7 +61,7 @@ public class PortableTank extends Item
             pos = hitResult.getBlockPos();
         BlockState state = level.getBlockState(pos);
 
-        IFluidHandlerItem handler = stack.getCapability(ForgeCapabilities.FLUID_HANDLER_ITEM).orElse(ItemFluidTank.EMPTY);
+        IFluidHandlerItem handler = stack.getCapability(Capabilities.FLUID_HANDLER_ITEM).orElse(ItemFluidTank.EMPTY);
         if (handler != ItemFluidTank.EMPTY)
         {
             if (level.mayInteract(player, pos) && player.mayUseItemAt(pos, hitResult.getDirection(), stack))
@@ -125,7 +125,7 @@ public class PortableTank extends Item
     {
         super.appendHoverText(stack, level, list, flag);
 
-        IFluidHandler handler = stack.getCapability(ForgeCapabilities.FLUID_HANDLER_ITEM).orElse(ItemFluidTank.EMPTY);
+        IFluidHandler handler = stack.getCapability(Capabilities.FLUID_HANDLER_ITEM).orElse(ItemFluidTank.EMPTY);
         if (handler != ItemFluidTank.EMPTY)
         {
             String fluidName = "Empty";
@@ -138,7 +138,7 @@ public class PortableTank extends Item
 
     private void saveData(ItemStack stack)
     {
-        IFluidHandlerItem handler = stack.getCapability(ForgeCapabilities.FLUID_HANDLER_ITEM).orElse(ItemFluidTank.EMPTY);
+        IFluidHandlerItem handler = stack.getCapability(Capabilities.FLUID_HANDLER_ITEM).orElse(ItemFluidTank.EMPTY);
         if (handler instanceof ItemFluidTank itemFluidTank && handler != ItemFluidTank.EMPTY)
         {
             stack.getOrCreateTag().put("FluidTank", itemFluidTank.writeToNBT(new CompoundTag()));
@@ -153,14 +153,14 @@ public class PortableTank extends Item
     @Override
     public boolean isBarVisible(ItemStack stack)
     {
-        IFluidHandler handler = stack.getCapability(ForgeCapabilities.FLUID_HANDLER_ITEM).orElse(ItemFluidTank.EMPTY);
+        IFluidHandler handler = stack.getCapability(Capabilities.FLUID_HANDLER_ITEM).orElse(ItemFluidTank.EMPTY);
         return !stack.isEmpty() && handler != ItemFluidTank.EMPTY && handler.getFluidInTank(0).getAmount() > 0;
     }
 
     @Override
     public int getBarWidth(ItemStack stack)
     {
-        IFluidHandler handler = stack.getCapability(ForgeCapabilities.FLUID_HANDLER_ITEM).orElse(ItemFluidTank.EMPTY);
+        IFluidHandler handler = stack.getCapability(Capabilities.FLUID_HANDLER_ITEM).orElse(ItemFluidTank.EMPTY);
         if (!stack.isEmpty() && handler != ItemFluidTank.EMPTY)
             return Math.round(handler.getFluidInTank(0).getAmount() * 13.0F / handler.getTankCapacity(0));
         return 0;
@@ -169,7 +169,7 @@ public class PortableTank extends Item
     @Override
     public int getBarColor(ItemStack stack)
     {
-        IFluidHandler handler = stack.getCapability(ForgeCapabilities.FLUID_HANDLER_ITEM).orElse(ItemFluidTank.EMPTY);
+        IFluidHandler handler = stack.getCapability(Capabilities.FLUID_HANDLER_ITEM).orElse(ItemFluidTank.EMPTY);
         if (!stack.isEmpty() && handler != ItemFluidTank.EMPTY)
             return Mth.hsvToRgb(Math.max(0.0F, (float) handler.getFluidInTank(0).getAmount() / handler.getTankCapacity(0)) / 3.0F, 1.0F, 1.0F);
         return 0x00FFFF;

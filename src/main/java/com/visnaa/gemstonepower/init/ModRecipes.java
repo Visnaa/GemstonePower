@@ -2,28 +2,28 @@ package com.visnaa.gemstonepower.init;
 
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.data.recipe.*;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 public final class ModRecipes
 {
-    public static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, GemstonePower.MOD_ID);
+    public static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = DeferredRegister.create(BuiltInRegistries.RECIPE_SERIALIZER, GemstonePower.MOD_ID);
 
-    public static final RegistryObject<GemstoneGeneratorRecipe.Serializer> GEMSTONE_GENERATOR_RECIPE_SERIALIZER = RECIPE_SERIALIZERS.register("gemstone_generator", GemstoneGeneratorRecipe.Serializer::new);
-    public static final RegistryObject<CrystalGrowerRecipe.Serializer> CRYSTAL_GROWER_RECIPE_SERIALIZER = RECIPE_SERIALIZERS.register("crystal_grower", CrystalGrowerRecipe.Serializer::new);
-    public static final RegistryObject<CrystalChargerRecipe.Serializer> CRYSTAL_CHARGER_RECIPE_SERIALIZER = RECIPE_SERIALIZERS.register("crystal_charger", CrystalChargerRecipe.Serializer::new);
-    public static final RegistryObject<MetalFormerRecipe.Serializer> METAL_FORMER_RECIPE_SERIALIZER = RECIPE_SERIALIZERS.register("metal_former", MetalFormerRecipe.Serializer::new);
-    public static final RegistryObject<PulverizerRecipe.Serializer> PULVERIZER_RECIPE_SERIALIZER = RECIPE_SERIALIZERS.register("pulverizer", PulverizerRecipe.Serializer::new);
-    public static final RegistryObject<AlloySmelterRecipe.Serializer> ALLOY_SMELTER_RECIPE_SERIALIZER = RECIPE_SERIALIZERS.register("alloy_smelter", AlloySmelterRecipe.Serializer::new);
-    public static final RegistryObject<ExtractorRecipe.Serializer> EXTRACTOR_RECIPE_SERIALIZER = RECIPE_SERIALIZERS.register("extractor", ExtractorRecipe.Serializer::new);
-    public static final RegistryObject<OreWasherRecipe.Serializer> ORE_WASHER_RECIPE_SERIALIZER = RECIPE_SERIALIZERS.register("ore_washer", OreWasherRecipe.Serializer::new);
-    public static final RegistryObject<SawmillRecipe.Serializer> SAWMILL_RECIPE_SERIALIZER = RECIPE_SERIALIZERS.register("sawmill", SawmillRecipe.Serializer::new);
-    public static final RegistryObject<PolarizerRecipe.Serializer> POLARIZER_RECIPE_SERIALIZER = RECIPE_SERIALIZERS.register("polarizer", PolarizerRecipe.Serializer::new);
-    public static final RegistryObject<GemstoneManipulatorRecipe.Serializer> GEMSTONE_MANIPULATOR_RECIPE_SERIALIZER = RECIPE_SERIALIZERS.register("gemstone_manipulator", GemstoneManipulatorRecipe.Serializer::new);
-    public static final RegistryObject<FissionReactorRecipe.Serializer> FISSION_REACTOR_RECIPE_SERIALIZER = RECIPE_SERIALIZERS.register("fission_reactor", FissionReactorRecipe.Serializer::new);
+    public static final DeferredHolder<RecipeSerializer<?>, GemstoneGeneratorRecipe.Serializer> GEMSTONE_GENERATOR_RECIPE_SERIALIZER = RECIPE_SERIALIZERS.register("gemstone_generator", GemstoneGeneratorRecipe.Serializer::new);
+    public static final DeferredHolder<RecipeSerializer<?>, CrystalGrowerRecipe.Serializer> CRYSTAL_GROWER_RECIPE_SERIALIZER = RECIPE_SERIALIZERS.register("crystal_grower", CrystalGrowerRecipe.Serializer::new);
+    public static final DeferredHolder<RecipeSerializer<?>, CrystalChargerRecipe.Serializer> CRYSTAL_CHARGER_RECIPE_SERIALIZER = RECIPE_SERIALIZERS.register("crystal_charger", CrystalChargerRecipe.Serializer::new);
+    public static final DeferredHolder<RecipeSerializer<?>, MetalFormerRecipe.Serializer> METAL_FORMER_RECIPE_SERIALIZER = RECIPE_SERIALIZERS.register("metal_former", MetalFormerRecipe.Serializer::new);
+    public static final DeferredHolder<RecipeSerializer<?>, PulverizerRecipe.Serializer> PULVERIZER_RECIPE_SERIALIZER = RECIPE_SERIALIZERS.register("pulverizer", PulverizerRecipe.Serializer::new);
+    public static final DeferredHolder<RecipeSerializer<?>, AlloySmelterRecipe.Serializer> ALLOY_SMELTER_RECIPE_SERIALIZER = RECIPE_SERIALIZERS.register("alloy_smelter", AlloySmelterRecipe.Serializer::new);
+    public static final DeferredHolder<RecipeSerializer<?>, ExtractorRecipe.Serializer> EXTRACTOR_RECIPE_SERIALIZER = RECIPE_SERIALIZERS.register("extractor", ExtractorRecipe.Serializer::new);
+    public static final DeferredHolder<RecipeSerializer<?>, OreWasherRecipe.Serializer> ORE_WASHER_RECIPE_SERIALIZER = RECIPE_SERIALIZERS.register("ore_washer", OreWasherRecipe.Serializer::new);
+    public static final DeferredHolder<RecipeSerializer<?>, SawmillRecipe.Serializer> SAWMILL_RECIPE_SERIALIZER = RECIPE_SERIALIZERS.register("sawmill", SawmillRecipe.Serializer::new);
+    public static final DeferredHolder<RecipeSerializer<?>, PolarizerRecipe.Serializer> POLARIZER_RECIPE_SERIALIZER = RECIPE_SERIALIZERS.register("polarizer", PolarizerRecipe.Serializer::new);
+    public static final DeferredHolder<RecipeSerializer<?>, GemstoneManipulatorRecipe.Serializer> GEMSTONE_MANIPULATOR_RECIPE_SERIALIZER = RECIPE_SERIALIZERS.register("gemstone_manipulator", GemstoneManipulatorRecipe.Serializer::new);
+    public static final DeferredHolder<RecipeSerializer<?>, FissionReactorRecipe.Serializer> FISSION_REACTOR_RECIPE_SERIALIZER = RECIPE_SERIALIZERS.register("fission_reactor", FissionReactorRecipe.Serializer::new);
 
     public static RecipeType<GemstoneGeneratorRecipe> GEMSTONE_GENERATOR_RECIPE = new GemstoneGeneratorRecipe.Type();
     public static RecipeType<CrystalGrowerRecipe> CRYSTAL_GROWER_RECIPE = new CrystalGrowerRecipe.Type();

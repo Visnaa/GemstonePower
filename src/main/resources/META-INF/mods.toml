@@ -1,21 +1,19 @@
 modLoader="javafml"
-loaderVersion="[46,)"
+loaderVersion="[1,)"
 license="All rights reserved"
 
 [[mods]]
-modId="gemstonepower"
-version="0.3.4"
-displayName="Gemstone Power"
-credits=""
-authors="Visnaa"
-description='''
-Processing mod with gems
-'''
+    modId="gemstonepower"
+    version="0.3.5"
+    displayName="Gemstone Power"
+    credits=""
+    authors="Visnaa"
+    description='''Processing mod with gems'''
 
 [[dependencies.gemstonepower]]
-    modId="forge"
+    modId="neoforge"
     mandatory=true
-    versionRange="[46,)"
+    versionRange="[1,)"
     ordering="NONE"
     side="BOTH"
 

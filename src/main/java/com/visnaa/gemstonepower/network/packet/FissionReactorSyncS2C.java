@@ -4,7 +4,7 @@ import com.visnaa.gemstonepower.block.entity.FissionReactorBE;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraftforge.event.network.CustomPayloadEvent;
+import net.neoforged.neoforge.network.NetworkEvent;
 
 public class FissionReactorSyncS2C
 {
@@ -53,7 +53,7 @@ public class FissionReactorSyncS2C
         buffer.writeBlockPos(pos);
     }
 
-    public void handle(CustomPayloadEvent.Context context)
+    public void handle(NetworkEvent.Context context)
     {
         context.enqueueWork(() -> {
             if (Minecraft.getInstance().level != null && Minecraft.getInstance().level.getBlockEntity(pos) instanceof FissionReactorBE reactor)

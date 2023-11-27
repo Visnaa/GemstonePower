@@ -8,12 +8,9 @@ import com.visnaa.gemstonepower.item.CrystalArrowItem;
 import com.visnaa.gemstonepower.item.metal.MetalGroup;
 import com.visnaa.gemstonepower.item.metal.MetalGroups;
 import com.visnaa.gemstonepower.util.MachineUtil.MachineModes;
-import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.advancements.Criterion;
-import net.minecraft.advancements.critereon.EnterBlockTrigger;
-import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.ItemPredicate;
-import net.minecraft.advancements.critereon.MinMaxBounds;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
@@ -21,21 +18,19 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraftforge.common.Tags;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.fluids.FluidStack;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
 
 public class RecipeGenerator extends RecipeProvider
 {
-    public RecipeGenerator(PackOutput output)
+    public RecipeGenerator(PackOutput output, CompletableFuture<HolderLookup.Provider> completableFuture)
     {
-        super(output);
+        super(output, completableFuture);
     }
 
     @Override
@@ -1394,41 +1389,31 @@ public class RecipeGenerator extends RecipeProvider
 
     private String hasName(ItemLike item)
     {
-        return "has_" + ForgeRegistries.ITEMS.getKey(item.asItem()).getPath();
-    }
-
-    private static Criterion<InventoryChangeTrigger.TriggerInstance> inventoryTrigger(ItemPredicate... predicates)
-    {
-        return CriteriaTriggers.INVENTORY_CHANGED.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(), MinMaxBounds.Ints.ANY, MinMaxBounds.Ints.ANY, MinMaxBounds.Ints.ANY, List.of(predicates)));
-    }
-
-    private static Criterion<EnterBlockTrigger.TriggerInstance> insideOf(Block block)
-    {
-        return CriteriaTriggers.ENTER_BLOCK.createCriterion(new EnterBlockTrigger.TriggerInstance(Optional.empty(), block, Optional.empty()));
+        return "has_" + BuiltInRegistries.ITEM.getKey(item.asItem()).getPath();
     }
 
     private ResourceLocation getFileName(ItemLike result, ItemLike input)
     {
         StringBuilder path = new StringBuilder();
-        path.append(ForgeRegistries.ITEMS.getKey(result.asItem()).getPath());
+        path.append(BuiltInRegistries.ITEM.getKey(result.asItem()).getPath());
         path.append("_from_");
-        path.append(ForgeRegistries.ITEMS.getKey(input.asItem()).getPath());
+        path.append(BuiltInRegistries.ITEM.getKey(input.asItem()).getPath());
         return new ResourceLocation(GemstonePower.MOD_ID, path.toString());
     }
 
     private ResourceLocation getFileName(ItemLike... items)
     {
         StringBuilder path = new StringBuilder();
-        path.append(ForgeRegistries.ITEMS.getKey(items[0].asItem()).getPath());
+        path.append(BuiltInRegistries.ITEM.getKey(items[0].asItem()).getPath());
         if (items.length > 1)
         {
             path.append("_from_");
             for (ItemLike item : items)
             {
                 if (item == items[items.length - 1])
-                    path.append(ForgeRegistries.ITEMS.getKey(item.asItem()).getPath());
+                    path.append(BuiltInRegistries.ITEM.getKey(item.asItem()).getPath());
                 else if (item != items[0])
-                    path.append(ForgeRegistries.ITEMS.getKey(item.asItem()).getPath()).append("_and_");
+                    path.append(BuiltInRegistries.ITEM.getKey(item.asItem()).getPath()).append("_and_");
             }
         }
         return new ResourceLocation(GemstonePower.MOD_ID, path.toString());

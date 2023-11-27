@@ -10,10 +10,10 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.common.capabilities.ICapabilityProvider;
-import net.minecraftforge.fluids.FluidType;
-import net.minecraftforge.fluids.capability.IFluidHandler;
+import net.neoforged.neoforge.common.capabilities.Capabilities;
+import net.neoforged.neoforge.common.capabilities.ICapabilityProvider;
+import net.neoforged.neoforge.fluids.FluidType;
+import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -39,7 +39,7 @@ public class TankItem extends BlockItem
     {
         super.appendHoverText(stack, level, list, flag);
 
-        IFluidHandler handler = stack.getCapability(ForgeCapabilities.FLUID_HANDLER_ITEM).orElse(ItemFluidTank.EMPTY);
+        IFluidHandler handler = stack.getCapability(Capabilities.FLUID_HANDLER_ITEM).orElse(ItemFluidTank.EMPTY);
         if (handler != ItemFluidTank.EMPTY)
         {
             String fluidName = "Empty";
@@ -53,14 +53,14 @@ public class TankItem extends BlockItem
     @Override
     public boolean isBarVisible(ItemStack stack)
     {
-        IFluidHandler handler = stack.getCapability(ForgeCapabilities.FLUID_HANDLER_ITEM).orElse(ItemFluidTank.EMPTY);
+        IFluidHandler handler = stack.getCapability(Capabilities.FLUID_HANDLER_ITEM).orElse(ItemFluidTank.EMPTY);
         return !stack.isEmpty() && handler != ItemFluidTank.EMPTY && handler.getFluidInTank(0).getAmount() > 0;
     }
 
     @Override
     public int getBarWidth(ItemStack stack)
     {
-        IFluidHandler handler = stack.getCapability(ForgeCapabilities.FLUID_HANDLER_ITEM).orElse(ItemFluidTank.EMPTY);
+        IFluidHandler handler = stack.getCapability(Capabilities.FLUID_HANDLER_ITEM).orElse(ItemFluidTank.EMPTY);
         if (!stack.isEmpty() && handler != ItemFluidTank.EMPTY)
             return Math.round(handler.getFluidInTank(0).getAmount() * 13.0F / handler.getTankCapacity(0));
         return 0;
@@ -69,7 +69,7 @@ public class TankItem extends BlockItem
     @Override
     public int getBarColor(ItemStack stack)
     {
-        IFluidHandler handler = stack.getCapability(ForgeCapabilities.FLUID_HANDLER_ITEM).orElse(ItemFluidTank.EMPTY);
+        IFluidHandler handler = stack.getCapability(Capabilities.FLUID_HANDLER_ITEM).orElse(ItemFluidTank.EMPTY);
         if (!stack.isEmpty() && handler != ItemFluidTank.EMPTY)
             return Mth.hsvToRgb(Math.max(0.0F, (float) handler.getFluidInTank(0).getAmount() / handler.getTankCapacity(0)) / 3.0F, 1.0F, 1.0F);
         return 0x00FFFF;

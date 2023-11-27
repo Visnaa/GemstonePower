@@ -29,7 +29,7 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraftforge.fluids.FluidUtil;
+import net.neoforged.neoforge.fluids.FluidUtil;
 
 import javax.annotation.Nullable;
 
@@ -61,7 +61,7 @@ public abstract class MachineBlock<T extends MachineBlock<T>> extends BaseEntity
     {
         if (level.getBlockEntity(pos) instanceof MachineBE<?> machine && !level.isClientSide() && player instanceof ServerPlayer serverPlayer)
         {
-            serverPlayer.openMenu(machine, pos);
+            serverPlayer.openMenu(machine);
         }
     }
 

@@ -15,12 +15,15 @@ import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.fluids.FluidStack;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
+import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
+import net.neoforged.neoforge.common.capabilities.Capabilities;
+import net.neoforged.neoforge.fluids.FluidStack;
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
 
+@OnlyIn(Dist.CLIENT)
 public class TankBER implements BlockEntityRenderer<TankBE>
 {
     private BlockEntityRendererProvider.Context context;
@@ -33,9 +36,9 @@ public class TankBER implements BlockEntityRenderer<TankBE>
     @Override
     public void render(TankBE blockEntity, float partialTicks, PoseStack stack, MultiBufferSource buffer, int light, int overlay)
     {
-        if (blockEntity.getCapability(ForgeCapabilities.FLUID_HANDLER).isPresent() && blockEntity.getLevel() != null)
+        if (blockEntity.getCapability(Capabilities.FLUID_HANDLER).isPresent() && blockEntity.getLevel() != null)
         {
-            FluidStack fluidStack = blockEntity.getCapability(ForgeCapabilities.FLUID_HANDLER).map(h -> h.getFluidInTank(0)).orElse(FluidStack.EMPTY);
+            FluidStack fluidStack = blockEntity.getCapability(Capabilities.FLUID_HANDLER).map(h -> h.getFluidInTank(0)).orElse(FluidStack.EMPTY);
             if (!fluidStack.getFluid().isSame(Fluids.EMPTY))
             {
                 VertexConsumer vertexConsumer = buffer.getBuffer(Sheets.translucentCullBlockSheet());
@@ -46,7 +49,7 @@ public class TankBER implements BlockEntityRenderer<TankBE>
                     return;
                 TextureAtlasSprite sprite = atlas.getSprite(texture);
 
-                float height = 15 * blockEntity.getCapability(ForgeCapabilities.FLUID_HANDLER).map(h -> (float) h.getFluidInTank(0).getAmount() / h.getTankCapacity(0)).orElse(0F) / 16F;
+                float height = 15 * blockEntity.getCapability(Capabilities.FLUID_HANDLER).map(h -> (float) h.getFluidInTank(0).getAmount() / h.getTankCapacity(0)).orElse(0F) / 16F;
                 int color = fluid.getTintColor(fluidStack.getFluid().defaultFluidState(), blockEntity.getLevel(), blockEntity.getBlockPos());
 
                 renderFace(Direction.UP, stack.last().pose(), stack.last().normal(), vertexConsumer, sprite,

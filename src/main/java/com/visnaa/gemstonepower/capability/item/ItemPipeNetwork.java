@@ -12,9 +12,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.wrapper.EmptyHandler;
+import net.neoforged.neoforge.common.capabilities.Capabilities;
+import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.items.wrapper.EmptyHandler;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -61,11 +61,11 @@ public class ItemPipeNetwork implements PipeNetwork<ItemPipeBE>
     public void refresh()
     {
         for (BlockEntity be : new HashSet<>(inputs.keySet()))
-            if (be.isRemoved() || !be.getCapability(ForgeCapabilities.ITEM_HANDLER, inputs.get(be)).isPresent())
+            if (be.isRemoved() || !be.getCapability(Capabilities.ITEM_HANDLER, inputs.get(be)).isPresent())
                 inputs.remove(be);
 
         for (BlockEntity be : new HashSet<>(outputs.keySet()))
-            if (be.isRemoved() || !be.getCapability(ForgeCapabilities.ITEM_HANDLER, outputs.get(be)).isPresent())
+            if (be.isRemoved() || !be.getCapability(Capabilities.ITEM_HANDLER, outputs.get(be)).isPresent())
                 outputs.remove(be);
 
         this.pipes.removeIf(pipe -> {
@@ -116,11 +116,11 @@ public class ItemPipeNetwork implements PipeNetwork<ItemPipeBE>
 
                 for (BlockEntity output : outputs.keySet())
                 {
-                    IItemHandler iHandler = input.getCapability(ForgeCapabilities.ITEM_HANDLER, inputs.get(input)).orElse(EmptyHandler.INSTANCE);
+                    IItemHandler iHandler = input.getCapability(Capabilities.ITEM_HANDLER, inputs.get(input)).orElse(EmptyHandler.INSTANCE);
                     if (iHandler == EmptyHandler.INSTANCE || iHandler.getSlots() <= 0)
                         break;
 
-                    IItemHandler oHandler = output.getCapability(ForgeCapabilities.ITEM_HANDLER, outputs.get(output)).orElse(EmptyHandler.INSTANCE);
+                    IItemHandler oHandler = output.getCapability(Capabilities.ITEM_HANDLER, outputs.get(output)).orElse(EmptyHandler.INSTANCE);
                     if (oHandler == EmptyHandler.INSTANCE || oHandler.getSlots() <= 0)
                         continue;
 

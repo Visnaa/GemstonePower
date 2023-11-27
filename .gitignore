@@ -1,10 +1,10 @@
 # idea
 out
+runs
 *.ipr
 *.iws
 *.iml
 .idea
-run
 
 # gradle
 build

@@ -7,6 +7,7 @@ import com.visnaa.gemstonepower.init.ModBlocks;
 import com.visnaa.gemstonepower.init.ModRecipes;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
@@ -15,8 +16,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.fluids.FluidStack;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -146,7 +146,7 @@ public class OreWasherRecipe implements EnergyRecipe, FluidRecipe
         private static final Codec<OreWasherRecipe> CODEC = RecordCodecBuilder.create(builder -> builder.group(
                 Ingredient.CODEC_NONEMPTY.fieldOf("input").forGetter(recipe -> recipe.getIngredients().get(0)),
                 FluidRecipe.FLUID_CODEC.fieldOf("fluid").forGetter(OreWasherRecipe::getFluid),
-                Codec.list(ForgeRegistries.ITEMS.getCodec().xmap(ItemStack::new, ItemStack::getItem)).fieldOf("outputs").forGetter(OreWasherRecipe::getResultItems),
+                Codec.list(BuiltInRegistries.ITEM.byNameCodec().xmap(ItemStack::new, ItemStack::getItem)).fieldOf("outputs").forGetter(OreWasherRecipe::getResultItems),
                 Codec.list(Codec.INT).fieldOf("counts").forGetter(OreWasherRecipe::getCounts),
                 Codec.INT.fieldOf("processingTime").forGetter(OreWasherRecipe::getProcessingTime),
                 Codec.INT.fieldOf("energyUsage").forGetter(OreWasherRecipe::getEnergyUsage)

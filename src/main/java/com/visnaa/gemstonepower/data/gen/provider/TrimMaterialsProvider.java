@@ -1,11 +1,11 @@
 package com.visnaa.gemstonepower.data.gen.provider;
 
 import com.google.gson.JsonObject;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.ItemLike;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -92,7 +92,7 @@ public abstract class TrimMaterialsProvider implements DataProvider
             this.assetName = assetName;
             this.color = ("#" + Integer.toHexString(color)).toUpperCase();
             this.translate = "trim_material." + modid + "." + assetName;
-            this.ingredient = ForgeRegistries.ITEMS.getKey(ingredient.asItem()).toString();
+            this.ingredient = BuiltInRegistries.ITEM.getKey(ingredient.asItem()).toString();
             this.modelIndex = modelIndex;
             this.override = override;
         }

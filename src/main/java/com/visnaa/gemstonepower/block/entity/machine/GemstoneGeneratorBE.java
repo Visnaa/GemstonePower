@@ -18,8 +18,6 @@ import net.minecraft.world.level.block.state.BlockState;
 
 public class GemstoneGeneratorBE extends MachineBE<GemstoneGeneratorRecipe>
 {
-    private int energyPerTick;
-
     public GemstoneGeneratorBE(BlockPos pos, BlockState state)
     {
         super(ModBlockEntities.GEMSTONE_GENERATOR.get(), ModRecipes.GEMSTONE_GENERATOR_RECIPE, pos, state, 1, 0, ModMenus.GEMSTONE_GENERATOR.get());

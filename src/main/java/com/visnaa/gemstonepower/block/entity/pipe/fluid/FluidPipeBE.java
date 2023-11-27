@@ -10,7 +10,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import net.neoforged.neoforge.common.capabilities.Capabilities;
 
 public abstract class FluidPipeBE extends PipeBE
 {
@@ -55,7 +55,7 @@ public abstract class FluidPipeBE extends PipeBE
                 level.setBlockAndUpdate(pos, state = level.getBlockState(pos).setValue(PipeBlock.CONNECTIONS.get(direction), "false"));
                 setChanged(level, pos, state);
             }
-            else if (be != null && (getClass().isAssignableFrom(be.getClass()) || be.getCapability(ForgeCapabilities.FLUID_HANDLER, direction).isPresent()) && state.getValue(PipeBlock.CONNECTIONS.get(direction)).equals("false"))
+            else if (be != null && (getClass().isAssignableFrom(be.getClass()) || be.getCapability(Capabilities.FLUID_HANDLER, direction).isPresent()) && state.getValue(PipeBlock.CONNECTIONS.get(direction)).equals("false"))
             {
                 level.setBlockAndUpdate(pos, state = level.getBlockState(pos).setValue(PipeBlock.CONNECTIONS.get(direction), "true"));
                 setChanged(level, pos, state);
@@ -89,7 +89,7 @@ public abstract class FluidPipeBE extends PipeBE
         for (Direction direction : Direction.values())
         {
             BlockEntity be = level.getBlockEntity(getBlockPos().relative(direction));
-            if (be != null && be.getCapability(ForgeCapabilities.FLUID_HANDLER, direction).isPresent())
+            if (be != null && be.getCapability(Capabilities.FLUID_HANDLER, direction).isPresent())
             {
                 if (state.getValue(PipeBlock.CONNECTIONS.get(direction)).equals("extracts"))
                     network.registerInput(be, direction);

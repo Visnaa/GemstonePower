@@ -4,7 +4,7 @@ import com.visnaa.gemstonepower.block.entity.EnergyStorageBE;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraftforge.event.network.CustomPayloadEvent;
+import net.neoforged.neoforge.network.NetworkEvent;
 
 public class EnergySyncS2C
 {
@@ -33,7 +33,7 @@ public class EnergySyncS2C
         buffer.writeBlockPos(pos);
     }
 
-    public void handle(CustomPayloadEvent.Context context)
+    public void handle(NetworkEvent.Context context)
     {
         context.enqueueWork(() -> {
             if (Minecraft.getInstance().level != null && Minecraft.getInstance().level.getBlockEntity(pos) instanceof EnergyStorageBE blockEntity)

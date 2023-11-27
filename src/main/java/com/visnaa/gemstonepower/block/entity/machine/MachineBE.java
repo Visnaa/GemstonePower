@@ -18,6 +18,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -40,13 +41,12 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.energy.IEnergyStorage;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.wrapper.SidedInvWrapper;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.common.capabilities.Capabilities;
+import net.neoforged.neoforge.common.capabilities.Capability;
+import net.neoforged.neoforge.common.util.LazyOptional;
+import net.neoforged.neoforge.energy.IEnergyStorage;
+import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.items.wrapper.SidedInvWrapper;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
@@ -87,7 +87,7 @@ public class MachineBE<T extends Recipe<Container>> extends BaseContainerBlockEn
     @Override
     protected Component getDefaultName()
     {
-        String name = Component.translatable("menu." + GemstonePower.MOD_ID + "." + ForgeRegistries.BLOCKS.getKey(getBlockState().getBlock()).getPath()).getString();
+        String name = Component.translatable("menu." + GemstonePower.MOD_ID + "." + BuiltInRegistries.BLOCK.getKey(getBlockState().getBlock()).getPath()).getString();
         String tier = getBlockState().hasProperty(Tier.TIER) ? "(" + Component.translatable("menu." + GemstonePower.MOD_ID + ".tier." + this.getBlockState().getValue(Tier.TIER).getSerializedName()).getString() + ")" : "";
         return Component.literal(name + " " + tier);
     }
@@ -396,7 +396,7 @@ public class MachineBE<T extends Recipe<Container>> extends BaseContainerBlockEn
     {
         if (!this.remove)
         {
-            if (capability == ForgeCapabilities.ITEM_HANDLER && facing != null)
+            if (capability == Capabilities.ITEM_HANDLER && facing != null)
             {
                 if (facing == Direction.UP)
                     return itemHandlers[0].cast();
@@ -405,7 +405,7 @@ public class MachineBE<T extends Recipe<Container>> extends BaseContainerBlockEn
                 else
                     return itemHandlers[2].cast();
             }
-            else if (capability == ForgeCapabilities.ENERGY)
+            else if (capability == Capabilities.ENERGY)
                 return lazyEnergy.cast();
         }
         return super.getCapability(capability, facing);

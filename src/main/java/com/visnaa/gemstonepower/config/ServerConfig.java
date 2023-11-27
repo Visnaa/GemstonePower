@@ -1,39 +1,39 @@
 package com.visnaa.gemstonepower.config;
 
-import net.minecraftforge.common.ForgeConfigSpec;
+import net.neoforged.neoforge.common.ModConfigSpec;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ServerConfig
 {
-    public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
-    public static final ForgeConfigSpec CONFIG;
+    public static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
+    public static final ModConfigSpec CONFIG;
 
-    public static final ForgeConfigSpec.IntValue ENERGY_TRANSFER_RATE;
-    public static final ForgeConfigSpec.IntValue DEFAULT_MACHINE_USAGE;
-    public static final ForgeConfigSpec.IntValue DEFAULT_MACHINE_TIME;
-    public static final ForgeConfigSpec.IntValue DEFAULT_MACHINE_CAPACITY;
-    public static final ForgeConfigSpec.IntValue DEFAULT_GENERATOR_CAPACITY;
-    public static final ForgeConfigSpec.IntValue IDLE_GENERATOR_GENERATION;
+    public static final ModConfigSpec.IntValue ENERGY_TRANSFER_RATE;
+    public static final ModConfigSpec.IntValue DEFAULT_MACHINE_USAGE;
+    public static final ModConfigSpec.IntValue DEFAULT_MACHINE_TIME;
+    public static final ModConfigSpec.IntValue DEFAULT_MACHINE_CAPACITY;
+    public static final ModConfigSpec.IntValue DEFAULT_GENERATOR_CAPACITY;
+    public static final ModConfigSpec.IntValue IDLE_GENERATOR_GENERATION;
 
-    public static final ForgeConfigSpec.DoubleValue STANDARD_TIER_MULTIPLIER;
-    public static final ForgeConfigSpec.DoubleValue INTERMEDIATE_TIER_MULTIPLIER;
-    public static final ForgeConfigSpec.DoubleValue ADVANCED_TIER_MULTIPLIER;
-    public static final ForgeConfigSpec.DoubleValue ULTRA_TIER_MULTIPLIER;
-    public static final ForgeConfigSpec.DoubleValue EXTREME_TIER_MULTIPLIER;
+    public static final ModConfigSpec.DoubleValue STANDARD_TIER_MULTIPLIER;
+    public static final ModConfigSpec.DoubleValue INTERMEDIATE_TIER_MULTIPLIER;
+    public static final ModConfigSpec.DoubleValue ADVANCED_TIER_MULTIPLIER;
+    public static final ModConfigSpec.DoubleValue ULTRA_TIER_MULTIPLIER;
+    public static final ModConfigSpec.DoubleValue EXTREME_TIER_MULTIPLIER;
 
-    public static final ForgeConfigSpec.LongValue ENERGY_CABLE_FREQUENCY;
-    public static final ForgeConfigSpec.DoubleValue ENERGY_CABLE_TRANSFER_MUL;
-    public static final ForgeConfigSpec.LongValue ITEM_PIPE_FREQUENCY;
-    public static final ForgeConfigSpec.DoubleValue ITEM_PIPE_TRANSFER_MUL;
-    public static final ForgeConfigSpec.LongValue FLUID_PIPE_FREQUENCY;
-    public static final ForgeConfigSpec.DoubleValue FLUID_PIPE_TRANSFER_MUL;
+    public static final ModConfigSpec.LongValue ENERGY_CABLE_FREQUENCY;
+    public static final ModConfigSpec.DoubleValue ENERGY_CABLE_TRANSFER_MUL;
+    public static final ModConfigSpec.LongValue ITEM_PIPE_FREQUENCY;
+    public static final ModConfigSpec.DoubleValue ITEM_PIPE_TRANSFER_MUL;
+    public static final ModConfigSpec.LongValue FLUID_PIPE_FREQUENCY;
+    public static final ModConfigSpec.DoubleValue FLUID_PIPE_TRANSFER_MUL;
 
-    public static final ForgeConfigSpec.IntValue MAX_FISSION_REACTOR_SIZE;
+    public static final ModConfigSpec.IntValue MAX_FISSION_REACTOR_SIZE;
 
-    public static final ForgeConfigSpec.IntValue FORTUNE_CRYSTAL_COOLDOWN;
-    public static final ForgeConfigSpec.ConfigValue<List<?>> AWAKENED_PLAYERS;
+    public static final ModConfigSpec.IntValue FORTUNE_CRYSTAL_COOLDOWN;
+    public static final ModConfigSpec.ConfigValue<List<?>> AWAKENED_PLAYERS;
 
     static
     {
