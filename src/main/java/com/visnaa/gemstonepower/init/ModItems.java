@@ -9,6 +9,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -37,7 +38,13 @@ public final class ModItems
     public static final DeferredHolder<Item, Item> IRON_ORE_DUST = ITEMS.register("iron_ore_dust", () -> new TintedItem(new Item.Properties(), Tints.IRON));
     public static final DeferredHolder<Item, Item> IRON_PLATE = ITEMS.register("iron_plate", () -> new TintedItem(new Item.Properties(), Tints.IRON));
     public static final DeferredHolder<Item, Item> IRON_ROD = ITEMS.register("iron_rod", () -> new TintedItem(new Item.Properties(), Tints.IRON));
-    public static final DeferredHolder<Item, Item> IRON_ROD_POLARIZED = ITEMS.register("iron_rod_polarized", () -> new ChargedCrystalItem(new Item.Properties(), Tints.IRON));
+    public static final DeferredHolder<Item, Item> IRON_ROD_POLARIZED = ITEMS.register("iron_rod_polarized", () -> new TintedItem(new Item.Properties(), Tints.IRON){
+        @Override
+        public boolean isFoil(ItemStack stack)
+        {
+            return true;
+        }
+    });
     public static final DeferredHolder<Item, Item> IRON_GEAR = ITEMS.register("iron_gear", () -> new TintedItem(new Item.Properties(), Tints.IRON));
 
     public static final DeferredHolder<Item, Item> GOLD_DUST = ITEMS.register("gold_dust", () -> new TintedItem(new Item.Properties(), Tints.GOLD));
@@ -123,7 +130,13 @@ public final class ModItems
     public static final DeferredHolder<Item, Item> NICKEL_ORE_DUST = ITEMS.register("nickel_ore_dust", () -> new TintedItem(new Item.Properties(), Tints.NICKEL));
     public static final DeferredHolder<Item, Item> NICKEL_PLATE = ITEMS.register("nickel_plate", () -> new TintedItem(new Item.Properties(), Tints.NICKEL));
     public static final DeferredHolder<Item, Item> NICKEL_ROD = ITEMS.register("nickel_rod", () -> new TintedItem(new Item.Properties(), Tints.NICKEL));
-    public static final DeferredHolder<Item, Item> NICKEL_ROD_POLARIZED = ITEMS.register("nickel_rod_polarized", () -> new ChargedCrystalItem(new Item.Properties(), Tints.NICKEL));
+    public static final DeferredHolder<Item, Item> NICKEL_ROD_POLARIZED = ITEMS.register("nickel_rod_polarized", () -> new TintedItem(new Item.Properties(), Tints.NICKEL){
+        @Override
+        public boolean isFoil(ItemStack stack)
+        {
+            return true;
+        }
+    });
     public static final DeferredHolder<Item, Item> NICKEL_GEAR = ITEMS.register("nickel_gear", () -> new TintedItem(new Item.Properties(), Tints.NICKEL));
 
     public static final DeferredHolder<Item, Item> INVAR_INGOT = ITEMS.register("invar_ingot", () -> new TintedItem(new Item.Properties(), Tints.INVAR));
@@ -133,7 +146,13 @@ public final class ModItems
     public static final DeferredHolder<Item, Item> INVAR_TINY_PILE = ITEMS.register("invar_tiny_pile", () -> new TintedItem(new Item.Properties(), Tints.INVAR));
     public static final DeferredHolder<Item, Item> INVAR_PLATE = ITEMS.register("invar_plate", () -> new TintedItem(new Item.Properties(), Tints.INVAR));
     public static final DeferredHolder<Item, Item> INVAR_ROD = ITEMS.register("invar_rod", () -> new TintedItem(new Item.Properties(), Tints.INVAR));
-    public static final DeferredHolder<Item, Item> INVAR_ROD_POLARIZED = ITEMS.register("invar_rod_polarized", () -> new ChargedCrystalItem(new Item.Properties(), Tints.INVAR));
+    public static final DeferredHolder<Item, Item> INVAR_ROD_POLARIZED = ITEMS.register("invar_rod_polarized", () -> new TintedItem(new Item.Properties(), Tints.INVAR){
+        @Override
+        public boolean isFoil(ItemStack stack)
+        {
+            return true;
+        }
+    });
     public static final DeferredHolder<Item, Item> INVAR_GEAR = ITEMS.register("invar_gear", () -> new TintedItem(new Item.Properties(), Tints.INVAR));
 
     public static final DeferredHolder<Item, Item> CONSTANTAN_INGOT = ITEMS.register("constantan_ingot", () -> new TintedItem(new Item.Properties(), Tints.CONSTANTAN));
@@ -143,7 +162,13 @@ public final class ModItems
     public static final DeferredHolder<Item, Item> CONSTANTAN_TINY_PILE = ITEMS.register("constantan_tiny_pile", () -> new TintedItem(new Item.Properties(), Tints.CONSTANTAN));
     public static final DeferredHolder<Item, Item> CONSTANTAN_PLATE = ITEMS.register("constantan_plate", () -> new TintedItem(new Item.Properties(), Tints.CONSTANTAN));
     public static final DeferredHolder<Item, Item> CONSTANTAN_ROD = ITEMS.register("constantan_rod", () -> new TintedItem(new Item.Properties(), Tints.CONSTANTAN));
-    public static final DeferredHolder<Item, Item> CONSTANTAN_ROD_POLARIZED = ITEMS.register("constantan_rod_polarized", () -> new ChargedCrystalItem(new Item.Properties(), Tints.CONSTANTAN));
+    public static final DeferredHolder<Item, Item> CONSTANTAN_ROD_POLARIZED = ITEMS.register("constantan_rod_polarized", () -> new TintedItem(new Item.Properties(), Tints.CONSTANTAN){
+        @Override
+        public boolean isFoil(ItemStack stack)
+        {
+            return true;
+        }
+    });
     public static final DeferredHolder<Item, Item> CONSTANTAN_GEAR = ITEMS.register("constantan_gear", () -> new TintedItem(new Item.Properties(), Tints.CONSTANTAN));
 
     public static final DeferredHolder<Item, Item> PLATINUM_INGOT = ITEMS.register("platinum_ingot", () -> new TintedItem(new Item.Properties(), Tints.PLATINUM));
@@ -166,7 +191,13 @@ public final class ModItems
     public static final DeferredHolder<Item, Item> STEEL_TINY_PILE = ITEMS.register("steel_tiny_pile", () -> new TintedItem(new Item.Properties(), Tints.STEEL));
     public static final DeferredHolder<Item, Item> STEEL_PLATE = ITEMS.register("steel_plate", () -> new TintedItem(new Item.Properties(), Tints.STEEL));
     public static final DeferredHolder<Item, Item> STEEL_ROD = ITEMS.register("steel_rod", () -> new TintedItem(new Item.Properties(), Tints.STEEL));
-    public static final DeferredHolder<Item, Item> STEEL_ROD_POLARIZED = ITEMS.register("steel_rod_polarized", () -> new ChargedCrystalItem(new Item.Properties(), Tints.STEEL));
+    public static final DeferredHolder<Item, Item> STEEL_ROD_POLARIZED = ITEMS.register("steel_rod_polarized", () -> new TintedItem(new Item.Properties(), Tints.STEEL){
+        @Override
+        public boolean isFoil(ItemStack stack)
+        {
+            return true;
+        }
+    });
     public static final DeferredHolder<Item, Item> STEEL_GEAR = ITEMS.register("steel_gear", () -> new TintedItem(new Item.Properties(), Tints.STEEL));
 
     public static final DeferredHolder<Item, Item> LITHIUM_INGOT = ITEMS.register("lithium_ingot", () -> new TintedItem(new Item.Properties(), Tints.LITHIUM));

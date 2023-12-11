@@ -52,6 +52,12 @@ public class ModPackets
                 .consumerMainThread(FissionReactorSyncS2C::handle)
                 .add();
 
+        channel.messageBuilder(MachineConfigSyncS2C.class, id(), PlayNetworkDirection.PLAY_TO_CLIENT)
+                .decoder(MachineConfigSyncS2C::new)
+                .encoder(MachineConfigSyncS2C::toBytes)
+                .consumerMainThread(MachineConfigSyncS2C::handle)
+                .add();
+
         channel.messageBuilder(MachineModeSyncC2S.class, id(), PlayNetworkDirection.PLAY_TO_SERVER)
                 .decoder(MachineModeSyncC2S::new)
                 .encoder(MachineModeSyncC2S::toBytes)
@@ -62,6 +68,12 @@ public class ModPackets
                 .decoder(FissionReactorActivationC2S::new)
                 .encoder(FissionReactorActivationC2S::toBytes)
                 .consumerMainThread(FissionReactorActivationC2S::handle)
+                .add();
+
+        channel.messageBuilder(MachineConfigSyncC2S.class, id(), PlayNetworkDirection.PLAY_TO_SERVER)
+                .decoder(MachineConfigSyncC2S::new)
+                .encoder(MachineConfigSyncC2S::toBytes)
+                .consumerMainThread(MachineConfigSyncC2S::handle)
                 .add();
     }
 

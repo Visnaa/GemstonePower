@@ -116,11 +116,11 @@ public class ItemPipeNetwork implements PipeNetwork<ItemPipeBE>
 
                 for (BlockEntity output : outputs.keySet())
                 {
-                    IItemHandler iHandler = input.getCapability(Capabilities.ITEM_HANDLER, inputs.get(input)).orElse(EmptyHandler.INSTANCE);
+                    IItemHandler iHandler = input.getCapability(Capabilities.ITEM_HANDLER, inputs.get(input).getOpposite()).orElse(EmptyHandler.INSTANCE);
                     if (iHandler == EmptyHandler.INSTANCE || iHandler.getSlots() <= 0)
                         break;
 
-                    IItemHandler oHandler = output.getCapability(Capabilities.ITEM_HANDLER, outputs.get(output)).orElse(EmptyHandler.INSTANCE);
+                    IItemHandler oHandler = output.getCapability(Capabilities.ITEM_HANDLER, outputs.get(output).getOpposite()).orElse(EmptyHandler.INSTANCE);
                     if (oHandler == EmptyHandler.INSTANCE || oHandler.getSlots() <= 0)
                         continue;
 
@@ -140,7 +140,7 @@ public class ItemPipeNetwork implements PipeNetwork<ItemPipeBE>
                             {
                                 if (input instanceof WorldlyContainer be)
                                 {
-                                    if (be.canTakeItemThroughFace(iSlot, stack, inputs.get(input)))
+                                    if (be.canTakeItemThroughFace(iSlot, stack, inputs.get(input).getOpposite()))
                                     {
                                         iHandler.extractItem(iSlot, 1, false);
                                         oHandler.insertItem(oSlot, stack, false);

@@ -12,6 +12,10 @@
       "model": "gemstonepower:block/alloy_smelter",
       "y": 90
     },
+    "facing=east,tier=none": {
+      "model": "gemstonepower:block/alloy_smelter",
+      "y": 90
+    },
     "facing=east,tier=standard": {
       "model": "gemstonepower:block/alloy_smelter",
       "y": 90
@@ -27,6 +31,9 @@
       "model": "gemstonepower:block/alloy_smelter"
     },
     "facing=north,tier=intermediate": {
+      "model": "gemstonepower:block/alloy_smelter"
+    },
+    "facing=north,tier=none": {
       "model": "gemstonepower:block/alloy_smelter"
     },
     "facing=north,tier=standard": {
@@ -47,6 +54,10 @@
       "model": "gemstonepower:block/alloy_smelter",
       "y": 180
     },
+    "facing=south,tier=none": {
+      "model": "gemstonepower:block/alloy_smelter",
+      "y": 180
+    },
     "facing=south,tier=standard": {
       "model": "gemstonepower:block/alloy_smelter",
       "y": 180
@@ -64,6 +75,10 @@
       "y": 270
     },
     "facing=west,tier=intermediate": {
+      "model": "gemstonepower:block/alloy_smelter",
+      "y": 270
+    },
+    "facing=west,tier=none": {
       "model": "gemstonepower:block/alloy_smelter",
       "y": 270
     },

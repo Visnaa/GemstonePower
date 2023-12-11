@@ -12,6 +12,10 @@
       "model": "gemstonepower:block/electric_furnace",
       "y": 90
     },
+    "facing=east,lit=false,tier=none": {
+      "model": "gemstonepower:block/electric_furnace",
+      "y": 90
+    },
     "facing=east,lit=false,tier=standard": {
       "model": "gemstonepower:block/electric_furnace",
       "y": 90
@@ -32,6 +36,10 @@
       "model": "gemstonepower:block/electric_furnace",
       "y": 90
     },
+    "facing=east,lit=true,tier=none": {
+      "model": "gemstonepower:block/electric_furnace",
+      "y": 90
+    },
     "facing=east,lit=true,tier=standard": {
       "model": "gemstonepower:block/electric_furnace",
       "y": 90
@@ -49,6 +57,9 @@
     "facing=north,lit=false,tier=intermediate": {
       "model": "gemstonepower:block/electric_furnace"
     },
+    "facing=north,lit=false,tier=none": {
+      "model": "gemstonepower:block/electric_furnace"
+    },
     "facing=north,lit=false,tier=standard": {
       "model": "gemstonepower:block/electric_furnace"
     },
@@ -62,6 +73,9 @@
       "model": "gemstonepower:block/electric_furnace"
     },
     "facing=north,lit=true,tier=intermediate": {
+      "model": "gemstonepower:block/electric_furnace"
+    },
+    "facing=north,lit=true,tier=none": {
       "model": "gemstonepower:block/electric_furnace"
     },
     "facing=north,lit=true,tier=standard": {
@@ -79,6 +93,10 @@
       "y": 180
     },
     "facing=south,lit=false,tier=intermediate": {
+      "model": "gemstonepower:block/electric_furnace",
+      "y": 180
+    },
+    "facing=south,lit=false,tier=none": {
       "model": "gemstonepower:block/electric_furnace",
       "y": 180
     },
@@ -102,6 +120,10 @@
       "model": "gemstonepower:block/electric_furnace",
       "y": 180
     },
+    "facing=south,lit=true,tier=none": {
+      "model": "gemstonepower:block/electric_furnace",
+      "y": 180
+    },
     "facing=south,lit=true,tier=standard": {
       "model": "gemstonepower:block/electric_furnace",
       "y": 180
@@ -122,6 +144,10 @@
       "model": "gemstonepower:block/electric_furnace",
       "y": 270
     },
+    "facing=west,lit=false,tier=none": {
+      "model": "gemstonepower:block/electric_furnace",
+      "y": 270
+    },
     "facing=west,lit=false,tier=standard": {
       "model": "gemstonepower:block/electric_furnace",
       "y": 270
@@ -139,6 +165,10 @@
       "y": 270
     },
     "facing=west,lit=true,tier=intermediate": {
+      "model": "gemstonepower:block/electric_furnace",
+      "y": 270
+    },
+    "facing=west,lit=true,tier=none": {
       "model": "gemstonepower:block/electric_furnace",
       "y": 270
     },

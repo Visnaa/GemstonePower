@@ -3,8 +3,12 @@ package com.visnaa.gemstonepower.menu.machine;
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.block.entity.machine.FluidMachineBE;
 import com.visnaa.gemstonepower.block.entity.machine.MachineBE;
+import com.visnaa.gemstonepower.block.machine.MachineBlock;
 import com.visnaa.gemstonepower.menu.MenuData;
+import com.visnaa.gemstonepower.util.MachineUtil;
+import com.visnaa.gemstonepower.util.Tier;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Player;
@@ -15,6 +19,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
 
@@ -173,10 +178,41 @@ public class MachineMenu extends AbstractContainerMenu
             machine.setMode(mode);
     }
 
+    public MachineUtil.MachineConfigs getConfig(String side)
+    {
+        if (blockEntity instanceof MachineBE<?> machine)
+        {
+            return switch (side)
+            {
+                case "left" -> machine.getConfigs().get(machine.getBlockState().getValue(MachineBlock.FACING).getClockWise());
+                case "right" -> machine.getConfigs().get(machine.getBlockState().getValue(MachineBlock.FACING).getCounterClockWise());
+                case "back" -> machine.getConfigs().get(machine.getBlockState().getValue(MachineBlock.FACING).getOpposite());
+                case "up" -> machine.getConfigs().get(Direction.UP);
+                case "down" -> machine.getConfigs().get(Direction.DOWN);
+                default -> MachineUtil.MachineConfigs.NONE;
+            };
+        }
+        return null;
+    }
+
     public FluidTank getFluidTank(int tank)
     {
         if (blockEntity instanceof FluidMachineBE<?> machine)
             return machine.getTank(tank);
         return new FluidTank(0);
+    }
+
+    public Tier getTier()
+    {
+        if (blockEntity instanceof MachineBE<?> machine)
+            return machine.getTier();
+        return Tier.NONE;
+    }
+
+    public Block getOwner()
+    {
+        if (blockEntity instanceof MachineBE<?> machine)
+            return machine.getBlockState().getBlock();
+        return null;
     }
 }

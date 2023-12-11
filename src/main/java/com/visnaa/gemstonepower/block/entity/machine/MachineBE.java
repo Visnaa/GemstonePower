@@ -1,8 +1,10 @@
 package com.visnaa.gemstonepower.block.entity.machine;
 
+import com.google.common.collect.Maps;
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.block.entity.EnergyStorageBE;
 import com.visnaa.gemstonepower.block.entity.TickingBlockEntity;
+import com.visnaa.gemstonepower.block.machine.MachineBlock;
 import com.visnaa.gemstonepower.capability.energy.EnergyStorage;
 import com.visnaa.gemstonepower.config.ServerConfig;
 import com.visnaa.gemstonepower.data.recipe.EnergyRecipe;
@@ -10,6 +12,7 @@ import com.visnaa.gemstonepower.menu.MenuData;
 import com.visnaa.gemstonepower.menu.machine.MachineMenu;
 import com.visnaa.gemstonepower.network.ModPackets;
 import com.visnaa.gemstonepower.network.packet.EnergySyncS2C;
+import com.visnaa.gemstonepower.network.packet.MachineConfigSyncS2C;
 import com.visnaa.gemstonepower.network.packet.RecipeProgressSyncS2C;
 import com.visnaa.gemstonepower.util.MachineUtil;
 import com.visnaa.gemstonepower.util.Tier;
@@ -46,20 +49,23 @@ import net.neoforged.neoforge.common.capabilities.Capability;
 import net.neoforged.neoforge.common.util.LazyOptional;
 import net.neoforged.neoforge.energy.IEnergyStorage;
 import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.items.ItemHandlerHelper;
+import net.neoforged.neoforge.items.wrapper.EmptyHandler;
 import net.neoforged.neoforge.items.wrapper.SidedInvWrapper;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
-import java.util.List;
+import java.util.*;
 import java.util.stream.IntStream;
 
 public class MachineBE<T extends Recipe<Container>> extends BaseContainerBlockEntity implements EnergyStorageBE, TickingBlockEntity, WorldlyContainer, RecipeCraftingHolder, StackedContentsCompatible
 {
-    protected LazyOptional<? extends IItemHandler>[] itemHandlers = SidedInvWrapper.create(this, Direction.UP, Direction.DOWN, Direction.NORTH);
+    protected HashMap<Direction, LazyOptional<? extends IItemHandler>> itemHandlers = Maps.newHashMap(Maps.asMap(Set.of(Direction.values()), dir -> LazyOptional.of(() -> new SidedInvWrapper(this, dir))));
     protected NonNullList<ItemStack> items;
     protected final Object2IntOpenHashMap<ResourceLocation> recipesUsed = new Object2IntOpenHashMap<>();
     protected final RecipeManager.CachedCheck<Container, T> quickCheck;
     protected final RecipeType<T> recipe;
+    protected final HashMap<Direction, MachineUtil.MachineConfigs> configs = Maps.newHashMap(Maps.asMap(Set.of(Direction.values()), dir -> MachineUtil.MachineConfigs.NONE));
 
     protected final int[] inputSlots;
     protected final int[] outputSlots;
@@ -117,14 +123,21 @@ public class MachineBE<T extends Recipe<Container>> extends BaseContainerBlockEn
         this.processingProgress = tag.getInt("ProcessingProgress");
         this.processingTotalTime = tag.getInt("ProcessingTotalTime");
         this.mode = tag.getInt("Mode");
-
-        CompoundTag compoundtag = tag.getCompound("RecipesUsed");
-        for(String s : compoundtag.getAllKeys())
-        {
-            this.recipesUsed.put(new ResourceLocation(s), compoundtag.getInt(s));
-        }
         if (tag.contains("Energy"))
             energyStorage.deserializeNBT(tag.get("Energy"));
+
+        CompoundTag recipeTag = tag.getCompound("RecipesUsed");
+        recipeTag.getAllKeys().forEach(key -> recipesUsed.put(new ResourceLocation(key), recipeTag.getInt(key)));
+
+        if (tag.contains("Configs"))
+        {
+            CompoundTag configTag = tag.getCompound("Configs");
+            setConfig(MachineUtil.MachineConfigs.getByName(configTag.getString(getBlockState().getValue(MachineBlock.FACING).getClockWise().getName())),
+                    MachineUtil.MachineConfigs.getByName(configTag.getString(getBlockState().getValue(MachineBlock.FACING).getCounterClockWise().getName())),
+                    MachineUtil.MachineConfigs.getByName(configTag.getString(getBlockState().getValue(MachineBlock.FACING).getOpposite().getName())),
+                    MachineUtil.MachineConfigs.getByName(configTag.getString("up")),
+                    MachineUtil.MachineConfigs.getByName(configTag.getString("down")));
+        }
         setChanged();
     }
 
@@ -137,11 +150,19 @@ public class MachineBE<T extends Recipe<Container>> extends BaseContainerBlockEn
         tag.putInt("ProcessingProgress", this.processingProgress);
         tag.putInt("ProcessingTotalTime", this.processingTotalTime);
         tag.putInt("Mode", this.mode);
-
-        CompoundTag compoundtag = new CompoundTag();
-        this.recipesUsed.forEach((id, amount) -> compoundtag.putInt(id.toString(), amount));
-        tag.put("RecipesUsed", compoundtag);
         tag.put("Energy", energyStorage.serializeNBT());
+
+        CompoundTag recipesTag = new CompoundTag();
+        this.recipesUsed.forEach((id, amount) -> recipesTag.putInt(id.toString(), amount));
+        tag.put("RecipesUsed", recipesTag);
+
+        if (getBlockState().hasProperty(MachineBlock.FACING))
+        {
+            CompoundTag configTag = new CompoundTag();
+            this.configs.forEach((dir, config) -> configTag.putString(dir.toString(), config.getSerializedName()));
+            tag.put("Configs", configTag);
+            sendConfigToClients(configs.get(getBlockState().getValue(MachineBlock.FACING).getClockWise()), configs.get(getBlockState().getValue(MachineBlock.FACING).getCounterClockWise()), configs.get(getBlockState().getValue(MachineBlock.FACING).getOpposite()), configs.get(Direction.UP), configs.get(Direction.DOWN));
+        }
         setChanged();
     }
 
@@ -169,6 +190,7 @@ public class MachineBE<T extends Recipe<Container>> extends BaseContainerBlockEn
     public void tick(Level level, BlockPos pos, BlockState state)
     {
         process(level, pos, state);
+        sendItems(level, pos, state);
     }
 
     public void process(Level level, BlockPos pos, BlockState state)
@@ -246,15 +268,55 @@ public class MachineBE<T extends Recipe<Container>> extends BaseContainerBlockEn
         return false;
     }
 
+    public void sendItems(Level level, BlockPos pos, BlockState state)
+    {
+        for (Direction dir : Direction.values())
+        {
+            if (!configs.get(dir).canOutput() || level.getBlockEntity(pos.relative(dir)) == null || !level.getBlockEntity(pos.relative(dir)).getCapability(Capabilities.ITEM_HANDLER, dir.getOpposite()).isPresent() || !hasItems())
+                continue;
+
+            List<ItemStack> outputItems = new ArrayList<>();
+            for (int slot : outputSlots)
+            {
+                if (items.get(slot).isEmpty())
+                    continue;
+                outputItems.add(items.get(slot));
+            }
+            if (outputItems.isEmpty())
+                return;
+
+            for (ItemStack stack : outputItems)
+            {
+                if (stack.isEmpty())
+                    continue;
+
+                ItemStack transfer = stack.copyWithCount(1);
+                ItemStack remainder = ItemHandlerHelper.insertItemStacked(level.getBlockEntity(pos.relative(dir)).getCapability(Capabilities.ITEM_HANDLER, dir.getOpposite()).orElse(EmptyHandler.INSTANCE), transfer, false);
+                if (remainder.isEmpty())
+                    stack.shrink(1);
+            }
+        }
+    }
+
+    private boolean hasItems()
+    {
+        for (int slot : outputSlots)
+            if (!items.get(slot).isEmpty())
+                return true;
+        return false;
+    }
+
     protected static <R extends Recipe<Container>> int getTotalTime(Level level, MachineBE<R> blockEntity, R recipe)
     {
-        if (!(recipe instanceof EnergyRecipe energyRecipe)) return MachineUtil.getUsage(blockEntity.getBlockState(), ServerConfig.DEFAULT_MACHINE_TIME.get());
+        if (!(recipe instanceof EnergyRecipe energyRecipe))
+            return MachineUtil.getTotalTime(blockEntity.getBlockState(), ServerConfig.DEFAULT_MACHINE_TIME.get());
         return MachineUtil.getTotalTime(blockEntity.getBlockState(), blockEntity.quickCheck.getRecipeFor(blockEntity, level).map((r) -> energyRecipe.getProcessingTime()).orElse(ServerConfig.DEFAULT_MACHINE_TIME.get()));
     }
 
     protected static <R extends Recipe<Container>> int getEnergyUsage(Level level, MachineBE<R> blockEntity, R recipe)
     {
-        if (!(recipe instanceof EnergyRecipe energyRecipe)) return MachineUtil.getUsage(blockEntity.getBlockState(), ServerConfig.DEFAULT_MACHINE_USAGE.get());
+        if (!(recipe instanceof EnergyRecipe energyRecipe))
+            return MachineUtil.getUsage(blockEntity.getBlockState(), ServerConfig.DEFAULT_MACHINE_USAGE.get());
         return MachineUtil.getUsage(blockEntity.getBlockState(), blockEntity.quickCheck.getRecipeFor(blockEntity, level).map((r) -> energyRecipe.getEnergyUsage()).orElse(ServerConfig.DEFAULT_MACHINE_USAGE.get()));
     }
 
@@ -325,12 +387,23 @@ public class MachineBE<T extends Recipe<Container>> extends BaseContainerBlockEn
     @Override
     public int[] getSlotsForFace(Direction dir)
     {
-        return outputSlots;
+        if (configs.get(dir).canInteract())
+        {
+            if (configs.get(dir).canInput() && configs.get(dir).canOutput())
+                return IntStream.concat(Arrays.stream(inputSlots), Arrays.stream(outputSlots)).toArray();
+            else if (configs.get(dir).canInput())
+                return inputSlots;
+            else if (configs.get(dir).canOutput())
+                return outputSlots;
+        }
+        return new int[0];
     }
 
     @Override
     public boolean canPlaceItemThroughFace(int id, ItemStack itemStack, @Nullable Direction dir)
     {
+        if (!configs.get(dir).canInput())
+            return false;
         for (int slot : inputSlots)
             if (slot == id)
                 return true;
@@ -340,9 +413,20 @@ public class MachineBE<T extends Recipe<Container>> extends BaseContainerBlockEn
     @Override
     public boolean canTakeItemThroughFace(int id, ItemStack itemStack, Direction dir)
     {
-        for (int slot : outputSlots)
-            if (slot == id)
-                return true;
+        if (!configs.get(dir).canOutput())
+            return false;
+        if (configs.get(dir).canInput())
+        {
+            for (int slot : outputSlots)
+                if (slot - inputSlots[inputSlots.length - 1] == id)
+                    return true;
+        }
+        else
+        {
+            for (int slot : IntStream.concat(Arrays.stream(inputSlots), Arrays.stream(outputSlots)).toArray())
+                if (slot == id)
+                    return true;
+        }
         return false;
     }
 
@@ -392,23 +476,19 @@ public class MachineBE<T extends Recipe<Container>> extends BaseContainerBlockEn
     }
 
     @Override
-    public <I> @NotNull LazyOptional<I> getCapability(@NotNull Capability<I> capability, @Nullable Direction facing)
+    public <I> @NotNull LazyOptional<I> getCapability(@NotNull Capability<I> capability, @Nullable Direction direction)
     {
         if (!this.remove)
         {
-            if (capability == Capabilities.ITEM_HANDLER && facing != null)
+            if (capability == Capabilities.ITEM_HANDLER && direction != null)
             {
-                if (facing == Direction.UP)
-                    return itemHandlers[0].cast();
-                else if (facing == Direction.DOWN)
-                    return itemHandlers[1].cast();
-                else
-                    return itemHandlers[2].cast();
+                LazyOptional<? extends IItemHandler> handler = itemHandlers.get(direction);
+                return handler.isPresent() ? handler.cast() : super.getCapability(capability, direction);
             }
             else if (capability == Capabilities.ENERGY)
                 return lazyEnergy.cast();
         }
-        return super.getCapability(capability, facing);
+        return super.getCapability(capability, direction);
     }
 
     @Override
@@ -457,11 +537,42 @@ public class MachineBE<T extends Recipe<Container>> extends BaseContainerBlockEn
     public void setMode(int mode)
     {
         this.mode = mode;
-        if (!level.isClientSide())
+        if (level != null && !level.isClientSide())
         {
             processingProgress = 0;
             ModPackets.sendToClient(new RecipeProgressSyncS2C(getProcessingProgress(), getProcessingTotalTime(), getBlockPos()));
         }
+    }
+
+    public Tier getTier()
+    {
+        if (level == null || !getBlockState().hasProperty(Tier.TIER))
+            return Tier.NONE;
+        return getBlockState().getValue(Tier.TIER);
+    }
+
+    public void setConfig(MachineUtil.MachineConfigs left, MachineUtil.MachineConfigs right, MachineUtil.MachineConfigs back, MachineUtil.MachineConfigs up, MachineUtil.MachineConfigs down)
+    {
+        configs.put(getBlockState().getValue(MachineBlock.FACING), MachineUtil.MachineConfigs.NONE);
+        configs.put(getBlockState().getValue(MachineBlock.FACING).getClockWise(), left);
+        configs.put(getBlockState().getValue(MachineBlock.FACING).getCounterClockWise(), right);
+        configs.put(getBlockState().getValue(MachineBlock.FACING).getOpposite(), back);
+        configs.put(Direction.UP, up);
+        configs.put(Direction.DOWN, down);
+        setChanged();
+    }
+
+    public void sendConfigToClients(MachineUtil.MachineConfigs left, MachineUtil.MachineConfigs right, MachineUtil.MachineConfigs back, MachineUtil.MachineConfigs up, MachineUtil.MachineConfigs down)
+    {
+        if (level == null || level.isClientSide())
+            return;
+        setConfig(left, right, back, up, down);
+        ModPackets.sendToClient(new MachineConfigSyncS2C(left, right, back, up, down, getBlockPos()));
+    }
+
+    public HashMap<Direction, MachineUtil.MachineConfigs> getConfigs()
+    {
+        return configs;
     }
 
     @Override

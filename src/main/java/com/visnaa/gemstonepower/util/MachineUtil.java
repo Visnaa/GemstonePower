@@ -7,6 +7,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.ByIdMap;
+import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
@@ -109,7 +110,10 @@ public final class MachineUtil
     public static int getTotalTime(BlockState state, int baseTotalTime)
     {
         if (state.hasProperty(Tier.TIER))
-            return (int) Math.round(Math.ceil(baseTotalTime * (1 / getMultiplier(state.getValue(Tier.TIER)))));
+        {
+            int i = (int) Math.round(Math.ceil(baseTotalTime / getMultiplier(state.getValue(Tier.TIER))));
+            return i;
+        }
         return 0;
     }
 
@@ -224,6 +228,50 @@ public final class MachineUtil
         public String getName()
         {
             return name;
+        }
+    }
+
+    public enum MachineConfigs implements StringRepresentable
+    {
+        NONE("none"),
+        INPUT("input"),
+        OUTPUT("output"),
+        ALL("all");
+
+        private String name;
+
+        MachineConfigs(String name)
+        {
+            this.name = name;
+        }
+
+        @Override
+        public String getSerializedName()
+        {
+            return name;
+        }
+
+        public boolean canInput()
+        {
+            return this == INPUT || this == ALL;
+        }
+
+        public boolean canOutput()
+        {
+            return this == OUTPUT || this == ALL;
+        }
+
+        public boolean canInteract()
+        {
+            return this != NONE;
+        }
+
+        public static MachineConfigs getByName(String name)
+        {
+            for (MachineConfigs config : MachineConfigs.values())
+                if (name.equals(config.name))
+                    return config;
+            return NONE;
         }
     }
 }

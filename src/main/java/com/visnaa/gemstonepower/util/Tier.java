@@ -12,6 +12,7 @@ import java.util.List;
 
 public enum Tier implements StringRepresentable
 {
+    NONE(0, "none"),
     STANDARD(1, "standard"),
     INTERMEDIATE(2, "intermediate"),
     ADVANCED(3, "advanced"),
@@ -33,15 +34,6 @@ public enum Tier implements StringRepresentable
     public int id()
     {
         return this.id;
-    }
-
-    public static Tier getById(int id)
-    {
-        for (Tier tier : Tier.values())
-        {
-            if (id == tier.id()) return tier;
-        }
-        return STANDARD;
     }
 
     public static ItemStack getTierUpgrade(Tier tier)

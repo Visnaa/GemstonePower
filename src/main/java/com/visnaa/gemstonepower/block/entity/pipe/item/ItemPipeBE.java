@@ -108,7 +108,7 @@ public abstract class ItemPipeBE extends PipeBE
         for (Direction direction : Direction.values())
         {
             BlockEntity be = level.getBlockEntity(getBlockPos().relative(direction));
-            if (be != null && be.getCapability(Capabilities.ITEM_HANDLER, direction).isPresent())
+            if (be != null && be.getCapability(Capabilities.ITEM_HANDLER, direction.getOpposite()).isPresent())
             {
                 if (state.getValue(PipeBlock.CONNECTIONS.get(direction)).equals("extracts"))
                     network.registerInput(be, direction);

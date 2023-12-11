@@ -30,6 +30,7 @@ import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.neoforged.neoforge.fluids.FluidUtil;
+import net.neoforged.neoforge.network.NetworkHooks;
 
 import javax.annotation.Nullable;
 
@@ -42,6 +43,7 @@ public abstract class MachineBlock<T extends MachineBlock<T>> extends BaseEntity
     {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(TIER, Tier.STANDARD));
+
         this.registerColors((T) this);
     }
 
@@ -61,7 +63,7 @@ public abstract class MachineBlock<T extends MachineBlock<T>> extends BaseEntity
     {
         if (level.getBlockEntity(pos) instanceof MachineBE<?> machine && !level.isClientSide() && player instanceof ServerPlayer serverPlayer)
         {
-            serverPlayer.openMenu(machine);
+            NetworkHooks.openScreen(serverPlayer, machine, pos);
         }
     }
 

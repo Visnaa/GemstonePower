@@ -1,19 +1,28 @@
 package com.visnaa.gemstonepower.client.screen.machine;
 
 import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.client.screen.ClientConfigScreen;
 import com.visnaa.gemstonepower.client.screen.ScreenData;
+import com.visnaa.gemstonepower.client.screen.widget.MachineConfigButton;
 import com.visnaa.gemstonepower.menu.machine.MachineMenu;
+import com.visnaa.gemstonepower.network.ModPackets;
+import com.visnaa.gemstonepower.network.packet.MachineConfigSyncC2S;
 import com.visnaa.gemstonepower.util.MachineUtil;
+import com.visnaa.gemstonepower.util.Tier;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.components.WidgetSprites;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.Sheets;
+import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.InventoryMenu;
@@ -23,6 +32,8 @@ import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
+import org.joml.Matrix3f;
+import org.joml.Matrix4f;
 
 import java.util.List;
 
@@ -30,8 +41,14 @@ import java.util.List;
 public abstract class MachineScreen<T extends MachineMenu> extends AbstractContainerScreen<T>
 {
     protected static WidgetSprites CLIENT_CONFIG_SPRITES = new WidgetSprites(GemstonePower.getId("client_config_button/default"), GemstonePower.getId("client_config_button/default_highlighted"));
+    protected static ResourceLocation CONFIG_TAB = GemstonePower.getId("config_tab");
     protected final ScreenData data;
     private Button clientConfigButton;
+    private MachineConfigButton machineConfigLeft;
+    private MachineConfigButton machineConfigRight;
+    private MachineConfigButton machineConfigBack;
+    private MachineConfigButton machineConfigUp;
+    private MachineConfigButton machineConfigDown;
 
     public MachineScreen(T menu, ScreenData data)
     {
@@ -46,6 +63,17 @@ public abstract class MachineScreen<T extends MachineMenu> extends AbstractConta
         this.titleLabelX = (this.imageWidth - this.font.width(this.title)) / 2;
         clientConfigButton = new ImageButton(this.leftPos + 147, this.topPos + 58, 14, 14, getClientConfigSprites(), button -> Minecraft.getInstance().setScreen(new ClientConfigScreen(Minecraft.getInstance(), this)));
         addRenderableWidget(clientConfigButton);
+
+        machineConfigLeft = new MachineConfigButton(leftPos + imageWidth + 4, topPos + 20, 16, 16, menu.getConfig("left"), this::sendMachineConfig);
+        machineConfigRight = new MachineConfigButton(leftPos + imageWidth + 36, topPos + 20, 16, 16, menu.getConfig("right"), this::sendMachineConfig);
+        machineConfigBack = new MachineConfigButton(leftPos + imageWidth + 36, topPos + 4, 16, 16, menu.getConfig("back"), this::sendMachineConfig);
+        machineConfigUp = new MachineConfigButton(leftPos + imageWidth + 20, topPos + 4, 16, 16, menu.getConfig("up"), this::sendMachineConfig);
+        machineConfigDown = new MachineConfigButton(leftPos + imageWidth + 20, topPos + 36, 16, 16, menu.getConfig("down"), this::sendMachineConfig);
+        addRenderableWidget(machineConfigLeft);
+        addRenderableWidget(machineConfigRight);
+        addRenderableWidget(machineConfigBack);
+        addRenderableWidget(machineConfigUp);
+        addRenderableWidget(machineConfigDown);
     }
 
     protected WidgetSprites getClientConfigSprites()
@@ -78,6 +106,9 @@ public abstract class MachineScreen<T extends MachineMenu> extends AbstractConta
         int y = this.topPos;
         graphics.blit(this.data.texture(), x, y, 0, 0, this.imageWidth, this.imageHeight);
 
+        graphics.blitSprite(CONFIG_TAB, leftPos + imageWidth, topPos, 57, 56);
+        renderMachine(graphics);
+
         // Progress Bar
         graphics.blit(this.data.texture(),
                 x + this.data.progressBar().pos().x(), y + this.data.progressBar().pos().y(),
@@ -87,6 +118,40 @@ public abstract class MachineScreen<T extends MachineMenu> extends AbstractConta
         // Battery
         int energy = this.menu.getEnergyLevel();
         graphics.blit(this.data.texture(), x + 149, y + 38 + energy, 176, energy, 10, 16 - energy);
+    }
+
+    private void renderMachine(GuiGraphics graphics)
+    {
+        if (!(Minecraft.getInstance().getTextureManager().getTexture(InventoryMenu.BLOCK_ATLAS) instanceof TextureAtlas atlas) || menu.getOwner() == null)
+            return;
+
+        TextureAtlasSprite front = atlas.getSprite(GemstonePower.getId("block/" + BuiltInRegistries.BLOCK.getKey(menu.getOwner()).getPath()));
+        TextureAtlasSprite side = atlas.getSprite(GemstonePower.getId("block/machine"));
+        renderMachineFace(graphics, side, imageWidth + 20, 20, 0, 0xCC000000 + Tier.getTierTint(menu.getTier()).getColor());
+        renderMachineFace(graphics, side, imageWidth + 4, 20, 0, 0xCC000000 + Tier.getTierTint(menu.getTier()).getColor());
+        renderMachineFace(graphics, side, imageWidth + 20, 4, 0, 0xCC000000 + Tier.getTierTint(menu.getTier()).getColor());
+        renderMachineFace(graphics, side, imageWidth + 20, 36, 0, 0xCC000000 + Tier.getTierTint(menu.getTier()).getColor());
+        renderMachineFace(graphics, side, imageWidth + 36, 4, 0, 0xCC000000 + Tier.getTierTint(menu.getTier()).getColor());
+        renderMachineFace(graphics, side, imageWidth + 36, 20, 0, 0xCC000000 + Tier.getTierTint(menu.getTier()).getColor());
+        renderMachineFace(graphics, front, imageWidth + 20, 20, -1, 0);
+    }
+
+    private void renderMachineFace(GuiGraphics graphics, TextureAtlasSprite sprite, int xOffset, int yOffset, int z, int overlayColor)
+    {
+        graphics.blit(leftPos + xOffset, topPos + yOffset, 0, 16, 16, sprite);
+        Matrix4f pose = graphics.pose().last().pose();
+        Matrix3f normal = graphics.pose().last().normal();
+        VertexConsumer textureConsumer = graphics.bufferSource().getBuffer(Sheets.translucentCullBlockSheet());
+        VertexConsumer overlayConsumer = graphics.bufferSource().getBuffer(RenderType.debugQuads());
+        textureConsumer.vertex(pose, leftPos + xOffset, topPos + yOffset, z).color(0xFFFFFFFF).uv(sprite.getU0(), sprite.getV0()).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(0xFFFFFF).normal(normal, 0, 0, 1).endVertex();
+        textureConsumer.vertex(pose, leftPos + xOffset + 16, topPos + yOffset, z).color(0xFFFFFFFF).uv(sprite.getU1(), sprite.getV0()).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(0xFFFFFF).normal(normal, 0, 0, 1).endVertex();
+        textureConsumer.vertex(pose, leftPos + xOffset + 16, topPos + yOffset + 16, z).color(0xFFFFFFFF).uv(sprite.getU1(), sprite.getV1()).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(0xFFFFFF).normal(normal, 0, 0, 1).endVertex();
+        textureConsumer.vertex(pose, leftPos + xOffset, topPos + yOffset + 16, z).color(0xFFFFFFFF).uv(sprite.getU0(), sprite.getV1()).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(0xFFFFFF).normal(normal, 0, 0, 1).endVertex();
+
+        overlayConsumer.vertex(pose, leftPos + xOffset, topPos + yOffset, z).color(overlayColor).endVertex();
+        overlayConsumer.vertex(pose, leftPos + xOffset + 16, topPos + yOffset, z).color(overlayColor).endVertex();
+        overlayConsumer.vertex(pose, leftPos + xOffset + 16, topPos + yOffset + 16, z).color(overlayColor).endVertex();
+        overlayConsumer.vertex(pose, leftPos + xOffset, topPos + yOffset + 16, z).color(overlayColor).endVertex();
     }
 
     protected void renderFluid(GuiGraphics graphics, int mouseX, int mouseY)
@@ -161,5 +226,10 @@ public abstract class MachineScreen<T extends MachineMenu> extends AbstractConta
     public static boolean isMouseInArea(double mouseX, double mouseY, int x, int y, int width, int height)
     {
         return mouseX >= x && mouseX < x + width && mouseY >= y && mouseY < y + height;
+    }
+
+    private void sendMachineConfig(Button button)
+    {
+        ModPackets.sendToServer(new MachineConfigSyncC2S(machineConfigLeft.getConfig(), machineConfigRight.getConfig(), machineConfigBack.getConfig(), machineConfigUp.getConfig(), machineConfigDown.getConfig(), menu.getBlockPos()));
     }
 }

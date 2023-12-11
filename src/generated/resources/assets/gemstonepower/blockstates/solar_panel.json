@@ -9,6 +9,9 @@
     "tier=intermediate": {
       "model": "gemstonepower:block/solar_panel"
     },
+    "tier=none": {
+      "model": "gemstonepower:block/solar_panel"
+    },
     "tier=standard": {
       "model": "gemstonepower:block/solar_panel"
     },

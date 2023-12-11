@@ -2,7 +2,6 @@ package com.visnaa.gemstonepower.item;
 
 import com.visnaa.gemstonepower.client.render.Tints;
 import com.visnaa.gemstonepower.config.ServerConfig;
-import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffect;
@@ -14,7 +13,7 @@ import net.minecraft.world.level.Level;
 public class CrystalItem extends TintedItem
 {
     private MobEffect effect;
-    private boolean displayRealName;
+    private boolean displayRealName = true;
     private int counter = -1;
 
     public CrystalItem(Properties properties, Tints tint)
@@ -28,6 +27,8 @@ public class CrystalItem extends TintedItem
         super(properties, Tints.NONE);
         this.effect = effect;
     }
+
+
 
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected)
@@ -54,8 +55,8 @@ public class CrystalItem extends TintedItem
     @Override
     public Component getName(ItemStack stack)
     {
-        if (displayRealName)
-            return super.getName(stack);
-        return Component.literal("You can't see me :P").withStyle(ChatFormatting.OBFUSCATED);
+        if (!displayRealName)
+            return Component.literal("Crystal");
+        return super.getName(stack);
     }
 }

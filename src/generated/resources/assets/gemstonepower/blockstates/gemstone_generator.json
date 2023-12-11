@@ -12,6 +12,10 @@
       "model": "gemstonepower:block/gemstone_generator",
       "y": 90
     },
+    "facing=east,powered=false,tier=none": {
+      "model": "gemstonepower:block/gemstone_generator",
+      "y": 90
+    },
     "facing=east,powered=false,tier=standard": {
       "model": "gemstonepower:block/gemstone_generator",
       "y": 90
@@ -32,6 +36,10 @@
       "model": "gemstonepower:block/gemstone_generator_powered",
       "y": 90
     },
+    "facing=east,powered=true,tier=none": {
+      "model": "gemstonepower:block/gemstone_generator_powered",
+      "y": 90
+    },
     "facing=east,powered=true,tier=standard": {
       "model": "gemstonepower:block/gemstone_generator_powered",
       "y": 90
@@ -49,6 +57,9 @@
     "facing=north,powered=false,tier=intermediate": {
       "model": "gemstonepower:block/gemstone_generator"
     },
+    "facing=north,powered=false,tier=none": {
+      "model": "gemstonepower:block/gemstone_generator"
+    },
     "facing=north,powered=false,tier=standard": {
       "model": "gemstonepower:block/gemstone_generator"
     },
@@ -62,6 +73,9 @@
       "model": "gemstonepower:block/gemstone_generator_powered"
     },
     "facing=north,powered=true,tier=intermediate": {
+      "model": "gemstonepower:block/gemstone_generator_powered"
+    },
+    "facing=north,powered=true,tier=none": {
       "model": "gemstonepower:block/gemstone_generator_powered"
     },
     "facing=north,powered=true,tier=standard": {
@@ -79,6 +93,10 @@
       "y": 180
     },
     "facing=south,powered=false,tier=intermediate": {
+      "model": "gemstonepower:block/gemstone_generator",
+      "y": 180
+    },
+    "facing=south,powered=false,tier=none": {
       "model": "gemstonepower:block/gemstone_generator",
       "y": 180
     },
@@ -102,6 +120,10 @@
       "model": "gemstonepower:block/gemstone_generator_powered",
       "y": 180
     },
+    "facing=south,powered=true,tier=none": {
+      "model": "gemstonepower:block/gemstone_generator_powered",
+      "y": 180
+    },
     "facing=south,powered=true,tier=standard": {
       "model": "gemstonepower:block/gemstone_generator_powered",
       "y": 180
@@ -122,6 +144,10 @@
       "model": "gemstonepower:block/gemstone_generator",
       "y": 270
     },
+    "facing=west,powered=false,tier=none": {
+      "model": "gemstonepower:block/gemstone_generator",
+      "y": 270
+    },
     "facing=west,powered=false,tier=standard": {
       "model": "gemstonepower:block/gemstone_generator",
       "y": 270
@@ -139,6 +165,10 @@
       "y": 270
     },
     "facing=west,powered=true,tier=intermediate": {
+      "model": "gemstonepower:block/gemstone_generator_powered",
+      "y": 270
+    },
+    "facing=west,powered=true,tier=none": {
       "model": "gemstonepower:block/gemstone_generator_powered",
       "y": 270
     },

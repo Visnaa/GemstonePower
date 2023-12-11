@@ -2,6 +2,7 @@ package com.visnaa.gemstonepower.event.mod;
 
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.client.render.Tints;
+import com.visnaa.gemstonepower.client.render.block.ConfigMachineBER;
 import com.visnaa.gemstonepower.client.render.block.TankBER;
 import com.visnaa.gemstonepower.client.render.entity.CrystalArrowRenderer;
 import com.visnaa.gemstonepower.client.screen.ClientConfigScreen;
@@ -91,6 +92,21 @@ public class ClientEvents
     public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event)
     {
         event.registerBlockEntityRenderer(ModBlockEntities.TANK.get(), TankBER::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.GEMSTONE_MANIPULATOR.get(), ConfigMachineBER::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.GEMSTONE_GENERATOR.get(), ConfigMachineBER::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.GEMSTONE_CELL.get(), ConfigMachineBER::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.CRYSTAL_GROWER.get(), ConfigMachineBER::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.CRYSTAL_CHARGER.get(), ConfigMachineBER::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.ELECTRIC_FURNACE.get(), ConfigMachineBER::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.METAL_FORMER.get(), ConfigMachineBER::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.PULVERIZER.get(), ConfigMachineBER::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.ALLOY_SMELTER.get(), ConfigMachineBER::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.EXTRACTOR.get(), ConfigMachineBER::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.ORE_WASHER.get(), ConfigMachineBER::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.SAWMILL.get(), ConfigMachineBER::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.POLARIZER.get(), ConfigMachineBER::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.GEMSTONE_MANIPULATOR.get(), ConfigMachineBER::new);
+        event.registerBlockEntityRenderer(ModBlockEntities.FISSION_REACTOR.get(), ConfigMachineBER::new);
 
         event.registerEntityRenderer(ModEntities.RUBY_ARROW.get(), CrystalArrowRenderer::new);
         event.registerEntityRenderer(ModEntities.SAPPHIRE_ARROW.get(), CrystalArrowRenderer::new);
