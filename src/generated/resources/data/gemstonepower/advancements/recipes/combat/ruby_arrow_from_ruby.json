@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:ruby_arrow_from_ruby"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

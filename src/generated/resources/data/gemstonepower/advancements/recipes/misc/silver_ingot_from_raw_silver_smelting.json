@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:silver_ingot_from_raw_silver_smelting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

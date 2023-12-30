@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:gold_ingot_from_deepslate_gold_ore_blasting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

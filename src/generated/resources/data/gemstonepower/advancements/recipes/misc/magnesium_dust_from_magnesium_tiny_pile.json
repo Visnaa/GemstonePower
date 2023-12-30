@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:magnesium_dust_from_magnesium_tiny_pile"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

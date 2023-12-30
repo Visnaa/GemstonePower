@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:lead_gear_from_lead_ingot"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

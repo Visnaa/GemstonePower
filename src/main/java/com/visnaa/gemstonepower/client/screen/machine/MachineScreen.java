@@ -27,11 +27,11 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.item.ItemStack;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.api.distmarker.OnlyIn;
-import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
-import net.neoforged.neoforge.fluids.FluidStack;
-import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.capability.templates.FluidTank;
 import org.joml.Matrix3f;
 import org.joml.Matrix4f;
 
@@ -43,6 +43,7 @@ public abstract class MachineScreen<T extends MachineMenu> extends AbstractConta
     protected static WidgetSprites CLIENT_CONFIG_SPRITES = new WidgetSprites(GemstonePower.getId("client_config_button/default"), GemstonePower.getId("client_config_button/default_highlighted"));
     protected static ResourceLocation CONFIG_TAB = GemstonePower.getId("config_tab");
     protected final ScreenData data;
+    private String sideTexture = "machine";
     private Button clientConfigButton;
     private MachineConfigButton machineConfigLeft;
     private MachineConfigButton machineConfigRight;
@@ -107,7 +108,7 @@ public abstract class MachineScreen<T extends MachineMenu> extends AbstractConta
         graphics.blit(this.data.texture(), x, y, 0, 0, this.imageWidth, this.imageHeight);
 
         graphics.blitSprite(CONFIG_TAB, leftPos + imageWidth, topPos, 57, 56);
-        renderMachine(graphics);
+        renderMachine(graphics, sideTexture);
 
         // Progress Bar
         graphics.blit(this.data.texture(),
@@ -120,19 +121,20 @@ public abstract class MachineScreen<T extends MachineMenu> extends AbstractConta
         graphics.blit(this.data.texture(), x + 149, y + 38 + energy, 176, energy, 10, 16 - energy);
     }
 
-    private void renderMachine(GuiGraphics graphics)
+    private void renderMachine(GuiGraphics graphics, String sideTexture)
     {
         if (!(Minecraft.getInstance().getTextureManager().getTexture(InventoryMenu.BLOCK_ATLAS) instanceof TextureAtlas atlas) || menu.getOwner() == null)
             return;
 
         TextureAtlasSprite front = atlas.getSprite(GemstonePower.getId("block/" + BuiltInRegistries.BLOCK.getKey(menu.getOwner()).getPath()));
-        TextureAtlasSprite side = atlas.getSprite(GemstonePower.getId("block/machine"));
-        renderMachineFace(graphics, side, imageWidth + 20, 20, 0, 0xCC000000 + Tier.getTierTint(menu.getTier()).getColor());
-        renderMachineFace(graphics, side, imageWidth + 4, 20, 0, 0xCC000000 + Tier.getTierTint(menu.getTier()).getColor());
-        renderMachineFace(graphics, side, imageWidth + 20, 4, 0, 0xCC000000 + Tier.getTierTint(menu.getTier()).getColor());
-        renderMachineFace(graphics, side, imageWidth + 20, 36, 0, 0xCC000000 + Tier.getTierTint(menu.getTier()).getColor());
-        renderMachineFace(graphics, side, imageWidth + 36, 4, 0, 0xCC000000 + Tier.getTierTint(menu.getTier()).getColor());
-        renderMachineFace(graphics, side, imageWidth + 36, 20, 0, 0xCC000000 + Tier.getTierTint(menu.getTier()).getColor());
+        TextureAtlasSprite side = atlas.getSprite(GemstonePower.getId("block/" + sideTexture));
+        int overlayColor = 0xCC000000 + Tier.getTierTint(menu.getTier()).getColor();
+        renderMachineFace(graphics, side, imageWidth + 20, 20, 0, overlayColor);
+        renderMachineFace(graphics, side, imageWidth + 4, 20, 0, overlayColor);
+        renderMachineFace(graphics, side, imageWidth + 20, 4, 0, overlayColor);
+        renderMachineFace(graphics, side, imageWidth + 20, 36, 0, overlayColor);
+        renderMachineFace(graphics, side, imageWidth + 36, 4, 0, overlayColor);
+        renderMachineFace(graphics, side, imageWidth + 36, 20, 0, overlayColor);
         renderMachineFace(graphics, front, imageWidth + 20, 20, -1, 0);
     }
 
@@ -148,6 +150,8 @@ public abstract class MachineScreen<T extends MachineMenu> extends AbstractConta
         textureConsumer.vertex(pose, leftPos + xOffset + 16, topPos + yOffset + 16, z).color(0xFFFFFFFF).uv(sprite.getU1(), sprite.getV1()).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(0xFFFFFF).normal(normal, 0, 0, 1).endVertex();
         textureConsumer.vertex(pose, leftPos + xOffset, topPos + yOffset + 16, z).color(0xFFFFFFFF).uv(sprite.getU0(), sprite.getV1()).overlayCoords(OverlayTexture.NO_OVERLAY).uv2(0xFFFFFF).normal(normal, 0, 0, 1).endVertex();
 
+        if (overlayColor >= 0xCCFFFFFF)
+            return;
         overlayConsumer.vertex(pose, leftPos + xOffset, topPos + yOffset, z).color(overlayColor).endVertex();
         overlayConsumer.vertex(pose, leftPos + xOffset + 16, topPos + yOffset, z).color(overlayColor).endVertex();
         overlayConsumer.vertex(pose, leftPos + xOffset + 16, topPos + yOffset + 16, z).color(overlayColor).endVertex();
@@ -221,6 +225,11 @@ public abstract class MachineScreen<T extends MachineMenu> extends AbstractConta
             }
         }
         RenderSystem.disableDepthTest();
+    }
+
+    public void setSideTexture(String sideTexture)
+    {
+        this.sideTexture = sideTexture;
     }
 
     public static boolean isMouseInArea(double mouseX, double mouseY, int x, int y, int width, int height)

@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:lithium_dust_from_lithium_tiny_pile"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

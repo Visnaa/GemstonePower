@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:electrum_ingot_from_electrum_dust_blasting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

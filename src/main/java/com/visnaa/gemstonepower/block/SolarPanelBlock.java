@@ -1,5 +1,6 @@
 package com.visnaa.gemstonepower.block;
 
+import com.mojang.serialization.MapCodec;
 import com.visnaa.gemstonepower.block.entity.SolarPanelBE;
 import com.visnaa.gemstonepower.block.machine.MachineBlock;
 import com.visnaa.gemstonepower.init.ModBlockEntities;
@@ -84,5 +85,11 @@ public class SolarPanelBlock extends BaseEntityBlock implements TieredBlock<Sola
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder)
     {
         builder.add(TIER);
+    }
+
+    @Override
+    protected MapCodec<? extends BaseEntityBlock> codec()
+    {
+        return simpleCodec(SolarPanelBlock::new);
     }
 }

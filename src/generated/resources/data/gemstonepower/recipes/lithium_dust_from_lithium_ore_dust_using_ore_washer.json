@@ -14,11 +14,6 @@
   "input": {
     "item": "gemstonepower:lithium_ore_dust"
   },
-  "outputs": [
-    "gemstonepower:lithium_dust",
-    "gemstonepower:gold_tiny_pile",
-    "gemstonepower:magnesium_tiny_pile",
-    "gemstonepower:peridot"
-  ],
+  "outputs": [],
   "processingTime": 400
 }

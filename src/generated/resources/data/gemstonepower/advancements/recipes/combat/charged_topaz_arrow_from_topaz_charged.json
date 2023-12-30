@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:charged_topaz_arrow_from_topaz_charged"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

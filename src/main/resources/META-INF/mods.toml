@@ -11,9 +11,9 @@ license="All rights reserved"
     description='''Processing mod with gems'''
 
 [[dependencies.gemstonepower]]
-    modId="neoforge"
+    modId="forge"
     mandatory=true
-    versionRange="[1,)"
+    versionRange="[49,)"
     ordering="NONE"
     side="BOTH"
 

@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:aluminum_ingot_from_raw_aluminum_blasting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

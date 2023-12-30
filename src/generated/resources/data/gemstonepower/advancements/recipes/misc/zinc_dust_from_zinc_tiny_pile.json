@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:zinc_dust_from_zinc_tiny_pile"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

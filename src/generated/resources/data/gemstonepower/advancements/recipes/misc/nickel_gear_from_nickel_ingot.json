@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:nickel_gear_from_nickel_ingot"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

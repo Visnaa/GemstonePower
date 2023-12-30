@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:platinum_ingot_from_deepslate_platinum_ore_smelting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

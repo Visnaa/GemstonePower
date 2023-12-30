@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:copper_boots_from_copper_ingot"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

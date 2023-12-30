@@ -1,10 +1,12 @@
 package com.visnaa.gemstonepower.block.machine;
 
+import com.mojang.serialization.MapCodec;
 import com.visnaa.gemstonepower.block.entity.machine.ElectricFurnaceBE;
 import com.visnaa.gemstonepower.init.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
@@ -50,5 +52,11 @@ public class ElectricFurnaceBlock extends MachineBlock<ElectricFurnaceBlock>
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntity)
     {
         return MachineBlock.createTicker(level, blockEntity, ModBlockEntities.ELECTRIC_FURNACE.get());
+    }
+
+    @Override
+    protected MapCodec<? extends BaseEntityBlock> codec()
+    {
+        return simpleCodec(ElectricFurnaceBlock::new);
     }
 }

@@ -1,5 +1,6 @@
 package com.visnaa.gemstonepower.block;
 
+import com.mojang.serialization.MapCodec;
 import com.visnaa.gemstonepower.client.render.Tintable;
 import com.visnaa.gemstonepower.client.render.Tints;
 import net.minecraft.core.BlockPos;
@@ -21,12 +22,12 @@ public class CrystalBlock extends MultifaceBlock implements Tintable
 {
     private static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     private final MultifaceSpreader spreader = new MultifaceSpreader(this);
-    private final int colour;
+    private final Tints tint;
 
-    public CrystalBlock(Properties properties, Tints colour) {
+    public CrystalBlock(Properties properties, Tints tint) {
         super(properties);
         this.registerDefaultState(this.defaultBlockState().setValue(WATERLOGGED, false));
-        this.colour = colour.getColor();
+        this.tint = tint;
         Tints.TINTED_BLOCKS.add(this);
     }
 
@@ -62,6 +63,12 @@ public class CrystalBlock extends MultifaceBlock implements Tintable
     @Override
     public int getColor()
     {
-        return colour;
+        return tint.getColor();
+    }
+
+    @Override
+    protected MapCodec<? extends MultifaceBlock> codec()
+    {
+        return simpleCodec((properties) -> new CrystalBlock(properties, tint));
     }
 }

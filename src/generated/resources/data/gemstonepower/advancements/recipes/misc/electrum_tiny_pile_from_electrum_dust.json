@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:electrum_tiny_pile_from_electrum_dust"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

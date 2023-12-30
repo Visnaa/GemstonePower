@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:iron_ingot_from_iron_nugget"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

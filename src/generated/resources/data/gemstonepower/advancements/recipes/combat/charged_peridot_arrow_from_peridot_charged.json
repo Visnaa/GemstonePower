@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:charged_peridot_arrow_from_peridot_charged"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

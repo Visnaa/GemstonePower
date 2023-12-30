@@ -1,27 +1,25 @@
 package com.visnaa.gemstonepower.data.gen.builder;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonPrimitive;
 import com.visnaa.gemstonepower.GemstonePower;
-import com.visnaa.gemstonepower.data.recipe.FluidRecipe;
-import com.visnaa.gemstonepower.init.ModRecipes;
-import net.minecraft.advancements.*;
+import com.visnaa.gemstonepower.data.recipe.OreWasherRecipe;
+import net.minecraft.advancements.Advancement;
+import net.minecraft.advancements.AdvancementRequirements;
+import net.minecraft.advancements.AdvancementRewards;
+import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
 import net.minecraft.core.NonNullList;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.neoforged.neoforge.fluids.FluidStack;
+import net.minecraftforge.fluids.FluidStack;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class OreWasherRecipeBuilder implements RecipeBuilder
 {
@@ -70,72 +68,20 @@ public class OreWasherRecipeBuilder implements RecipeBuilder
     @Override
     public void save(RecipeOutput output, ResourceLocation recipeId)
     {
+        recipeId = new ResourceLocation(recipeId.getNamespace(), recipeId.getPath() + "_using_ore_washer");
         Advancement.Builder builder = output.advancement()
-                .addCriterion("has_the_recipe",
-                        RecipeUnlockedTrigger.unlocked(recipeId))
+                .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(recipeId))
                 .rewards(AdvancementRewards.Builder.recipe(recipeId))
                 .requirements(AdvancementRequirements.Strategy.OR);
-        output.accept(new OreWasherRecipeBuilder.Result(recipeId, this.input, this.fluid, this.outputs, this.counts, this.processingTime, this.energyUsage, builder.build(new ResourceLocation(recipeId.getNamespace(), "recipes/" + recipeId.getPath()))));
-    }
-
-    public static class Result implements FinishedRecipe
-    {
-        private final ResourceLocation id;
-        private final Ingredient input;
-        private final FluidStack fluid;
-        private final NonNullList<Item> outputs;
-        private final int[] counts;
-        private final int processingTime;
-        private final int energyUsage;
-        private final AdvancementHolder advancement;
-
-        public Result(ResourceLocation id, Ingredient input, FluidStack fluid, NonNullList<Item> outputs, int[] counts, int processingTime, int energyUsage, AdvancementHolder advancement)
+        criteria.forEach(builder::addCriterion);
+        List<ItemStack> outputs = new ArrayList<>();
+        List<Integer> counts = new ArrayList<>();
+        for (int i = 0; i < Math.min(this.outputs.size(), this.counts.length); i++)
         {
-            this.id = id;
-            this.input = input;
-            this.fluid = fluid;
-            this.outputs = outputs;
-            this.counts = counts;
-            this.processingTime = processingTime;
-            this.energyUsage = energyUsage;
-            this.advancement = advancement;
+            outputs.add(new ItemStack(this.outputs.get(i), this.counts[i]));
+            counts.add(this.counts[i]);
         }
-
-        @Override
-        public void serializeRecipeData(JsonObject json)
-        {
-            json.add("input", this.input.toJson(false));
-            json.add("fluid", FluidRecipe.toJson(this.fluid));
-
-            JsonArray outputs = new JsonArray();
-            this.outputs.forEach(item -> outputs.add(new JsonPrimitive(BuiltInRegistries.ITEM.getKey(item).toString())));
-            json.add("outputs", outputs);
-
-            JsonArray counts = new JsonArray();
-            Arrays.stream(this.counts).forEach(count -> counts.add(new JsonPrimitive(count)));
-            json.add("counts", counts);
-
-            json.addProperty("processingTime", this.processingTime);
-            json.addProperty("energyUsage", this.energyUsage);
-        }
-
-        @Override
-        public ResourceLocation id()
-        {
-            return new ResourceLocation(GemstonePower.MOD_ID, this.id.getPath() + "_using_ore_washer");
-        }
-
-        @Override
-        public RecipeSerializer<?> type()
-        {
-            return ModRecipes.ORE_WASHER_RECIPE_SERIALIZER.get();
-        }
-
-        @Nullable
-        @Override
-        public AdvancementHolder advancement()
-        {
-            return this.advancement;
-        }
+        OreWasherRecipe recipe = new OreWasherRecipe(input, fluid, outputs, counts, processingTime, energyUsage);
+        output.accept(recipeId, recipe, builder.build(GemstonePower.getId("recipes/" + recipeId.getPath())));
     }
 }

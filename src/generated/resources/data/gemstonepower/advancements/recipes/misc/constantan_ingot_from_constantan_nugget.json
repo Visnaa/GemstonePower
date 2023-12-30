@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:constantan_ingot_from_constantan_nugget"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

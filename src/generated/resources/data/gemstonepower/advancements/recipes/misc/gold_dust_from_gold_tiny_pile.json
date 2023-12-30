@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:gold_dust_from_gold_tiny_pile"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

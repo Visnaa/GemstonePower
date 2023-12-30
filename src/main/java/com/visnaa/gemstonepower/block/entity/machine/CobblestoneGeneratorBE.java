@@ -14,7 +14,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.common.capabilities.Capabilities;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 
 public class CobblestoneGeneratorBE extends MachineBE<Recipe<Container>>
 {
@@ -37,9 +37,9 @@ public class CobblestoneGeneratorBE extends MachineBE<Recipe<Container>>
         if (energyStorage.getEnergyStored() > MachineUtil.getUsage(state, ServerConfig.DEFAULT_MACHINE_USAGE.get()) && cooldown <= 0)
         {
             BlockEntity be = level.getBlockEntity(pos.below());
-            if (be != null && be.getCapability(Capabilities.ITEM_HANDLER).isPresent())
+            if (be != null && be.getCapability(ForgeCapabilities.ITEM_HANDLER).isPresent())
             {
-                be.getCapability(Capabilities.ITEM_HANDLER).map(handler -> {
+                be.getCapability(ForgeCapabilities.ITEM_HANDLER).map(handler -> {
                     for (int i = 0; i < handler.getSlots(); i++)
                     {
                         if ((handler.getStackInSlot(i).is(Items.COBBLESTONE) || handler.getStackInSlot(i).isEmpty()) && handler.getStackInSlot(i).getCount() <= handler.getStackInSlot(i).getMaxStackSize() - 1)

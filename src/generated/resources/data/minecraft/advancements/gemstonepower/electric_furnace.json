@@ -15,16 +15,12 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "description": {
       "translate": "advancement.gemstonepower.electric_furnace.description"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "gemstonepower:electric_furnace"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancement.gemstonepower.electric_furnace.title"
     }

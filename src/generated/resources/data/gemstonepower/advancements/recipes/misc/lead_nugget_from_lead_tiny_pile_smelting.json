@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:lead_nugget_from_lead_tiny_pile_smelting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -1,5 +1,8 @@
 package com.visnaa.gemstonepower.block;
 
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.visnaa.gemstonepower.block.entity.ReactorFrameBE;
 import com.visnaa.gemstonepower.client.render.Tintable;
 import com.visnaa.gemstonepower.client.render.Tints;
@@ -41,5 +44,14 @@ public class ReactorFrameBlock extends BaseEntityBlock implements Tintable
         if (level.getBlockEntity(pos) instanceof ReactorFrameBE frame)
             frame.broken(level);
         super.onRemove(state, level, pos, state1, flag);
+    }
+
+    @Override
+    protected MapCodec<? extends BaseEntityBlock> codec()
+    {
+        return RecordCodecBuilder.mapCodec((builder) -> builder.group(
+                propertiesCodec(),
+                Codec.STRING.fieldOf("type").forGetter((be) -> this.type.getName())
+        ).apply(builder, (properties, type) -> new ReactorFrameBlock(properties, ReactorFrameBE.Type.getByName(type))));
     }
 }

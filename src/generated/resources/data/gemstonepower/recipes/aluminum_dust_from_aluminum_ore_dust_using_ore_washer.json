@@ -3,7 +3,6 @@
   "counts": [
     1,
     1,
-    1,
     1
   ],
   "energyUsage": 40,
@@ -14,10 +13,6 @@
   "input": {
     "item": "gemstonepower:aluminum_ore_dust"
   },
-  "outputs": [
-    "gemstonepower:aluminum_dust",
-    "gemstonepower:gold_tiny_pile",
-    "gemstonepower:jade"
-  ],
+  "outputs": [],
   "processingTime": 400
 }

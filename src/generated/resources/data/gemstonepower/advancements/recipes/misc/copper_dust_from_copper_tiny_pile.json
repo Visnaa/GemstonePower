@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:copper_dust_from_copper_tiny_pile"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

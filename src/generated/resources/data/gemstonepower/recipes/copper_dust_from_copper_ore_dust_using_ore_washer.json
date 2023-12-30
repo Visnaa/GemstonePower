@@ -14,11 +14,6 @@
   "input": {
     "item": "gemstonepower:copper_ore_dust"
   },
-  "outputs": [
-    "gemstonepower:copper_dust",
-    "gemstonepower:silver_tiny_pile",
-    "gemstonepower:iron_tiny_pile",
-    "gemstonepower:aquamarine"
-  ],
+  "outputs": [],
   "processingTime": 400
 }

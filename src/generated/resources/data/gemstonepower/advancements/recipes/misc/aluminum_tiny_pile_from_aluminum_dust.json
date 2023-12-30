@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:aluminum_tiny_pile_from_aluminum_dust"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -7,18 +7,21 @@ import com.visnaa.gemstonepower.init.ModRecipes;
 import com.visnaa.gemstonepower.network.ModPackets;
 import net.minecraft.Util;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.DataProvider;
 import net.minecraft.data.loot.LootTableProvider;
+import net.minecraft.data.registries.RegistriesDatapackGenerator;
 import net.minecraft.data.registries.VanillaRegistries;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
-import net.neoforged.neoforge.data.event.GatherDataEvent;
-import net.neoforged.neoforge.registries.RegisterEvent;
+import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.data.event.GatherDataEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.registries.RegisterEvent;
 
 import java.util.List;
 import java.util.Set;
@@ -63,7 +66,7 @@ public class CommonEvents
         generator.addProvider(true, new EN_US_LanguageGenerator(generator.getPackOutput()));
 
         // Server
-        generator.addProvider(true, new RecipeGenerator(generator.getPackOutput(), completablefuture));
+        generator.addProvider(true, new RecipeGenerator(generator.getPackOutput()));
         generator.addProvider(true, new LootTableProvider(generator.getPackOutput(), Set.of(), List.of(new LootTableProvider.SubProviderEntry(BlockLootGenerator::new, LootContextParamSets.BLOCK))));
         generator.addProvider(true, new ItemTagGenerator(generator.getPackOutput(), Registries.ITEM, completablefuture, existingFileHelper));
         generator.addProvider(true, new BlockTagGenerator(generator.getPackOutput(), Registries.BLOCK, completablefuture, existingFileHelper));
@@ -71,7 +74,10 @@ public class CommonEvents
         generator.addProvider(true, new EntityTagGenerator(generator.getPackOutput(), completablefuture, existingFileHelper));
         generator.addProvider(true, new BiomeTagGenerator(generator.getPackOutput(), completablefuture, existingFileHelper));
         generator.addProvider(true, new TrimMaterialGenerator(generator.getPackOutput()));
-        generator.addProvider(true, new WorldGenGenerator(generator.getPackOutput(), completablefuture));
         generator.addProvider(true, AdvancementGenerator.create(generator.getPackOutput(), completablefuture, existingFileHelper));
+
+
+        CompletableFuture<HolderLookup.Provider> gemstonePowerCompletableFuture = GemstonePowerRegistryGenerator.createLookup(completablefuture).thenApply(RegistrySetBuilder.PatchedRegistries::patches);
+        generator.addProvider(true, (DataProvider.Factory<RegistriesDatapackGenerator>) (output) -> new RegistriesDatapackGenerator(output, gemstonePowerCompletableFuture));
     }
 }

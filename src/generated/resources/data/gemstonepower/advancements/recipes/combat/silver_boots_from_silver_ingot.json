@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:silver_boots_from_silver_ingot"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

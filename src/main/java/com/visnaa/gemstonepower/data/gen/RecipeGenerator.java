@@ -8,8 +8,11 @@ import com.visnaa.gemstonepower.item.CrystalArrowItem;
 import com.visnaa.gemstonepower.item.metal.MetalGroup;
 import com.visnaa.gemstonepower.item.metal.MetalGroups;
 import com.visnaa.gemstonepower.util.MachineUtil.MachineModes;
+import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.advancements.Criterion;
+import net.minecraft.advancements.critereon.EnterBlockTrigger;
+import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.ItemPredicate;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
@@ -18,19 +21,20 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.Fluids;
-import net.neoforged.neoforge.common.Tags;
-import net.neoforged.neoforge.fluids.FluidStack;
+import net.minecraftforge.common.Tags;
+import net.minecraftforge.fluids.FluidStack;
 
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
+import java.util.Optional;
 
 public class RecipeGenerator extends RecipeProvider
 {
-    public RecipeGenerator(PackOutput output, CompletableFuture<HolderLookup.Provider> completableFuture)
+    public RecipeGenerator(PackOutput output)
     {
-        super(output, completableFuture);
+        super(output);
     }
 
     @Override
@@ -237,7 +241,7 @@ public class RecipeGenerator extends RecipeProvider
 
         ExtractorRecipeBuilder.create(Ingredient.of(ItemTags.LOGS), ModItems.RESIN.get(), 1, 200, 40)
                 .unlockedBy("has_log", inventoryTrigger(ItemPredicate.Builder.item().of(ItemTags.LOGS).build()))
-                .save(output);
+                .save(output, GemstonePower.getId("resin_from_logs"));
 
         ExtractorRecipeBuilder.create(Ingredient.of(ModItems.RESIN_OAK_LOG.get()), ModItems.RESIN.get(), 5, 200, 40)
                 .unlockedBy(hasName(ModItems.RESIN_OAK_LOG.get()), has(ModItems.RESIN_OAK_LOG.get()))
@@ -1385,6 +1389,16 @@ public class RecipeGenerator extends RecipeProvider
                 .define('U', ModItems.ULTRA_UPGRADE.get())
                 .unlockedBy(hasName(ModItems.ULTRA_UPGRADE.get()), has(ModItems.ULTRA_UPGRADE.get()))
                 .save(output, getFileName(ModItems.EXTREME_UPGRADE.get()));
+    }
+
+    private static Criterion<InventoryChangeTrigger.TriggerInstance> inventoryTrigger(ItemPredicate... predicates)
+    {
+        return CriteriaTriggers.INVENTORY_CHANGED.createCriterion(new InventoryChangeTrigger.TriggerInstance(Optional.empty(), InventoryChangeTrigger.TriggerInstance.Slots.ANY, List.of(predicates)));
+    }
+
+    private static Criterion<EnterBlockTrigger.TriggerInstance> insideOf(Block block)
+    {
+        return CriteriaTriggers.ENTER_BLOCK.createCriterion(new EnterBlockTrigger.TriggerInstance(Optional.empty(), Optional.of(block.builtInRegistryHolder()), Optional.empty()));
     }
 
     private String hasName(ItemLike item)

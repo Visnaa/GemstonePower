@@ -15,16 +15,12 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "description": {
       "translate": "advancement.gemstonepower.gemstone_generator.description"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "gemstonepower:gemstone_generator"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancement.gemstonepower.gemstone_generator.title"
     }

@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:zinc_ingot_from_raw_zinc_blasting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

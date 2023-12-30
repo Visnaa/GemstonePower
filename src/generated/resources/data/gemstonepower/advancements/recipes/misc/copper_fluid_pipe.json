@@ -28,6 +28,5 @@
     "recipes": [
       "gemstonepower:copper_fluid_pipe"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

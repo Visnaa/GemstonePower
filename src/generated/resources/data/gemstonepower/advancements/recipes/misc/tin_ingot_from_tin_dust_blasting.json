@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:tin_ingot_from_tin_dust_blasting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -15,16 +15,12 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "description": {
       "translate": "advancement.gemstonepower.water_mill.description"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "gemstonepower:water_mill"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancement.gemstonepower.water_mill.title"
     }

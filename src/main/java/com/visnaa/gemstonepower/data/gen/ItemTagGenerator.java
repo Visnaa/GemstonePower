@@ -12,7 +12,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
@@ -20,7 +20,7 @@ import java.util.concurrent.CompletableFuture;
 import static com.visnaa.gemstonepower.data.tag.CommonTags.Items.*;
 import static com.visnaa.gemstonepower.init.ModTags.*;
 import static net.minecraft.tags.ItemTags.*;
-import static net.neoforged.neoforge.common.Tags.Items.*;
+import static net.minecraftforge.common.Tags.Items.*;
 
 public class ItemTagGenerator extends TagsProvider<Item>
 {

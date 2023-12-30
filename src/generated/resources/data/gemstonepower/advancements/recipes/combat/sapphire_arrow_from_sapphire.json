@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:sapphire_arrow_from_sapphire"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

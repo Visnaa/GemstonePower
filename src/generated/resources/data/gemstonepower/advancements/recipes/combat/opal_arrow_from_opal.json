@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:opal_arrow_from_opal"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

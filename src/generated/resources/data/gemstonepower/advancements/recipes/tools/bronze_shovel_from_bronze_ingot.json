@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:bronze_shovel_from_bronze_ingot"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

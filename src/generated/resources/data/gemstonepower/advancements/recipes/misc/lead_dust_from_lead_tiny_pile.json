@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:lead_dust_from_lead_tiny_pile"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

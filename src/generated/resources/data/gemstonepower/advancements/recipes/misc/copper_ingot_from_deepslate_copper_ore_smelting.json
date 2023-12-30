@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:copper_ingot_from_deepslate_copper_ore_smelting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

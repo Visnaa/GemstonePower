@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:charged_amber_arrow_from_amber_charged"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

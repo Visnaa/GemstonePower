@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:nickel_dust_from_nickel_tiny_pile"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

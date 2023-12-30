@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:iron_dust_from_iron_tiny_pile"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

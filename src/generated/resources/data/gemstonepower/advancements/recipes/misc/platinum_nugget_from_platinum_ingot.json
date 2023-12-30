@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:platinum_nugget_from_platinum_ingot"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

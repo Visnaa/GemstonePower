@@ -3,7 +3,7 @@ package com.visnaa.gemstonepower.data.gen;
 import com.visnaa.gemstonepower.GemstonePower;
 import com.visnaa.gemstonepower.init.*;
 import net.minecraft.data.PackOutput;
-import net.neoforged.neoforge.common.data.LanguageProvider;
+import net.minecraftforge.common.data.LanguageProvider;
 
 public class EN_US_LanguageGenerator extends LanguageProvider
 {

@@ -129,4 +129,9 @@ public abstract class CableBlock extends PipeBlock implements Tintable
     {
         return color.getColor();
     }
+
+    protected boolean isIsolated()
+    {
+        return isIsolated;
+    }
 }

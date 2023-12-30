@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_magnesium_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:magnesium_ore"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:magnesium_ore_dust_from_magnesium_ore_using_pulverizer"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_magnesium_ore"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:magnesium_ore_dust_from_magnesium_ore_using_pulverizer"
+    ]
+  }
+}

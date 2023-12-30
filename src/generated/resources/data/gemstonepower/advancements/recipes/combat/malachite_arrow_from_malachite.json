@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:malachite_arrow_from_malachite"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

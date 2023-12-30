@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:lithium_nugget_from_lithium_tiny_pile_blasting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

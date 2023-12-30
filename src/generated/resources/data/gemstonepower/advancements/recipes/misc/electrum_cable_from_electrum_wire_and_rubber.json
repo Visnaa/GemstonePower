@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:electrum_cable_from_electrum_wire_and_rubber"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

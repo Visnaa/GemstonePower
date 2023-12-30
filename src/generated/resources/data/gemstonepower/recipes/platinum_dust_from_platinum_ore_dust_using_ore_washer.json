@@ -14,11 +14,6 @@
   "input": {
     "item": "gemstonepower:platinum_ore_dust"
   },
-  "outputs": [
-    "gemstonepower:platinum_dust",
-    "gemstonepower:gold_tiny_pile",
-    "gemstonepower:aluminum_tiny_pile",
-    "gemstonepower:moon_stone"
-  ],
+  "outputs": [],
   "processingTime": 400
 }

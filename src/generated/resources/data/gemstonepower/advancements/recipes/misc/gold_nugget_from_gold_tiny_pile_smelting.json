@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:gold_nugget_from_gold_tiny_pile_smelting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

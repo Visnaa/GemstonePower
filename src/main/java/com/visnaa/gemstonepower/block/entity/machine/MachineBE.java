@@ -44,14 +44,14 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.common.capabilities.Capabilities;
-import net.neoforged.neoforge.common.capabilities.Capability;
-import net.neoforged.neoforge.common.util.LazyOptional;
-import net.neoforged.neoforge.energy.IEnergyStorage;
-import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.items.ItemHandlerHelper;
-import net.neoforged.neoforge.items.wrapper.EmptyHandler;
-import net.neoforged.neoforge.items.wrapper.SidedInvWrapper;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.energy.IEnergyStorage;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.ItemHandlerHelper;
+import net.minecraftforge.items.wrapper.EmptyHandler;
+import net.minecraftforge.items.wrapper.SidedInvWrapper;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
@@ -272,7 +272,7 @@ public class MachineBE<T extends Recipe<Container>> extends BaseContainerBlockEn
     {
         for (Direction dir : Direction.values())
         {
-            if (!configs.get(dir).canOutput() || level.getBlockEntity(pos.relative(dir)) == null || !level.getBlockEntity(pos.relative(dir)).getCapability(Capabilities.ITEM_HANDLER, dir.getOpposite()).isPresent() || !hasItems())
+            if (!configs.get(dir).canOutput() || level.getBlockEntity(pos.relative(dir)) == null || !level.getBlockEntity(pos.relative(dir)).getCapability(ForgeCapabilities.ITEM_HANDLER, dir.getOpposite()).isPresent() || !hasItems())
                 continue;
 
             List<ItemStack> outputItems = new ArrayList<>();
@@ -291,7 +291,7 @@ public class MachineBE<T extends Recipe<Container>> extends BaseContainerBlockEn
                     continue;
 
                 ItemStack transfer = stack.copyWithCount(1);
-                ItemStack remainder = ItemHandlerHelper.insertItemStacked(level.getBlockEntity(pos.relative(dir)).getCapability(Capabilities.ITEM_HANDLER, dir.getOpposite()).orElse(EmptyHandler.INSTANCE), transfer, false);
+                ItemStack remainder = ItemHandlerHelper.insertItemStacked(level.getBlockEntity(pos.relative(dir)).getCapability(ForgeCapabilities.ITEM_HANDLER, dir.getOpposite()).orElse(EmptyHandler.INSTANCE), transfer, false);
                 if (remainder.isEmpty())
                     stack.shrink(1);
             }
@@ -480,12 +480,12 @@ public class MachineBE<T extends Recipe<Container>> extends BaseContainerBlockEn
     {
         if (!this.remove)
         {
-            if (capability == Capabilities.ITEM_HANDLER && direction != null)
+            if (capability == ForgeCapabilities.ITEM_HANDLER && direction != null)
             {
                 LazyOptional<? extends IItemHandler> handler = itemHandlers.get(direction);
                 return handler.isPresent() ? handler.cast() : super.getCapability(capability, direction);
             }
-            else if (capability == Capabilities.ENERGY)
+            else if (capability == ForgeCapabilities.ENERGY)
                 return lazyEnergy.cast();
         }
         return super.getCapability(capability, direction);

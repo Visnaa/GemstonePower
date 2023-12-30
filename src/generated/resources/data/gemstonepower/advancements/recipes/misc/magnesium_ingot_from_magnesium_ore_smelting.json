@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:magnesium_ingot_from_magnesium_ore_smelting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

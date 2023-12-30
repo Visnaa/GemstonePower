@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:silver_ingot_from_silver_ore_blasting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

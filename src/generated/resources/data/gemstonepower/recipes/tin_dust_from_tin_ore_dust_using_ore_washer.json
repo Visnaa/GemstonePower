@@ -14,11 +14,6 @@
   "input": {
     "item": "gemstonepower:tin_ore_dust"
   },
-  "outputs": [
-    "gemstonepower:tin_dust",
-    "gemstonepower:copper_tiny_pile",
-    "gemstonepower:malachite",
-    "gemstonepower:moon_stone"
-  ],
+  "outputs": [],
   "processingTime": 400
 }

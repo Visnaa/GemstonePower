@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:lithium_ingot_from_raw_lithium_smelting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

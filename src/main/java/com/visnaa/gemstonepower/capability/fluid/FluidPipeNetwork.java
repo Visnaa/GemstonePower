@@ -9,11 +9,11 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.common.capabilities.Capabilities;
-import net.neoforged.neoforge.fluids.FluidStack;
-import net.neoforged.neoforge.fluids.FluidUtil;
-import net.neoforged.neoforge.fluids.capability.IFluidHandler;
-import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.FluidUtil;
+import net.minecraftforge.fluids.capability.IFluidHandler;
+import net.minecraftforge.fluids.capability.templates.FluidTank;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -61,11 +61,11 @@ public class FluidPipeNetwork implements PipeNetwork<FluidPipeBE>
     public void refresh()
     {
         for (BlockEntity be : new HashSet<>(inputs.keySet()))
-            if (be.isRemoved() || !be.getCapability(Capabilities.FLUID_HANDLER, inputs.get(be)).isPresent())
+            if (be.isRemoved() || !be.getCapability(ForgeCapabilities.FLUID_HANDLER, inputs.get(be)).isPresent())
                 inputs.remove(be);
 
         for (BlockEntity be : new HashSet<>(outputs.keySet()))
-            if (be.isRemoved() || !be.getCapability(Capabilities.FLUID_HANDLER, outputs.get(be)).isPresent())
+            if (be.isRemoved() || !be.getCapability(ForgeCapabilities.FLUID_HANDLER, outputs.get(be)).isPresent())
                 outputs.remove(be);
 
         this.pipes.removeIf(pipe -> {

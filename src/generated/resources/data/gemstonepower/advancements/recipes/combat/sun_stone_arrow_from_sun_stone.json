@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:sun_stone_arrow_from_sun_stone"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:uranium_ingot_from_uranium_nugget"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

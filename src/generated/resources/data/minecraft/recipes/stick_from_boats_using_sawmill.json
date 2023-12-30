@@ -1,0 +1,10 @@
+{
+  "type": "gemstonepower:sawmill",
+  "count": 16,
+  "energyUsage": 40,
+  "input": {
+    "tag": "minecraft:boats"
+  },
+  "output": "minecraft:stick",
+  "processingTime": 150
+}

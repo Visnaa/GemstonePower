@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:charged_moon_stone_arrow_from_moon_stone_charged"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

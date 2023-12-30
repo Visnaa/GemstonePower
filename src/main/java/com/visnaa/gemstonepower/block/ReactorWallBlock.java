@@ -1,5 +1,6 @@
 package com.visnaa.gemstonepower.block;
 
+import com.mojang.serialization.MapCodec;
 import com.visnaa.gemstonepower.block.entity.ReactorWallBE;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
@@ -35,5 +36,11 @@ public class ReactorWallBlock extends BaseEntityBlock
         if (level.getBlockEntity(pos) instanceof ReactorWallBE wall)
             wall.broken(level);
         super.onRemove(state, level, pos, state1, flag);
+    }
+
+    @Override
+    protected MapCodec<? extends BaseEntityBlock> codec()
+    {
+        return simpleCodec(ReactorWallBlock::new);
     }
 }

@@ -36,7 +36,7 @@ public class CrystalArrowItem extends ArrowItem implements Tintable
     @Override
     public AbstractArrow createArrow(Level level, ItemStack stack, LivingEntity entity)
     {
-        CrystalArrow arrow = new CrystalArrow(this, tint, level, entity);
+        CrystalArrow arrow = new CrystalArrow(this, tint, level, entity, stack.copyWithCount(1));
         return arrow;
     }
 

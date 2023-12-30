@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:charged_onyx_arrow_from_onyx_charged"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

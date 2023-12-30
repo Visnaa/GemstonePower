@@ -15,16 +15,12 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "description": {
       "translate": "advancement.gemstonepower.pulverizer.description"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "gemstonepower:pulverizer"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancement.gemstonepower.pulverizer.title"
     }

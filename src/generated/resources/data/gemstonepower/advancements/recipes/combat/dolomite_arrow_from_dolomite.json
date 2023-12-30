@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:dolomite_arrow_from_dolomite"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

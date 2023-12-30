@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:bronze_nugget_from_bronze_tiny_pile_blasting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

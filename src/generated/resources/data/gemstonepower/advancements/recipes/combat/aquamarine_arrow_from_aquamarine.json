@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:aquamarine_arrow_from_aquamarine"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

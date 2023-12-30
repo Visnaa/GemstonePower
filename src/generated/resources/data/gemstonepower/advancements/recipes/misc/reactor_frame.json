@@ -28,6 +28,5 @@
     "recipes": [
       "gemstonepower:reactor_frame"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

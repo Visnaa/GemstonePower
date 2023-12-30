@@ -5,7 +5,7 @@ import com.visnaa.gemstonepower.util.MachineUtil.MachineConfigs;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
-import net.neoforged.neoforge.network.NetworkEvent;
+import net.minecraftforge.event.network.CustomPayloadEvent;
 
 public class MachineConfigSyncS2C
 {
@@ -42,7 +42,7 @@ public class MachineConfigSyncS2C
         buffer.writeBlockPos(pos);
     }
 
-    public void handle(NetworkEvent.Context context)
+    public void handle(CustomPayloadEvent.Context context)
     {
         context.enqueueWork(() -> {
             if (Minecraft.getInstance().level != null && Minecraft.getInstance().level.getBlockEntity(pos) instanceof MachineBE<?> blockEntity)

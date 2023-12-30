@@ -14,8 +14,8 @@ import net.minecraft.client.gui.components.WidgetSprites;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.api.distmarker.OnlyIn;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import org.joml.Vector2i;
 
 @OnlyIn(Dist.CLIENT)
@@ -40,6 +40,7 @@ public class FissionReactorScreen extends MachineScreen<FissionReactorMenu>
                 .pos((this.width - 200) / 2 + 50, this.topPos - 32)
                 .size(100, 20).build();
         this.addRenderableWidget(activateButton);
+        setSideTexture("reactor_wall");
     }
 
     @Override
@@ -54,7 +55,7 @@ public class FissionReactorScreen extends MachineScreen<FissionReactorMenu>
         super.render(graphics, mouseX, mouseY, partialTicks);
 
         if (isMouseInArea(mouseX, mouseY, leftPos + 21, topPos + 38, 3, 16))
-            graphics.renderTooltip(Minecraft.getInstance().font, MachineUtil.getHeatScaled(menu.getHeat(), menu.getMaxHeat()), ItemStack.EMPTY.getTooltipImage(), mouseX, mouseY);
+            graphics.renderTooltip(Minecraft.getInstance().font, MachineUtil.getHeatScaled(menu.getHeat(), menu.getMaxHeat(), getColor()), ItemStack.EMPTY.getTooltipImage(), mouseX, mouseY);
     }
 
     @Override

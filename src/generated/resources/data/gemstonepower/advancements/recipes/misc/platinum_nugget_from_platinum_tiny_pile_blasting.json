@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:platinum_nugget_from_platinum_tiny_pile_blasting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -14,11 +14,6 @@
   "input": {
     "item": "gemstonepower:magnesium_ore_dust"
   },
-  "outputs": [
-    "gemstonepower:magnesium_dust",
-    "gemstonepower:iron_tiny_pile",
-    "gemstonepower:aluminum_tiny_pile",
-    "gemstonepower:tanzanite"
-  ],
+  "outputs": [],
   "processingTime": 400
 }

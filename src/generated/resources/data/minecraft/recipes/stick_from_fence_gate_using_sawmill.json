@@ -1,0 +1,10 @@
+{
+  "type": "gemstonepower:sawmill",
+  "count": 12,
+  "energyUsage": 40,
+  "input": {
+    "tag": "minecraft:fence_gates"
+  },
+  "output": "minecraft:stick",
+  "processingTime": 150
+}

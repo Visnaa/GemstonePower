@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:lead_ingot_from_lead_block"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

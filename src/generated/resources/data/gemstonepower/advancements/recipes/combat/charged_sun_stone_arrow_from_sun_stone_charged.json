@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:charged_sun_stone_arrow_from_sun_stone_charged"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

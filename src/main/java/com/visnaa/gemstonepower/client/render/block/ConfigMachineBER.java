@@ -34,7 +34,7 @@ public class ConfigMachineBER implements BlockEntityRenderer<MachineBE<?>>
         if (!(Minecraft.getInstance().getTextureManager().getTexture(InventoryMenu.BLOCK_ATLAS) instanceof TextureAtlas atlas))
             return;
         VertexConsumer consumer = buffer.getBuffer(Sheets.translucentCullBlockSheet());
-        machine.getConfigs().keySet().forEach(dir -> renderFace(stack, consumer, dir, getTexture(machine.getConfigs().get(dir), atlas), LevelRenderer.getLightColor(machine.getLevel(), machine.getBlockState(), machine.getBlockPos().above())));
+        machine.getConfigs().keySet().forEach(dir -> renderFace(stack, consumer, dir, getTexture(machine.getConfigs().get(dir), atlas), LevelRenderer.getLightColor(machine.getLevel(), machine.getBlockState(), machine.getBlockPos().relative(dir))));
     }
 
     private TextureAtlasSprite getTexture(MachineUtil.MachineConfigs config, TextureAtlas atlas)

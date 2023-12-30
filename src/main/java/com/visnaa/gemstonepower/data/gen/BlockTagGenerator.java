@@ -9,14 +9,14 @@ import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
 
 import static com.visnaa.gemstonepower.data.tag.CommonTags.Blocks.*;
 import static net.minecraft.tags.BlockTags.*;
-import static net.neoforged.neoforge.common.Tags.Blocks.*;
+import static net.minecraftforge.common.Tags.Blocks.*;
 
 public class BlockTagGenerator extends TagsProvider<Block>
 {

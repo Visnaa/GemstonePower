@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:extreme_upgrade"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

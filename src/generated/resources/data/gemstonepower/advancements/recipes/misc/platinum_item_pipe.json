@@ -28,6 +28,5 @@
     "recipes": [
       "gemstonepower:platinum_item_pipe"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

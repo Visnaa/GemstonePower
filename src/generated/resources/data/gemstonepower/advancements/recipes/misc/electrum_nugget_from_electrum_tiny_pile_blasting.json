@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:electrum_nugget_from_electrum_tiny_pile_blasting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

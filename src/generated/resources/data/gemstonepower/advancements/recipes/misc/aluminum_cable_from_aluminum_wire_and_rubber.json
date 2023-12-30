@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:aluminum_cable_from_aluminum_wire_and_rubber"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

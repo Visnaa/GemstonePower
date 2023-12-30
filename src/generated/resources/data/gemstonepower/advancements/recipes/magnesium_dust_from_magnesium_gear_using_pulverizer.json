@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_magnesium_gear": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:magnesium_gear"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:magnesium_dust_from_magnesium_gear_using_pulverizer"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_magnesium_gear"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:magnesium_dust_from_magnesium_gear_using_pulverizer"
+    ]
+  }
+}

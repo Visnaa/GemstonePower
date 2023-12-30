@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:fission_reactor"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

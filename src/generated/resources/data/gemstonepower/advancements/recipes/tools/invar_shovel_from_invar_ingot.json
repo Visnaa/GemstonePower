@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:invar_shovel_from_invar_ingot"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

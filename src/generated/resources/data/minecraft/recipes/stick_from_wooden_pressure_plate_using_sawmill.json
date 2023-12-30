@@ -1,0 +1,10 @@
+{
+  "type": "gemstonepower:sawmill",
+  "count": 4,
+  "energyUsage": 40,
+  "input": {
+    "tag": "minecraft:wooden_pressure_plates"
+  },
+  "output": "minecraft:stick",
+  "processingTime": 150
+}

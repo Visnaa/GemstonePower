@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:charged_citrine_arrow_from_citrine_charged"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

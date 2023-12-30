@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:tin_cable_from_tin_wire_and_rubber"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

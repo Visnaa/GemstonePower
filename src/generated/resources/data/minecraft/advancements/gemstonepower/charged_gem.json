@@ -13,16 +13,12 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "description": {
       "translate": "advancement.gemstonepower.charged_gem.description"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "gemstonepower:aquamarine_charged"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancement.gemstonepower.charged_gem.title"
     }

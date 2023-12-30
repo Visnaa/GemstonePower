@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:iron_nugget_from_iron_tiny_pile_blasting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

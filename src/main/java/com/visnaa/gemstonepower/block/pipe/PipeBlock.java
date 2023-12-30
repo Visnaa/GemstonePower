@@ -27,12 +27,12 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.neoforged.neoforge.common.capabilities.Capabilities;
-import net.neoforged.neoforge.energy.IEnergyStorage;
-import net.neoforged.neoforge.fluids.capability.IFluidHandler;
-import net.neoforged.neoforge.fluids.capability.templates.EmptyFluidHandler;
-import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.items.wrapper.EmptyHandler;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import net.minecraftforge.energy.IEnergyStorage;
+import net.minecraftforge.fluids.capability.IFluidHandler;
+import net.minecraftforge.fluids.capability.templates.EmptyFluidHandler;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.wrapper.EmptyHandler;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
@@ -92,21 +92,21 @@ public abstract class PipeBlock extends BaseEntityBlock
             if (be == null)
                 continue;
 
-            if (be.getCapability(Capabilities.ENERGY).isPresent() && this instanceof CableBlock)
+            if (be.getCapability(ForgeCapabilities.ENERGY).isPresent() && this instanceof CableBlock)
             {
-                IEnergyStorage handler = be.getCapability(Capabilities.ENERGY, direction).orElse(EnergyStorage.EMPTY);
+                IEnergyStorage handler = be.getCapability(ForgeCapabilities.ENERGY, direction).orElse(EnergyStorage.EMPTY);
                 if (handler != EnergyStorage.EMPTY && (handler.canReceive() || handler.canExtract()))
                     state = state.setValue(CONNECTIONS.get(direction.getOpposite()), "true");
             }
-            else if (be.getCapability(Capabilities.ITEM_HANDLER).isPresent() && this instanceof ItemPipeBlock)
+            else if (be.getCapability(ForgeCapabilities.ITEM_HANDLER).isPresent() && this instanceof ItemPipeBlock)
             {
-                IItemHandler handler = be.getCapability(Capabilities.ITEM_HANDLER, direction).orElse(EmptyHandler.INSTANCE);
+                IItemHandler handler = be.getCapability(ForgeCapabilities.ITEM_HANDLER, direction).orElse(EmptyHandler.INSTANCE);
                 if (handler != EmptyHandler.INSTANCE && handler.getSlots() > 0)
                     state = state.setValue(CONNECTIONS.get(direction.getOpposite()), "true");
             }
-            else if (be.getCapability(Capabilities.FLUID_HANDLER).isPresent() && this instanceof FluidPipeBlock)
+            else if (be.getCapability(ForgeCapabilities.FLUID_HANDLER).isPresent() && this instanceof FluidPipeBlock)
             {
-                IFluidHandler handler = be.getCapability(Capabilities.FLUID_HANDLER, direction).orElse(EmptyFluidHandler.INSTANCE);
+                IFluidHandler handler = be.getCapability(ForgeCapabilities.FLUID_HANDLER, direction).orElse(EmptyFluidHandler.INSTANCE);
                 if (handler != EmptyFluidHandler.INSTANCE)
                     state = state.setValue(CONNECTIONS.get(direction.getOpposite()), "true");
             }

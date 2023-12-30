@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_aquamarine": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:aquamarine"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:aquamarine_charged_from_aquamarine_using_crystal_charger"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_aquamarine"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:aquamarine_charged_from_aquamarine_using_crystal_charger"
+    ]
+  }
+}

@@ -10,11 +10,11 @@ import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
-import net.neoforged.neoforge.common.capabilities.Capabilities;
-import net.neoforged.neoforge.common.capabilities.Capability;
-import net.neoforged.neoforge.common.util.LazyOptional;
-import net.neoforged.neoforge.fluids.FluidUtil;
-import net.neoforged.neoforge.fluids.capability.IFluidHandler;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.fluids.FluidUtil;
+import net.minecraftforge.fluids.capability.IFluidHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -44,7 +44,7 @@ public class TankBE extends FluidMachineBE<Recipe<Container>>
 
         if (level.getBlockEntity(pos.below()) instanceof TankBE other)
         {
-            if (!other.getCapability(Capabilities.FLUID_HANDLER).isPresent() || !getCapability(Capabilities.FLUID_HANDLER).isPresent())
+            if (!other.getCapability(ForgeCapabilities.FLUID_HANDLER).isPresent() || !getCapability(ForgeCapabilities.FLUID_HANDLER).isPresent())
                 return;
 
             if (tanks.getFluidInTank(0).isEmpty())
@@ -58,7 +58,7 @@ public class TankBE extends FluidMachineBE<Recipe<Container>>
 
         if (level.getBlockEntity(pos.below()) != null && FluidUtil.getFluidHandler(level, pos.below(), Direction.UP).isPresent())
         {
-            if (!getCapability(Capabilities.FLUID_HANDLER).isPresent())
+            if (!getCapability(ForgeCapabilities.FLUID_HANDLER).isPresent())
                 return;
 
             if (tanks.getFluidInTank(0).isEmpty())
@@ -81,7 +81,7 @@ public class TankBE extends FluidMachineBE<Recipe<Container>>
     @Override
     public<T> LazyOptional<T> getCapability(@NotNull Capability<T> capability, @Nullable Direction direction)
     {
-        if (capability == Capabilities.FLUID_HANDLER)
+        if (capability == ForgeCapabilities.FLUID_HANDLER)
             return LazyOptional.of(() -> tanks).cast();
         return LazyOptional.empty();
     }

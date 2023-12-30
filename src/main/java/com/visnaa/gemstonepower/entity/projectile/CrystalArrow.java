@@ -19,25 +19,25 @@ public class CrystalArrow extends AbstractArrow
     private final CrystalArrowItem arrowItem;
     private final Consumer<EntityHitResult> consumer;
 
-    public CrystalArrow(EntityType<? extends CrystalArrow> arrow, CrystalArrowItem arrowItem, Tints tint, Level level)
+    public CrystalArrow(EntityType<? extends AbstractArrow> arrow, CrystalArrowItem arrowItem, Tints tint, Level level)
     {
-        super(arrow, level);
+        super(arrow, level, new ItemStack(arrowItem));
         this.arrowItem = arrowItem;
         this.colour = tint.getColor();
         this.consumer = arrowItem.getHit();
     }
 
-    public CrystalArrow(CrystalArrowItem arrowItem, Tints tint, Level level, double x, double y, double z)
+    public CrystalArrow(CrystalArrowItem arrowItem, Tints tint, Level level, double x, double y, double z, ItemStack itemStack)
     {
-        super(ModEntities.RUBY_ARROW.get(), x, y, z, level);
+        super(ModEntities.RUBY_ARROW.get(), x, y, z, level, itemStack);
         this.arrowItem = arrowItem;
         this.colour = tint.getColor();
         this.consumer = arrowItem.getHit();
     }
 
-    public CrystalArrow(CrystalArrowItem arrowItem, Tints tint, Level level, LivingEntity entity)
+    public CrystalArrow(CrystalArrowItem arrowItem, Tints tint, Level level, LivingEntity entity, ItemStack itemStack)
     {
-        super(ModEntities.RUBY_ARROW.get(), entity, level);
+        super(ModEntities.RUBY_ARROW.get(), entity, level, itemStack);
         this.arrowItem = arrowItem;
         this.colour = tint.getColor();
         this.consumer = arrowItem.getHit();

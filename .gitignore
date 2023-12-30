@@ -1,5 +1,5 @@
 # idea
-out
+.out
 runs
 *.ipr
 *.iws
@@ -13,7 +13,8 @@ build
 # Files from Forge MDK
 forge*changelog.txt
 
-
 # other
 logs
 logo.png
+run
+run-data

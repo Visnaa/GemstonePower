@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:silver_dust_from_silver_tiny_pile"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

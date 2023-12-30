@@ -1,5 +1,6 @@
 package com.visnaa.gemstonepower.block;
 
+import com.mojang.serialization.MapCodec;
 import com.visnaa.gemstonepower.block.entity.FissionReactorBE;
 import com.visnaa.gemstonepower.block.machine.MachineBlock;
 import com.visnaa.gemstonepower.init.ModBlockEntities;
@@ -7,6 +8,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -63,5 +65,11 @@ public class FissionReactorBlock extends MachineBlock<FissionReactorBlock>
         if (level.getBlockEntity(pos) instanceof FissionReactorBE reactor)
             reactor.broken(level);
         super.onRemove(state, level, pos, state1, flag);
+    }
+
+    @Override
+    protected MapCodec<? extends BaseEntityBlock> codec()
+    {
+        return simpleCodec(FissionReactorBlock::new);
     }
 }

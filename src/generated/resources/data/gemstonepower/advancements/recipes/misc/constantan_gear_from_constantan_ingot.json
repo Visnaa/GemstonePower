@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:constantan_gear_from_constantan_ingot"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

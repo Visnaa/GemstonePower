@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:silver_axe_from_silver_ingot"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

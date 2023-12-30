@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:invar_tiny_pile_from_invar_dust"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

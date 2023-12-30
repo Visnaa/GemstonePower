@@ -14,11 +14,6 @@
   "input": {
     "item": "gemstonepower:uranium_ore_dust"
   },
-  "outputs": [
-    "gemstonepower:uranium_dust",
-    "gemstonepower:uranium_tiny_pile",
-    "gemstonepower:copper_dust",
-    "gemstonepower:yellow_diamond"
-  ],
+  "outputs": [],
   "processingTime": 400
 }

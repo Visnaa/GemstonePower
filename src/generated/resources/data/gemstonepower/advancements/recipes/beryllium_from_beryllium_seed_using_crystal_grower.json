@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_beryllium_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:beryllium_seed"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:beryllium_from_beryllium_seed_using_crystal_grower"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_beryllium_seed"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:beryllium_from_beryllium_seed_using_crystal_grower"
+    ]
+  }
+}

@@ -1,5 +1,6 @@
 package com.visnaa.gemstonepower.block;
 
+import com.mojang.serialization.MapCodec;
 import com.visnaa.gemstonepower.block.entity.WindTurbineBE;
 import com.visnaa.gemstonepower.block.machine.MachineBlock;
 import com.visnaa.gemstonepower.init.ModBlockEntities;
@@ -98,5 +99,11 @@ public class WindTurbineBlock extends BaseEntityBlock implements TieredBlock<Win
     public BlockState mirror(BlockState state, Mirror mirror)
     {
         return state.rotate(mirror.getRotation(state.getValue(FACING)));
+    }
+
+    @Override
+    protected MapCodec<? extends BaseEntityBlock> codec()
+    {
+        return simpleCodec(WindTurbineBlock::new);
     }
 }

@@ -10,8 +10,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.neoforged.neoforge.common.capabilities.Capabilities;
-import net.neoforged.neoforge.energy.IEnergyStorage;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import net.minecraftforge.energy.IEnergyStorage;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -73,15 +73,15 @@ public class EnergyNetwork implements PipeNetwork<CableBE>
     public void refresh()
     {
         for (BlockEntity be : new HashSet<>(inputs.keySet()))
-            if (be.isRemoved() || !be.getCapability(Capabilities.ENERGY, inputs.get(be)).isPresent())
+            if (be.isRemoved() || !be.getCapability(ForgeCapabilities.ENERGY, inputs.get(be)).isPresent())
                 inputs.remove(be);
 
         for (BlockEntity be : new HashSet<>(outputs.keySet()))
-            if (be.isRemoved() || !be.getCapability(Capabilities.ENERGY, outputs.get(be)).isPresent())
+            if (be.isRemoved() || !be.getCapability(ForgeCapabilities.ENERGY, outputs.get(be)).isPresent())
                 outputs.remove(be);
 
         for (BlockEntity be : new HashSet<>(batteries.keySet()))
-            if (be.isRemoved() || !be.getCapability(Capabilities.ENERGY, batteries.get(be)).isPresent())
+            if (be.isRemoved() || !be.getCapability(ForgeCapabilities.ENERGY, batteries.get(be)).isPresent())
                 batteries.remove(be);
 
         this.cables.removeIf(cable ->
@@ -138,7 +138,7 @@ public class EnergyNetwork implements PipeNetwork<CableBE>
                 if (energyLeft <= 0)
                     break;
 
-                IEnergyStorage handler = output.getCapability(Capabilities.ENERGY, outputs.get(output)).orElse(EnergyStorage.EMPTY);
+                IEnergyStorage handler = output.getCapability(ForgeCapabilities.ENERGY, outputs.get(output)).orElse(EnergyStorage.EMPTY);
                 if (handler == EnergyStorage.EMPTY || !handler.canReceive() || handler.getMaxEnergyStored() <= 0)
                     continue;
 
@@ -160,7 +160,7 @@ public class EnergyNetwork implements PipeNetwork<CableBE>
                 if (energyToOutput >= inputEnergy || energyToStore <= 0)
                     break;
 
-                IEnergyStorage handler = battery.getCapability(Capabilities.ENERGY, batteries.get(battery)).orElse(EnergyStorage.EMPTY);
+                IEnergyStorage handler = battery.getCapability(ForgeCapabilities.ENERGY, batteries.get(battery)).orElse(EnergyStorage.EMPTY);
                 if (handler == EnergyStorage.EMPTY || !handler.canReceive() || handler.getMaxEnergyStored() <= 0)
                     continue;
                 int energyAccepted = handler.receiveEnergy((int) energyToStore, true);
@@ -183,7 +183,7 @@ public class EnergyNetwork implements PipeNetwork<CableBE>
                     if (energyTransferred <= 0)
                         break;
 
-                    IEnergyStorage handler = input.getCapability(Capabilities.ENERGY, inputs.get(input)).orElse(EnergyStorage.EMPTY);
+                    IEnergyStorage handler = input.getCapability(ForgeCapabilities.ENERGY, inputs.get(input)).orElse(EnergyStorage.EMPTY);
                     if (handler == EnergyStorage.EMPTY || !handler.canExtract() || handler.getMaxEnergyStored() <= 0)
                         continue;
 
@@ -200,7 +200,7 @@ public class EnergyNetwork implements PipeNetwork<CableBE>
                         if (energyTransferred <= 0)
                             break;
 
-                        IEnergyStorage handler = battery.getCapability(Capabilities.ENERGY, batteries.get(battery)).orElse(EnergyStorage.EMPTY);
+                        IEnergyStorage handler = battery.getCapability(ForgeCapabilities.ENERGY, batteries.get(battery)).orElse(EnergyStorage.EMPTY);
                         if (handler == EnergyStorage.EMPTY || !handler.canExtract() || handler.getMaxEnergyStored() <= 0)
                             continue;
 
@@ -231,8 +231,8 @@ public class EnergyNetwork implements PipeNetwork<CableBE>
     {
         long energy = getInputEnergy();
         for (BlockEntity be : this.batteries.keySet())
-            if (be != null && be.getCapability(Capabilities.ENERGY).isPresent())
-                energy += be.getCapability(Capabilities.ENERGY).map(IEnergyStorage::getEnergyStored).orElse(0);
+            if (be != null && be.getCapability(ForgeCapabilities.ENERGY).isPresent())
+                energy += be.getCapability(ForgeCapabilities.ENERGY).map(IEnergyStorage::getEnergyStored).orElse(0);
         return energy;
     }
 
@@ -240,8 +240,8 @@ public class EnergyNetwork implements PipeNetwork<CableBE>
     {
         long energy = 0;
         for (BlockEntity be : this.inputs.keySet())
-            if (be != null && be.getCapability(Capabilities.ENERGY).isPresent())
-                energy += be.getCapability(Capabilities.ENERGY).map(IEnergyStorage::getEnergyStored).orElse(0);
+            if (be != null && be.getCapability(ForgeCapabilities.ENERGY).isPresent())
+                energy += be.getCapability(ForgeCapabilities.ENERGY).map(IEnergyStorage::getEnergyStored).orElse(0);
         return energy;
     }
 

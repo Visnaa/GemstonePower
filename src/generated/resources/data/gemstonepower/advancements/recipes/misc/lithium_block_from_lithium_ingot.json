@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:lithium_block_from_lithium_ingot"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

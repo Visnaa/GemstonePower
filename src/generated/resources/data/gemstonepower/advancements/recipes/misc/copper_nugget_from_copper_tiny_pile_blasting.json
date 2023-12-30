@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:copper_nugget_from_copper_tiny_pile_blasting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

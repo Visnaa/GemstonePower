@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:bronze_gear_from_bronze_ingot"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -13,16 +13,12 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "description": {
       "translate": "advancement.gemstonepower.cable.description"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "gemstonepower:copper_cable"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancement.gemstonepower.cable.title"
     }

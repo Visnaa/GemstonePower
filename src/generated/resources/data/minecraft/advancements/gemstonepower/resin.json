@@ -15,16 +15,12 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "description": {
       "translate": "advancement.gemstonepower.resin.description"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "gemstonepower:resin"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancement.gemstonepower.resin.title"
     }

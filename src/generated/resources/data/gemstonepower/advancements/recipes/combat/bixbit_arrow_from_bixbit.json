@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:bixbit_arrow_from_bixbit"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

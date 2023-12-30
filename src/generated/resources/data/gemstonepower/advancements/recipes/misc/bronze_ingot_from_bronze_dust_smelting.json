@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:bronze_ingot_from_bronze_dust_smelting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

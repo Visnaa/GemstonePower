@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:nickel_ingot_from_nickel_dust_smelting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

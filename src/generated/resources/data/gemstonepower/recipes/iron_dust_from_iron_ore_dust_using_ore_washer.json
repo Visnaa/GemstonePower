@@ -2,8 +2,6 @@
   "type": "gemstonepower:ore_washer",
   "counts": [
     1,
-    1,
-    1,
     1
   ],
   "energyUsage": 40,
@@ -14,9 +12,6 @@
   "input": {
     "item": "gemstonepower:iron_ore_dust"
   },
-  "outputs": [
-    "gemstonepower:iron_dust",
-    "gemstonepower:ruby"
-  ],
+  "outputs": [],
   "processingTime": 400
 }

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_steel_rod": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:steel_rod"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:steel_rod_polarized_from_steel_rod_using_polarizer"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_steel_rod"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:steel_rod_polarized_from_steel_rod_using_polarizer"
+    ]
+  }
+}

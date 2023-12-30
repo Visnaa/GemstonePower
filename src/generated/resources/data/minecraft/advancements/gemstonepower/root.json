@@ -12,17 +12,13 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "background": "gemstonepower:textures/gui/advancement_gui.png",
     "description": {
       "translate": "advancement.gemstonepower.root.description"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "gemstonepower:sapphire_seed"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancement.gemstonepower.root.title"
     }

@@ -6,7 +6,7 @@ import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.packs.VanillaBlockLoot;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
-import net.neoforged.neoforge.registries.DeferredHolder;
+import net.minecraftforge.registries.RegistryObject;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -131,6 +131,6 @@ public class BlockLootGenerator extends BlockLootSubProvider
         excluded.addAll(machines);
         excluded.addAll(pipes);
         excluded.addAll(mics);
-        return ModBlocks.BLOCKS.getEntries().stream().map(DeferredHolder::get).filter(block -> !excluded.contains(block)).collect(Collectors.toList());
+        return ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get).filter(block -> !excluded.contains(block)).collect(Collectors.toList());
     }
 }

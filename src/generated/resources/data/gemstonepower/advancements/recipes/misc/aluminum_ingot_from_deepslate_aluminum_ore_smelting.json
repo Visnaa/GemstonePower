@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:aluminum_ingot_from_deepslate_aluminum_ore_smelting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

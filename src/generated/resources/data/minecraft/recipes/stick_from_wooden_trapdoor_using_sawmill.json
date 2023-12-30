@@ -1,0 +1,10 @@
+{
+  "type": "gemstonepower:sawmill",
+  "count": 12,
+  "energyUsage": 40,
+  "input": {
+    "tag": "minecraft:wooden_trapdoors"
+  },
+  "output": "minecraft:stick",
+  "processingTime": 150
+}

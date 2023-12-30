@@ -1,5 +1,6 @@
 package com.visnaa.gemstonepower.block;
 
+import com.mojang.serialization.MapCodec;
 import com.visnaa.gemstonepower.block.entity.WaterMillBE;
 import com.visnaa.gemstonepower.block.machine.MachineBlock;
 import com.visnaa.gemstonepower.init.ModBlockEntities;
@@ -98,5 +99,11 @@ public class WaterMillBlock extends BaseEntityBlock implements TieredBlock<Water
     public BlockState mirror(BlockState state, Mirror mirror)
     {
         return state.rotate(mirror.getRotation(state.getValue(FACING)));
+    }
+
+    @Override
+    protected MapCodec<? extends BaseEntityBlock> codec()
+    {
+        return simpleCodec(WaterMillBlock::new);
     }
 }

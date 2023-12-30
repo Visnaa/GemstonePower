@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:nickel_ingot_from_nickel_ore_blasting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

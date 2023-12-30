@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:iron_ingot_from_raw_iron_blasting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

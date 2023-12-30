@@ -15,16 +15,12 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "description": {
       "translate": "advancement.gemstonepower.crystal_charger.description"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "gemstonepower:crystal_charger"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancement.gemstonepower.crystal_charger.title"
     }

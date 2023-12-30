@@ -67,12 +67,12 @@ public final class MachineUtil
         return components;
     }
 
-    public static List<Component> getHeatScaled(int heat, int maxHeat)
+    public static List<Component> getHeatScaled(int heat, int maxHeat, ChatFormatting color)
     {
         List<Component> components = new ArrayList<>();
         Component heatText = Component.literal("Heat:");
-        Component heatAmount = Component.literal(heat + " " + "HU" + " / " + maxHeat + " " + "HU").withStyle(ChatFormatting.YELLOW);
-        Component heatScaled = Component.literal(getScaled(heat, "HU") + " / " + MachineUtil.getScaled(maxHeat, "HU")).withStyle(ChatFormatting.YELLOW);
+        Component heatAmount = Component.literal(heat + " " + "HU" + " / " + maxHeat + " " + "HU").withStyle(color);
+        Component heatScaled = Component.literal(getScaled(heat, "HU") + " / " + MachineUtil.getScaled(maxHeat, "HU")).withStyle(color);
         Component shift = Component.translatable("menu." + GemstonePower.MOD_ID + ".show_details");
         if (Screen.hasShiftDown())
         {

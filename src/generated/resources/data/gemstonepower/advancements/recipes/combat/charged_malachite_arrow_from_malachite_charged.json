@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:charged_malachite_arrow_from_malachite_charged"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

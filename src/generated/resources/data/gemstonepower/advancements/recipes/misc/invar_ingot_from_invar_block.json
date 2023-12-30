@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:invar_ingot_from_invar_block"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

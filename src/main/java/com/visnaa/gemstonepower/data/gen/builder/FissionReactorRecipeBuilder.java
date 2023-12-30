@@ -1,19 +1,18 @@
 package com.visnaa.gemstonepower.data.gen.builder;
 
-import com.google.gson.JsonObject;
-import com.google.gson.JsonPrimitive;
 import com.visnaa.gemstonepower.GemstonePower;
-import com.visnaa.gemstonepower.init.ModRecipes;
-import net.minecraft.advancements.*;
+import com.visnaa.gemstonepower.data.recipe.FissionReactorRecipe;
+import net.minecraft.advancements.Advancement;
+import net.minecraft.advancements.AdvancementRequirements;
+import net.minecraft.advancements.AdvancementRewards;
+import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.RecipeSerializer;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
@@ -63,65 +62,13 @@ public class FissionReactorRecipeBuilder implements RecipeBuilder
     @Override
     public void save(RecipeOutput output, ResourceLocation recipeId)
     {
+        recipeId = new ResourceLocation(recipeId.getNamespace(), recipeId.getPath() + "_using_fission_reactor");
         Advancement.Builder builder = output.advancement()
-                .addCriterion("has_the_recipe",
-                        RecipeUnlockedTrigger.unlocked(recipeId))
+                .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(recipeId))
                 .rewards(AdvancementRewards.Builder.recipe(recipeId))
                 .requirements(AdvancementRequirements.Strategy.OR);
         criteria.forEach(builder::addCriterion);
-        output.accept(new FissionReactorRecipeBuilder.Result(recipeId, this.input, this.output, this.processingTime, this.energyGeneration, this.heatGeneration, builder.build(new ResourceLocation(recipeId.getNamespace(), "recipes/" + recipeId.getPath()))));
-    }
-
-    public static class Result implements FinishedRecipe
-    {
-        private final ResourceLocation id;
-        private final Ingredient input;
-        private final Item output;
-        private final int processingTime;
-        private final int energyGeneration;
-        private final int heatGeneration;
-        private final AdvancementHolder advancement;
-
-        public Result(ResourceLocation id, Ingredient input, Item output, int processingTime, int energyGeneration, int heatGeneration, AdvancementHolder advancement)
-        {
-            this.id = id;
-            this.input = input;
-            this.output = output;
-            this.processingTime = processingTime;
-            this.energyGeneration = energyGeneration;
-            this.heatGeneration = heatGeneration;
-            this.advancement = advancement;
-        }
-
-        @Override
-        public void serializeRecipeData(JsonObject json)
-        {
-            json.add("input", this.input.toJson(false));
-
-            json.add("output", new JsonPrimitive(BuiltInRegistries.ITEM.getKey(output).toString()));
-
-            json.addProperty("processingTime", this.processingTime);
-            json.addProperty("energyGeneration", this.energyGeneration);
-            json.addProperty("heatGeneration", this.heatGeneration);
-        }
-
-        @Override
-        public ResourceLocation id()
-        {
-            return new ResourceLocation(GemstonePower.MOD_ID, this.id.getPath() + "_using_fission_reactor");
-        }
-
-        @Override
-        public RecipeSerializer<?> type()
-        {
-            return ModRecipes.FISSION_REACTOR_RECIPE_SERIALIZER.get();
-        }
-
-        @Nullable
-        @Override
-        public AdvancementHolder advancement()
-        {
-            return this.advancement;
-        }
+        FissionReactorRecipe recipe = new FissionReactorRecipe(input, new ItemStack(this.output), processingTime, energyGeneration, heatGeneration);
+        output.accept(recipeId, recipe, builder.build(GemstonePower.getId("recipes/" + recipeId.getPath())));
     }
 }

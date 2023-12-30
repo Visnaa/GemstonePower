@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:nickel_nugget_from_nickel_tiny_pile_smelting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

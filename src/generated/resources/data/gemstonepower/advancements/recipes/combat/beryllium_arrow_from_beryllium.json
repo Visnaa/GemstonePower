@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:beryllium_arrow_from_beryllium"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

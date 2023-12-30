@@ -14,11 +14,6 @@
   "input": {
     "item": "gemstonepower:nickel_ore_dust"
   },
-  "outputs": [
-    "gemstonepower:nickel_dust",
-    "gemstonepower:platinum_tiny_pile",
-    "gemstonepower:opal",
-    "gemstonepower:beryllium"
-  ],
+  "outputs": [],
   "processingTime": 400
 }

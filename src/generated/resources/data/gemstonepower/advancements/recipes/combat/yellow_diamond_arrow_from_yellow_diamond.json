@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:yellow_diamond_arrow_from_yellow_diamond"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

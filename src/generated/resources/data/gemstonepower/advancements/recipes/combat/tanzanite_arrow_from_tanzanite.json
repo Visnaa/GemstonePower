@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:tanzanite_arrow_from_tanzanite"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -15,16 +15,12 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "description": {
       "translate": "advancement.gemstonepower.alloy_smelter.description"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "gemstonepower:alloy_smelter"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancement.gemstonepower.alloy_smelter.title"
     }

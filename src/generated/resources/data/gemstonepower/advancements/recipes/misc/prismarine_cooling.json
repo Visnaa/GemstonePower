@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:prismarine_cooling"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

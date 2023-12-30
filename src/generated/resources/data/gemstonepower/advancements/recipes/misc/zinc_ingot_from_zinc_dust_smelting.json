@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:zinc_ingot_from_zinc_dust_smelting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

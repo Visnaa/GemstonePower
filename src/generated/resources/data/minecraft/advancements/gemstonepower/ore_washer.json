@@ -15,16 +15,12 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "description": {
       "translate": "advancement.gemstonepower.ore_washer.description"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "gemstonepower:ore_washer"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancement.gemstonepower.ore_washer.title"
     }

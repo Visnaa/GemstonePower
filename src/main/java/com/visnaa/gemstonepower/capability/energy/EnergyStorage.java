@@ -1,6 +1,6 @@
 package com.visnaa.gemstonepower.capability.energy;
 
-public class EnergyStorage extends net.neoforged.neoforge.energy.EnergyStorage
+public class EnergyStorage extends net.minecraftforge.energy.EnergyStorage
 {
     public static final EnergyStorage EMPTY = new EnergyStorage(0, 0, 0);
 

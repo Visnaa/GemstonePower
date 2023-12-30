@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:silver_ingot_from_deepslate_silver_ore_smelting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

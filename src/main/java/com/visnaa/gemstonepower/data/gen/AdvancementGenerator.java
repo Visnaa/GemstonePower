@@ -5,24 +5,24 @@ import com.visnaa.gemstonepower.init.ModItems;
 import com.visnaa.gemstonepower.init.ModTags;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementHolder;
-import net.minecraft.advancements.FrameType;
+import net.minecraft.advancements.AdvancementType;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.network.chat.Component;
-import net.neoforged.neoforge.common.data.AdvancementProvider;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.common.data.ForgeAdvancementProvider;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
-public class AdvancementGenerator implements AdvancementProvider.AdvancementGenerator
+public class AdvancementGenerator implements ForgeAdvancementProvider.AdvancementGenerator
 {
-    public static AdvancementProvider create(PackOutput output, CompletableFuture<HolderLookup.Provider> completableFuture, ExistingFileHelper existingFileHelper)
+    public static ForgeAdvancementProvider create(PackOutput output, CompletableFuture<HolderLookup.Provider> completableFuture, ExistingFileHelper existingFileHelper)
     {
-        return new AdvancementProvider(output, completableFuture, existingFileHelper, List.of(new AdvancementGenerator()));
+        return new ForgeAdvancementProvider(output, completableFuture, existingFileHelper, List.of(new AdvancementGenerator()));
     }
 
     @Override
@@ -31,7 +31,7 @@ public class AdvancementGenerator implements AdvancementProvider.AdvancementGene
         AdvancementHolder root = Advancement.Builder.advancement()
                 .display(ModItems.SAPPHIRE_SEED.get(),
                         getTitleLocation("root"), getDescLocation("root"), GemstonePower.getId("textures/gui/advancement_gui.png"),
-                        FrameType.TASK, true, true, false)
+                        AdvancementType.TASK, true, true, false)
                 .addCriterion("has_gem_seed", InventoryChangeTrigger.TriggerInstance
                         .hasItems(ItemPredicate.Builder.item().of(ModTags.GEM_SEEDS).build()))
                 .save(consumer, getName("root"));
@@ -39,7 +39,7 @@ public class AdvancementGenerator implements AdvancementProvider.AdvancementGene
         AdvancementHolder gemstoneGenerator = Advancement.Builder.advancement().parent(root)
                 .display(ModItems.GEMSTONE_GENERATOR.get(),
                         getTitleLocation("gemstone_generator"), getDescLocation("gemstone_generator"), null,
-                        FrameType.TASK, true, true, false)
+                        AdvancementType.TASK, true, true, false)
                 .addCriterion("has_gemstone_generator", InventoryChangeTrigger.TriggerInstance
                         .hasItems(ItemPredicate.Builder.item().of(ModItems.GEMSTONE_GENERATOR.get()).build()))
                 .save(consumer, getName("gemstone_generator"));
@@ -47,7 +47,7 @@ public class AdvancementGenerator implements AdvancementProvider.AdvancementGene
         AdvancementHolder gemstoneCell = Advancement.Builder.advancement().parent(gemstoneGenerator)
                 .display(ModItems.GEMSTONE_CELL.get(),
                         getTitleLocation("gemstone_cell"), getDescLocation("gemstone_cell"), null,
-                        FrameType.TASK, true, true, false)
+                        AdvancementType.TASK, true, true, false)
                 .addCriterion("has_gemstone_cell", InventoryChangeTrigger.TriggerInstance
                         .hasItems(ItemPredicate.Builder.item().of(ModItems.GEMSTONE_CELL.get()).build()))
                 .save(consumer, getName("gemstone_cell"));
@@ -55,7 +55,7 @@ public class AdvancementGenerator implements AdvancementProvider.AdvancementGene
         AdvancementHolder alloySmelter = Advancement.Builder.advancement().parent(gemstoneCell)
                 .display(ModItems.ALLOY_SMELTER.get(),
                         getTitleLocation("alloy_smelter"), getDescLocation("alloy_smelter"), null,
-                        FrameType.TASK, true, true, false)
+                        AdvancementType.TASK, true, true, false)
                 .addCriterion("has_alloy_smelter", InventoryChangeTrigger.TriggerInstance
                         .hasItems(ItemPredicate.Builder.item().of(ModItems.ALLOY_SMELTER.get()).build()))
                 .save(consumer, getName("alloy_smelter"));
@@ -63,7 +63,7 @@ public class AdvancementGenerator implements AdvancementProvider.AdvancementGene
         AdvancementHolder cobblestoneGenerator = Advancement.Builder.advancement().parent(gemstoneCell)
                 .display(ModItems.COBBLESTONE_GENERATOR.get(),
                         getTitleLocation("cobblestone_generator"), getDescLocation("cobblestone_generator"), null,
-                        FrameType.TASK, true, true, false)
+                        AdvancementType.TASK, true, true, false)
                 .addCriterion("has_cobblestone_generator", InventoryChangeTrigger.TriggerInstance
                         .hasItems(ItemPredicate.Builder.item().of(ModItems.COBBLESTONE_GENERATOR.get()).build()))
                 .save(consumer, getName("cobblestone_generator"));
@@ -71,7 +71,7 @@ public class AdvancementGenerator implements AdvancementProvider.AdvancementGene
         AdvancementHolder crystalCharger = Advancement.Builder.advancement().parent(gemstoneCell)
                 .display(ModItems.CRYSTAL_CHARGER.get(),
                         getTitleLocation("crystal_charger"), getDescLocation("crystal_charger"), null,
-                        FrameType.TASK, true, true, false)
+                        AdvancementType.TASK, true, true, false)
                 .addCriterion("has_crystal_charger", InventoryChangeTrigger.TriggerInstance
                         .hasItems(ItemPredicate.Builder.item().of(ModItems.CRYSTAL_CHARGER.get()).build()))
                 .save(consumer, getName("crystal_charger"));
@@ -79,7 +79,7 @@ public class AdvancementGenerator implements AdvancementProvider.AdvancementGene
         AdvancementHolder crystalGrower = Advancement.Builder.advancement().parent(gemstoneCell)
                 .display(ModItems.CRYSTAL_GROWER.get(),
                         getTitleLocation("crystal_grower"), getDescLocation("crystal_grower"), null,
-                        FrameType.TASK, true, true, false)
+                        AdvancementType.TASK, true, true, false)
                 .addCriterion("has_crystal_grower", InventoryChangeTrigger.TriggerInstance
                         .hasItems(ItemPredicate.Builder.item().of(ModItems.CRYSTAL_GROWER.get()).build()))
                 .save(consumer, getName("crystal_grower"));
@@ -87,7 +87,7 @@ public class AdvancementGenerator implements AdvancementProvider.AdvancementGene
         AdvancementHolder electricFurnace = Advancement.Builder.advancement().parent(gemstoneCell)
                 .display(ModItems.ELECTRIC_FURNACE.get(),
                         getTitleLocation("electric_furnace"), getDescLocation("electric_furnace"), null,
-                        FrameType.TASK, true, true, false)
+                        AdvancementType.TASK, true, true, false)
                 .addCriterion("has_electric_furnace", InventoryChangeTrigger.TriggerInstance
                         .hasItems(ItemPredicate.Builder.item().of(ModItems.ELECTRIC_FURNACE.get()).build()))
                 .save(consumer, getName("electric_furnace"));
@@ -95,7 +95,7 @@ public class AdvancementGenerator implements AdvancementProvider.AdvancementGene
         AdvancementHolder extractor = Advancement.Builder.advancement().parent(gemstoneCell)
                 .display(ModItems.EXTRACTOR.get(),
                         getTitleLocation("extractor"), getDescLocation("extractor"), null,
-                        FrameType.TASK, true, true, false)
+                        AdvancementType.TASK, true, true, false)
                 .addCriterion("has_extractor", InventoryChangeTrigger.TriggerInstance
                         .hasItems(ItemPredicate.Builder.item().of(ModItems.EXTRACTOR.get()).build()))
                 .save(consumer, getName("extractor"));
@@ -103,7 +103,7 @@ public class AdvancementGenerator implements AdvancementProvider.AdvancementGene
         AdvancementHolder metalFormer = Advancement.Builder.advancement().parent(gemstoneCell)
                 .display(ModItems.METAL_FORMER.get(),
                         getTitleLocation("metal_former"), getDescLocation("metal_former"), null,
-                        FrameType.TASK, true, true, false)
+                        AdvancementType.TASK, true, true, false)
                 .addCriterion("has_metal_former", InventoryChangeTrigger.TriggerInstance
                         .hasItems(ItemPredicate.Builder.item().of(ModItems.METAL_FORMER.get()).build()))
                 .save(consumer, getName("metal_former"));
@@ -111,7 +111,7 @@ public class AdvancementGenerator implements AdvancementProvider.AdvancementGene
         AdvancementHolder oreWasher = Advancement.Builder.advancement().parent(gemstoneCell)
                 .display(ModItems.ORE_WASHER.get(),
                         getTitleLocation("ore_washer"), getDescLocation("ore_washer"), null,
-                        FrameType.TASK, true, true, false)
+                        AdvancementType.TASK, true, true, false)
                 .addCriterion("has_ore_washer", InventoryChangeTrigger.TriggerInstance
                         .hasItems(ItemPredicate.Builder.item().of(ModItems.ORE_WASHER.get()).build()))
                 .save(consumer, getName("ore_washer"));
@@ -119,7 +119,7 @@ public class AdvancementGenerator implements AdvancementProvider.AdvancementGene
         AdvancementHolder polarizer = Advancement.Builder.advancement().parent(gemstoneCell)
                 .display(ModItems.POLARIZER.get(),
                         getTitleLocation("polarizer"), getDescLocation("polarizer"), null,
-                        FrameType.TASK, true, true, false)
+                        AdvancementType.TASK, true, true, false)
                 .addCriterion("has_polarizer", InventoryChangeTrigger.TriggerInstance
                         .hasItems(ItemPredicate.Builder.item().of(ModItems.POLARIZER.get()).build()))
                 .save(consumer, getName("polarizer"));
@@ -127,7 +127,7 @@ public class AdvancementGenerator implements AdvancementProvider.AdvancementGene
         AdvancementHolder pulverizer = Advancement.Builder.advancement().parent(gemstoneCell)
                 .display(ModItems.PULVERIZER.get(),
                         getTitleLocation("pulverizer"), getDescLocation("pulverizer"), null,
-                        FrameType.TASK, true, true, false)
+                        AdvancementType.TASK, true, true, false)
                 .addCriterion("has_pulverizer", InventoryChangeTrigger.TriggerInstance
                         .hasItems(ItemPredicate.Builder.item().of(ModItems.PULVERIZER.get()).build()))
                 .save(consumer, getName("pulverizer"));
@@ -135,7 +135,7 @@ public class AdvancementGenerator implements AdvancementProvider.AdvancementGene
         AdvancementHolder sawmill = Advancement.Builder.advancement().parent(gemstoneCell)
                 .display(ModItems.SAWMILL.get(),
                         getTitleLocation("sawmill"), getDescLocation("sawmill"), null,
-                        FrameType.TASK, true, true, false)
+                        AdvancementType.TASK, true, true, false)
                 .addCriterion("has_sawmill", InventoryChangeTrigger.TriggerInstance
                         .hasItems(ItemPredicate.Builder.item().of(ModItems.SAWMILL.get()).build()))
                 .save(consumer, getName("sawmill"));
@@ -143,7 +143,7 @@ public class AdvancementGenerator implements AdvancementProvider.AdvancementGene
         AdvancementHolder gemstone_manipulator = Advancement.Builder.advancement().parent(gemstoneCell)
                 .display(ModItems.GEMSTONE_MANIPULATOR.get(),
                         getTitleLocation("gemstone_manipulator"), getDescLocation("gemstone_manipulator"), null,
-                        FrameType.TASK, true, true, false)
+                        AdvancementType.TASK, true, true, false)
                 .addCriterion("has_gemstone_manipulator", InventoryChangeTrigger.TriggerInstance
                         .hasItems(ItemPredicate.Builder.item().of(ModItems.GEMSTONE_MANIPULATOR.get()).build()))
                 .save(consumer, getName("gemstone_manipulator"));
@@ -151,7 +151,7 @@ public class AdvancementGenerator implements AdvancementProvider.AdvancementGene
         AdvancementHolder intermediateUpgrade = Advancement.Builder.advancement().parent(gemstoneCell)
                 .display(ModItems.INTERMEDIATE_UPGRADE.get(),
                         getTitleLocation("intermediate_upgrade"), getDescLocation("intermediate_upgrade"), null,
-                        FrameType.TASK, true, true, false)
+                        AdvancementType.TASK, true, true, false)
                 .addCriterion("has_intermediate_upgrade", InventoryChangeTrigger.TriggerInstance
                         .hasItems(ItemPredicate.Builder.item().of(ModItems.INTERMEDIATE_UPGRADE.get()).build()))
                 .save(consumer, getName("intermediate_upgrade"));
@@ -159,7 +159,7 @@ public class AdvancementGenerator implements AdvancementProvider.AdvancementGene
         AdvancementHolder advancedUpgrade = Advancement.Builder.advancement().parent(intermediateUpgrade)
                 .display(ModItems.ADVANCED_UPGRADE.get(),
                         getTitleLocation("advanced_upgrade"), getDescLocation("advanced_upgrade"), null,
-                        FrameType.TASK, true, true, false)
+                        AdvancementType.TASK, true, true, false)
                 .addCriterion("has_advanced_upgrade", InventoryChangeTrigger.TriggerInstance
                         .hasItems(ItemPredicate.Builder.item().of(ModItems.ADVANCED_UPGRADE.get()).build()))
                 .save(consumer, getName("advanced_upgrade"));
@@ -167,7 +167,7 @@ public class AdvancementGenerator implements AdvancementProvider.AdvancementGene
         AdvancementHolder ultraUpgrade = Advancement.Builder.advancement().parent(advancedUpgrade)
                 .display(ModItems.ULTRA_UPGRADE.get(),
                         getTitleLocation("ultra_upgrade"), getDescLocation("ultra_upgrade"), null,
-                        FrameType.TASK, true, true, false)
+                        AdvancementType.TASK, true, true, false)
                 .addCriterion("has_ultra_upgrade", InventoryChangeTrigger.TriggerInstance
                         .hasItems(ItemPredicate.Builder.item().of(ModItems.ULTRA_UPGRADE.get()).build()))
                 .save(consumer, getName("ultra_upgrade"));
@@ -175,7 +175,7 @@ public class AdvancementGenerator implements AdvancementProvider.AdvancementGene
         AdvancementHolder extremeUpgrade = Advancement.Builder.advancement().parent(ultraUpgrade)
                 .display(ModItems.EXTREME_UPGRADE.get(),
                         getTitleLocation("extreme_upgrade"), getDescLocation("extreme_upgrade"), null,
-                        FrameType.TASK, true, true, false)
+                        AdvancementType.TASK, true, true, false)
                 .addCriterion("has_extreme_upgrade", InventoryChangeTrigger.TriggerInstance
                         .hasItems(ItemPredicate.Builder.item().of(ModItems.EXTREME_UPGRADE.get()).build()))
                 .save(consumer, getName("extreme_upgrade"));
@@ -183,7 +183,7 @@ public class AdvancementGenerator implements AdvancementProvider.AdvancementGene
         AdvancementHolder solarPanel = Advancement.Builder.advancement().parent(gemstoneGenerator)
                 .display(ModItems.SOLAR_PANEL.get(),
                         getTitleLocation("solar_panel"), getDescLocation("solar_panel"), null,
-                        FrameType.TASK, true, true, false)
+                        AdvancementType.TASK, true, true, false)
                 .addCriterion("has_solar_panel", InventoryChangeTrigger.TriggerInstance
                         .hasItems(ItemPredicate.Builder.item().of(ModItems.SOLAR_PANEL.get()).build()))
                 .save(consumer, getName("solar_panel"));
@@ -191,7 +191,7 @@ public class AdvancementGenerator implements AdvancementProvider.AdvancementGene
         AdvancementHolder waterMill = Advancement.Builder.advancement().parent(gemstoneGenerator)
                 .display(ModItems.WATER_MILL.get(),
                         getTitleLocation("water_mill"), getDescLocation("water_mill"), null,
-                        FrameType.TASK, true, true, false)
+                        AdvancementType.TASK, true, true, false)
                 .addCriterion("has_water_mill", InventoryChangeTrigger.TriggerInstance
                         .hasItems(ItemPredicate.Builder.item().of(ModItems.WATER_MILL.get()).build()))
                 .save(consumer, getName("water_mill"));
@@ -199,7 +199,7 @@ public class AdvancementGenerator implements AdvancementProvider.AdvancementGene
         AdvancementHolder windTurbine = Advancement.Builder.advancement().parent(gemstoneGenerator)
                 .display(ModItems.WATER_MILL.get(),
                         getTitleLocation("wind_turbine"), getDescLocation("wind_turbine"), null,
-                        FrameType.TASK, true, true, false)
+                        AdvancementType.TASK, true, true, false)
                 .addCriterion("has_wind_turbine", InventoryChangeTrigger.TriggerInstance
                         .hasItems(ItemPredicate.Builder.item().of(ModItems.WIND_TURBINE.get()).build()))
                 .save(consumer, getName("wind_turbine"));
@@ -207,7 +207,7 @@ public class AdvancementGenerator implements AdvancementProvider.AdvancementGene
         AdvancementHolder gem = Advancement.Builder.advancement().parent(crystalGrower)
                 .display(ModItems.RUBY.get(),
                         getTitleLocation("gem"), getDescLocation("gem"), null,
-                        FrameType.TASK, true, true, false)
+                        AdvancementType.TASK, true, true, false)
                 .addCriterion("has_gem", InventoryChangeTrigger.TriggerInstance
                         .hasItems(ItemPredicate.Builder.item().of(ModTags.GEMS).build()))
                 .save(consumer, getName("gem"));
@@ -215,7 +215,7 @@ public class AdvancementGenerator implements AdvancementProvider.AdvancementGene
         AdvancementHolder gemCharged = Advancement.Builder.advancement().parent(gem)
                 .display(ModItems.AQUAMARINE_CHARGED.get(),
                         getTitleLocation("charged_gem"), getDescLocation("charged_gem"), null,
-                        FrameType.TASK, true, true, false)
+                        AdvancementType.TASK, true, true, false)
                 .addCriterion("has_charged_gem", InventoryChangeTrigger.TriggerInstance
                         .hasItems(ItemPredicate.Builder.item().of(ModTags.CHARGED_GEMS).build()))
                 .save(consumer, getName("charged_gem"));
@@ -223,7 +223,7 @@ public class AdvancementGenerator implements AdvancementProvider.AdvancementGene
         AdvancementHolder resin = Advancement.Builder.advancement().parent(root)
                 .display(ModItems.RESIN.get(),
                         getTitleLocation("resin"), getDescLocation("resin"), null,
-                        FrameType.TASK, true, true, false)
+                        AdvancementType.TASK, true, true, false)
                 .addCriterion("has_resin", InventoryChangeTrigger.TriggerInstance
                         .hasItems(ItemPredicate.Builder.item().of(ModItems.RESIN.get()).build()))
                 .save(consumer, getName("resin"));
@@ -231,7 +231,7 @@ public class AdvancementGenerator implements AdvancementProvider.AdvancementGene
         AdvancementHolder rubber = Advancement.Builder.advancement().parent(resin)
                 .display(ModItems.RUBBER.get(),
                         getTitleLocation("rubber"), getDescLocation("rubber"), null,
-                        FrameType.TASK, true, true, false)
+                        AdvancementType.TASK, true, true, false)
                 .addCriterion("has_rubber", InventoryChangeTrigger.TriggerInstance
                         .hasItems(ItemPredicate.Builder.item().of(ModItems.RUBBER.get()).build()))
                 .save(consumer, getName("rubber"));
@@ -239,7 +239,7 @@ public class AdvancementGenerator implements AdvancementProvider.AdvancementGene
         AdvancementHolder cable = Advancement.Builder.advancement().parent(rubber)
                 .display(ModItems.COPPER_CABLE.get(),
                         getTitleLocation("cable"), getDescLocation("cable"), null,
-                        FrameType.TASK, true, true, false)
+                        AdvancementType.TASK, true, true, false)
                 .addCriterion("has_cable", InventoryChangeTrigger.TriggerInstance
                         .hasItems(ItemPredicate.Builder.item().of(ModTags.CABLES).build()))
                 .save(consumer, getName("cable"));

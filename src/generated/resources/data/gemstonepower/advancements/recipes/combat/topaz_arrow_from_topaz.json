@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:topaz_arrow_from_topaz"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:blue_ice_cooling"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

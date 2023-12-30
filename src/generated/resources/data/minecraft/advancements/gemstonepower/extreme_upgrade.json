@@ -15,16 +15,12 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "description": {
       "translate": "advancement.gemstonepower.extreme_upgrade.description"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "gemstonepower:extreme_upgrade"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancement.gemstonepower.extreme_upgrade.title"
     }

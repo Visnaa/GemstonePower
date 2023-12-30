@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:zinc_dust_from_zinc_rod_using_pulverizer"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_zinc_rod": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:zinc_rod"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_zinc_rod"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:zinc_dust_from_zinc_rod_using_pulverizer"
+    ]
+  }
+}

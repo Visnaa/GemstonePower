@@ -30,6 +30,5 @@
     "recipes": [
       "gemstonepower:electrum_block_from_electrum_ingot"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }
