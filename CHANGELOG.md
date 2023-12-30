@@ -1,5 +1,8 @@
 <h1 style="font-size: 40px">Gemstone Power version changelog</h1>
 
+<h3>Version: Beta 0.3.7</h3>
+<li>Updated to Forge 1.20.4
+
 <h3>Version: Beta 0.3.6</h3>
 <li>Added machine configuration panel
 <li>Fixed recipe times for better machine tiers
