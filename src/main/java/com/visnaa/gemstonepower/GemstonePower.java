@@ -20,7 +20,7 @@ public class GemstonePower
     public static final String MOD_ID = "gemstonepower";
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    public GemstonePower() throws SocketException
+    public GemstonePower()
     {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
