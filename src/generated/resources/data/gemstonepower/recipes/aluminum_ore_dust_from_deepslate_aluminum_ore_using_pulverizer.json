@@ -1,0 +1,10 @@
+{
+  "type": "gemstonepower:pulverizer",
+  "count": 1,
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:deepslate_aluminum_ore"
+  },
+  "output": "gemstonepower:aluminum_ore_dust",
+  "processingTime": 200
+}

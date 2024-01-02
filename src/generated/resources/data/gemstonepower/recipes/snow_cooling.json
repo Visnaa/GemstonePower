@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:snowball"
+    },
+    "F": {
+      "item": "gemstonepower:reactor_frame"
+    }
+  },
+  "pattern": [
+    " # ",
+    "#F#",
+    " # "
+  ],
+  "result": {
+    "item": "gemstonepower:snow_cooling"
+  }
+}

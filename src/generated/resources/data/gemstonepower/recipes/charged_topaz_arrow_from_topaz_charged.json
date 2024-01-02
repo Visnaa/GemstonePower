@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "C": {
+      "item": "gemstonepower:topaz_charged"
+    },
+    "F": {
+      "item": "minecraft:feather"
+    },
+    "S": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "pattern": [
+    "C",
+    "S",
+    "F"
+  ],
+  "result": {
+    "item": "gemstonepower:charged_topaz_arrow"
+  }
+}

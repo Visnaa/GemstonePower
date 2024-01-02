@@ -1,0 +1,11 @@
+{
+  "type": "gemstonepower:metal_former",
+  "count": 1,
+  "energyUsage": 40,
+  "input": {
+    "item": "minecraft:iron_ingot"
+  },
+  "mode": "rolling",
+  "output": "gemstonepower:iron_rod",
+  "processingTime": 200
+}

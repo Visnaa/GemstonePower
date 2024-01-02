@@ -1,0 +1,9 @@
+{
+  "asset_name": "opal",
+  "description": {
+    "color": "#141414",
+    "translate": "trim_material.gemstonepower.opal"
+  },
+  "ingredient": "gemstonepower:opal",
+  "item_model_index": 1.5
+}

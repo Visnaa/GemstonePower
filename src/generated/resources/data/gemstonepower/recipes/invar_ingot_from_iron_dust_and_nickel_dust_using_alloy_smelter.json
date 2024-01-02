@@ -1,0 +1,15 @@
+{
+  "type": "gemstonepower:alloy_smelter",
+  "amount1": 2,
+  "amount2": 1,
+  "count": 3,
+  "energyUsage": 80,
+  "input1": {
+    "item": "gemstonepower:iron_dust"
+  },
+  "input2": {
+    "item": "gemstonepower:nickel_dust"
+  },
+  "output": "gemstonepower:invar_dust",
+  "processingTime": 400
+}

@@ -1,0 +1,10 @@
+{
+  "type": "gemstonepower:pulverizer",
+  "count": 1,
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:aluminum_rod"
+  },
+  "output": "gemstonepower:aluminum_dust",
+  "processingTime": 200
+}

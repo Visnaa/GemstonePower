@@ -1,0 +1,11 @@
+{
+  "values": [
+    "gemstonepower:gemstone_chestplate",
+    "#c:armor/chestplates/copper",
+    "#c:armor/chestplates/aluminum",
+    "#c:armor/chestplates/bronze",
+    "#c:armor/chestplates/silver",
+    "#c:armor/chestplates/invar",
+    "#c:armor/chestplates/steel"
+  ]
+}

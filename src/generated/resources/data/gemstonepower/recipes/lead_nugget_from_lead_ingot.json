@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "gemstonepower:lead_ingot"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "gemstonepower:lead_nugget"
+  }
+}

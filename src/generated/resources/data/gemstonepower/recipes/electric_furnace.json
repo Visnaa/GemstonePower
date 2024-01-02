@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "F": {
+      "item": "minecraft:furnace"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "S": {
+      "item": "gemstonepower:silver_ingot"
+    }
+  },
+  "pattern": [
+    "IGI",
+    "SFS",
+    "ISI"
+  ],
+  "result": {
+    "item": "gemstonepower:electric_furnace"
+  }
+}

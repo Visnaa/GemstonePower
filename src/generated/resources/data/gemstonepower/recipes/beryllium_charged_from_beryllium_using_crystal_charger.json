@@ -1,0 +1,10 @@
+{
+  "type": "gemstonepower:crystal_charger",
+  "count": 1,
+  "energyUsage": 120,
+  "input": {
+    "item": "gemstonepower:beryllium"
+  },
+  "output": "gemstonepower:beryllium_charged",
+  "processingTime": 200
+}

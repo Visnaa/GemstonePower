@@ -1,0 +1,7 @@
+{
+  "parent": "gemstonepower:block/machine",
+  "textures": {
+    "machine": "gemstonepower:block/polarizer",
+    "particle": "gemstonepower:block/polarizer"
+  }
+}

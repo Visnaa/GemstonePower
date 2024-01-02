@@ -1,0 +1,9 @@
+{
+  "asset_name": "bixbit",
+  "description": {
+    "color": "#F80064",
+    "translate": "trim_material.gemstonepower.bixbit"
+  },
+  "ingredient": "gemstonepower:bixbit",
+  "item_model_index": 2.0
+}

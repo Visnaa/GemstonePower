@@ -1,0 +1,10 @@
+{
+  "type": "gemstonepower:polarizer",
+  "count": 1,
+  "energyUsage": 80,
+  "input": {
+    "item": "gemstonepower:iron_rod"
+  },
+  "output": "gemstonepower:iron_rod_polarized",
+  "processingTime": 200
+}

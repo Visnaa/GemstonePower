@@ -1,0 +1,9 @@
+{
+  "asset_name": "moon_stone",
+  "description": {
+    "color": "#C1FDFF",
+    "translate": "trim_material.gemstonepower.moon_stone"
+  },
+  "ingredient": "gemstonepower:moon_stone",
+  "item_model_index": 2.4
+}

@@ -1,0 +1,32 @@
+{
+  "criteria": {
+    "has_gem_seed": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "gemstonepower:gem_seeds"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "background": "gemstonepower:textures/gui/advancement_gui.png",
+    "description": {
+      "translate": "advancement.gemstonepower.root.description"
+    },
+    "icon": {
+      "item": "gemstonepower:sapphire_seed"
+    },
+    "title": {
+      "translate": "advancement.gemstonepower.root.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_gem_seed"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

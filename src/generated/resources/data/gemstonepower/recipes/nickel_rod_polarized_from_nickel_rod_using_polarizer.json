@@ -1,0 +1,10 @@
+{
+  "type": "gemstonepower:polarizer",
+  "count": 1,
+  "energyUsage": 80,
+  "input": {
+    "item": "gemstonepower:nickel_rod"
+  },
+  "output": "gemstonepower:nickel_rod_polarized",
+  "processingTime": 200
+}

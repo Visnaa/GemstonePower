@@ -1,0 +1,7 @@
+{
+  "parent": "gemstonepower:block/machine",
+  "textures": {
+    "machine": "gemstonepower:block/pulverizer",
+    "particle": "gemstonepower:block/pulverizer"
+  }
+}

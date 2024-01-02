@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 150,
+  "experience": 0.3,
+  "ingredient": {
+    "item": "gemstonepower:bronze_tiny_pile"
+  },
+  "result": "gemstonepower:bronze_nugget"
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "tag": "forge:glass"
+    },
+    "S": {
+      "tag": "c:ingots/steel"
+    }
+  },
+  "pattern": [
+    "SGS",
+    "GGG",
+    "SGS"
+  ],
+  "result": {
+    "item": "gemstonepower:tank"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "asset_name": "ruby",
+  "description": {
+    "color": "#FF4653",
+    "translate": "trim_material.gemstonepower.ruby"
+  },
+  "ingredient": "gemstonepower:ruby",
+  "item_model_index": 1.1
+}

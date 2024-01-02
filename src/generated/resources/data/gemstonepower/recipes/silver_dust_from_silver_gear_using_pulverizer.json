@@ -1,0 +1,10 @@
+{
+  "type": "gemstonepower:pulverizer",
+  "count": 4,
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:silver_gear"
+  },
+  "output": "gemstonepower:silver_dust",
+  "processingTime": 200
+}

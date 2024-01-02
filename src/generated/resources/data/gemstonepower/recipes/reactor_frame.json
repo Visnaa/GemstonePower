@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "tag": "forge:glass"
+    },
+    "L": {
+      "tag": "c:ingots/lead"
+    },
+    "T": {
+      "tag": "forge:glass/tinted"
+    }
+  },
+  "pattern": [
+    "LTL",
+    "LGL",
+    "LTL"
+  ],
+  "result": {
+    "item": "gemstonepower:reactor_frame"
+  }
+}

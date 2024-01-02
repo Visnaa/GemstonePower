@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "gemstonepower:lead_nugget"
+    },
+    {
+      "item": "gemstonepower:lead_nugget"
+    },
+    {
+      "item": "gemstonepower:lead_nugget"
+    },
+    {
+      "item": "gemstonepower:lead_nugget"
+    },
+    {
+      "item": "gemstonepower:lead_nugget"
+    },
+    {
+      "item": "gemstonepower:lead_nugget"
+    },
+    {
+      "item": "gemstonepower:lead_nugget"
+    },
+    {
+      "item": "gemstonepower:lead_nugget"
+    },
+    {
+      "item": "gemstonepower:lead_nugget"
+    }
+  ],
+  "result": {
+    "item": "gemstonepower:lead_ingot"
+  }
+}

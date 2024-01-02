@@ -1,0 +1,11 @@
+{
+  "type": "gemstonepower:metal_former",
+  "count": 3,
+  "energyUsage": 40,
+  "input": {
+    "item": "minecraft:copper_ingot"
+  },
+  "mode": "extruding",
+  "output": "gemstonepower:copper_wire",
+  "processingTime": 200
+}

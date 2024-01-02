@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "E": {
+      "item": "gemstonepower:electrum_rod"
+    },
+    "P": {
+      "item": "gemstonepower:iron_plate"
+    },
+    "R": {
+      "item": "gemstonepower:ruby"
+    }
+  },
+  "pattern": [
+    "PCP",
+    "RDR",
+    "PEP"
+  ],
+  "result": {
+    "item": "gemstonepower:pulverizer"
+  }
+}

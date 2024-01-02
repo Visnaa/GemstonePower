@@ -1,0 +1,8 @@
+{
+  "type": "gemstonepower:gemstone_generator",
+  "energy": 15200,
+  "fuel": {
+    "item": "minecraft:coal_block"
+  },
+  "processingTime": 380
+}

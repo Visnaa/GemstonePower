@@ -1,0 +1,9 @@
+{
+  "values": [
+    "gemstonepower:gemstone_cable",
+    "#c:wires/copper",
+    "#c:wires/aluminum",
+    "#c:wires/tin",
+    "#c:wires/electrum"
+  ]
+}

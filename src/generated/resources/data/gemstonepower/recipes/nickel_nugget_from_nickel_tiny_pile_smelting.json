@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.3,
+  "ingredient": {
+    "item": "gemstonepower:nickel_tiny_pile"
+  },
+  "result": "gemstonepower:nickel_nugget"
+}

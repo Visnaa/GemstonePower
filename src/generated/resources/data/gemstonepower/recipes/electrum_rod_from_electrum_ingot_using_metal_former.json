@@ -1,0 +1,11 @@
+{
+  "type": "gemstonepower:metal_former",
+  "count": 1,
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:electrum_ingot"
+  },
+  "mode": "rolling",
+  "output": "gemstonepower:electrum_rod",
+  "processingTime": 200
+}

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:gemstonepower/gemstone_cell",
+  "criteria": {
+    "has_metal_former": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:metal_former"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.gemstonepower.metal_former.description"
+    },
+    "icon": {
+      "item": "gemstonepower:metal_former"
+    },
+    "title": {
+      "translate": "advancement.gemstonepower.metal_former.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_metal_former"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,9 @@
+{
+  "asset_name": "citrine",
+  "description": {
+    "color": "#EFB84E",
+    "translate": "trim_material.gemstonepower.citrine"
+  },
+  "ingredient": "gemstonepower:citrine",
+  "item_model_index": 2.6
+}

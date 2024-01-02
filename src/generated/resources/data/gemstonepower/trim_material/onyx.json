@@ -1,0 +1,9 @@
+{
+  "asset_name": "onyx",
+  "description": {
+    "color": "#50505",
+    "translate": "trim_material.gemstonepower.onyx"
+  },
+  "ingredient": "gemstonepower:onyx",
+  "item_model_index": 2.2
+}

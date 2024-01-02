@@ -1,0 +1,4 @@
+{
+  "parent": "gemstonepower:block/ore_deepslate",
+  "render_type": "minecraft:cutout"
+}

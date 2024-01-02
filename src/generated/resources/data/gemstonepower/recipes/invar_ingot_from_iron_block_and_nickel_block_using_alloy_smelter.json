@@ -1,0 +1,15 @@
+{
+  "type": "gemstonepower:alloy_smelter",
+  "amount1": 2,
+  "amount2": 1,
+  "count": 3,
+  "energyUsage": 80,
+  "input1": {
+    "item": "minecraft:iron_block"
+  },
+  "input2": {
+    "item": "gemstonepower:nickel_block"
+  },
+  "output": "gemstonepower:invar_block",
+  "processingTime": 3400
+}

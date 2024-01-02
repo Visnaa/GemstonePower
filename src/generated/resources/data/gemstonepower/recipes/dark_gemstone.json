@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "gemstonepower:ruby"
+    },
+    {
+      "item": "gemstonepower:sapphire"
+    },
+    {
+      "item": "gemstonepower:opal"
+    },
+    {
+      "item": "gemstonepower:yellow_diamond"
+    },
+    {
+      "item": "gemstonepower:beryllium"
+    },
+    {
+      "item": "gemstonepower:bixbit"
+    },
+    {
+      "item": "gemstonepower:malachite"
+    },
+    {
+      "item": "gemstonepower:onyx"
+    },
+    {
+      "item": "gemstonepower:tanzanite"
+    }
+  ],
+  "result": {
+    "item": "gemstonepower:dark_gemstone"
+  }
+}

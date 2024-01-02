@@ -1,0 +1,10 @@
+{
+  "type": "gemstonepower:sawmill",
+  "count": 6,
+  "energyUsage": 40,
+  "input": {
+    "tag": "minecraft:spruce_logs"
+  },
+  "output": "minecraft:spruce_planks",
+  "processingTime": 150
+}

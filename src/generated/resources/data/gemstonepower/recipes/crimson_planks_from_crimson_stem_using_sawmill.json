@@ -1,0 +1,10 @@
+{
+  "type": "gemstonepower:sawmill",
+  "count": 6,
+  "energyUsage": 40,
+  "input": {
+    "tag": "minecraft:crimson_stems"
+  },
+  "output": "minecraft:crimson_planks",
+  "processingTime": 150
+}

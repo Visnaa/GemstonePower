@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "gemstonepower:uranium_nugget"
+    },
+    {
+      "item": "gemstonepower:uranium_nugget"
+    },
+    {
+      "item": "gemstonepower:uranium_nugget"
+    },
+    {
+      "item": "gemstonepower:uranium_nugget"
+    },
+    {
+      "item": "gemstonepower:uranium_nugget"
+    },
+    {
+      "item": "gemstonepower:uranium_nugget"
+    },
+    {
+      "item": "gemstonepower:uranium_nugget"
+    },
+    {
+      "item": "gemstonepower:uranium_nugget"
+    },
+    {
+      "item": "gemstonepower:uranium_nugget"
+    }
+  ],
+  "result": {
+    "item": "gemstonepower:uranium_ingot"
+  }
+}

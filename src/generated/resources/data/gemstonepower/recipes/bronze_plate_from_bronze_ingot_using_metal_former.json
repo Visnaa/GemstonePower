@@ -1,0 +1,11 @@
+{
+  "type": "gemstonepower:metal_former",
+  "count": 1,
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:bronze_ingot"
+  },
+  "mode": "pressing",
+  "output": "gemstonepower:bronze_plate",
+  "processingTime": 200
+}

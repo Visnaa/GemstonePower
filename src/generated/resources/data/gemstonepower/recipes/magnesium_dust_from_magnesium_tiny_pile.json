@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "gemstonepower:magnesium_tiny_pile"
+    },
+    {
+      "item": "gemstonepower:magnesium_tiny_pile"
+    },
+    {
+      "item": "gemstonepower:magnesium_tiny_pile"
+    },
+    {
+      "item": "gemstonepower:magnesium_tiny_pile"
+    },
+    {
+      "item": "gemstonepower:magnesium_tiny_pile"
+    },
+    {
+      "item": "gemstonepower:magnesium_tiny_pile"
+    },
+    {
+      "item": "gemstonepower:magnesium_tiny_pile"
+    },
+    {
+      "item": "gemstonepower:magnesium_tiny_pile"
+    },
+    {
+      "item": "gemstonepower:magnesium_tiny_pile"
+    }
+  ],
+  "result": {
+    "item": "gemstonepower:magnesium_dust"
+  }
+}

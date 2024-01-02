@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "gemstonepower:lithium_tiny_pile"
+    },
+    {
+      "item": "gemstonepower:lithium_tiny_pile"
+    },
+    {
+      "item": "gemstonepower:lithium_tiny_pile"
+    },
+    {
+      "item": "gemstonepower:lithium_tiny_pile"
+    },
+    {
+      "item": "gemstonepower:lithium_tiny_pile"
+    },
+    {
+      "item": "gemstonepower:lithium_tiny_pile"
+    },
+    {
+      "item": "gemstonepower:lithium_tiny_pile"
+    },
+    {
+      "item": "gemstonepower:lithium_tiny_pile"
+    },
+    {
+      "item": "gemstonepower:lithium_tiny_pile"
+    }
+  ],
+  "result": {
+    "item": "gemstonepower:lithium_dust"
+  }
+}

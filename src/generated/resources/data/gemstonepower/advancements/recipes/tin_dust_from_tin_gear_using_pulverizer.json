@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:tin_dust_from_tin_gear_using_pulverizer"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_tin_gear": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:tin_gear"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_tin_gear"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:tin_dust_from_tin_gear_using_pulverizer"
+    ]
+  }
+}

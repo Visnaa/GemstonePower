@@ -1,0 +1,6 @@
+{
+  "parent": "gemstonepower:block/cooling",
+  "textures": {
+    "type": "minecraft:block/prismarine"
+  }
+}

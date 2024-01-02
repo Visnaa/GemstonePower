@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:gemstonepower/gemstone_generator",
+  "criteria": {
+    "has_gemstone_cell": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:gemstone_cell"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.gemstonepower.gemstone_cell.description"
+    },
+    "icon": {
+      "item": "gemstonepower:gemstone_cell"
+    },
+    "title": {
+      "translate": "advancement.gemstonepower.gemstone_cell.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_gemstone_cell"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

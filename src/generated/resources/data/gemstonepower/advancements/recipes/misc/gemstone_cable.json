@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_gemstones": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "gemstonepower:gemstone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:gemstone_cable"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_gemstones"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:gemstone_cable"
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "gemstonepower:block/machine",
+  "textures": {
+    "machine": "gemstonepower:block/alloy_smelter",
+    "particle": "gemstonepower:block/alloy_smelter"
+  }
+}

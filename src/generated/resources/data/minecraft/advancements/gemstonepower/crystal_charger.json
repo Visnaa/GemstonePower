@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:gemstonepower/gemstone_cell",
+  "criteria": {
+    "has_crystal_charger": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:crystal_charger"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.gemstonepower.crystal_charger.description"
+    },
+    "icon": {
+      "item": "gemstonepower:crystal_charger"
+    },
+    "title": {
+      "translate": "advancement.gemstonepower.crystal_charger.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_crystal_charger"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

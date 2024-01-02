@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_aquamarine_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:aquamarine_seed"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:aquamarine_from_aquamarine_seed_using_crystal_grower"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_aquamarine_seed"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:aquamarine_from_aquamarine_seed_using_crystal_grower"
+    ]
+  }
+}

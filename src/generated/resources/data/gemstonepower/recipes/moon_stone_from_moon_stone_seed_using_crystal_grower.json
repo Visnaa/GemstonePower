@@ -1,0 +1,10 @@
+{
+  "type": "gemstonepower:crystal_grower",
+  "count": 1,
+  "energyUsage": 20,
+  "input": {
+    "item": "gemstonepower:moon_stone_seed"
+  },
+  "output": "gemstonepower:moon_stone",
+  "processingTime": 200
+}

@@ -1,0 +1,10 @@
+{
+  "type": "gemstonepower:pulverizer",
+  "count": 1,
+  "energyUsage": 40,
+  "input": {
+    "item": "minecraft:gold_nugget"
+  },
+  "output": "gemstonepower:gold_tiny_pile",
+  "processingTime": 200
+}

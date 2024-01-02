@@ -1,0 +1,7 @@
+{
+  "parent": "gemstonepower:block/machine",
+  "textures": {
+    "machine": "gemstonepower:block/crystal_grower",
+    "particle": "gemstonepower:block/crystal_grower"
+  }
+}

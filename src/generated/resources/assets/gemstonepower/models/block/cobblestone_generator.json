@@ -1,0 +1,7 @@
+{
+  "parent": "gemstonepower:block/machine",
+  "textures": {
+    "machine": "gemstonepower:block/cobblestone_generator",
+    "particle": "gemstonepower:block/cobblestone_generator"
+  }
+}

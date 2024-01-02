@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "gemstonepower:constantan_ingot"
+    },
+    {
+      "item": "gemstonepower:constantan_ingot"
+    },
+    {
+      "item": "gemstonepower:constantan_ingot"
+    },
+    {
+      "item": "gemstonepower:constantan_ingot"
+    },
+    {
+      "item": "gemstonepower:constantan_ingot"
+    },
+    {
+      "item": "gemstonepower:constantan_ingot"
+    },
+    {
+      "item": "gemstonepower:constantan_ingot"
+    },
+    {
+      "item": "gemstonepower:constantan_ingot"
+    },
+    {
+      "item": "gemstonepower:constantan_ingot"
+    }
+  ],
+  "result": {
+    "item": "gemstonepower:constantan_block"
+  }
+}

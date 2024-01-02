@@ -1,0 +1,28 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:dark_gemstone"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "unlocked": {
+      "conditions": {
+        "block": "minecraft:air"
+      },
+      "trigger": "minecraft:enter_block"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "unlocked"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:dark_gemstone"
+    ]
+  }
+}

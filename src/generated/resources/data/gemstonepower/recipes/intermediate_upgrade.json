@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": {
+      "tag": "forge:gems/diamond"
+    },
+    "L": {
+      "tag": "c:ingots/lithium"
+    },
+    "M": {
+      "tag": "c:ingots/magnesium"
+    }
+  },
+  "pattern": [
+    "MLM",
+    "LDL",
+    "MLM"
+  ],
+  "result": {
+    "item": "gemstonepower:intermediate_upgrade"
+  }
+}

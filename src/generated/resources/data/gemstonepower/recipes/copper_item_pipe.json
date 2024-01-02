@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "tag": "forge:ingots/copper"
+    },
+    "R": {
+      "tag": "forge:dusts/redstone"
+    }
+  },
+  "pattern": [
+    "I",
+    "R",
+    "I"
+  ],
+  "result": {
+    "count": 8,
+    "item": "gemstonepower:copper_item_pipe"
+  }
+}

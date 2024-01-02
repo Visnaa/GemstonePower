@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_lithium_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:lithium_ore"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:lithium_ore_dust_from_lithium_ore_using_pulverizer"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_lithium_ore"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:lithium_ore_dust_from_lithium_ore_using_pulverizer"
+    ]
+  }
+}

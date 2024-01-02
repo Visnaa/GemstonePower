@@ -1,0 +1,10 @@
+{
+  "type": "gemstonepower:extractor",
+  "count": 5,
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:resin_oak_log"
+  },
+  "output": "gemstonepower:resin",
+  "processingTime": 200
+}

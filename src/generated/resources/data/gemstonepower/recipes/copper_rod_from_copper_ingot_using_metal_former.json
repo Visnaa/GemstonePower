@@ -1,0 +1,11 @@
+{
+  "type": "gemstonepower:metal_former",
+  "count": 1,
+  "energyUsage": 40,
+  "input": {
+    "item": "minecraft:copper_ingot"
+  },
+  "mode": "rolling",
+  "output": "gemstonepower:copper_rod",
+  "processingTime": 200
+}

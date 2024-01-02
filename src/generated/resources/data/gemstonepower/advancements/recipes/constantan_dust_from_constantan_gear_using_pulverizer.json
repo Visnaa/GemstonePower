@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_constantan_gear": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:constantan_gear"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:constantan_dust_from_constantan_gear_using_pulverizer"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_constantan_gear"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:constantan_dust_from_constantan_gear_using_pulverizer"
+    ]
+  }
+}

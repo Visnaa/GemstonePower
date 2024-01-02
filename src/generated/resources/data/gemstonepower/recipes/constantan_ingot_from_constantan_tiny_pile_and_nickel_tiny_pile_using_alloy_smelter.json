@@ -1,0 +1,15 @@
+{
+  "type": "gemstonepower:alloy_smelter",
+  "amount1": 1,
+  "amount2": 1,
+  "count": 2,
+  "energyUsage": 80,
+  "input1": {
+    "item": "gemstonepower:constantan_tiny_pile"
+  },
+  "input2": {
+    "item": "gemstonepower:nickel_tiny_pile"
+  },
+  "output": "gemstonepower:constantan_tiny_pile",
+  "processingTime": 400
+}

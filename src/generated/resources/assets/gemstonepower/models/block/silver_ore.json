@@ -1,0 +1,4 @@
+{
+  "parent": "gemstonepower:block/ore",
+  "render_type": "minecraft:cutout"
+}

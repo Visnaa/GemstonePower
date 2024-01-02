@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:stick_from_wooden_trapdoor_using_sawmill"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wooden_trapdoor": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "minecraft:wooden_trapdoors"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_wooden_trapdoor"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:stick_from_wooden_trapdoor_using_sawmill"
+    ]
+  }
+}

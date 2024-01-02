@@ -1,0 +1,12 @@
+{
+  "asset_name": "silver",
+  "description": {
+    "color": "#C1E8E6",
+    "translate": "trim_material.gemstonepower.silver"
+  },
+  "ingredient": "gemstonepower:silver_ingot",
+  "item_model_index": 3.3,
+  "override_armor_materials": {
+    "silver": "silver_darker"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "gemstonepower:metal_former",
+  "count": 1,
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:uranium_ingot"
+  },
+  "mode": "pressing",
+  "output": "gemstonepower:uranium_plate",
+  "processingTime": 200
+}

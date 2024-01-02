@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:gemstonepower/gemstone_cell",
+  "criteria": {
+    "has_alloy_smelter": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:alloy_smelter"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.gemstonepower.alloy_smelter.description"
+    },
+    "icon": {
+      "item": "gemstonepower:alloy_smelter"
+    },
+    "title": {
+      "translate": "advancement.gemstonepower.alloy_smelter.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_alloy_smelter"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

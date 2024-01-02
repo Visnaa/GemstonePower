@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "gemstonepower:uranium_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "gemstonepower:uranium_ingot"
+  }
+}

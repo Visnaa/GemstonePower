@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "gemstonepower:copper_cable"
+    },
+    "G": {
+      "item": "gemstonepower:gemstone_cell"
+    },
+    "R": {
+      "item": "gemstonepower:ruby"
+    },
+    "S": {
+      "item": "gemstonepower:silver_ingot"
+    },
+    "T": {
+      "item": "gemstonepower:tin_cable"
+    }
+  },
+  "pattern": [
+    "SRS",
+    "CTC",
+    "SGS"
+  ],
+  "result": {
+    "item": "gemstonepower:crystal_charger"
+  }
+}

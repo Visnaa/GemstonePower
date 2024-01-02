@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dark_gemstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:dark_gemstone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_light_gemstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:light_gemstone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:gemstone_boots_from_light_gemstone_and_dark_gemstone"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_light_gemstone",
+      "has_dark_gemstone"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:gemstone_boots_from_light_gemstone_and_dark_gemstone"
+    ]
+  }
+}

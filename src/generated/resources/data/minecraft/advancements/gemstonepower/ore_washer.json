@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:gemstonepower/gemstone_cell",
+  "criteria": {
+    "has_ore_washer": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:ore_washer"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.gemstonepower.ore_washer.description"
+    },
+    "icon": {
+      "item": "gemstonepower:ore_washer"
+    },
+    "title": {
+      "translate": "advancement.gemstonepower.ore_washer.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_ore_washer"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

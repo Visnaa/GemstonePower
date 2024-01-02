@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:gemstonepower/gemstone_generator",
+  "criteria": {
+    "has_water_mill": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:water_mill"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.gemstonepower.water_mill.description"
+    },
+    "icon": {
+      "item": "gemstonepower:water_mill"
+    },
+    "title": {
+      "translate": "advancement.gemstonepower.water_mill.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_water_mill"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

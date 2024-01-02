@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "gemstonepower:aluminum_tiny_pile"
+    },
+    {
+      "item": "gemstonepower:aluminum_tiny_pile"
+    },
+    {
+      "item": "gemstonepower:aluminum_tiny_pile"
+    },
+    {
+      "item": "gemstonepower:aluminum_tiny_pile"
+    },
+    {
+      "item": "gemstonepower:aluminum_tiny_pile"
+    },
+    {
+      "item": "gemstonepower:aluminum_tiny_pile"
+    },
+    {
+      "item": "gemstonepower:aluminum_tiny_pile"
+    },
+    {
+      "item": "gemstonepower:aluminum_tiny_pile"
+    },
+    {
+      "item": "gemstonepower:aluminum_tiny_pile"
+    }
+  ],
+  "result": {
+    "item": "gemstonepower:aluminum_dust"
+  }
+}

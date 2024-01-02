@@ -1,0 +1,11 @@
+{
+  "type": "gemstonepower:metal_former",
+  "count": 1,
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:silver_ingot"
+  },
+  "mode": "pressing",
+  "output": "gemstonepower:silver_plate",
+  "processingTime": 200
+}

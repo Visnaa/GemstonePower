@@ -1,0 +1,12 @@
+{
+  "asset_name": "copper",
+  "description": {
+    "color": "#F58862",
+    "translate": "trim_material.minecraft.copper"
+  },
+  "ingredient": "minecraft:copper_ingot",
+  "item_model_index": 2.9,
+  "override_armor_materials": {
+    "copper": "copper_darker"
+  }
+}

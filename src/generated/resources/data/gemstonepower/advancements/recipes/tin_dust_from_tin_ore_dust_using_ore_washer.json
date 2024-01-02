@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:tin_dust_from_tin_ore_dust_using_ore_washer"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_tin_ore_dust": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:tin_ore_dust"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_tin_ore_dust"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:tin_dust_from_tin_ore_dust_using_ore_washer"
+    ]
+  }
+}

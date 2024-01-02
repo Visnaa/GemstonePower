@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:tin_nugget_from_tin_tiny_pile_blasting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_tin_tiny_pile": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:tin_tiny_pile"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_tin_tiny_pile"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:tin_nugget_from_tin_tiny_pile_blasting"
+    ]
+  }
+}

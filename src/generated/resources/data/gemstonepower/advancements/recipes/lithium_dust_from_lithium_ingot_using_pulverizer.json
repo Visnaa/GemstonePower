@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_lithium_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:lithium_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:lithium_dust_from_lithium_ingot_using_pulverizer"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_lithium_ingot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:lithium_dust_from_lithium_ingot_using_pulverizer"
+    ]
+  }
+}

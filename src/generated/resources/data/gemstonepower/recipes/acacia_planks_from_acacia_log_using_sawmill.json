@@ -1,0 +1,10 @@
+{
+  "type": "gemstonepower:sawmill",
+  "count": 6,
+  "energyUsage": 40,
+  "input": {
+    "tag": "minecraft:acacia_logs"
+  },
+  "output": "minecraft:acacia_planks",
+  "processingTime": 150
+}

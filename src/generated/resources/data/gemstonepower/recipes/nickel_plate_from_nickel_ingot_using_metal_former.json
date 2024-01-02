@@ -1,0 +1,11 @@
+{
+  "type": "gemstonepower:metal_former",
+  "count": 1,
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:nickel_ingot"
+  },
+  "mode": "pressing",
+  "output": "gemstonepower:nickel_plate",
+  "processingTime": 200
+}

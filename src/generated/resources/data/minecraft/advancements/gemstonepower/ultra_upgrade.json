@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:gemstonepower/advanced_upgrade",
+  "criteria": {
+    "has_ultra_upgrade": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:ultra_upgrade"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.gemstonepower.ultra_upgrade.description"
+    },
+    "icon": {
+      "item": "gemstonepower:ultra_upgrade"
+    },
+    "title": {
+      "translate": "advancement.gemstonepower.ultra_upgrade.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_ultra_upgrade"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

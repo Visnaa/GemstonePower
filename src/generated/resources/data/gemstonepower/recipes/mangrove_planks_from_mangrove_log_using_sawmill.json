@@ -1,0 +1,10 @@
+{
+  "type": "gemstonepower:sawmill",
+  "count": 6,
+  "energyUsage": 40,
+  "input": {
+    "tag": "minecraft:mangrove_logs"
+  },
+  "output": "minecraft:mangrove_planks",
+  "processingTime": 150
+}

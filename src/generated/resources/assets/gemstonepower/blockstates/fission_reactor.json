@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "gemstonepower:block/fission_reactor",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "gemstonepower:block/fission_reactor"
+    },
+    "facing=south": {
+      "model": "gemstonepower:block/fission_reactor",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "gemstonepower:block/fission_reactor",
+      "y": 270
+    }
+  }
+}

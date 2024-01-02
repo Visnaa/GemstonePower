@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "gemstonepower:magnesium_ingot"
+    },
+    {
+      "item": "gemstonepower:magnesium_ingot"
+    },
+    {
+      "item": "gemstonepower:magnesium_ingot"
+    },
+    {
+      "item": "gemstonepower:magnesium_ingot"
+    },
+    {
+      "item": "gemstonepower:magnesium_ingot"
+    },
+    {
+      "item": "gemstonepower:magnesium_ingot"
+    },
+    {
+      "item": "gemstonepower:magnesium_ingot"
+    },
+    {
+      "item": "gemstonepower:magnesium_ingot"
+    },
+    {
+      "item": "gemstonepower:magnesium_ingot"
+    }
+  ],
+  "result": {
+    "item": "gemstonepower:magnesium_block"
+  }
+}

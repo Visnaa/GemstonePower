@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "gemstonepower:beryllium"
+    },
+    "I": {
+      "tag": "c:ingots/uranium"
+    },
+    "M": {
+      "item": "gemstonepower:malachite"
+    },
+    "P": {
+      "item": "gemstonepower:peridot"
+    },
+    "U": {
+      "item": "gemstonepower:ultra_upgrade"
+    }
+  },
+  "pattern": [
+    "BIB",
+    "PUP",
+    "MIM"
+  ],
+  "result": {
+    "item": "gemstonepower:extreme_upgrade"
+  }
+}

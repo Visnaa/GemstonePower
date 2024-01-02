@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:gemstonepower/gem",
+  "criteria": {
+    "has_charged_gem": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "gemstonepower:charged_gems"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.gemstonepower.charged_gem.description"
+    },
+    "icon": {
+      "item": "gemstonepower:aquamarine_charged"
+    },
+    "title": {
+      "translate": "advancement.gemstonepower.charged_gem.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_charged_gem"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

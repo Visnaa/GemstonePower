@@ -1,0 +1,9 @@
+{
+  "asset_name": "platinum",
+  "description": {
+    "color": "#C4FEFF",
+    "translate": "trim_material.gemstonepower.platinum"
+  },
+  "ingredient": "gemstonepower:platinum_ingot",
+  "item_model_index": 3.8
+}

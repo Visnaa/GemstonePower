@@ -1,0 +1,11 @@
+{
+  "type": "gemstonepower:metal_former",
+  "count": 3,
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:aluminum_ingot"
+  },
+  "mode": "extruding",
+  "output": "gemstonepower:aluminum_wire",
+  "processingTime": 200
+}

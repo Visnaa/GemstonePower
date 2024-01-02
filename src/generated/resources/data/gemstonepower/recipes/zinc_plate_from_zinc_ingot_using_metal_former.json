@@ -1,0 +1,11 @@
+{
+  "type": "gemstonepower:metal_former",
+  "count": 1,
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:zinc_ingot"
+  },
+  "mode": "pressing",
+  "output": "gemstonepower:zinc_plate",
+  "processingTime": 200
+}

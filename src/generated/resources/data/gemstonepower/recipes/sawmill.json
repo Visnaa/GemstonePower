@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "c:ingots/aluminum"
+    },
+    "E": {
+      "tag": "c:wires/electrum"
+    },
+    "G": {
+      "tag": "c:gears/steel"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "GGG",
+    "AEA"
+  ],
+  "result": {
+    "item": "gemstonepower:sawmill"
+  }
+}

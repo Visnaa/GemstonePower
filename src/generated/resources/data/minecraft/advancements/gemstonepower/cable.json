@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:gemstonepower/rubber",
+  "criteria": {
+    "has_cable": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "gemstonepower:cables"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.gemstonepower.cable.description"
+    },
+    "icon": {
+      "item": "gemstonepower:copper_cable"
+    },
+    "title": {
+      "translate": "advancement.gemstonepower.cable.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_cable"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

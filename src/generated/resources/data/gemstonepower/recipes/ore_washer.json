@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "gemstonepower:invar_block"
+    },
+    "E": {
+      "item": "gemstonepower:platinum_gear"
+    },
+    "I": {
+      "item": "gemstonepower:invar_plate"
+    },
+    "W": {
+      "item": "minecraft:water_bucket"
+    }
+  },
+  "pattern": [
+    "IEI",
+    "WWW",
+    "IBI"
+  ],
+  "result": {
+    "item": "gemstonepower:ore_washer"
+  }
+}

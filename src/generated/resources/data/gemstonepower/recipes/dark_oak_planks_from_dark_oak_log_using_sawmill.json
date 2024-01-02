@@ -1,0 +1,10 @@
+{
+  "type": "gemstonepower:sawmill",
+  "count": 6,
+  "energyUsage": 40,
+  "input": {
+    "tag": "minecraft:dark_oak_logs"
+  },
+  "output": "minecraft:dark_oak_planks",
+  "processingTime": 150
+}

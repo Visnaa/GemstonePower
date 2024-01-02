@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:tin_dust_from_tin_rod_using_pulverizer"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_tin_rod": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:tin_rod"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_tin_rod"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:tin_dust_from_tin_rod_using_pulverizer"
+    ]
+  }
+}

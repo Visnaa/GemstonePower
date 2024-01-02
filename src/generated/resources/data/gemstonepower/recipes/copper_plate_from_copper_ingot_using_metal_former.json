@@ -1,0 +1,11 @@
+{
+  "type": "gemstonepower:metal_former",
+  "count": 1,
+  "energyUsage": 40,
+  "input": {
+    "item": "minecraft:copper_ingot"
+  },
+  "mode": "pressing",
+  "output": "gemstonepower:copper_plate",
+  "processingTime": 200
+}

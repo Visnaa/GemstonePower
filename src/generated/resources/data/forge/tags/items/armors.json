@@ -1,0 +1,14 @@
+{
+  "values": [
+    "gemstonepower:gemstone_helmet",
+    "gemstonepower:gemstone_chestplate",
+    "gemstonepower:gemstone_leggings",
+    "gemstonepower:gemstone_boots",
+    "#c:armor/copper",
+    "#c:armor/aluminum",
+    "#c:armor/silver",
+    "#c:armor/bronze",
+    "#c:armor/invar",
+    "#c:armor/steel"
+  ]
+}

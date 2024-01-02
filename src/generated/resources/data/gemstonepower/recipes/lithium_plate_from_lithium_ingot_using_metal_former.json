@@ -1,0 +1,11 @@
+{
+  "type": "gemstonepower:metal_former",
+  "count": 1,
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:lithium_ingot"
+  },
+  "mode": "pressing",
+  "output": "gemstonepower:lithium_plate",
+  "processingTime": 200
+}

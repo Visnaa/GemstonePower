@@ -1,0 +1,10 @@
+{
+  "type": "gemstonepower:pulverizer",
+  "count": 9,
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:bronze_block"
+  },
+  "output": "gemstonepower:bronze_dust",
+  "processingTime": 1600
+}

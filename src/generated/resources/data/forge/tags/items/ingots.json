@@ -1,0 +1,19 @@
+{
+  "values": [
+    "#c:ingots/aluminum",
+    "#c:ingots/tin",
+    "#c:ingots/bronze",
+    "#c:ingots/silver",
+    "#c:ingots/electrum",
+    "#c:ingots/nickel",
+    "#c:ingots/invar",
+    "#c:ingots/constantan",
+    "#c:ingots/platinum",
+    "#c:ingots/steel",
+    "#c:ingots/lithium",
+    "#c:ingots/magnesium",
+    "#c:ingots/uranium",
+    "#c:ingots/lead",
+    "#c:ingots/zinc"
+  ]
+}

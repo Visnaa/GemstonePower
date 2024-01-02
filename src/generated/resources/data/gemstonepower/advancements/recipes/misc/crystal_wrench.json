@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_gems": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "gemstonepower:gems"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:crystal_wrench"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_gems"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:crystal_wrench"
+    ]
+  }
+}

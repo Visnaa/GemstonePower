@@ -1,0 +1,9 @@
+{
+  "asset_name": "nickel",
+  "description": {
+    "color": "#D5E39F",
+    "translate": "trim_material.gemstonepower.nickel"
+  },
+  "ingredient": "gemstonepower:nickel_ingot",
+  "item_model_index": 3.5
+}

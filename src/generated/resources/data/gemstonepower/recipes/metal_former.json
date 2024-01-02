@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "gemstonepower:bronze_gear"
+    },
+    "C": {
+      "item": "gemstonepower:copper_gear"
+    },
+    "G": {
+      "item": "gemstonepower:gold_gear"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "R": {
+      "item": "gemstonepower:ruby"
+    }
+  },
+  "pattern": [
+    "IRI",
+    "CGB",
+    "III"
+  ],
+  "result": {
+    "item": "gemstonepower:metal_former"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "asset_name": "sapphire",
+  "description": {
+    "color": "#2342C8",
+    "translate": "trim_material.gemstonepower.sapphire"
+  },
+  "ingredient": "gemstonepower:sapphire",
+  "item_model_index": 1.2
+}

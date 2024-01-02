@@ -1,0 +1,10 @@
+{
+  "type": "gemstonepower:pulverizer",
+  "count": 1,
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:tin_nugget"
+  },
+  "output": "gemstonepower:tin_tiny_pile",
+  "processingTime": 200
+}

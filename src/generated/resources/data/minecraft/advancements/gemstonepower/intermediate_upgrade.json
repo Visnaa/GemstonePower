@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:gemstonepower/gemstone_cell",
+  "criteria": {
+    "has_intermediate_upgrade": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:intermediate_upgrade"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.gemstonepower.intermediate_upgrade.description"
+    },
+    "icon": {
+      "item": "gemstonepower:intermediate_upgrade"
+    },
+    "title": {
+      "translate": "advancement.gemstonepower.intermediate_upgrade.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_intermediate_upgrade"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

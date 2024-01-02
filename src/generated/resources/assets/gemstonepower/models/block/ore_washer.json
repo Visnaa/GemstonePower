@@ -1,0 +1,7 @@
+{
+  "parent": "gemstonepower:block/machine",
+  "textures": {
+    "machine": "gemstonepower:block/ore_washer",
+    "particle": "gemstonepower:block/ore_washer"
+  }
+}

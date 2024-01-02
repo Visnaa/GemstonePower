@@ -1,0 +1,7 @@
+{
+  "parent": "gemstonepower:block/machine",
+  "textures": {
+    "machine": "gemstonepower:block/metal_former",
+    "particle": "gemstonepower:block/metal_former"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "gemstonepower:metal_former",
+  "count": 1,
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:aluminum_ingot"
+  },
+  "mode": "pressing",
+  "output": "gemstonepower:aluminum_plate",
+  "processingTime": 200
+}

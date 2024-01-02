@@ -1,0 +1,15 @@
+{
+  "type": "gemstonepower:alloy_smelter",
+  "amount1": 1,
+  "amount2": 1,
+  "count": 2,
+  "energyUsage": 80,
+  "input1": {
+    "item": "minecraft:gold_nugget"
+  },
+  "input2": {
+    "item": "gemstonepower:silver_nugget"
+  },
+  "output": "gemstonepower:electrum_nugget",
+  "processingTime": 400
+}

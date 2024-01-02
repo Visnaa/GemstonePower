@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "gemstonepower:bronze_ingot"
+    },
+    {
+      "item": "gemstonepower:bronze_ingot"
+    },
+    {
+      "item": "gemstonepower:bronze_ingot"
+    },
+    {
+      "item": "gemstonepower:bronze_ingot"
+    },
+    {
+      "item": "gemstonepower:bronze_ingot"
+    },
+    {
+      "item": "gemstonepower:bronze_ingot"
+    },
+    {
+      "item": "gemstonepower:bronze_ingot"
+    },
+    {
+      "item": "gemstonepower:bronze_ingot"
+    },
+    {
+      "item": "gemstonepower:bronze_ingot"
+    }
+  ],
+  "result": {
+    "item": "gemstonepower:bronze_block"
+  }
+}

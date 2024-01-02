@@ -1,0 +1,94 @@
+{
+  "variants": {
+    "facing=east,tier=advanced": {
+      "model": "gemstonepower:block/extractor",
+      "y": 90
+    },
+    "facing=east,tier=extreme": {
+      "model": "gemstonepower:block/extractor",
+      "y": 90
+    },
+    "facing=east,tier=intermediate": {
+      "model": "gemstonepower:block/extractor",
+      "y": 90
+    },
+    "facing=east,tier=none": {
+      "model": "gemstonepower:block/extractor",
+      "y": 90
+    },
+    "facing=east,tier=standard": {
+      "model": "gemstonepower:block/extractor",
+      "y": 90
+    },
+    "facing=east,tier=ultra": {
+      "model": "gemstonepower:block/extractor",
+      "y": 90
+    },
+    "facing=north,tier=advanced": {
+      "model": "gemstonepower:block/extractor"
+    },
+    "facing=north,tier=extreme": {
+      "model": "gemstonepower:block/extractor"
+    },
+    "facing=north,tier=intermediate": {
+      "model": "gemstonepower:block/extractor"
+    },
+    "facing=north,tier=none": {
+      "model": "gemstonepower:block/extractor"
+    },
+    "facing=north,tier=standard": {
+      "model": "gemstonepower:block/extractor"
+    },
+    "facing=north,tier=ultra": {
+      "model": "gemstonepower:block/extractor"
+    },
+    "facing=south,tier=advanced": {
+      "model": "gemstonepower:block/extractor",
+      "y": 180
+    },
+    "facing=south,tier=extreme": {
+      "model": "gemstonepower:block/extractor",
+      "y": 180
+    },
+    "facing=south,tier=intermediate": {
+      "model": "gemstonepower:block/extractor",
+      "y": 180
+    },
+    "facing=south,tier=none": {
+      "model": "gemstonepower:block/extractor",
+      "y": 180
+    },
+    "facing=south,tier=standard": {
+      "model": "gemstonepower:block/extractor",
+      "y": 180
+    },
+    "facing=south,tier=ultra": {
+      "model": "gemstonepower:block/extractor",
+      "y": 180
+    },
+    "facing=west,tier=advanced": {
+      "model": "gemstonepower:block/extractor",
+      "y": 270
+    },
+    "facing=west,tier=extreme": {
+      "model": "gemstonepower:block/extractor",
+      "y": 270
+    },
+    "facing=west,tier=intermediate": {
+      "model": "gemstonepower:block/extractor",
+      "y": 270
+    },
+    "facing=west,tier=none": {
+      "model": "gemstonepower:block/extractor",
+      "y": 270
+    },
+    "facing=west,tier=standard": {
+      "model": "gemstonepower:block/extractor",
+      "y": 270
+    },
+    "facing=west,tier=ultra": {
+      "model": "gemstonepower:block/extractor",
+      "y": 270
+    }
+  }
+}

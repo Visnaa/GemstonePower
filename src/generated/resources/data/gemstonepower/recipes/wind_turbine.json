@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "gemstonepower:aluminum_block"
+    },
+    "C": {
+      "item": "gemstonepower:copper_wire"
+    },
+    "G": {
+      "tag": "c:gears/iron"
+    },
+    "R": {
+      "tag": "c:rods/invar"
+    }
+  },
+  "pattern": [
+    "ARA",
+    "RGR",
+    "CRC"
+  ],
+  "result": {
+    "item": "gemstonepower:wind_turbine"
+  }
+}

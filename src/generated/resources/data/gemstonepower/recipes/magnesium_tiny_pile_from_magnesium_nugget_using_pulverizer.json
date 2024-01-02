@@ -1,0 +1,10 @@
+{
+  "type": "gemstonepower:pulverizer",
+  "count": 1,
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:magnesium_nugget"
+  },
+  "output": "gemstonepower:magnesium_tiny_pile",
+  "processingTime": 200
+}

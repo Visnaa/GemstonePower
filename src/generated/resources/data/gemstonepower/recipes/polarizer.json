@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "tag": "c:ingots/constantan"
+    },
+    "I": {
+      "tag": "forge:ingots/iron"
+    },
+    "N": {
+      "tag": "c:ingots/nickel"
+    },
+    "V": {
+      "tag": "c:ingots/invar"
+    },
+    "W": {
+      "item": "gemstonepower:copper_wire"
+    },
+    "Z": {
+      "tag": "c:ingots/zinc"
+    }
+  },
+  "pattern": [
+    "ZZZ",
+    "INC",
+    "WVW"
+  ],
+  "result": {
+    "item": "gemstonepower:polarizer"
+  }
+}

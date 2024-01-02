@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_deepslate_lithium_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:deepslate_lithium_ore"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:lithium_ingot_from_deepslate_lithium_ore_blasting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_deepslate_lithium_ore"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:lithium_ingot_from_deepslate_lithium_ore_blasting"
+    ]
+  }
+}

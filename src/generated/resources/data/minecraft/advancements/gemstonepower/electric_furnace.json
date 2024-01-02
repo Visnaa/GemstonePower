@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:gemstonepower/gemstone_cell",
+  "criteria": {
+    "has_electric_furnace": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:electric_furnace"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancement.gemstonepower.electric_furnace.description"
+    },
+    "icon": {
+      "item": "gemstonepower:electric_furnace"
+    },
+    "title": {
+      "translate": "advancement.gemstonepower.electric_furnace.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_electric_furnace"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

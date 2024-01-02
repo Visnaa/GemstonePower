@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_tanzanite_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "gemstonepower:tanzanite_seed"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "gemstonepower:tanzanite_from_tanzanite_seed_using_crystal_grower"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_tanzanite_seed"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "gemstonepower:tanzanite_from_tanzanite_seed_using_crystal_grower"
+    ]
+  }
+}

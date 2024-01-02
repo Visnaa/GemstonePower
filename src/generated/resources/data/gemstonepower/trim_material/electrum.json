@@ -1,0 +1,9 @@
+{
+  "asset_name": "electrum",
+  "description": {
+    "color": "#FFD980",
+    "translate": "trim_material.gemstonepower.electrum"
+  },
+  "ingredient": "gemstonepower:electrum_ingot",
+  "item_model_index": 3.4
+}

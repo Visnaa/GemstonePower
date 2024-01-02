@@ -1,0 +1,7 @@
+{
+  "parent": "gemstonepower:block/machine",
+  "textures": {
+    "machine": "gemstonepower:block/gemstone_manipulator",
+    "particle": "gemstonepower:block/gemstone_manipulator"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "gemstonepower:pulverizer",
+  "count": 9,
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:zinc_block"
+  },
+  "output": "gemstonepower:zinc_dust",
+  "processingTime": 1600
+}

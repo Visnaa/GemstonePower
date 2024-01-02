@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "E": {
+      "item": "gemstonepower:electrum_rod"
+    },
+    "G": {
+      "item": "minecraft:gold_block"
+    },
+    "I": {
+      "item": "gemstonepower:iron_gear"
+    },
+    "P": {
+      "item": "gemstonepower:silver_plate"
+    },
+    "S": {
+      "item": "gemstonepower:silver_block"
+    }
+  },
+  "pattern": [
+    "PIP",
+    "SGS",
+    "PEP"
+  ],
+  "result": {
+    "item": "gemstonepower:alloy_smelter"
+  }
+}

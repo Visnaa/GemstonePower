@@ -1,0 +1,10 @@
+{
+  "type": "gemstonepower:pulverizer",
+  "count": 1,
+  "energyUsage": 40,
+  "input": {
+    "item": "gemstonepower:aluminum_nugget"
+  },
+  "output": "gemstonepower:aluminum_tiny_pile",
+  "processingTime": 200
+}

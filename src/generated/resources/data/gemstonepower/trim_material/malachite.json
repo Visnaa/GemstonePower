@@ -1,0 +1,9 @@
+{
+  "asset_name": "malachite",
+  "description": {
+    "color": "#E886",
+    "translate": "trim_material.gemstonepower.malachite"
+  },
+  "ingredient": "gemstonepower:malachite",
+  "item_model_index": 2.1
+}

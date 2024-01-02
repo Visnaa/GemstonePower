@@ -1,0 +1,9 @@
+{
+  "asset_name": "aquamarine",
+  "description": {
+    "color": "#3AF6FF",
+    "translate": "trim_material.gemstonepower.aquamarine"
+  },
+  "ingredient": "gemstonepower:aquamarine",
+  "item_model_index": 1.3
+}

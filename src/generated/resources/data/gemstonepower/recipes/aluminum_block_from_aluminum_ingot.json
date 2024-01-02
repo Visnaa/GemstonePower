@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "gemstonepower:aluminum_ingot"
+    },
+    {
+      "item": "gemstonepower:aluminum_ingot"
+    },
+    {
+      "item": "gemstonepower:aluminum_ingot"
+    },
+    {
+      "item": "gemstonepower:aluminum_ingot"
+    },
+    {
+      "item": "gemstonepower:aluminum_ingot"
+    },
+    {
+      "item": "gemstonepower:aluminum_ingot"
+    },
+    {
+      "item": "gemstonepower:aluminum_ingot"
+    },
+    {
+      "item": "gemstonepower:aluminum_ingot"
+    },
+    {
+      "item": "gemstonepower:aluminum_ingot"
+    }
+  ],
+  "result": {
+    "item": "gemstonepower:aluminum_block"
+  }
+}

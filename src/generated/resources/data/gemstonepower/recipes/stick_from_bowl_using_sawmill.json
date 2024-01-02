@@ -1,0 +1,10 @@
+{
+  "type": "gemstonepower:sawmill",
+  "count": 3,
+  "energyUsage": 40,
+  "input": {
+    "item": "minecraft:bowl"
+  },
+  "output": "minecraft:stick",
+  "processingTime": 150
+}

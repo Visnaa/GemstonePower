@@ -1,0 +1,8 @@
+{
+  "type": "gemstonepower:gemstone_generator",
+  "energy": 1600,
+  "fuel": {
+    "item": "gemstonepower:azurite_crystal"
+  },
+  "processingTime": 40
+}

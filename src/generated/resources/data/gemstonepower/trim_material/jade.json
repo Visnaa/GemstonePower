@@ -1,0 +1,9 @@
+{
+  "asset_name": "jade",
+  "description": {
+    "color": "#67DEA8",
+    "translate": "trim_material.gemstonepower.jade"
+  },
+  "ingredient": "gemstonepower:jade",
+  "item_model_index": 1.4
+}

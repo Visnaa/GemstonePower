@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "gemstonepower:copper_cable"
+    },
+    "P": {
+      "item": "gemstonepower:platinum_plate"
+    },
+    "R": {
+      "item": "gemstonepower:rubber"
+    }
+  },
+  "pattern": [
+    "PRP",
+    "RCR",
+    "PRP"
+  ],
+  "result": {
+    "item": "gemstonepower:extractor"
+  }
+}

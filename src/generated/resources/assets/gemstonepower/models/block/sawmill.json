@@ -1,0 +1,7 @@
+{
+  "parent": "gemstonepower:block/machine",
+  "textures": {
+    "machine": "gemstonepower:block/sawmill",
+    "particle": "gemstonepower:block/sawmill"
+  }
+}

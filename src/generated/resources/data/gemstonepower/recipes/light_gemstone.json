@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "gemstonepower:aquamarine"
+    },
+    {
+      "item": "gemstonepower:jade"
+    },
+    {
+      "item": "gemstonepower:amber"
+    },
+    {
+      "item": "gemstonepower:topaz"
+    },
+    {
+      "item": "gemstonepower:peridot"
+    },
+    {
+      "item": "gemstonepower:moon_stone"
+    },
+    {
+      "item": "gemstonepower:sun_stone"
+    },
+    {
+      "item": "gemstonepower:citrine"
+    },
+    {
+      "item": "gemstonepower:dolomite"
+    }
+  ],
+  "result": {
+    "item": "gemstonepower:light_gemstone"
+  }
+}
