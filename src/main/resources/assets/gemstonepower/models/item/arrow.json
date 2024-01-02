@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "gemstonepower:item/arrow_tip",
+    "layer1": "gemstonepower:item/arrow"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "gemstonepower:item/crystal_seed_gem",
+    "layer1": "gemstonepower:item/crystal_seed_rock"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "render_type": "cutout",
+  "textures": {
+    "particle": "gemstonepower:block/cable_rubber",
+    "rubber": "gemstonepower:block/cable_rubber",
+    "wire": "gemstonepower:block/cable_wire"
+  },
+  "elements": [
+    {
+      "from": [6, 6, 6],
+      "to": [10, 10, 10],
+      "faces": {
+        "north": {"uv": [0, 0, 4, 4], "texture": "#rubber"},
+        "east": {"uv": [0, 0, 4, 4], "texture": "#rubber"},
+        "south": {"uv": [0, 0, 4, 4], "texture": "#rubber"},
+        "west": {"uv": [0, 0, 4, 4], "texture": "#rubber"},
+        "up": {"uv": [0, 0, 4, 4], "texture": "#rubber"},
+        "down": {"uv": [0, 0, 4, 4], "texture": "#rubber"}
+      }
+    },
+    {
+      "from": [6, 6, 6],
+      "to": [10, 10, 10],
+      "faces": {
+        "north": {"uv": [0, 0, 4, 4], "texture": "#wire", "tintindex": 0},
+        "east": {"uv": [0, 0, 4, 4], "texture": "#wire", "tintindex": 0},
+        "south": {"uv": [0, 0, 4, 4], "texture": "#wire", "tintindex": 0},
+        "west": {"uv": [0, 0, 4, 4], "texture": "#wire", "tintindex": 0},
+        "up": {"uv": [0, 0, 4, 4], "texture": "#wire", "tintindex": 0},
+        "down": {"uv": [0, 0, 4, 4], "texture": "#wire", "tintindex": 0}
+      }
+    }
+  ],
+  "gui_light": "side",
+  "display": {
+    "gui": {
+      "rotation": [ 30, 225, 0 ],
+      "translation": [ 0, 0, 0],
+      "scale":[ 0.625, 0.625, 0.625 ]
+    },
+    "ground": {
+      "rotation": [ 0, 0, 0 ],
+      "translation": [ 0, 3, 0],
+      "scale":[ 0.25, 0.25, 0.25 ]
+    },
+    "fixed": {
+      "rotation": [ 0, 0, 0 ],
+      "translation": [ 0, 0, 0],
+      "scale":[ 0.5, 0.5, 0.5 ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [ 75, 45, 0 ],
+      "translation": [ 0, 2.5, 0],
+      "scale": [ 0.375, 0.375, 0.375 ]
+    },
+    "firstperson_righthand": {
+      "rotation": [ 0, 45, 0 ],
+      "translation": [ 0, 0, 0 ],
+      "scale": [ 0.40, 0.40, 0.40 ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [ 0, 225, 0 ],
+      "translation": [ 0, 0, 0 ],
+      "scale": [ 0.40, 0.40, 0.40 ]
+    }
+  }
+}

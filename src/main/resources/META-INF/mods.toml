@@ -1,0 +1,32 @@
+modLoader="javafml"
+loaderVersion="[1,)"
+license="All rights reserved"
+
+[[mods]]
+    modId="gemstonepower"
+    version="0.3.7"
+    displayName="Gemstone Power"
+    credits=""
+    authors="Visnaa"
+    description='''Processing mod with gems'''
+
+[[dependencies.gemstonepower]]
+    modId="neoforge"
+    type="required"
+    versionRange="[20.4.72-beta,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.gemstonepower]]
+    modId="minecraft"
+    type="required"
+    versionRange="[1.20.4,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.gemstonepower]]
+    modId="jei"
+    type="optional"
+    versionRange="[14.0.0.0,)"
+    ordering="NONE"
+    side="CLIENT"

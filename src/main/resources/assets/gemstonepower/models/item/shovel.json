@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "gemstonepower:item/shovel",
+    "layer1": "gemstonepower:item/shovel_handle"
+  }
+}

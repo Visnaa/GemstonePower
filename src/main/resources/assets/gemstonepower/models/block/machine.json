@@ -1,0 +1,30 @@
+{
+  "parent": "minecraft:block/block",
+  "render_type": "cutout",
+  "textures": {
+    "particle": "gemstonepower:block/ore_front",
+    "hull": "gemstonepower:block/machine",
+    "machine": "gemstonepower:block/machine"
+  },
+  "elements": [
+    {
+      "from": [ 0, 0, 0 ],
+      "to": [ 16, 16, 16 ],
+      "faces": {
+        "down":  { "texture": "#hull", "cullface": "down", "tintindex": 0 },
+        "up":    { "texture": "#hull", "cullface": "up", "tintindex": 0 },
+        "north": { "texture": "#hull", "cullface": "north", "tintindex": 0 },
+        "south": { "texture": "#hull", "cullface": "south", "tintindex": 0 },
+        "west":  { "texture": "#hull", "cullface": "west", "tintindex": 0 },
+        "east":  { "texture": "#hull", "cullface": "east", "tintindex": 0 }
+      }
+    },
+    {
+      "from": [ 0, 0, 0 ],
+      "to": [ 16, 16, 16 ],
+      "faces": {
+        "north": { "texture": "#machine", "cullface": "north" }
+      }
+    }
+  ]
+}

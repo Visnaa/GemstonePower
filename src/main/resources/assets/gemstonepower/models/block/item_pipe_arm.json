@@ -1,0 +1,33 @@
+{
+	"render_type": "cutout",
+	"textures": {
+		"particle": "gemstonepower:block/item_pipe",
+		"pipe": "gemstonepower:block/item_pipe"
+	},
+	"elements": [
+		{
+			"from": [5, 5, 0],
+			"to": [11, 11, 5],
+			"faces": {
+				"north": {"uv": [0, 0, 6, 6], "texture": "#pipe"},
+				"south": {"uv": [0, 0, 6, 6], "texture": "#pipe"},
+				"east": {"uv": [6, 0, 14, 6], "texture": "#pipe"},
+				"west": {"uv": [6, 0, 14, 6], "texture": "#pipe"},
+				"up": {"uv": [14, 6, 6, 0], "rotation": 90, "texture": "#pipe"},
+				"down": {"uv": [6, 0, 14, 6], "rotation": 90, "texture": "#pipe"}
+			}
+		},
+		{
+			"from": [5, 5, 0],
+			"to": [11, 11, 5],
+			"faces": {
+				"north": {"uv": [0, 0, 6, 6], "texture": "#pipe", "tintindex": 0},
+				"south": {"uv": [0, 0, 6, 6], "texture": "#pipe", "tintindex": 0},
+				"east": {"uv": [6, 0, 14, 6], "texture": "#pipe", "tintindex": 0},
+				"west": {"uv": [6, 0, 14, 6], "texture": "#pipe", "tintindex": 0},
+				"up": {"uv": [14, 6, 6, 0], "rotation": 90, "texture": "#pipe", "tintindex": 0},
+				"down": {"uv": [6, 0, 14, 6], "rotation": 90, "texture": "#pipe", "tintindex": 0}
+			}
+		}
+	]
+}

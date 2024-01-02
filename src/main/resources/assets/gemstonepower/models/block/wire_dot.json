@@ -1,0 +1,21 @@
+{
+  "render_type": "cutout",
+  "textures": {
+    "particle": "gemstonepower:block/wire",
+    "wire": "gemstonepower:block/wire"
+  },
+  "elements": [
+    {
+      "from": [7, 7, 7],
+      "to": [9, 9, 9],
+      "faces": {
+        "north": {"uv": [0, 0, 2, 2], "texture": "#wire", "tintindex": 0},
+        "east": {"uv": [0, 0, 2, 2], "texture": "#wire", "tintindex": 0},
+        "south": {"uv": [0, 0, 2, 2], "texture": "#wire", "tintindex": 0},
+        "west": {"uv": [0, 0, 2, 2], "texture": "#wire", "tintindex": 0},
+        "up": {"uv": [0, 0, 2, 2], "texture": "#wire", "tintindex": 0},
+        "down": {"uv": [0, 0, 2, 2], "texture": "#wire", "tintindex": 0}
+      }
+    }
+  ]
+}

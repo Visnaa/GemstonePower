@@ -1,0 +1,17 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": [
+    "gemstonepower:aluminum",
+    "gemstonepower:tin",
+    "gemstonepower:silver",
+    "gemstonepower:nickel",
+    "gemstonepower:platinum",
+    "gemstonepower:lithium",
+    "gemstonepower:magnesium",
+    "gemstonepower:uranium",
+    "gemstonepower:lead",
+    "gemstonepower:zinc"
+  ],
+  "step": "underground_ores"
+}
